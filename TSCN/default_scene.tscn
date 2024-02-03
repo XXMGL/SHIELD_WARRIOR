@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dp1hy60tuuynb"]
 
-[ext_resource type="PackedScene" uid="uid://ctmq3thn2qx85" path="res://TSCN/player.tscn" id="1_fgrl4"]
+[ext_resource type="PackedScene" uid="uid://d2x6f6qphmp8o" path="res://TSCN/character.tscn" id="1_56ymr"]
 
 [node name="Default_Scene" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_fgrl4")]
+[node name="Character" parent="." instance=ExtResource("1_56ymr")]
+MOVE_SPEED = 350
