@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://buv885dhmnd04"]
+[gd_scene load_steps=4 format=3 uid="uid://buv885dhmnd04"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy_Type1.gd" id="1_agmg1"]
 [ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_31l5b"]
@@ -6,8 +6,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
 radius = 37.0
 height = 74.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ijuf"]
 
 [node name="Enemy_Type1" type="CharacterBody2D"]
 script = ExtResource("1_agmg1")
@@ -18,11 +16,3 @@ texture = ExtResource("2_31l5b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.44, 1)
 shape = SubResource("CapsuleShape2D_8pncm")
-
-[node name="BulletSpawner" type="Area2D" parent="."]
-position = Vector2(-47, 0)
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSpawner"]
-shape = SubResource("CapsuleShape2D_6ijuf")

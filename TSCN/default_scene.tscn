@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dp1hy60tuuynb"]
 
-[ext_resource type="Script" path="res://TSCN/Level_1.gd" id="1_5ct65"]
+[ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_5ct65"]
 [ext_resource type="PackedScene" uid="uid://d2x6f6qphmp8o" path="res://TSCN/character.tscn" id="1_56ymr"]
 [ext_resource type="Texture2D" uid="uid://b8pjwdbh75r6j" path="res://ART Assets/BG.png" id="1_vb8mn"]
 [ext_resource type="PackedScene" uid="uid://buv885dhmnd04" path="res://TSCN/enemy_type_1.tscn" id="3_h022y"]
@@ -58,6 +58,5 @@ position = Vector2(881, 313)
 collision_layer = 3
 collision_mask = 3
 move_speed = 200
-min_x_range = -1000
-max_x_range = 1000
 player_root = "Character"
+ShootDuration = 20.0
