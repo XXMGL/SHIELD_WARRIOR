@@ -10,14 +10,12 @@ var direction : Vector2 = Vector2.ZERO
  
 func _ready():
 	positions = get_tree().get_nodes_in_group(group_name)
-	print_debug(positions)
 	_get_positions()
 	_get_next_position()
  
 func _physics_process(_delta):
 	
 	if global_position.distance_to(current_position.position) < 10:
-		print_debug(current_position)
 		_get_next_position()
  
 func _get_positions():

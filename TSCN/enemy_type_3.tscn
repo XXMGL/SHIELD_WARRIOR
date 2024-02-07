@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://buv885dhmnd04"]
+[gd_scene load_steps=5 format=3 uid="uid://dgfrbi5gvr7or"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy_Type1.gd" id="1_agmg1"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_31l5b"]
+[ext_resource type="Script" path="res://Scripts/Enemy_Type1.gd" id="1_vybaa"]
+[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_ygchk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
 radius = 37.0
@@ -9,13 +9,11 @@ height = 74.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ijuf"]
 
-[node name="Enemy_Type1" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 16
-script = ExtResource("1_agmg1")
+[node name="Enemy_Type3" type="CharacterBody2D"]
+script = ExtResource("1_vybaa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_31l5b")
+texture = ExtResource("2_ygchk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.44, 1)
