@@ -63,6 +63,7 @@ ShootDuration = 20.0
 
 [node name="Enemy_Type2" parent="." instance=ExtResource("5_s6d5m")]
 position = Vector2(909, 120)
+motion_mode = 1
 
 [node name="Enemy_Type2_Move_Track" type="Node2D" parent="."]
 position = Vector2(-16, 25)
