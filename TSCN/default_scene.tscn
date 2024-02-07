@@ -55,6 +55,7 @@ shape = SubResource("RectangleShape2D_g6eas")
 
 [node name="Character" parent="." instance=ExtResource("1_56ymr")]
 position = Vector2(149, 313)
+collision_layer = 15
 
 [node name="Enemy_Type1" parent="." instance=ExtResource("3_h022y")]
 position = Vector2(881, 313)

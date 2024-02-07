@@ -1,29 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://cicweg071xjvc"]
+[gd_scene load_steps=5 format=3 uid="uid://beg1h5tj86547"]
 
-[ext_resource type="Script" path="res://Scripts/bullet_2.gd" id="1_1v80i"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_bnory"]
+[ext_resource type="Script" path="res://Scripts/bullet_2.gd" id="1_qfdc3"]
+[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_6qiel"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 27.7609
 height = 68.5858
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akmr7"]
-radius = 6.38297
+radius = 2.12766
 height = 50.0001
 
-[node name="Bullet2" type="CharacterBody2D"]
+[node name="Bullet_R_1" type="CharacterBody2D"]
 scale = Vector2(0.440001, 0.359999)
-collision_layer = 8
+collision_layer = 18
 collision_mask = 0
-script = ExtResource("1_1v80i")
+script = ExtResource("1_qfdc3")
+move_speed = 350
+OriginFrom = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("2_bnory")
+modulate = Color(0, 0.576471, 0.811765, 1)
+rotation = 3.14159
+scale = Vector2(0.454545, 0.555555)
+texture = ExtResource("2_6qiel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-34.0908, 0)
-scale = Vector2(0.573568, 0.636996)
+position = Vector2(13.6363, 0)
+scale = Vector2(0.209935, 0.414775)
 shape = SubResource("CapsuleShape2D_ekmi8")
 
 [node name="Detector" type="Area2D" parent="."]
@@ -31,8 +35,8 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2(9.09089, 0)
-scale = Vector2(4.27272, 1)
+position = Vector2(-4.54544, 0)
+scale = Vector2(6.0909, 0.333332)
 shape = SubResource("CapsuleShape2D_akmr7")
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
