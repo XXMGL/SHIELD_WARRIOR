@@ -62,3 +62,6 @@ func _ShootBullet():
 	var bullet = bullet_tscn.instantiate()
 	get_parent().add_child(bullet)
 	bullet.position = $BulletSpawner.global_position
+	
+func _EnemyDetection():
+	pass

@@ -4,8 +4,8 @@ extends CharacterBody2D
 @export var SlowDown = 2
 @export var ParryDuration = 0.1
 var motion = Vector2()
-enum {STATE_MOVE, STATE_HURT, STATE_DIE, STATE_PARRYING,  STATE_PARRYSTART, STATE_PARRYEND}
-var state = STATE_MOVE
+enum state {STATE_MOVE, STATE_HURT, STATE_DIE, STATE_PARRYING,  STATE_PARRYSTART, STATE_PARRYEND}
+var Player_State = state.STATE_MOVE
 var parry_timer = 0.0
 
 
@@ -14,37 +14,37 @@ func _ready():
 
 
 func _process(delta):
-	match state:
-		STATE_MOVE:
+	match Player_State:
+		state.STATE_MOVE:
 			if Input.is_action_pressed("parry"):
-				state = STATE_PARRYSTART
+				Player_State = state.STATE_PARRYING
 				parry_timer = 0.0
 			_MOVE(MOVE_SPEED)
 			pass
-		STATE_PARRYSTART:
+		state.STATE_PARRYSTART:
 			print("Parry Start")
 			parry_timer += delta
 			if parry_timer >= ParryDuration:
-				state = STATE_PARRYING
+				Player_State = state.STATE_PARRYING
 			_MOVE(MOVE_SPEED / SlowDown)
 			pass
-		STATE_PARRYING:
+		state.STATE_PARRYING:
 			print("Parrying")
 			if not Input.is_action_pressed("parry"):
-				state = STATE_PARRYEND
+				Player_State = state.STATE_PARRYEND
 				parry_timer = 0.0
 			_MOVE(MOVE_SPEED / SlowDown)
 			pass
-		STATE_PARRYEND:
+		state.STATE_PARRYEND:
 			print("Parry End")
 			parry_timer += delta
 			if parry_timer >= ParryDuration:
-				state = STATE_MOVE
+				Player_State = state.STATE_MOVE
 			_MOVE(MOVE_SPEED / SlowDown)
 			pass
-		STATE_HURT:
+		state.STATE_HURT:
 			pass
-		STATE_DIE:
+		state.STATE_DIE:
 			pass
 			
 
@@ -68,7 +68,10 @@ func _MOVE(speed):
 			
 			#将motion变量赋予velocity并且控制玩家移动
 			set_velocity(motion)
-			move_and_slide()			
+			move_and_slide()		
+			
+func _CharacterDetection():
+	pass	
 	
 	
 	

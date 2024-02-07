@@ -20,6 +20,8 @@ scale = Vector2(6.70738, -1.185)
 texture = ExtResource("1_vb8mn")
 
 [node name="Eage" type="StaticBody2D" parent="BackGround"]
+collision_layer = 16
+collision_mask = 0
 
 [node name="Top_Wall" type="CollisionShape2D" parent="BackGround/Eage"]
 position = Vector2(-8.926, -510.595)
@@ -43,8 +45,8 @@ scale = Vector2(22.0654, 50.4206)
 shape = SubResource("RectangleShape2D_g6eas")
 
 [node name="Eage2" type="StaticBody2D" parent="BackGround"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 32
+collision_mask = 0
 
 [node name="Mid_Wall" type="CollisionShape2D" parent="BackGround/Eage2"]
 position = Vector2(1294.27, 4.72775)
@@ -56,8 +58,6 @@ position = Vector2(149, 313)
 
 [node name="Enemy_Type1" parent="." instance=ExtResource("3_h022y")]
 position = Vector2(881, 313)
-collision_layer = 3
-collision_mask = 3
 player_root = "Character"
 ShootDuration = 20.0
 
