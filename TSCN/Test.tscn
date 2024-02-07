@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://brv15wuthrs34"]
+
+[ext_resource type="PackedScene" uid="uid://xqkj2mh8efgl" path="res://TSCN/enemy_type_2.tscn" id="1_lcg0o"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Enemy_Type2_Move_Track" type="Node2D" parent="."]
+position = Vector2(-16, 25)
+
+[node name="Marker2D" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
+position = Vector2(836, 74)
+
+[node name="Marker2D2" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
+position = Vector2(1076, 75)
+
+[node name="Marker2D3" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
+position = Vector2(845, 486)
+
+[node name="Marker2D4" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
+position = Vector2(1082, 491)
+
+[node name="Enemy_Type2" parent="Enemy_Type2_Move_Track" instance=ExtResource("1_lcg0o")]
+position = Vector2(-1, 0)

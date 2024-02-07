@@ -12,8 +12,12 @@ height = 50.0001
 
 [node name="Bullet1" type="CharacterBody2D"]
 scale = Vector2(0.440001, 0.359999)
+<<<<<<< HEAD
 collision_layer = 8
 collision_mask = 0
+=======
+collision_layer = 2
+>>>>>>> b11f72f1bf8c267f8e80090c233e5dcb49111618
 script = ExtResource("1_7u10x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
