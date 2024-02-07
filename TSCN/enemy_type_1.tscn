@@ -10,6 +10,7 @@ height = 74.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ijuf"]
 
 [node name="Enemy_Type1" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_agmg1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

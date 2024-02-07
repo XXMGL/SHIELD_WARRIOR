@@ -8,6 +8,7 @@
 [node name="Character" type="CharacterBody2D"]
 position = Vector2(537, 487)
 scale = Vector2(4.04501, 4.19392)
+collision_mask = 7
 script = ExtResource("1_xj0ro")
 MOVE_SPEED = 350
 

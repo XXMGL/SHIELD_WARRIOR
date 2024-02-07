@@ -11,6 +11,7 @@ height = 74.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ijuf"]
 
 [node name="Enemy_Type2" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
+collision_layer = 8
 script = ExtResource("1_3x44k")
 move_speed = 200
 wander_direction = NodePath("Wander")
