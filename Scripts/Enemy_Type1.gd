@@ -65,3 +65,7 @@ func _ShootBullet():
 	
 func _EnemyDetection():
 	pass
+
+
+func _on_bullet_spawner_body_entered(body):
+	pass # Replace with function body.

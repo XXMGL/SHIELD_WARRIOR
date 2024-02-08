@@ -7,25 +7,36 @@ var y_velocity
 
 @export var move_speed = 200  # 在x方向的移动速度
 
-enum {From_Enemy, From_Player}
-@export var Origin = From_Enemy
+enum Origin{From_Enemy, From_Player}
+@export var OriginFrom = Origin.From_Enemy
 
 func _ready():
 	pass
 	
 func _process(delta):
-	match Origin:
-		From_Enemy:
+	match OriginFrom:
+		Origin.From_Enemy:
 			x_direction = -1
 			x_velocity = x_direction * move_speed
 			velocity = Vector2(x_velocity,0)
 			move_and_slide()	
 			pass
-		From_Player:
+		Origin.From_Player:
+			x_direction = 1
+			x_velocity = x_direction * move_speed
+			velocity = Vector2(x_velocity,0)
+			move_and_slide()	
 			pass
 
 
 func _on_detector_body_entered(body):
-	if body.has_method("get_name") and (body.get_name() == "Eage" or body.get_name() == "Character"):
+	if body.has_method("get_name") and body.get_name() == "Eage":
 		queue_free()  # 销毁子弹
-	pass # Replace with function body.
+	if OriginFrom == Origin.From_Enemy and body.has_method("_CharacterDetection"):
+		queue_free()  # 销毁子弹
+	if OriginFrom == Origin.From_Player and body.has_method("_EnemyDetection"):
+		queue_free()  # 销毁子弹
+		
+				
+func _BulletDetection():
+	pass

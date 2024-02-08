@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_ek5l1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
-radius = 27.7609
-height = 68.5858
+radius = 23.7746
+height = 63.3989
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akmr7"]
+radius = 6.38297
 height = 50.0001
 
 [node name="Bullet1" type="CharacterBody2D"]
@@ -21,12 +22,16 @@ modulate = Color(1, 0, 0, 1)
 texture = ExtResource("2_ek5l1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-31.8181, 0)
 scale = Vector2(0.573568, 0.636996)
 shape = SubResource("CapsuleShape2D_ekmi8")
 
 [node name="Detector" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2(9.09087, -1.42109e-14)
 scale = Vector2(4.27272, 1)
 shape = SubResource("CapsuleShape2D_akmr7")
 

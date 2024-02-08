@@ -7,7 +7,7 @@ var motion = Vector2()
 enum state {STATE_MOVE, STATE_HURT, STATE_DIE, STATE_PARRYING,  STATE_PARRYSTART, STATE_PARRYEND}
 var Player_State = state.STATE_MOVE
 var parry_timer = 0.0
-
+var bullet_tscn = preload("res://TSCN/bullet_R_1.tscn")
 
 func _ready():
 	pass
@@ -22,21 +22,18 @@ func _process(delta):
 			_MOVE(MOVE_SPEED)
 			pass
 		state.STATE_PARRYSTART:
-			print("Parry Start")
 			parry_timer += delta
 			if parry_timer >= ParryDuration:
 				Player_State = state.STATE_PARRYING
 			_MOVE(MOVE_SPEED / SlowDown)
 			pass
 		state.STATE_PARRYING:
-			print("Parrying")
 			if not Input.is_action_pressed("parry"):
 				Player_State = state.STATE_PARRYEND
 				parry_timer = 0.0
 			_MOVE(MOVE_SPEED / SlowDown)
 			pass
 		state.STATE_PARRYEND:
-			print("Parry End")
 			parry_timer += delta
 			if parry_timer >= ParryDuration:
 				Player_State = state.STATE_MOVE
@@ -71,7 +68,22 @@ func _MOVE(speed):
 			move_and_slide()		
 			
 func _CharacterDetection():
-	pass	
+	pass
+	
+func _ShootBullet():
+	var bullet = bullet_tscn.instantiate()
+	#get_parent().add_child(bullet)
+	get_parent().call_deferred("add_child", bullet)
+	bullet.position = $SHIELD.global_position
 	
 	
 	
+
+
+
+
+
+func _on_shield_body_entered(body):
+	if body.has_method("_BulletDetection") and Player_State == state.STATE_PARRYING:
+		_ShootBullet()
+	pass # Replace with function body.

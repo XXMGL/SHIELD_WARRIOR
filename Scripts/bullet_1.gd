@@ -54,3 +54,5 @@ func _on_detector_body_entered(body):
 	if OriginFrom == Origin.From_Player and body.has_method("_EnemyDetection"):
 		queue_free()  # 销毁子弹
 		
+func _BulletDetection():
+	pass
