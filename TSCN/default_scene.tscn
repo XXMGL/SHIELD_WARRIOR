@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp1hy60tuuynb"]
+[gd_scene load_steps=11 format=3 uid="uid://dp1hy60tuuynb"]
 
 [ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_5ct65"]
 [ext_resource type="PackedScene" uid="uid://d2x6f6qphmp8o" path="res://TSCN/character.tscn" id="1_56ymr"]
@@ -380,6 +380,9 @@ sources/0 = SubResource("TileSetAtlasSource_rdlto")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6eas"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxutl"]
+size = Vector2(10439.5, 270.025)
+
 [node name="Default_Scene" type="Node2D"]
 script = ExtResource("1_5ct65")
 
@@ -430,7 +433,13 @@ position = Vector2(5212.78, 4.72775)
 scale = Vector2(22.0654, 50.4206)
 shape = SubResource("RectangleShape2D_g6eas")
 
+[node name="TopBar" type="CollisionShape2D" parent="BackGround/Eage"]
+position = Vector2(82.2969, -374.551)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_sxutl")
+
 [node name="Eage2" type="StaticBody2D" parent="BackGround"]
+visible = false
 collision_layer = 32
 collision_mask = 0
 
@@ -442,6 +451,8 @@ shape = SubResource("RectangleShape2D_g6eas")
 [node name="Character" parent="." instance=ExtResource("1_56ymr")]
 position = Vector2(149, 313)
 collision_layer = 15
+ParryDuration = 0.2
+parry_cooldown = 0.2
 
 [node name="Enemy_Type1" parent="." instance=ExtResource("3_h022y")]
 position = Vector2(881, 313)
@@ -449,16 +460,16 @@ player_root = "Character"
 ShootDuration = 20.0
 
 [node name="Enemy_Type2" parent="." instance=ExtResource("5_s6d5m")]
-position = Vector2(909, 120)
+position = Vector2(938, 520)
 
 [node name="Enemy_Type2_Move_Track" type="Node2D" parent="."]
 position = Vector2(-16, 25)
 
 [node name="Marker2D" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
-position = Vector2(836, 74)
+position = Vector2(847, 262)
 
 [node name="Marker2D2" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
-position = Vector2(1076, 75)
+position = Vector2(1087, 263)
 
 [node name="Marker2D3" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
 position = Vector2(845, 486)
