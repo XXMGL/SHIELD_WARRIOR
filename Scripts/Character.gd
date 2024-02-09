@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+@onready var StaminaBar = $CanvasLayer/StaminaBar
+
+
 # 玩家移动
 @export var MOVE_SPEED = 200 #玩家的移动速度
-@export var SlowDown = 2 #玩家举盾时减速系数
+@export var SlowDown = 1 #玩家减速系数
 var motion = Vector2() # 玩家移动方向向量
 #玩家状态
 enum state {STATE_MOVE, STATE_HURT, STATE_DIE, STATE_PARRYING,  STATE_PARRYSTART, STATE_PARRYEND} # 玩家状态
@@ -14,41 +17,65 @@ var parry_CountDown = 0.0 # 用于控制举盾cd
 var bullet_1_tscn = preload("res://TSCN/bullet_R_1.tscn") # 预加载子弹类型1
 var bullet_1s_tscn = preload("res://TSCN/bullet_R_1s.tscn") # 预加载子弹类型1s
 var CanPreciseParry = false # 玩家一次举盾进行精确弹反，只能反弹一次特殊子弹
+var canPary = true
+#玩家生命值与体力条
+@export var Max_stamina = 100 # 玩家最大体力值
+var stamina = 100
+@export var stamina_Cousume = 20
+@export var stamina_Recover = 10
 
 func _ready():
+	stamina = Max_stamina
+	canPary = true
+	StaminaBar.init_value(stamina)
 	pass
 
 
 func _process(delta):
+	StaminaBar.value_1 = stamina
+	_MOVE(MOVE_SPEED / SlowDown) # 减速移动
 	match Player_State:
 		state.STATE_MOVE:
+			_OutofStamina()
+			SlowDown = 1
 			parry_CountDown -= delta
+			#体力恢复，大于最大体力值时不再恢复
+			stamina += stamina_Recover*delta
+			if stamina >= Max_stamina:
+				stamina = Max_stamina
 			 #只有当玩家按下parry按键并且parry冷却倒计时小于零才能进行格挡
-			if Input.is_action_pressed("parry") && parry_CountDown<=0:
+			if Input.is_action_pressed("parry") and parry_CountDown<=0 and canPary == true:
 				Player_State = state.STATE_PARRYSTART # 进入Parry前摇状态
 				parry_timer = 0.0
-			_MOVE(MOVE_SPEED) # 移动
+			#_MOVE(MOVE_SPEED) # 移动
 			pass
 		state.STATE_PARRYSTART:
+			_OutofStamina()
+			SlowDown = 2
 			CanPreciseParry = true # 每一次举盾期间可以反弹一次特殊子弹
+			stamina -= stamina_Cousume *delta
 			parry_timer += delta 
 			if parry_timer >= ParryDuration / 1.5: # 前摇
 				Player_State = state.STATE_PARRYING
-			_MOVE(MOVE_SPEED / SlowDown) # 减速移动
+			#_MOVE(MOVE_SPEED / SlowDown) # 减速移动
 			pass
 		state.STATE_PARRYING:
+			_OutofStamina()
+			SlowDown = 2
+			stamina -= stamina_Cousume *delta
 			# 松开Parry按键进入后摇
 			if not Input.is_action_pressed("parry"):
 				Player_State = state.STATE_PARRYEND
 				parry_timer = 0.0
-			_MOVE(MOVE_SPEED / SlowDown)
+			#_MOVE(MOVE_SPEED / SlowDown)
 			pass
 		state.STATE_PARRYEND:
+			SlowDown = 2
 			parry_timer += delta
 			if parry_timer >= ParryDuration:
 				Player_State = state.STATE_MOVE
 				parry_CountDown = parry_cooldown
-			_MOVE(MOVE_SPEED / SlowDown)
+			#_MOVE(MOVE_SPEED / SlowDown)
 			pass
 		state.STATE_HURT:
 			pass
@@ -89,7 +116,13 @@ func _ShootBullet(Bullet):
 	bullet.position = $SHIELD.global_position
 	
 	
-	
+func _OutofStamina():
+	if stamina <= 0:
+		canPary = false
+		parry_timer = 0.0
+		Player_State = state.STATE_PARRYEND
+	if stamina == Max_stamina and canPary == false:
+		canPary = true	
 
 
 
