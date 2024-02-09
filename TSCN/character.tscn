@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2x6f6qphmp8o"]
+[gd_scene load_steps=8 format=3 uid="uid://d2x6f6qphmp8o"]
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_xj0ro"]
 [ext_resource type="Texture2D" uid="uid://hqqueyh6hb2j" path="res://ART Assets/Run4.png" id="2_bg0ot"]
 [ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="3_ixepo"]
 [ext_resource type="PackedScene" uid="uid://bwctiepk50p6s" path="res://TSCN/progress_bar.tscn" id="4_o3c40"]
+[ext_resource type="PackedScene" uid="uid://4p5bpot3wv21" path="res://TSCN/health_bar.tscn" id="5_ux7kb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6aij"]
 radius = 9.88873
@@ -25,7 +26,7 @@ position = Vector2(6.18045, -0.953762)
 shape = SubResource("CapsuleShape2D_d6aij")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, 8)
+position = Vector2(6.92211, 7.63009)
 texture = ExtResource("2_bg0ot")
 
 [node name="SHIELD" type="Area2D" parent="."]
@@ -47,9 +48,17 @@ texture = ExtResource("3_ixepo")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="StaminaBar" parent="CanvasLayer" instance=ExtResource("4_o3c40")]
-offset_left = 24.0
-offset_top = 44.0
-offset_right = 324.0
-offset_bottom = 74.0
+offset_left = 127.0
+offset_top = 92.0
+offset_right = 427.0
+offset_bottom = 122.0
+scale = Vector2(0.599939, 0.973113)
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("5_ux7kb")]
+offset_left = 126.0
+offset_top = 34.0
+offset_right = 426.0
+offset_bottom = 64.0
+scale = Vector2(0.599939, 0.973113)
 
 [connection signal="body_entered" from="SHIELD" to="." method="_on_shield_body_entered"]

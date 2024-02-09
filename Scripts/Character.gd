@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var StaminaBar = $CanvasLayer/StaminaBar
-
+@onready var HealthBar = $CanvasLayer/HealthBar
 
 # 玩家移动
 @export var MOVE_SPEED = 200 #玩家的移动速度
@@ -20,19 +20,25 @@ var CanPreciseParry = false # 玩家一次举盾进行精确弹反，只能反�
 var canPary = true
 #玩家生命值与体力条
 @export var Max_stamina = 100 # 玩家最大体力值
+@export var Max_health = 100
 var stamina = 100
+var health  = 100
 @export var stamina_Cousume = 20
 @export var stamina_Recover = 10
+var Recieved_damge = 0
 
 func _ready():
 	stamina = Max_stamina
+	health = Max_health
 	canPary = true
 	StaminaBar.init_value(stamina)
+	HealthBar.init_value(health)
 	pass
 
 
 func _process(delta):
 	StaminaBar.value_1 = stamina
+	HealthBar.value_1 = health
 	_MOVE(MOVE_SPEED / SlowDown) # 减速移动
 	match Player_State:
 		state.STATE_MOVE:
@@ -78,6 +84,9 @@ func _process(delta):
 			#_MOVE(MOVE_SPEED / SlowDown)
 			pass
 		state.STATE_HURT:
+			health -= Recieved_damge
+			Recieved_damge = 0
+			Player_State = state.STATE_MOVE
 			pass
 		state.STATE_DIE:
 			pass
@@ -141,4 +150,8 @@ func _on_shield_body_entered(body):
 			if CanPreciseParry == true:
 				_ShootBullet(bullet_1s_tscn)
 				CanPreciseParry = false
+		elif Player_State == state.STATE_MOVE:
+			Player_State = state.STATE_HURT
+			Recieved_damge = body._BulletDetection()
+			pass
 

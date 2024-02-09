@@ -6,7 +6,6 @@ extends ProgressBar
 var value_1 = 0: set = _set_value
 
 func _set_value(new_value):
-	print(new_value)
 	var prev_value = value_1
 	value_1 = min(max_value,new_value)
 	value = value_1
@@ -24,7 +23,7 @@ func init_value(Input_value):
 	max_value = value_1
 	value = value_1
 	progressBar2.max_value = value_1
-	progressBar2.max_value = value_1
+	progressBar2.value = value_1
 
 
 
