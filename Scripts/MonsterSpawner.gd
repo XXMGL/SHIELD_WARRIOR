@@ -38,3 +38,4 @@ func _on_timer_timeout():
 				pass
 		get_parent().add_child(NewEnemy)
 		NewEnemy.position = SpwanLoactions[SpwanIndex].global_position
+		print("NewEnemy.position: ", NewEnemy.position)

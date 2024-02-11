@@ -9,6 +9,7 @@ var bullet_tscn = preload("res://TSCN/bullet_2.tscn")
 var Shoot_timer = 0.0
 
 
+
 func _ready():
 	pass
 
