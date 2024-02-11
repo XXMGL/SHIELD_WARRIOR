@@ -9,8 +9,9 @@ var y_velocity
 
 enum Origin{From_Enemy, From_Player}
 @export var OriginFrom = Origin.From_Enemy
-
 @export var Damage = 10
+
+@export var canRunThrough = false
 
 func _ready():
 	pass
@@ -37,7 +38,11 @@ func _on_detector_body_entered(body):
 	if OriginFrom == Origin.From_Enemy and body.has_method("_CharacterDetection"):
 		queue_free()  # 销毁子弹
 	if OriginFrom == Origin.From_Player and body.has_method("_EnemyDetection"):
-		queue_free()  # 销毁子弹
+		body.Health -= Damage
+		if canRunThrough:
+			pass
+		else:
+			queue_free()  # 销毁子弹
 		
 				
 func _BulletDetection():

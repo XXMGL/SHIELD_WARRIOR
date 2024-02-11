@@ -8,6 +8,7 @@ var bullet_tscn = preload("res://TSCN/bullet_2.tscn")
 @export var ShootDuration = 2.0
 var Shoot_timer = 0.0
 
+@export var Health = 1
 
 
 func _ready():
@@ -23,6 +24,9 @@ func _physics_process(delta):
 		Shoot_timer = 0
 	else:
 		pass
+		
+	if Health <= 0:
+		queue_free()  # 销毁
 	
 	
 
@@ -34,3 +38,7 @@ func _ShootBullet():
 func _EnemyDetection():
 	pass
 
+
+
+func _on_bullet_spawner_body_entered(body):
+	pass

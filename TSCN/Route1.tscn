@@ -3,10 +3,10 @@
 [node name="Route1" type="CanvasLayer"]
 
 [node name="Marker2D" type="Marker2D" parent="." groups=["Route1"]]
-position = Vector2(837, 322)
+position = Vector2(837, 297)
 
 [node name="Marker2D2" type="Marker2D" parent="." groups=["Route1"]]
-position = Vector2(1042, 322)
+position = Vector2(1042, 297)
 
 [node name="Marker2D3" type="Marker2D" parent="." groups=["Route1"]]
 position = Vector2(1042, 560)
