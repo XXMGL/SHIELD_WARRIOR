@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d2x6f6qphmp8o" path="res://TSCN/character.tscn" id="1_56ymr"]
 [ext_resource type="Texture2D" uid="uid://b8pjwdbh75r6j" path="res://ART Assets/BG.png" id="1_vb8mn"]
 [ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_wffx7"]
-[ext_resource type="PackedScene" uid="uid://buv885dhmnd04" path="res://TSCN/enemy_type_1.tscn" id="3_h022y"]
-[ext_resource type="PackedScene" uid="uid://xqkj2mh8efgl" path="res://TSCN/enemy_type_2.tscn" id="5_s6d5m"]
+[ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/monster_spawner.tscn" id="6_j2oov"]
+[ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Route1.tscn" id="7_k61jx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdlto"]
 texture = ExtResource("2_wffx7")
@@ -385,6 +385,8 @@ size = Vector2(10439.5, 270.025)
 
 [node name="Default_Scene" type="Node2D"]
 script = ExtResource("1_5ct65")
+LevelLength = 140.0
+Waves = [60.0, 40.0, 40.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ogprh")
@@ -445,37 +447,14 @@ position = Vector2(1294.27, 4.72775)
 scale = Vector2(22.0654, 50.4206)
 shape = SubResource("RectangleShape2D_g6eas")
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="Character" parent="." instance=ExtResource("1_56ymr")]
-position = Vector2(149, 313)
-scale = Vector2(2.44086, 2.28542)
-collision_layer = 15
-ParryDuration = 0.2
-parry_cooldown = 0.2
-Max_stamina = 50
-stamina_Recover = 40
+position = Vector2(85, 390)
 
-[node name="Enemy_Type1" parent="." instance=ExtResource("3_h022y")]
-position = Vector2(881, 313)
-scale = Vector2(0.524868, 0.538015)
-collision_mask = 48
-player_root = "Character"
-ShootDuration = 20.0
+[node name="MonsterSpawner" parent="." instance=ExtResource("6_j2oov")]
+SpawnAmout = 1
 
-[node name="Enemy_Type2" parent="." instance=ExtResource("5_s6d5m")]
-position = Vector2(938, 520)
-scale = Vector2(0.354416, 0.565878)
+[node name="Route1" parent="." instance=ExtResource("7_k61jx")]
 
-[node name="Enemy_Type2_Move_Track" type="Node2D" parent="."]
-position = Vector2(-16, 25)
-
-[node name="Marker2D" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
-position = Vector2(847, 262)
-
-[node name="Marker2D2" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
-position = Vector2(1087, 263)
-
-[node name="Marker2D3" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
-position = Vector2(845, 486)
-
-[node name="Marker2D4" type="Marker2D" parent="Enemy_Type2_Move_Track" groups=["Enemy_Type2"]]
-position = Vector2(1082, 491)
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

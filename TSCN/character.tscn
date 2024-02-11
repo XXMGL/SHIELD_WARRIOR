@@ -15,11 +15,15 @@ radius = 4.20271
 
 [node name="Character" type="CharacterBody2D"]
 position = Vector2(537, 487)
-scale = Vector2(4.04501, 4.19392)
+scale = Vector2(1.92278, 2.28525)
 collision_layer = 9
 collision_mask = 16
 script = ExtResource("1_xj0ro")
 MOVE_SPEED = 350
+ParryDuration = 0.2
+parry_cooldown = 0.2
+Max_stamina = 50
+stamina_Recover = 40
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(6.18045, -0.953762)
@@ -48,17 +52,22 @@ texture = ExtResource("3_ixepo")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="StaminaBar" parent="CanvasLayer" instance=ExtResource("4_o3c40")]
-offset_left = 127.0
-offset_top = 92.0
-offset_right = 427.0
-offset_bottom = 122.0
-scale = Vector2(0.599939, 0.973113)
+offset_left = 104.0
+offset_top = 55.0
+offset_right = 404.0
+offset_bottom = 85.0
+scale = Vector2(0.460754, 0.528625)
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource("5_ux7kb")]
-offset_left = 126.0
-offset_top = 34.0
-offset_right = 426.0
-offset_bottom = 64.0
-scale = Vector2(0.599939, 0.973113)
+offset_left = 104.0
+offset_top = 20.0
+offset_right = 404.0
+offset_bottom = 50.0
+scale = Vector2(0.462821, 0.647597)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(63, 65)
+scale = Vector2(2.46386, 2.37543)
+texture = ExtResource("2_bg0ot")
 
 [connection signal="body_entered" from="SHIELD" to="." method="_on_shield_body_entered"]

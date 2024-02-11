@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var move_speed = 100  
 @export var wander_direction : Node2D
+@export var group_name : String
 
 var bullet_tscn = preload("res://TSCN/bullet_2.tscn")
 @export var ShootDuration = 2.0
@@ -28,3 +29,7 @@ func _ShootBullet():
 	var bullet = bullet_tscn.instantiate()
 	get_parent().add_child(bullet)
 	bullet.position = get_node("BulletSpawner").global_position
+	
+func _EnemyDetection():
+	pass
+
