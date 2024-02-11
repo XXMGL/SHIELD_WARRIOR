@@ -18,7 +18,7 @@ script = ExtResource("1_3x44k")
 move_speed = 200
 wander_direction = NodePath("Wander")
 group_name = "Route1"
-ShootDuration = 0.5
+ShootDuration = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_yfqm3")

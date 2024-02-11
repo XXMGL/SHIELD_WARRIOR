@@ -11,7 +11,8 @@ radius = 9.88873
 height = 31.1495
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gn702"]
-radius = 4.20271
+radius = 13.1209
+height = 36.7574
 
 [node name="Character" type="CharacterBody2D"]
 position = Vector2(537, 487)
@@ -40,7 +41,7 @@ collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SHIELD"]
-position = Vector2(-7.84212, -0.452388)
+position = Vector2(-16.7734, -1.11362)
 shape = SubResource("CapsuleShape2D_gn702")
 
 [node name="Sprite2D" type="Sprite2D" parent="SHIELD"]

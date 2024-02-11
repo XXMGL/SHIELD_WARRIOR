@@ -36,6 +36,7 @@ func _on_timer_timeout():
 			EnemyTypes.Enemy2:
 				NewEnemy = Enemy2_prefab.instantiate()
 				pass
-		get_parent().add_child(NewEnemy)
 		NewEnemy.position = SpwanLoactions[SpwanIndex].global_position
+		get_parent().add_child(NewEnemy)
+		#NewEnemy.position = SpwanLoactions[SpwanIndex].global_position
 		print("NewEnemy.position: ", NewEnemy.position)
