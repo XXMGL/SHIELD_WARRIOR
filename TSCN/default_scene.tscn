@@ -385,8 +385,7 @@ size = Vector2(10439.5, 270.025)
 
 [node name="Default_Scene" type="Node2D"]
 script = ExtResource("1_5ct65")
-LevelLength = 140.0
-Waves = [60.0, 40.0, 40.0]
+Waves = [30.0, 30.0, 10.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ogprh")
@@ -452,16 +451,38 @@ shape = SubResource("RectangleShape2D_g6eas")
 [node name="Character" parent="." instance=ExtResource("1_56ymr")]
 position = Vector2(85, 390)
 
-[node name="MonsterSpawner" parent="." instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("6_j2oov")]
 SpwanIndex = 4
 SpawnInterval = 0.4
 SpawnAmout = 3
 
-[node name="MonsterSpawner2" parent="." instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner2" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("6_j2oov")]
+SpawnEnemy = 0
+SpawnInterval = 0.4
+SpawnAmout = 2
+
+[node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("6_j2oov")]
+SpwanIndex = 4
+SpawnInterval = 0.4
+SpawnAmout = 3
+
+[node name="MonsterSpawner4" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("6_j2oov")]
+SpawnEnemy = 0
+SpawnInterval = 0.4
+SpawnAmout = 2
+
+[node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("6_j2oov")]
+SpwanIndex = 4
+SpawnInterval = 0.4
+SpawnAmout = 3
+
+[node name="MonsterSpawner6" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("6_j2oov")]
 SpawnEnemy = 0
 SpawnInterval = 0.4
 SpawnAmout = 2
 
 [node name="Route1" parent="." instance=ExtResource("7_k61jx")]
+
+[node name="Enemies" type="Node" parent="." groups=["Enemies"]]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

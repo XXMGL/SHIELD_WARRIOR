@@ -10,6 +10,9 @@ enum EnemyTypes{Enemy1, Enemy2}
 @export var SpawnInterval: float
 var spawn_timer: Timer
 @export var SpawnAmout:int
+@export var AllowedToSpawn = false
+var fullActivated = false
+
 
 func _ready():
 	spawn_timer = $Timer
@@ -26,7 +29,7 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	if SpawnAmout >= 1:
+	if SpawnAmout >= 1 && AllowedToSpawn == true:
 		SpawnAmout -= 1
 		var NewEnemy = null
 		match SpawnEnemy:
@@ -38,5 +41,9 @@ func _on_timer_timeout():
 				pass
 		NewEnemy.position = SpwanLoactions[SpwanIndex].global_position
 		get_parent().add_child(NewEnemy)
+		NewEnemy.add_to_group("Enemies")
 		#NewEnemy.position = SpwanLoactions[SpwanIndex].global_position
 		#print("NewEnemy.position: ", NewEnemy.position)
+	if SpawnAmout <= 0:
+		$Timer.stop()
+		fullActivated = true
