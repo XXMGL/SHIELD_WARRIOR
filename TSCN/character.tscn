@@ -25,6 +25,7 @@ ParryDuration = 0.2
 parry_cooldown = 0.2
 Max_stamina = 50
 stamina_Recover = 40
+distance = 50
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(6.18045, -0.953762)
@@ -70,5 +71,11 @@ scale = Vector2(0.462821, 0.647597)
 position = Vector2(63, 65)
 scale = Vector2(2.46386, 2.37543)
 texture = ExtResource("2_bg0ot")
+
+[node name="Indicator" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(26.004, -0.875174)
+scale = Vector2(0.100309, 0.0897604)
+texture = ExtResource("3_ixepo")
 
 [connection signal="body_entered" from="SHIELD" to="." method="_on_shield_body_entered"]

@@ -1,9 +1,15 @@
 extends Node2D
 
+
+@onready var Level_Timer = $Timer
+@onready var LevelProgressBar = $CanvasLayer/LevelProgress
+@onready var LevelIndicator = $CanvasLayer/LevelProgress/Sprite2D
+
 var LevelLength: float
+var LevelLength_Max :float
+var progress:float
 var WaveLength:float
 var WaveTimer:float
-@onready var Level_Timer = $Timer
 @export var Waves: Array
 var WaveNum = 0
 var Spwaners = []
@@ -12,15 +18,18 @@ var WaveEnd = false
 
 func _ready():
 	WaveNum = 0
+	progress = 0
 	Level_Timer.start()
 	_GetLevelLength()
 	_GetWaveLength()
 	_ActivateSpawners()
+	LevelProgressBar.connect("value_changed", Callable(self,"_on_progress_value_changed"))
 
 	
 
 
 func _process(delta):
+	LevelProgressBar.value = progress*100/LevelLength_Max
 	_WaveCheck()
 	pass
 
@@ -28,6 +37,7 @@ func _process(delta):
 
 
 func _on_timer_timeout():
+	progress += 1
 	WaveTimer -= 1
 	#print("关卡进行中，剩余： ", LevelLength)
 	if WaveTimer <= 0:
@@ -36,8 +46,9 @@ func _on_timer_timeout():
 		_GetWaveLength()
 		#_DeactivateSpawners()
 		_ActivateSpawners()
-		WaveEnd == false
+		WaveEnd = false
 	if LevelLength <= 0:
+		progress = LevelLength_Max
 		$Timer.stop()
 
 
@@ -50,6 +61,7 @@ func _GetWaveLength():
 func _GetLevelLength():
 	for Wave in Waves:
 		LevelLength += Wave
+		LevelLength_Max = LevelLength
 		
 func _ActivateSpawners():
 	if WaveNum >= Waves.size(): return
@@ -71,5 +83,13 @@ func _WaveCheck():
 		if spawner.fullActivated == true:
 			spawner_HasEnemies -= 1
 	if spawner_HasEnemies == 0 and EnemiesInGround.size() == 1 and WaveEnd == false:
+		progress += WaveTimer -3
 		WaveTimer = 3
 		WaveEnd = true
+		
+func _on_progress_value_changed(value):
+	var max_width = 500
+	var Indicator_progress = value / LevelProgressBar.max_value
+	var target_x = max_width * Indicator_progress
+	LevelIndicator.position.x = target_x
+	pass

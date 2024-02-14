@@ -13,23 +13,20 @@ enum Origin{From_Enemy, From_Player}
 
 @export var canRunThrough = false
 
+var MoveDirection
+
 func _ready():
 	pass
 	
 func _process(delta):
 	match OriginFrom:
 		Origin.From_Enemy:
-			x_direction = -1
-			x_velocity = x_direction * move_speed
-			velocity = Vector2(x_velocity,0)
-			move_and_slide()	
+			MoveDirection = Vector2(-1 , 0)
 			pass
 		Origin.From_Player:
-			x_direction = 1
-			x_velocity = x_direction * move_speed
-			velocity = Vector2(x_velocity,0)
-			move_and_slide()	
 			pass
+	velocity = move_speed*MoveDirection
+	move_and_slide()	
 
 
 func _on_detector_body_entered(body):

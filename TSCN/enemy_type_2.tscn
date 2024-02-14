@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://xqkj2mh8efgl"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy_Type2.gd" id="1_3x44k"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_yfqm3"]
+[ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="2_n5att"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/wander.tscn" id="3_wfwu8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
@@ -21,7 +21,9 @@ group_name = "Route1"
 ShootDuration = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_yfqm3")
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(0.119936, 0.119936)
+texture = ExtResource("2_n5att")
 
 [node name="Wander" parent="." instance=ExtResource("3_wfwu8")]
 

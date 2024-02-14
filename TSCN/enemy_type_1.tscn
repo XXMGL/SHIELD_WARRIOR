@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://buv885dhmnd04"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy_Type1.gd" id="1_agmg1"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_31l5b"]
+[ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="2_slwei"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
 radius = 37.0
@@ -20,7 +20,8 @@ script = ExtResource("1_agmg1")
 player_root = "Character"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_31l5b")
+scale = Vector2(0.138457, 0.138457)
+texture = ExtResource("2_slwei")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.44, 1)
