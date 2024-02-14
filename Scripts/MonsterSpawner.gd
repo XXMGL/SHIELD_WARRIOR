@@ -3,9 +3,10 @@ extends Node
 var SpwanLoactions = []
 var Enemy1_prefab = preload("res://TSCN/enemy_type_1.tscn")
 var Enemy2_prefab = preload("res://TSCN/enemy_type_2.tscn")
+var Enemy100_prefab = preload("res://TSCN/enemy_type_100.tscn")
 var WaveDuration = 10
 @export var SpwanIndex: int
-enum EnemyTypes{Enemy1, Enemy2}
+enum EnemyTypes{Enemy1, Enemy2 , Enemy100}
 @export var SpawnEnemy = EnemyTypes.Enemy1
 @export var SpawnInterval: float
 var spawn_timer: Timer
@@ -38,6 +39,12 @@ func _on_timer_timeout():
 				pass
 			EnemyTypes.Enemy2:
 				NewEnemy = Enemy2_prefab.instantiate()
+				#NewEnemy.group_name = "Route"+str(randf_range(1, 2))
+				var routeName = "Route"+str(randi_range(1, 2))
+				NewEnemy.group_name = routeName
+				pass
+			EnemyTypes.Enemy100:
+				NewEnemy = Enemy100_prefab.instantiate()
 				pass
 		NewEnemy.position = SpwanLoactions[SpwanIndex].global_position
 		get_parent().add_child(NewEnemy)

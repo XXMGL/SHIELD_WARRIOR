@@ -28,6 +28,7 @@ func _ready():
 	
 
 
+
 func _process(delta):
 	LevelProgressBar.value = progress*100/LevelLength_Max
 	_WaveCheck()
@@ -47,9 +48,12 @@ func _on_timer_timeout():
 		#_DeactivateSpawners()
 		_ActivateSpawners()
 		WaveEnd = false
-	if LevelLength <= 0:
+	if WaveNum >= Waves.size():
 		progress = LevelLength_Max
-		$Timer.stop()
+		var FinalWaves = get_tree().get_nodes_in_group("FinalWave")
+		for FinalWave in FinalWaves:
+			FinalWave.AllowedToSpawn = true
+		#$Timer.stop()
 
 
 func _GetWaveLength():

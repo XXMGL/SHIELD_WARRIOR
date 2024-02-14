@@ -53,3 +53,7 @@ parry={
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Bullet_FromPlayer"
 2d_physics/layer_4="Bullet_FromEnemy"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

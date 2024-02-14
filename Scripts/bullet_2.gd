@@ -13,7 +13,7 @@ enum Origin{From_Enemy, From_Player}
 
 @export var canRunThrough = false
 
-var MoveDirection
+var MoveDirection = Vector2(-1 , 0)
 
 func _ready():
 	pass
@@ -21,7 +21,6 @@ func _ready():
 func _process(delta):
 	match OriginFrom:
 		Origin.From_Enemy:
-			MoveDirection = Vector2(-1 , 0)
 			pass
 		Origin.From_Player:
 			pass

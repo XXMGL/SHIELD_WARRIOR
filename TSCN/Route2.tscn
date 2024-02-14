@@ -2,17 +2,32 @@
 
 [node name="Route2" type="CanvasLayer"]
 
-[node name="Marker2D" type="Marker2D" parent="." groups=["Route1"]]
-position = Vector2(837, 297)
+[node name="Marker2D" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(840, 240)
 
-[node name="Marker2D2" type="Marker2D" parent="." groups=["Route1"]]
-position = Vector2(848, 577)
+[node name="Marker2D2" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(1038, 333)
 
-[node name="Marker2D3" type="Marker2D" parent="." groups=["Route1"]]
-position = Vector2(1039, 293)
+[node name="Marker2D3" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(844, 406)
 
-[node name="Marker2D4" type="Marker2D" parent="." groups=["Route1"]]
-position = Vector2(1058, 580)
+[node name="Marker2D4" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(1036, 503)
 
-[node name="Marker2D5" type="Marker2D" parent="." groups=["Route1"]]
-position = Vector2(941, 436)
+[node name="Marker2D5" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(854, 582)
+
+[node name="Marker2D6" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(1031, 583)
+
+[node name="Marker2D7" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(854, 513)
+
+[node name="Marker2D8" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(1039, 408)
+
+[node name="Marker2D9" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(843, 337)
+
+[node name="Marker2D10" type="Marker2D" parent="." groups=["Route2"]]
+position = Vector2(1033, 240)

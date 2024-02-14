@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://beg1h5tj86547"]
 
 [ext_resource type="Script" path="res://Scripts/bullet_2.gd" id="1_qfdc3"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_6qiel"]
+[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="2_krrdw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 27.7609
@@ -21,13 +21,13 @@ OriginFrom = 1
 Damage = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.576471, 0.811765, 1)
+position = Vector2(4.54544, 2.77779)
 rotation = 3.14159
-scale = Vector2(0.454545, 0.555555)
-texture = ExtResource("2_6qiel")
+scale = Vector2(-2.13557, 2.39022)
+texture = ExtResource("2_krrdw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(15.9091, 0)
+position = Vector2(11.3636, 0)
 scale = Vector2(0.209935, 0.414775)
 shape = SubResource("CapsuleShape2D_ekmi8")
 
@@ -38,8 +38,8 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2(-4.54544, 0)
-scale = Vector2(6.0909, 0.333332)
+position = Vector2(-1.56249, 0)
+scale = Vector2(3.54907, 0.517015)
 shape = SubResource("CapsuleShape2D_akmr7")
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

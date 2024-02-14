@@ -10,6 +10,7 @@ var Shoot_timer = 0.0
 
 @export var Health = 1
 
+signal Route_Change_Signal
 
 func _ready():
 	pass
@@ -42,3 +43,7 @@ func _EnemyDetection():
 
 func _on_bullet_spawner_body_entered(body):
 	pass
+
+func _change_route(routeName):
+	group_name = routeName
+	emit_signal("Route_Change_Signal")

@@ -13,12 +13,12 @@ func _ready():
 	Enemy = get_parent()
 	if Enemy != null:
 		group_name = Enemy.group_name
+	Enemy.connect("Route_Change_Signal",Callable(self,"_On_Route_Changed"))
 	positions = get_tree().get_nodes_in_group(group_name)
 	_get_positions()
 	_get_next_position()
  
 func _physics_process(_delta):
-	
 	if global_position.distance_to(current_position.position) < 10:
 		_get_next_position()
  
@@ -31,4 +31,10 @@ func _get_next_position():
 		_get_positions()
 	current_position = temp_positions.pop_front()
 	#direction = to_local(current_position.position).normalized()
+	#print("current_position: ",current_position, "  Direction : ", direction)
 	direction = (current_position.position - global_position).normalized()
+	
+func _On_Route_Changed():
+	print("route changed")
+	group_name = Enemy.group_name
+	pass

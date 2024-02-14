@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/monster_spawner.tscn" id="6_j2oov"]
 [ext_resource type="Texture2D" uid="uid://hqqueyh6hb2j" path="res://ART Assets/Run4.png" id="7_474os"]
 [ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Route1.tscn" id="7_k61jx"]
-[ext_resource type="PackedScene" uid="uid://c1hf4asyqmdma" path="res://TSCN/enemy_type_100.tscn" id="8_3v2j3"]
+[ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Route2.tscn" id="7_tnmt2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdlto"]
 texture = ExtResource("2_wffx7")
@@ -393,7 +393,7 @@ bg_color = Color(0, 0.666667, 0.811765, 1)
 
 [node name="Default_Scene" type="Node2D"]
 script = ExtResource("1_5ct65")
-Waves = [30.0, 30, 30, 30]
+Waves = [30, 30, 30]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ogprh")
@@ -485,7 +485,6 @@ SpawnInterval = 0.4
 SpawnAmout = 3
 
 [node name="MonsterSpawner6" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("6_j2oov")]
-visible = false
 SpawnEnemy = 0
 SpawnInterval = 0.4
 SpawnAmout = 2
@@ -496,12 +495,20 @@ SpawnInterval = 0.4
 SpawnAmout = 3
 
 [node name="MonsterSpawner8" parent="." groups=["Wave4", "Wave_General"] instance=ExtResource("6_j2oov")]
-visible = false
 SpawnEnemy = 0
 SpawnInterval = 0.4
 SpawnAmout = 2
 
+[node name="MonsterSpawner9" parent="." groups=["FinalWave"] instance=ExtResource("6_j2oov")]
+SpawnEnemy = 2
+SpawnInterval = 0.4
+SpawnAmout = 1
+
 [node name="Route1" parent="." instance=ExtResource("7_k61jx")]
+visible = false
+
+[node name="Route2" parent="." instance=ExtResource("7_tnmt2")]
+visible = false
 
 [node name="Enemies" type="Node" parent="." groups=["Enemies"]]
 
@@ -528,13 +535,5 @@ show_percentage = false
 position = Vector2(1, -5.55555)
 scale = Vector2(1, 1.44444)
 texture = ExtResource("7_474os")
-
-[node name="Boss1" parent="." instance=ExtResource("8_3v2j3")]
-position = Vector2(930, 400)
-approachingSpeed = 100
-ShootDuration = 1
-MaxHealth = 300
-SM = 1
-ShootChance_SM1 = 5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

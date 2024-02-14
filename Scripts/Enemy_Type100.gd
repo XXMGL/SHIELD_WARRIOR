@@ -24,6 +24,7 @@ var Health = 1
 
 enum ShootMode{SM1,SM2,Mad}
 @export var SM = ShootMode.SM1
+var Reposition = false
 
 #射击模式1
 @export var SD_SM1 = 0.1
@@ -37,14 +38,23 @@ var SC_SM1 = 3
 var ST_SM2
 var SC_SM2 = 5
 
+#射击模式3
+@export var SD_SM3 = 0.1
+@export var ShootChance_SM3 = 5
+var ST_SM3
+var SC_SM3 = 5
+
 #移动模式1
 
 #移动模式2
 
 
+signal Route_Change_Signal
+
 func _ready():
 	SC_SM1 = ShootChance_SM1
 	SC_SM2 = ShootChance_SM2
+	SC_SM3 = ShootChance_SM3
 	Boss_Timer = 0
 	Health = MaxHealth
 	HPBar.init_value(Health)
@@ -52,7 +62,13 @@ func _ready():
 
 func _physics_process(delta):
 	HPBar.value_1 = Health * 100 / MaxHealth
-	print(Health)
+	if Health >= MaxHealth*3/4:
+		SM = ShootMode.SM1
+	elif Health >= MaxHealth /3:
+		SM = ShootMode.SM2
+	elif Health <MaxHealth /3:
+		SM = ShootMode.Mad
+	#print(Health)
 	match SM:
 		ShootMode.SM1:
 			velocity = wander_direction.direction * move_speed
@@ -67,6 +83,18 @@ func _physics_process(delta):
 			Boss_Timer+=delta
 			if Boss_Timer >= ShootDuration:
 				_ShootBullet_SM2()
+				Boss_Timer = 0
+			pass
+		ShootMode.Mad:
+			if Reposition == false:
+				_change_route("Route2")
+				wander_direction._get_positions()
+				wander_direction._get_next_position()
+				Reposition = true
+			velocity = wander_direction.direction * move_speed
+			Boss_Timer+=delta
+			if Boss_Timer >= ShootDuration:
+				_ShootBullet_Mad()
 				Boss_Timer = 0
 			pass
 					
@@ -105,6 +133,10 @@ func _ShootBullet_SM2():
 	ShootTimer.wait_time = SD_SM2
 	ShootTimer.start()
 
+func _ShootBullet_Mad():
+	ShootTimer.wait_time = SD_SM3
+	ShootTimer.start()
+
 func _on_timer_timeout():
 	match SM:
 		ShootMode.SM1:
@@ -130,4 +162,29 @@ func _on_timer_timeout():
 				ShootTimer.stop()
 				SC_SM2 = ShootChance_SM2
 			pass
+		ShootMode.Mad:
+			if SC_SM3 > 0:
+				SC_SM3 -= 1	
+				var player = get_parent().get_node(player_root)
+				var bullet1 = bullet2_tscn.instantiate()
+				var bullet2 = bullet2_tscn.instantiate()
+				var bullet3 = bullet1_tscn.instantiate()
+				get_parent().add_child(bullet1)
+				get_parent().add_child(bullet2)
+				get_parent().add_child(bullet3)
+				bullet1.position = BulletSpawner_pos2.global_position
+				bullet2.position = BulletSpawner_pos3.global_position
+				bullet3.position = BulletSpawner_pos.global_position
+				if player != null:
+					bullet1.MoveDirection = (player.global_position - bullet1.global_position).normalized()
+					bullet2.MoveDirection = (player.global_position - bullet2.global_position).normalized()
+			else:
+				ShootTimer.stop()
+				SC_SM3 = ShootChance_SM3
+			pass
+		
 	pass # Replace with function body.
+	
+func _change_route(routeName):
+	group_name = routeName
+	emit_signal("Route_Change_Signal")
