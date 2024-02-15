@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hqqueyh6hb2j"
-path="res://.godot/imported/Run4.png-0b951d673c9e2ba1fbae97d2fe6fb6b7.ctex"
+uid="uid://biqlge3e3js4k"
+path="res://.godot/imported/dead_4.png-a85a7099d3be26408ed0586f79155fbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Run4.png"
-dest_files=["res://.godot/imported/Run4.png-0b951d673c9e2ba1fbae97d2fe6fb6b7.ctex"]
+source_file="res://ART Assets/sprites/dead_4.png"
+dest_files=["res://.godot/imported/dead_4.png-a85a7099d3be26408ed0586f79155fbb.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

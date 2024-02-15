@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwctiepk50p6s"]
+
+[ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="1_ga7j5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27n5c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnfu1"]
+bg_color = Color(0.960784, 0.694118, 0.372549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color(1, 1, 1, 0.152941)
+shadow_offset = Vector2(1, 1)
+anti_aliasing_size = 1.361
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2c3y"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 0.360784)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.67451, 0.67451, 0.67451, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t6b5"]
+bg_color = Color(0.839216, 0.839216, 0.839216, 0.584314)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[node name="ProgressBar" type="ProgressBar"]
+custom_minimum_size = Vector2(300, 30)
+offset_left = -27.0
+offset_top = -15.0
+offset_right = 273.0
+offset_bottom = 15.0
+scale = Vector2(0.719939, 0.973113)
+theme_override_styles/background = SubResource("StyleBoxEmpty_27n5c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fnfu1")
+value = 42.33
+show_percentage = false
+script = ExtResource("1_ga7j5")
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_b2c3y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0t6b5")
+value = 57.8
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 1
+offset_top = -21.5802
+offset_right = 300.0
+offset_bottom = 18.4198
+text = "STAMINA"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

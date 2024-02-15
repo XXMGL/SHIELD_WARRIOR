@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4gln86iwnr31"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy_Type4.gd" id="1_cxg1t"]
+[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="1_dylub"]
+[ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/wander.tscn" id="2_itd6y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrins"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ew82i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8vd1"]
+radius = 10.8108
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57ixd"]
+
+[node name="enemy_type_4" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
+script = ExtResource("1_cxg1t")
+wander_direction = NodePath("Wonder")
+group_name = "EnemyType4"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15, 0)
+scale = Vector2(-0.245, -0.245)
+texture = ExtResource("1_dylub")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-15, 0)
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("1_dylub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 0)
+shape = SubResource("CircleShape2D_hrins")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-15, 0)
+shape = SubResource("CircleShape2D_ew82i")
+
+[node name="Wonder" parent="." instance=ExtResource("2_itd6y")]
+position = Vector2(15, 0)
+
+[node name="bullet_spawner_1" type="Area2D" parent="."]
+position = Vector2(-26, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet_spawner_1"]
+position = Vector2(-2, 0)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_q8vd1")
+
+[node name="bullet_spawner_2" type="Area2D" parent="."]
+position = Vector2(28, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet_spawner_2"]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_57ixd")

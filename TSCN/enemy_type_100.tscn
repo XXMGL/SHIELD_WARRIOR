@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1hf4asyqmdma"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy_Type100.gd" id="1_i6u1v"]
+[ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="2_1vd6w"]
+[ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/wander.tscn" id="3_blusu"]
+[ext_resource type="PackedScene" uid="uid://4p5bpot3wv21" path="res://TSCN/health_bar.tscn" id="4_a34mk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
+radius = 37.0
+height = 74.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ijuf"]
+
+[node name="Boss1" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
+scale = Vector2(2.284, 2.28744)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_i6u1v")
+player_root = "Character"
+move_speed = 200
+wander_direction = NodePath("Wander")
+group_name = "Route1"
+approachingSpeed = 50
+ShootDuration = 2
+MaxHealth = 100
+ShootChance_SM1 = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.258824, 1)
+scale = Vector2(0.119936, 0.119936)
+texture = ExtResource("2_1vd6w")
+
+[node name="Wander" parent="." instance=ExtResource("3_blusu")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.44, 1)
+shape = SubResource("CapsuleShape2D_8pncm")
+
+[node name="BulletSpawner" type="Area2D" parent="."]
+position = Vector2(-52.2553, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSpawner"]
+shape = SubResource("CapsuleShape2D_6ijuf")
+
+[node name="BulletSpawner2" type="Area2D" parent="."]
+position = Vector2(-19.0495, 41.8456)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSpawner2"]
+shape = SubResource("CapsuleShape2D_6ijuf")
+
+[node name="BulletSpawner3" type="Area2D" parent="."]
+position = Vector2(-19.0495, -40.5776)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSpawner3"]
+shape = SubResource("CapsuleShape2D_6ijuf")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="HP" parent="." instance=ExtResource("4_a34mk")]
+offset_left = -45.5342
+offset_top = -50.7116
+offset_right = 254.466
+offset_bottom = -20.7116
+scale = Vector2(0.320376, 0.276097)
+
+[connection signal="body_entered" from="BulletSpawner" to="." method="_on_bullet_spawner_body_entered"]
+[connection signal="body_entered" from="BulletSpawner2" to="." method="_on_bullet_spawner_body_entered"]
+[connection signal="body_entered" from="BulletSpawner3" to="." method="_on_bullet_spawner_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

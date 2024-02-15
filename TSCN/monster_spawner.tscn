@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://bngog8llj80fc"]
+
+[ext_resource type="Script" path="res://Scripts/MonsterSpawner.gd" id="1_ho5ja"]
+
+[node name="MonsterSpawner" type="CanvasLayer"]
+script = ExtResource("1_ho5ja")
+SpwanIndex = 13
+SpawnEnemy = 1
+SpawnInterval = 0.2
+SpawnAmout = 5
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="SpawnLocations" type="Node" parent="."]
+
+[node name="Spwan_Location1" type="Area2D" parent="SpawnLocations"]
+position = Vector2(819, -28)
+
+[node name="Spwan_Location2" type="Area2D" parent="SpawnLocations"]
+position = Vector2(965, -33)
+
+[node name="Spwan_Location3" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1092, -35)
+
+[node name="Spwan_Location4" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1210, 68)
+
+[node name="Spwan_Location5" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1212, 173)
+
+[node name="Spwan_Location6" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1212, 262)
+
+[node name="Spwan_Location7" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1212, 339)
+
+[node name="Spwan_Location8" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1212, 414)
+
+[node name="Spwan_Location9" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1212, 496)
+
+[node name="Spwan_Location10" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1212, 576)
+
+[node name="Spwan_Location11" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1116, 688)
+
+[node name="Spwan_Location12" type="Area2D" parent="SpawnLocations"]
+position = Vector2(1000, 688)
+
+[node name="Spwan_Location13" type="Area2D" parent="SpawnLocations"]
+position = Vector2(845, 688)
+
+[node name="Spwan_Location14" type="Area2D" parent="SpawnLocations"]
+position = Vector2(814, 262)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

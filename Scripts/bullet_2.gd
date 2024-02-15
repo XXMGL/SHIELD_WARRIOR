@@ -9,6 +9,11 @@ var y_velocity
 
 enum Origin{From_Enemy, From_Player}
 @export var OriginFrom = Origin.From_Enemy
+@export var Damage = 10
+
+@export var canRunThrough = false
+
+var MoveDirection = Vector2(-1 , 0)
 
 func _ready():
 	pass
@@ -16,17 +21,11 @@ func _ready():
 func _process(delta):
 	match OriginFrom:
 		Origin.From_Enemy:
-			x_direction = -1
-			x_velocity = x_direction * move_speed
-			velocity = Vector2(x_velocity,0)
-			move_and_slide()	
 			pass
 		Origin.From_Player:
-			x_direction = 1
-			x_velocity = x_direction * move_speed
-			velocity = Vector2(x_velocity,0)
-			move_and_slide()	
 			pass
+	velocity = move_speed*MoveDirection
+	move_and_slide()	
 
 
 func _on_detector_body_entered(body):
@@ -35,8 +34,12 @@ func _on_detector_body_entered(body):
 	if OriginFrom == Origin.From_Enemy and body.has_method("_CharacterDetection"):
 		queue_free()  # 销毁子弹
 	if OriginFrom == Origin.From_Player and body.has_method("_EnemyDetection"):
-		queue_free()  # 销毁子弹
+		body.Health -= Damage
+		if canRunThrough:
+			pass
+		else:
+			queue_free()  # 销毁子弹
 		
 				
 func _BulletDetection():
-	pass
+	return Damage

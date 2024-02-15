@@ -14,6 +14,8 @@ var y_velocity
 enum Origin{From_Enemy, From_Player}
 @export var OriginFrom = Origin.From_Enemy
 
+@export var Damage = 10
+
 func _ready():
 	pass
 	
@@ -55,4 +57,4 @@ func _on_detector_body_entered(body):
 		queue_free()  # 销毁子弹
 		
 func _BulletDetection():
-	pass
+	return Damage
