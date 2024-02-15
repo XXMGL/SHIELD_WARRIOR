@@ -7,9 +7,11 @@ extends CharacterBody2D
 @export var bullet_spawner1 = "bullet_spawner_1"
 @export var bullet_spawner2 = "bullet_spawner_2"
 
-var bullet_tscn = preload("res://TSCN/bullet_2.tscn")
+var bullet_tscn = preload("res://TSCN/Bullet/bullet_2.tscn")
 @export var ShootDuration = 0.15
 var Shoot_timer = 0.0
+
+@export var Health = 1
 
 
 func _ready():

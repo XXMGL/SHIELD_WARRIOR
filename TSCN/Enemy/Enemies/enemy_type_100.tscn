@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1hf4asyqmdma"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy_Type100.gd" id="1_i6u1v"]
-[ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="2_1vd6w"]
-[ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/wander.tscn" id="3_blusu"]
-[ext_resource type="PackedScene" uid="uid://4p5bpot3wv21" path="res://TSCN/health_bar.tscn" id="4_a34mk"]
+[ext_resource type="Script" path="res://Scripts/Enemy_Type100.gd" id="1_7vqtj"]
+[ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="2_k8ps3"]
+[ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_epibi"]
+[ext_resource type="PackedScene" uid="uid://4p5bpot3wv21" path="res://TSCN/UI/health_bar.tscn" id="4_kqtam"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
 radius = 37.0
@@ -15,7 +15,7 @@ height = 74.0
 scale = Vector2(2.284, 2.28744)
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_i6u1v")
+script = ExtResource("1_7vqtj")
 player_root = "Character"
 move_speed = 200
 wander_direction = NodePath("Wander")
@@ -28,9 +28,9 @@ ShootChance_SM1 = 8
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0.258824, 1)
 scale = Vector2(0.119936, 0.119936)
-texture = ExtResource("2_1vd6w")
+texture = ExtResource("2_k8ps3")
 
-[node name="Wander" parent="." instance=ExtResource("3_blusu")]
+[node name="Wander" parent="." instance=ExtResource("3_epibi")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.44, 1)
@@ -62,7 +62,7 @@ shape = SubResource("CapsuleShape2D_6ijuf")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="HP" parent="." instance=ExtResource("4_a34mk")]
+[node name="HP" parent="." instance=ExtResource("4_kqtam")]
 offset_left = -45.5342
 offset_top = -50.7116
 offset_right = 254.466

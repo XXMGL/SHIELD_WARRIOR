@@ -1,16 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://dp1hy60tuuynb"]
+[gd_scene load_steps=15 format=3 uid="uid://dm30rh2gvxw1j"]
 
-[ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_5ct65"]
-[ext_resource type="PackedScene" uid="uid://d2x6f6qphmp8o" path="res://TSCN/character.tscn" id="1_56ymr"]
-[ext_resource type="Texture2D" uid="uid://b8pjwdbh75r6j" path="res://ART Assets/BG.png" id="1_vb8mn"]
-[ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_wffx7"]
-[ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/monster_spawner.tscn" id="6_j2oov"]
-[ext_resource type="Texture2D" uid="uid://hqqueyh6hb2j" path="res://ART Assets/Run4.png" id="7_474os"]
-[ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Route1.tscn" id="7_k61jx"]
-[ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Route2.tscn" id="7_tnmt2"]
+[ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_http5"]
+[ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_3lwpk"]
+[ext_resource type="Texture2D" uid="uid://b8pjwdbh75r6j" path="res://ART Assets/BG.png" id="3_176vj"]
+[ext_resource type="PackedScene" uid="uid://d2x6f6qphmp8o" path="res://TSCN/Player/character.tscn" id="4_c06wb"]
+[ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/Enemy/Spawner/monster_spawner.tscn" id="5_3xy1k"]
+[ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="6_f46dn"]
+[ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="7_ekgiy"]
+[ext_resource type="Texture2D" uid="uid://hqqueyh6hb2j" path="res://ART Assets/Run4.png" id="8_5ehed"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdlto"]
-texture = ExtResource("2_wffx7")
+texture = ExtResource("2_3lwpk")
 texture_region_size = Vector2i(26, 26)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -392,7 +392,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0.411765)
 bg_color = Color(0, 0.666667, 0.811765, 1)
 
 [node name="Default_Scene" type="Node2D"]
-script = ExtResource("1_5ct65")
+script = ExtResource("1_http5")
 Waves = [30, 30, 30]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -414,7 +414,7 @@ scale = Vector2(0.112032, 0.634554)
 [node name="Sprite2D" type="Sprite2D" parent="BackGround"]
 visible = false
 scale = Vector2(6.70738, -1.185)
-texture = ExtResource("1_vb8mn")
+texture = ExtResource("3_176vj")
 
 [node name="Eage" type="StaticBody2D" parent="BackGround"]
 collision_layer = 16
@@ -456,58 +456,58 @@ shape = SubResource("RectangleShape2D_g6eas")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Character" parent="." instance=ExtResource("1_56ymr")]
+[node name="Character" parent="." instance=ExtResource("4_c06wb")]
 position = Vector2(85, 390)
 
-[node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_3xy1k")]
 SpwanIndex = 4
 SpawnInterval = 0.4
 SpawnAmout = 3
 
-[node name="MonsterSpawner2" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner2" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_3xy1k")]
 SpawnEnemy = 0
 SpawnInterval = 0.4
 SpawnAmout = 2
 
-[node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("5_3xy1k")]
 SpwanIndex = 4
 SpawnInterval = 0.4
 SpawnAmout = 3
 
-[node name="MonsterSpawner4" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner4" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("5_3xy1k")]
 SpawnEnemy = 0
 SpawnInterval = 0.4
 SpawnAmout = 2
 
-[node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("5_3xy1k")]
 SpwanIndex = 4
 SpawnInterval = 0.4
 SpawnAmout = 3
 
-[node name="MonsterSpawner6" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner6" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("5_3xy1k")]
 SpawnEnemy = 0
 SpawnInterval = 0.4
 SpawnAmout = 2
 
-[node name="MonsterSpawner7" parent="." groups=["Wave4", "Wave_General"] instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner7" parent="." groups=["Wave4", "Wave_General"] instance=ExtResource("5_3xy1k")]
 SpwanIndex = 4
 SpawnInterval = 0.4
 SpawnAmout = 3
 
-[node name="MonsterSpawner8" parent="." groups=["Wave4", "Wave_General"] instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner8" parent="." groups=["Wave4", "Wave_General"] instance=ExtResource("5_3xy1k")]
 SpawnEnemy = 0
 SpawnInterval = 0.4
 SpawnAmout = 2
 
-[node name="MonsterSpawner9" parent="." groups=["FinalWave"] instance=ExtResource("6_j2oov")]
+[node name="MonsterSpawner9" parent="." groups=["FinalWave"] instance=ExtResource("5_3xy1k")]
 SpawnEnemy = 2
 SpawnInterval = 0.4
 SpawnAmout = 1
 
-[node name="Route1" parent="." instance=ExtResource("7_k61jx")]
+[node name="Route1" parent="." instance=ExtResource("6_f46dn")]
 visible = false
 
-[node name="Route2" parent="." instance=ExtResource("7_tnmt2")]
+[node name="Route2" parent="." instance=ExtResource("7_ekgiy")]
 visible = false
 
 [node name="Enemies" type="Node" parent="." groups=["Enemies"]]
@@ -534,6 +534,6 @@ show_percentage = false
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/LevelProgress"]
 position = Vector2(1, -5.55555)
 scale = Vector2(1, 1.44444)
-texture = ExtResource("7_474os")
+texture = ExtResource("8_5ehed")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

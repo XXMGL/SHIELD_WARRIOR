@@ -10,7 +10,7 @@ var y_direction = 1
 var y_velocity
 var timer = 0.0
 
-var bullet_tscn = preload("res://TSCN/bullet_1.tscn")
+var bullet_tscn = preload("res://TSCN/Bullet/bullet_1.tscn")
 @export var ShootDuration = 2.0
 var Shoot_timer = 0.0
 

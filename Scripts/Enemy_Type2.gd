@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var group_name : String
 @onready var EnemyAnimation = $AnimationPlayer
 
-var bullet_tscn = preload("res://TSCN/bullet_2.tscn")
+var bullet_tscn = preload("res://TSCN/Bullet/bullet_2.tscn")
 @export var ShootDuration = 2.0
 var Shoot_timer = 0.0
 
@@ -49,3 +49,4 @@ func _on_bullet_spawner_body_entered(body):
 func _change_route(routeName):
 	group_name = routeName
 	emit_signal("Route_Change_Signal")
+	#$Wander.emit_signal("Route_Change_Signal")

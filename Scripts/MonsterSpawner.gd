@@ -1,12 +1,13 @@
 extends Node
 
 var SpwanLoactions = []
-var Enemy1_prefab = preload("res://TSCN/enemy_type_1.tscn")
-var Enemy2_prefab = preload("res://TSCN/enemy_type_2.tscn")
-var Enemy100_prefab = preload("res://TSCN/enemy_type_100.tscn")
+var Enemy1_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_1.tscn")
+var Enemy2_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_2.tscn")
+var Enemy4_Prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_4.tscn")
+var Enemy100_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_100.tscn")
 var WaveDuration = 10
 @export var SpwanIndex: int
-enum EnemyTypes{Enemy1, Enemy2 , Enemy100}
+enum EnemyTypes{Enemy1, Enemy2 ,Enemy4, Enemy100}
 @export var SpawnEnemy = EnemyTypes.Enemy1
 @export var SpawnInterval: float
 var spawn_timer: Timer
@@ -39,6 +40,13 @@ func _on_timer_timeout():
 				pass
 			EnemyTypes.Enemy2:
 				NewEnemy = Enemy2_prefab.instantiate()
+				#NewEnemy.group_name = "Route"+str(randf_range(1, 2))
+				var routeName = "Route"+str(randi_range(1, 2))
+				NewEnemy.group_name = routeName
+				NewEnemy._change_route(NewEnemy.group_name)
+				pass
+			EnemyTypes.Enemy4:
+				NewEnemy = Enemy4_Prefab.instantiate()
 				#NewEnemy.group_name = "Route"+str(randf_range(1, 2))
 				var routeName = "Route"+str(randi_range(1, 2))
 				NewEnemy.group_name = routeName

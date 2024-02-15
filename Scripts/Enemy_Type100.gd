@@ -16,8 +16,8 @@ var y_direction = 1
 var Boss_Timer
 
 
-var bullet1_tscn = preload("res://TSCN/bullet_1.tscn")
-var bullet2_tscn = preload("res://TSCN/bullet_2.tscn")
+var bullet1_tscn = preload("res://TSCN/Bullet/bullet_1.tscn")
+var bullet2_tscn = preload("res://TSCN/Bullet/bullet_2.tscn")
 
 var Health = 1
 @export var MaxHealth = 1000

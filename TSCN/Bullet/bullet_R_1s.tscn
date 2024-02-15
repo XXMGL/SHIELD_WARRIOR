@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://beg1h5tj86547"]
+[gd_scene load_steps=5 format=3 uid="uid://djh0dfhh8ok15"]
 
-[ext_resource type="Script" path="res://Scripts/bullet_2.gd" id="1_qfdc3"]
-[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="2_krrdw"]
+[ext_resource type="Script" path="res://Scripts/bullet_2.gd" id="1_0cs4y"]
+[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="2_s3t7c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 27.7609
@@ -12,34 +12,35 @@ radius = 2.12766
 height = 50.0001
 
 [node name="Bullet_R_1" type="CharacterBody2D"]
-scale = Vector2(0.440001, 0.359999)
-collision_layer = 3
+scale = Vector2(2.04, 1.34144)
+collision_layer = 18
 collision_mask = 0
-script = ExtResource("1_qfdc3")
-move_speed = 350
+script = ExtResource("1_0cs4y")
+move_speed = 550
 OriginFrom = 1
-Damage = 2
+canRunThrough = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.54544, 2.77779)
+modulate = Color(0.85098, 0, 0.894118, 1)
+position = Vector2(-0.980392, 3.72734)
 rotation = 3.14159
-scale = Vector2(-2.13557, 2.39022)
-texture = ExtResource("2_krrdw")
+scale = Vector2(1.87821, 2.53524)
+texture = ExtResource("2_s3t7c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11.3636, 0)
-scale = Vector2(0.209935, 0.414775)
+position = Vector2(5.88235, 0)
+scale = Vector2(0.194126, 0.383541)
 shape = SubResource("CapsuleShape2D_ekmi8")
 
 [node name="Detector" type="Area2D" parent="."]
-position = Vector2(6.81817, 0)
-scale = Vector2(1.45455, 1)
+position = Vector2(6.37255, 0)
+scale = Vector2(1.47059, 1.02982)
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2(-1.56249, 0)
-scale = Vector2(3.54907, 0.517015)
+position = Vector2(-4.33333, 0)
+scale = Vector2(3.32981, 0.512968)
 shape = SubResource("CapsuleShape2D_akmr7")
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
