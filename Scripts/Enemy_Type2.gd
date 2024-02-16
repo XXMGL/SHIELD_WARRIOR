@@ -13,6 +13,7 @@ var Shoot_timer = 0.0
 
 signal Route_Change_Signal
 
+
 func _ready():
 	pass
 
@@ -48,5 +49,6 @@ func _on_bullet_spawner_body_entered(body):
 
 func _change_route(routeName):
 	group_name = routeName
-	emit_signal("Route_Change_Signal")
+	Character.emit_signal("Route_Change")
+	#emit_signal("Route_Change_Signal")
 	#$Wander.emit_signal("Route_Change_Signal")

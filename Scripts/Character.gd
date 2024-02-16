@@ -40,6 +40,8 @@ var Indicator
 @export var distance = 10
 var IndicatorDirection
 
+signal Route_Change
+
 func _ready():
 	stamina = Max_stamina
 	health = Max_health
