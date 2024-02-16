@@ -177,6 +177,7 @@ func _OutofStamina():
 		canPary = false
 		parry_timer = 0.0
 		Player_State = state.STATE_PARRYEND
+		ShieldSprite.play("ParryEnd")
 	if stamina == Max_stamina and canPary == false:
 		canPary = true	
 

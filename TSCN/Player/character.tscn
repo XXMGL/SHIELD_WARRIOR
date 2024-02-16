@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2x6f6qphmp8o"]
+[gd_scene load_steps=26 format=3 uid="uid://d2x6f6qphmp8o"]
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_xj0ro"]
-[ext_resource type="Texture2D" uid="uid://ex1yede4oqr3" path="res://ART Assets/sprites/shield_3.png" id="2_3iyvm"]
 [ext_resource type="Texture2D" uid="uid://cqv15mg4h7e38" path="res://ART Assets/sprites/dead_1.png" id="2_11tcf"]
 [ext_resource type="Texture2D" uid="uid://dona67h6fl3gk" path="res://ART Assets/shape.png" id="2_k6up6"]
 [ext_resource type="Texture2D" uid="uid://b4x2j0ngnbyun" path="res://ART Assets/sprites/idle_1.png" id="2_la00f"]
@@ -35,10 +34,10 @@ height = 36.7574
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_go87i")
+"texture": ExtResource("4_gdi7q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3iyvm")
+"texture": ExtResource("3_go87i")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_54c16")
@@ -48,7 +47,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"ParryEnd",
-"speed": 32.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -58,10 +57,10 @@ animations = [{
 "texture": ExtResource("5_54c16")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3iyvm")
+"texture": ExtResource("3_go87i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_go87i")
+"texture": ExtResource("4_gdi7q")
 }],
 "loop": false,
 "name": &"ParryStart",
@@ -173,13 +172,13 @@ texture = ExtResource("2_k6up6")
 position = Vector2(-13.4553, 0)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_b7dcl")
-animation = &"ParryEnd"
+animation = &"Parrying"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.99999, -3.00001)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mve0x")
-animation = &"running"
+animation = &"idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
