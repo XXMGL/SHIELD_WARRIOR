@@ -473,7 +473,7 @@ SpawnInterval = 0.4
 SpawnAmout = 3
 
 [node name="MonsterSpawner2" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_8goud")]
-SpawnEnemy = 0
+SpawnEnemy = 2
 SpawnInterval = 0.4
 SpawnAmout = 2
 

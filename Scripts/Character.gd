@@ -40,6 +40,8 @@ var Indicator
 @export var distance = 10
 var IndicatorDirection
 
+signal Route_Change
+
 func _ready():
 	stamina = Max_stamina
 	health = Max_health
@@ -68,10 +70,12 @@ func _process(delta):
 		CharacterAnimation.play("running")
 	else :
 		CharacterAnimation.play("idle")
-	if isParring:
-		ShieldSprite.play("ParryStart")
-	else :
-		ShieldSprite.play("ParryEnd")
+	#if isParring:
+		#ShieldSprite.play("ParryStart")
+		#await ShieldSprite.animation_finished
+		#ShieldSprite.stop()
+	#else :
+		#ShieldSprite.play("ParryEnd")
 	
 	match Player_State:
 		state.STATE_MOVE:
@@ -87,13 +91,13 @@ func _process(delta):
 			 #只有当玩家按下parry按键并且parry冷却倒计时小于零才能进行格挡
 			if Input.is_action_pressed("parry") and parry_CountDown<=0 and canPary == true:
 				Player_State = state.STATE_PARRYSTART # 进入Parry前摇状态
+				ShieldSprite.play("ParryStart")
 				parry_timer = 0.0
 			#_MOVE(MOVE_SPEED) # 移动
 			pass
 		state.STATE_PARRYSTART:
 			ShieldSprite.visible = true
 			ShieldShadow.visible = true
-			isParring = true
 			_OutofStamina()
 			SlowDown = 2
 			CanPreciseParry = true # 每一次举盾期间可以反弹一次特殊子弹
@@ -111,11 +115,11 @@ func _process(delta):
 			# 松开Parry按键进入后摇
 			if not Input.is_action_pressed("parry"):
 				Player_State = state.STATE_PARRYEND
+				ShieldSprite.play("ParryEnd")
 				parry_timer = 0.0
 			#_MOVE(MOVE_SPEED / SlowDown)
 			pass
 		state.STATE_PARRYEND:
-			isParring = false
 			SlowDown = 2
 			parry_timer += delta
 			if parry_timer >= ParryDuration:

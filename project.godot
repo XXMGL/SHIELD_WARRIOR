@@ -15,6 +15,10 @@ run/main_scene="res://TSCN/Scene/default_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Character="*res://TSCN/Player/character.tscn"
+
 [display]
 
 window/stretch/mode="canvas_items"
