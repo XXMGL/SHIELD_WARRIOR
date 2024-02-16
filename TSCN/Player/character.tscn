@@ -130,7 +130,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 position = Vector2(100, 400)
 scale = Vector2(2, 2)

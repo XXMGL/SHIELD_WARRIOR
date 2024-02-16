@@ -113,7 +113,7 @@ func _on_bullet_spawner_body_entered(body):
 	
 	
 func _FoundTarget(TargetPath):
-	var target = get_parent().get_node(TargetPath)
+	var target = get_tree().get_first_node_in_group("Player")
 	if target != null:
 		var target_position = target.global_position
 		if target_position.y > global_position.y + 30:
