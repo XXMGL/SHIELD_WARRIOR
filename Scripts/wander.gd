@@ -13,7 +13,7 @@ func _ready():
 	Enemy = get_parent()
 	if Enemy != null:
 		group_name = Enemy.group_name
-	Character.connect("Route_Change",Callable(self,"_On_Route_Changed"))
+	#Character.connect("Route_Change",Callable(self,"_On_Route_Changed"))
 	positions = get_tree().get_nodes_in_group(group_name)
 	_get_positions()
 	_get_next_position()

@@ -54,6 +54,7 @@ func _ready():
 
 
 func _process(delta):
+	print_debug(global_position)
 	#获取玩家鼠标位置
 	mouse_global_pos = get_global_mouse_position()
 	IndicatorDirection = (mouse_global_pos - global_position).normalized()

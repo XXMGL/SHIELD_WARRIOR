@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dp1hy60tuuynb"]
+[gd_scene load_steps=17 format=3 uid="uid://dp1hy60tuuynb"]
 
 [ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_lb5gq"]
 [ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_uf3ac"]
 [ext_resource type="Texture2D" uid="uid://b8pjwdbh75r6j" path="res://ART Assets/BG.png" id="3_3tib5"]
+[ext_resource type="PackedScene" uid="uid://d2x6f6qphmp8o" path="res://TSCN/Player/character.tscn" id="4_ayfj4"]
 [ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/Enemy/Spawner/monster_spawner.tscn" id="5_8goud"]
 [ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="6_ud1p6"]
 [ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="7_1y1ny"]
@@ -462,6 +463,9 @@ scale = Vector2(22.0654, 50.4206)
 shape = SubResource("RectangleShape2D_g6eas")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Character" parent="." instance=ExtResource("4_ayfj4")]
+position = Vector2(85, 390)
 
 [node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 4
