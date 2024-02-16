@@ -35,13 +35,13 @@ height = 36.7574
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3iyvm")
+"texture": ExtResource("4_gdi7q")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_go87i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_gdi7q")
+"texture": ExtResource("2_3iyvm")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_54c16")
@@ -61,13 +61,13 @@ animations = [{
 "texture": ExtResource("5_54c16")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_gdi7q")
+"texture": ExtResource("2_3iyvm")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_go87i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3iyvm")
+"texture": ExtResource("4_gdi7q")
 }],
 "loop": false,
 "name": &"ParryStart",
@@ -75,7 +75,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3iyvm")
+"texture": ExtResource("4_gdi7q")
 }],
 "loop": true,
 "name": &"Parrying",
@@ -173,7 +173,7 @@ texture = ExtResource("2_k6up6")
 position = Vector2(-13.4553, 0)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_b7dcl")
-animation = &"ParryEnd"
+animation = &"Parrying"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.99999, -3.00001)
