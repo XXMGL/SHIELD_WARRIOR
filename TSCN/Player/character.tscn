@@ -153,6 +153,12 @@ distance = 50
 position = Vector2(6.18045, -0.953762)
 shape = SubResource("CapsuleShape2D_d6aij")
 
+[node name="Shadow2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(4.00003, 9.49995)
+scale = Vector2(0.654729, 0.53148)
+texture = ExtResource("2_k6up6")
+
 [node name="SHIELD" type="Area2D" parent="."]
 position = Vector2(18.5, 0)
 scale = Vector2(0.594562, 1)
@@ -180,12 +186,6 @@ position = Vector2(5.99999, -3.00001)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mve0x")
 animation = &"running"
-
-[node name="Shadow" type="Sprite2D" parent="Sprite2D"]
-modulate = Color(1, 1, 1, 0.588235)
-position = Vector2(-2.85712, 17.8571)
-scale = Vector2(0.935327, 0.759257)
-texture = ExtResource("2_k6up6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
