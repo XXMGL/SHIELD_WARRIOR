@@ -165,7 +165,7 @@ func _on_timer_timeout():
 		ShootMode.Mad:
 			if SC_SM3 > 0:
 				SC_SM3 -= 1	
-				var player = get_parent().get_node(player_root)
+				var player = get_tree().get_first_node_in_group("Player")
 				var bullet1 = bullet2_tscn.instantiate()
 				var bullet2 = bullet2_tscn.instantiate()
 				var bullet3 = bullet1_tscn.instantiate()
@@ -187,4 +187,5 @@ func _on_timer_timeout():
 	
 func _change_route(routeName):
 	group_name = routeName
-	emit_signal("Route_Change_Signal")
+	Character.emit_signal("Route_Change")
+	print_debug("11")

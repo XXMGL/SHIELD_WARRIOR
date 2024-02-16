@@ -13,6 +13,7 @@ enum EnemyTypes{Enemy1, Enemy2 ,Enemy4, Enemy100}
 var spawn_timer: Timer
 @export var SpawnAmout:int
 @export var AllowedToSpawn = false
+@export var Enemy_Route = "Route1"
 var fullActivated = false
 
 
@@ -41,15 +42,15 @@ func _on_timer_timeout():
 			EnemyTypes.Enemy2:
 				NewEnemy = Enemy2_prefab.instantiate()
 				#NewEnemy.group_name = "Route"+str(randf_range(1, 2))
-				var routeName = "Route"+str(randi_range(1, 2))
-				NewEnemy.group_name = routeName
+				#var routeName = "Route"+str(randi_range(1, 2))
+				NewEnemy.group_name = Enemy_Route
 				NewEnemy._change_route(NewEnemy.group_name)
 				pass
 			EnemyTypes.Enemy4:
 				NewEnemy = Enemy4_Prefab.instantiate()
 				#NewEnemy.group_name = "Route"+str(randf_range(1, 2))
-				var routeName = "Route"+str(randi_range(1, 2))
-				NewEnemy.group_name = routeName
+				#var routeName = "Route"+str(randi_range(1, 2))
+				NewEnemy.group_name = Enemy_Route
 				pass
 			EnemyTypes.Enemy100:
 				NewEnemy = Enemy100_prefab.instantiate()

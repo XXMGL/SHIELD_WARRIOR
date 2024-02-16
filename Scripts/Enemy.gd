@@ -31,8 +31,7 @@ func _ready():
 	match Enemy_type:
 		Types.Enemy1:
 			pass
-		Types.Enemy2:
-			
+		Types.Enemy2:			
 			pass
 		Types.Enemy3:
 			pass
@@ -142,3 +141,6 @@ func _on_bullet_spawner_body_entered(body):
 	
 func _change_route(routeName):
 	group_name = routeName
+	Character.emit_signal("Route_Change")
+	#print_debug("Change Route to: ", group_name)
+	
