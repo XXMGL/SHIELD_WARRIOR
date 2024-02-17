@@ -2,8 +2,8 @@ extends Node2D
 
 
 @onready var Level_Timer = $Timer
-@onready var LevelProgressBar = $CanvasLayer/LevelProgress
-@onready var LevelIndicator = $CanvasLayer/LevelProgress/Sprite2D
+@onready var LevelProgressBar = $UI/LevelProgress
+@onready var LevelIndicator = $UI/LevelProgress/Sprite2D
 
 var LevelLength: float
 var LevelLength_Max :float
@@ -16,6 +16,7 @@ var Spwaners = []
 var SpawnersForThisWave = []
 var WaveEnd = false
 
+
 func _ready():
 	WaveNum = 0
 	progress = 0
@@ -23,7 +24,7 @@ func _ready():
 	_GetLevelLength()
 	_GetWaveLength()
 	_ActivateSpawners()
-	LevelProgressBar.connect("value_changed", Callable(self,"_on_progress_value_changed"))
+	LevelProgressBar.connect("value_changed",Callable(self,"_on_progress_value_changed"))
 
 	
 
@@ -33,7 +34,6 @@ func _process(delta):
 	LevelProgressBar.value = progress*100/LevelLength_Max
 	_WaveCheck()
 	pass
-
 
 
 
@@ -97,3 +97,9 @@ func _on_progress_value_changed(value):
 	var target_x = max_width * Indicator_progress
 	LevelIndicator.position.x = target_x
 	pass
+	
+
+		
+
+
+

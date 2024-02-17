@@ -188,4 +188,4 @@ func _on_timer_timeout():
 func _change_route(routeName):
 	group_name = routeName
 	Character.emit_signal("Route_Change")
-	print_debug("11")
+	#print_debug("11")
