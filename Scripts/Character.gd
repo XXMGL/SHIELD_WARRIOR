@@ -39,8 +39,11 @@ var mouse_global_pos
 var Indicator
 @export var distance = 10
 var IndicatorDirection
+@export var Shooting_Offset = 10
 
 signal Route_Change
+#技能组
+var Shards_Shoot_enabled : bool = false
 
 func _ready():
 	stamina = Max_stamina
@@ -168,9 +171,13 @@ func _ShootBullet(Bullet):
 	var bullet = Bullet.instantiate()
 	#get_parent().add_child(bullet) 不能用，因为同时检测碰撞并Add child会报错
 	get_parent().call_deferred("add_child", bullet)
+	var offset_angle = deg_to_rad(randf_range(-Shooting_Offset, Shooting_Offset))
+	#print_debug(offset_angle)
+	var original_direction = IndicatorDirection
+	var rotated_direction = original_direction.rotated(offset_angle)
 	bullet.position = $SHIELD.global_position
 	bullet.rotation = Indicator.rotation
-	bullet.MoveDirection = IndicatorDirection
+	bullet.MoveDirection = rotated_direction
 	
 	
 func _OutofStamina():

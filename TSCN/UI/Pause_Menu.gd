@@ -22,7 +22,9 @@ func _on_resume_pressed():
 func _on_next_level_pressed():
 	var UI = get_tree().get_first_node_in_group("UI")
 	UI.resume_game()
-	load_next_level()
+	var Level = get_tree().get_first_node_in_group("Level")
+	#print_debug(Level)
+	Level.load_next_level()
 	pass # Replace with function body.
 	
 func load_next_level():

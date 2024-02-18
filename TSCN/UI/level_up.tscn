@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkajes0imhptc"]
+
+[ext_resource type="Texture2D" uid="uid://dhem5p0ny6vp2" path="res://ART Assets/Level_1_templete.png" id="1_cnqsp"]
+[ext_resource type="Script" path="res://TSCN/UI/Button.gd" id="1_o1pad"]
+
+[node name="LevelUp" type="CanvasLayer"]
+layer = 10
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+custom_minimum_size = Vector2(1152.41, 705.38)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1, 0.92)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(700, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -266.0
+offset_right = 350.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 49
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(205, 505)
+layout_mode = 2
+script = ExtResource("1_o1pad")
+Skill = 1
+
+[node name="Layout" type="Sprite2D" parent="HBoxContainer/Button"]
+position = Vector2(103, 252.5)
+texture = ExtResource("1_cnqsp")

@@ -30,6 +30,7 @@ func pause_game():
 	# 实例化暂停菜单场景并添加到界面中
 	var pause_menu_instance = pause_menu_scene.instantiate()
 	add_child(pause_menu_instance)
+	
 	 # 禁用游戏中的各种活动
 	get_tree().paused = true
 

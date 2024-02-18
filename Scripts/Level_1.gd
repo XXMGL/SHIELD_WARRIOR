@@ -10,6 +10,7 @@ var LevelLength_Max :float
 var progress:float
 var WaveLength:float
 var WaveTimer:float
+@export var Level_Path:String
 @export var Waves: Array
 var WaveNum = 0
 var Spwaners = []
@@ -98,7 +99,9 @@ func _on_progress_value_changed(value):
 	LevelIndicator.position.x = target_x
 	pass
 	
-
+func load_next_level():
+	
+	get_tree().change_scene_to_file(Level_Path)
 		
 
 

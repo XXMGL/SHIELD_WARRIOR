@@ -399,8 +399,9 @@ _data = {
 "Run": SubResource("Animation_hqsjl")
 }
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" groups=["Level"]]
 script = ExtResource("1_am18v")
+Level_Path = "res://TSCN/Scene/default_scene.tscn"
 Waves = [30, 30, 30]
 
 [node name="TileMap" type="TileMap" parent="."]

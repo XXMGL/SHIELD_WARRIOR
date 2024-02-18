@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bawemh5j3xama"]
+
+[ext_resource type="Script" path="res://Scripts/Skills/SkillManager.gd" id="1_nq2dk"]
+[ext_resource type="PackedScene" uid="uid://dwugbvw55tef3" path="res://TSCN/Player/Skills/shards_shoot_skills.tscn" id="2_05nwr"]
+
+[node name="SkillManager" type="Node"]
+script = ExtResource("1_nq2dk")
+
+[node name="ShardsShootSkills" parent="." instance=ExtResource("2_05nwr")]
