@@ -21,6 +21,7 @@ var parry_timer = 0.0 # 用于控制玩家状态切换
 var parry_CountDown = 0.0 # 用于控制举盾cd
 var bullet_1_tscn = preload("res://TSCN/Bullet/bullet_R_1.tscn") # 预加载子弹类型1
 var bullet_1s_tscn = preload("res://TSCN/Bullet/bullet_R_1s.tscn") # 预加载子弹类型1s
+var bullet_prefab
 var CanPreciseParry = false # 玩家一次举盾进行精确弹反，只能反弹一次特殊子弹
 var canPary = true
 var isParring = false
@@ -43,7 +44,13 @@ var IndicatorDirection
 
 signal Route_Change
 #技能组
+#1 Shards_Shoot
 var Shards_Shoot_enabled : bool = false
+var Shards_Acount = 1
+
+#2 Reposition
+var Reposition_enabled : bool = false
+var Target_Enemy
 
 func _ready():
 	stamina = Max_stamina
@@ -53,11 +60,16 @@ func _ready():
 	StaminaBar.init_value(stamina)
 	HealthBar.init_value(health)
 	Indicator = $Indicator
+	bullet_prefab = bullet_1_tscn
 	pass
 
 
 func _process(delta):
 	#print_debug(global_position)
+	#print_debug(Shards_Shoot_enabled)
+	#print_debug(get_closest_node_in_group("Enemies"))
+	if Reposition_enabled == true:
+		Target_Enemy = get_closest_node_in_group("Enemies")
 	#获取玩家鼠标位置
 	mouse_global_pos = get_global_mouse_position()
 	IndicatorDirection = (mouse_global_pos - global_position).normalized()
@@ -167,7 +179,7 @@ func _CharacterDetection():
 	# 目前只用作碰撞检测时识别node
 	pass
 	
-func _ShootBullet(Bullet):
+func _ShootBullet(Bullet,DamageScale):
 	var bullet = Bullet.instantiate()
 	#get_parent().add_child(bullet) 不能用，因为同时检测碰撞并Add child会报错
 	get_parent().call_deferred("add_child", bullet)
@@ -175,6 +187,7 @@ func _ShootBullet(Bullet):
 	#print_debug(offset_angle)
 	var original_direction = IndicatorDirection
 	var rotated_direction = original_direction.rotated(offset_angle)
+	bullet.Damage *= DamageScale
 	bullet.position = $SHIELD.global_position
 	bullet.rotation = Indicator.rotation
 	bullet.MoveDirection = rotated_direction
@@ -195,19 +208,44 @@ func _OutofStamina():
 
 func _on_shield_body_entered(body):
 	if body.has_method("_BulletDetection"):
-		if Player_State == state.STATE_PARRYING:
-			_ShootBullet(bullet_1_tscn)
-		# 前摇阶段进行精确弹反提前退出STATE_PARRYSTART进入Parrying状态
-		elif Player_State == state.STATE_PARRYSTART:
-			_ShootBullet(bullet_1s_tscn)
-			Player_State = state.STATE_PARRYING
-		# 后摇状态只能发射一次特殊子弹，但是不会提前退出STATE_PARRYEND状态
-		elif Player_State == state.STATE_PARRYEND:
-			if CanPreciseParry == true:
-				_ShootBullet(bullet_1s_tscn)
-				CanPreciseParry = false
+		if Player_State == state.STATE_PARRYING or Player_State == state.STATE_PARRYSTART or Player_State == state.STATE_PARRYEND:
+			match Player_State:
+				state.STATE_PARRYING:
+					bullet_prefab = bullet_1_tscn
+					pass
+				state.STATE_PARRYSTART:
+					bullet_prefab = bullet_1s_tscn
+					Player_State = state.STATE_PARRYING
+					pass
+				state.STATE_PARRYEND:
+					if CanPreciseParry == true:
+						bullet_prefab = bullet_1s_tscn
+						CanPreciseParry = false
+					pass
+			if Shards_Shoot_enabled == false:
+				_ShootBullet(bullet_prefab , 1)
+			elif Shards_Shoot_enabled == true:
+				for i in Shards_Acount:
+					_ShootBullet(bullet_prefab , 0.3)
+				pass
+			pass
 		elif Player_State == state.STATE_MOVE:
 			Player_State = state.STATE_HURT
 			Recieved_damge = body._BulletDetection()
 			pass
 
+
+func get_closest_node_in_group(group_name: String) -> Node2D:
+	var mouse_position = get_global_mouse_position()
+	var closest_distance = INF  # 初始化一个非常大的值
+	var closest_node = null
+	var group_nodes = get_tree().get_nodes_in_group(group_name)
+	if group_nodes != null:
+		for node in group_nodes:
+			if node is Node2D: 
+				var node_position = node.global_position
+				var distance = mouse_position.distance_to(node_position)
+				if distance < closest_distance:
+					closest_distance = distance
+					closest_node = node
+	return closest_node
