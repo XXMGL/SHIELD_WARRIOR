@@ -18,7 +18,7 @@ var bullet2_tscn = preload("res://TSCN/Bullet/bullet_2.tscn")
 var Shoot_timer = 0.0
 
 #敌人类型
-enum Types {Enemy1, Enemy2, Enemy3, Enemy4}
+enum Types {Enemy1, Enemy2, Enemy3, Enemy4, Enemy5}
 @export var Enemy_type = Types.Enemy1
 
 #Timer
@@ -36,6 +36,8 @@ func _ready():
 		Types.Enemy3:
 			pass
 		Types.Enemy4:
+			pass
+		Types.Enemy5:
 			pass
 	pass # Replace with function body.
 
@@ -64,7 +66,13 @@ func _process(delta):
 				_ShootBullet_Enemy4()
 				Shoot_timer = 0
 			pass
-			
+		Types.Enemy5:
+			EnemyAnimation.play("Fly")
+			Shoot_timer += delta
+			if Shoot_timer >= ShootDuration:
+				_ShootBullet_Enemy5()
+				Shoot_timer = 0
+			pass	
 	if Health <= 0:
 		queue_free()  # 销毁
 	
@@ -91,6 +99,10 @@ func _physics_process(delta):
 			pass
 		Types.Enemy4:
 			rotate(0.3)
+			velocity = wander_direction.direction * move_speed
+			pass
+			
+		Types.Enemy5:
 			velocity = wander_direction.direction * move_speed
 			pass
 	move_and_slide()	
@@ -131,6 +143,32 @@ func _ShootBullet_Enemy4():
 	bullet2.position = get_node("bullet_spawner_2").global_position
 	bullet2.rotation = atan2(bullet2Direction.x, bullet2Direction.y)
 	bullet2.MoveDirection = bullet2Direction
+	
+func _ShootBullet_Enemy5():
+	var bullet1 = bullet2_tscn.instantiate()
+	var bullet2 = bullet2_tscn.instantiate()
+	var bullet3 = bullet2_tscn.instantiate()
+	
+	get_parent().add_child(bullet1)
+	get_parent().add_child(bullet2)
+	get_parent().add_child(bullet3)
+	
+	var bullet1Direction = (get_node("BulletSpawner").global_position - global_position).normalized()
+	var bullet2Direction = (get_node("BulletSpawner2").global_position - global_position).normalized()
+	var bullet3Direction = (get_node("BulletSpawner3").global_position - global_position).normalized()
+	
+	bullet1.position = get_node("BulletSpawner").global_position
+	bullet1.rotation = atan2(bullet1Direction.x,bullet1Direction.y)
+	bullet1.MoveDirection = bullet1Direction
+	
+	bullet2.position = get_node("BulletSpawner2").global_position
+	bullet2.rotation = atan2(bullet2Direction.x,bullet2Direction.y)
+	bullet2.MoveDirection = bullet2Direction
+	
+	bullet3.position = get_node("BulletSpawner3").global_position
+	bullet3.rotation = atan2(bullet3Direction.x,bullet3Direction.y)
+	bullet3.MoveDirection = bullet3Direction
+	
 	
 func _EnemyDetection():
 	pass
