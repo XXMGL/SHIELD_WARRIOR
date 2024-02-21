@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwugbvw55tef3"]
+
+[ext_resource type="Script" path="res://Scripts/Skills/ShardsShootSkill.gd" id="1_5q5gv"]
+
+[node name="ShardsShootSkills" type="Node"]
+script = ExtResource("1_5q5gv")

@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5t1yksxxjvd4"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_lvq8l"]
+[ext_resource type="Texture2D" uid="uid://88d6he6g3v8i" path="res://ART Assets/m18_Fly.png" id="1_tlib0"]
+[ext_resource type="Texture2D" uid="uid://dona67h6fl3gk" path="res://ART Assets/shape.png" id="2_b223m"]
+[ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_eeae5"]
+
+[sub_resource type="Animation" id="Animation_xluoh"]
+resource_name = "Fly"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_e1mw7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vu03j"]
+_data = {
+"Fly": SubResource("Animation_xluoh"),
+"RESET": SubResource("Animation_e1mw7")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mbg5g"]
+radius = 31.2888
+height = 75.5246
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oirpk"]
+radius = 3.0
+height = 10.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_lvq8l")
+move_speed = 200
+Health = 3
+ShootDuration = 1.2
+wander_direction = NodePath("Wander")
+group_name = "Route1"
+Enemy_type = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vu03j")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_tlib0")
+hframes = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(0, 23.3333)
+texture = ExtResource("2_b223m")
+
+[node name="Wander" parent="." instance=ExtResource("3_eeae5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 0)
+scale = Vector2(0.92685, 0.547667)
+shape = SubResource("CapsuleShape2D_mbg5g")
+
+[node name="BulletSpawner" type="Area2D" parent="."]
+position = Vector2(-25, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSpawner"]
+shape = SubResource("CapsuleShape2D_oirpk")
+
+[node name="BulletSpawner3" type="Area2D" parent="."]
+position = Vector2(-21, -10)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSpawner3"]
+shape = SubResource("CapsuleShape2D_oirpk")
+
+[node name="BulletSpawner2" type="Area2D" parent="."]
+position = Vector2(-21, 10)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSpawner2"]
+shape = SubResource("CapsuleShape2D_oirpk")

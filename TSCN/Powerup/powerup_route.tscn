@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ypt4tfxejfsk"]
+
+[node name="PowerupRoute" type="CanvasLayer"]
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["PowerupRoute"]]
+position = Vector2(724, 417)
+
+[node name="Marker2D2" type="Marker2D" parent="." groups=["PowerupRoute"]]
+position = Vector2(545, 257)
+
+[node name="Marker2D3" type="Marker2D" parent="." groups=["PowerupRoute"]]
+position = Vector2(345, 404)
+
+[node name="Marker2D4" type="Marker2D" parent="." groups=["PowerupRoute"]]
+position = Vector2(544, 565)

@@ -22,7 +22,7 @@ func _ready():
 func _process(delta):
 	match OriginFrom:
 		Origin.From_Enemy:
-			_FoundTarget(player_root)
+			_FoundTarget()
 			x_direction = -1
 			x_velocity = x_direction * move_speed
 			y_velocity = y_direction * approach_speed
@@ -32,8 +32,8 @@ func _process(delta):
 		Origin.From_Player:
 			pass
 	
-func _FoundTarget(TargetPath):
-	var target = get_parent().get_node(TargetPath)
+func _FoundTarget():
+	var target = get_tree().get_first_node_in_group("Player")
 	if target != null:
 		var target_position = target.global_position
 		if target_position.y > global_position.y:
@@ -41,7 +41,7 @@ func _FoundTarget(TargetPath):
 		elif  target_position.y < global_position.y:
 			y_direction = -1
 		else:
-			y_direction = 0
+			y_direction = randf_range(-1, 1)  # 随机选择 -1、0、1
 	else:
 		pass
 		

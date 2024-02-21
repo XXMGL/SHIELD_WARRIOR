@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://d2x6f6qphmp8o"]
+[gd_scene load_steps=28 format=3 uid="uid://d2x6f6qphmp8o"]
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_xj0ro"]
+[ext_resource type="Texture2D" uid="uid://ex1yede4oqr3" path="res://ART Assets/sprites/shield_3.png" id="2_3iyvm"]
 [ext_resource type="Texture2D" uid="uid://cqv15mg4h7e38" path="res://ART Assets/sprites/dead_1.png" id="2_11tcf"]
 [ext_resource type="Texture2D" uid="uid://dona67h6fl3gk" path="res://ART Assets/shape.png" id="2_k6up6"]
 [ext_resource type="Texture2D" uid="uid://b4x2j0ngnbyun" path="res://ART Assets/sprites/idle_1.png" id="2_la00f"]
@@ -21,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://btif6jd3u2yjk" path="res://ART Assets/sprites/run_3.png" id="11_mld1d"]
 [ext_resource type="Texture2D" uid="uid://bth80rtj7vapx" path="res://ART Assets/sprites/run_4.png" id="12_8bfn0"]
 [ext_resource type="Texture2D" uid="uid://ddmstp5ceaooo" path="res://ART Assets/sprites/run_5.png" id="13_b34lq"]
+[ext_resource type="PackedScene" uid="uid://cbn7nujagg22q" path="res://TSCN/Player/Skills/wing_man.tscn" id="23_2qvxq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6aij"]
 radius = 9.88873
@@ -34,10 +36,10 @@ height = 36.7574
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_gdi7q")
+"texture": ExtResource("3_go87i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_go87i")
+"texture": ExtResource("2_3iyvm")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_54c16")
@@ -47,7 +49,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"ParryEnd",
-"speed": 24.0
+"speed": 32.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -57,10 +59,10 @@ animations = [{
 "texture": ExtResource("5_54c16")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_go87i")
+"texture": ExtResource("2_3iyvm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_gdi7q")
+"texture": ExtResource("3_go87i")
 }],
 "loop": false,
 "name": &"ParryStart",
@@ -129,8 +131,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Character" type="CharacterBody2D"]
-position = Vector2(537, 487)
+[node name="Character" type="CharacterBody2D" groups=["Player"]]
+z_index = 5
+position = Vector2(100, 400)
 scale = Vector2(2, 2)
 collision_layer = 9
 collision_mask = 16
@@ -172,13 +175,17 @@ texture = ExtResource("2_k6up6")
 position = Vector2(-13.4553, 0)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_b7dcl")
-animation = &"Parrying"
+animation = &"ParryEnd"
+frame = 3
+frame_progress = 1.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.99999, -3.00001)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mve0x")
-animation = &"idle"
+animation = &"running"
+frame = 1
+frame_progress = 0.941704
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -206,5 +213,12 @@ modulate = Color(0, 1, 0, 1)
 position = Vector2(26.004, -0.875174)
 scale = Vector2(0.100309, 0.0897604)
 texture = ExtResource("3_ixepo")
+
+[node name="WingMan" parent="." instance=ExtResource("23_2qvxq")]
+position = Vector2(0, 45)
+
+[node name="WingMan2" parent="." instance=ExtResource("23_2qvxq")]
+position = Vector2(0, -43.5)
+radius = 60.0
 
 [connection signal="body_entered" from="SHIELD" to="." method="_on_shield_body_entered"]
