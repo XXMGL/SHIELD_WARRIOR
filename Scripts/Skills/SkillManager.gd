@@ -5,11 +5,13 @@ var player
 #@onready var Skill1 = preload("res://TSCN/Player/Skills/shards_shoot_skills.tscn")
 @onready var Skill1 = $ShardsShootSkills
 @onready var Skill2 = $Reposition
+@onready var Skill3 = preload("res://TSCN/Player/Skills/wing_man.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")
 	skills.append(Skill1)
 	skills.append(Skill2)
+	skills.append(Skill3)
 	#skills = []
 	pass # Replace with function body.
 
@@ -25,3 +27,7 @@ func _process(delta):
 	#print_debug(skills)
 	activate_skill(0)
 	activate_skill(1)
+	
+func _active_skill3():
+	
+	pass

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdaml3cu45p8m"]
+
+[ext_resource type="Script" path="res://Scripts/bullet_2.gd" id="1_yfbkf"]
+[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="2_8sj6e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
+radius = 27.7609
+height = 68.5858
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akmr7"]
+radius = 2.12766
+height = 50.0001
+
+[node name="Bullet_R_1" type="CharacterBody2D"]
+scale = Vector2(2.04, 1.34144)
+collision_layer = 18
+collision_mask = 0
+script = ExtResource("1_yfbkf")
+move_speed = 550
+OriginFrom = 1
+canRunThrough = true
+Reposition = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.85098, 0, 0.894118, 1)
+position = Vector2(-0.980392, 3.72734)
+rotation = 3.14159
+scale = Vector2(1.87821, 2.53524)
+texture = ExtResource("2_8sj6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.88235, 0)
+scale = Vector2(0.194126, 0.383541)
+shape = SubResource("CapsuleShape2D_ekmi8")
+
+[node name="Detector" type="Area2D" parent="."]
+position = Vector2(6.37255, 0)
+scale = Vector2(1.47059, 1.02982)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2(-4.33333, 0)
+scale = Vector2(3.32981, 0.512968)
+shape = SubResource("CapsuleShape2D_akmr7")
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

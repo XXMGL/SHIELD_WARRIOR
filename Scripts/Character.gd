@@ -187,6 +187,7 @@ func _ShootBullet(Bullet,DamageScale):
 	#print_debug(offset_angle)
 	var original_direction = IndicatorDirection
 	var rotated_direction = original_direction.rotated(offset_angle)
+	bullet.Reposition_Target = Target_Enemy
 	bullet.Damage *= DamageScale
 	bullet.position = $SHIELD.global_position
 	bullet.rotation = Indicator.rotation
@@ -212,6 +213,7 @@ func _on_shield_body_entered(body):
 			match Player_State:
 				state.STATE_PARRYING:
 					bullet_prefab = bullet_1_tscn
+					Trigger_WM()
 					pass
 				state.STATE_PARRYSTART:
 					bullet_prefab = bullet_1s_tscn
@@ -249,3 +251,12 @@ func get_closest_node_in_group(group_name: String) -> Node2D:
 					closest_distance = distance
 					closest_node = node
 	return closest_node
+	
+func Trigger_WM():
+	var childs = get_children()
+	var WMs = []
+	for child in childs:
+		if child.is_in_group("WM"):
+			#print_debug(child)
+			child.ShootBullet_WM()
+	pass
