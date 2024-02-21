@@ -1,7 +1,8 @@
 extends Node2D
  
 var group_name : String
-var Enemy
+var object
+var Powerup
  
 var positions : Array 
 var temp_positions : Array
@@ -10,9 +11,10 @@ var current_position : Marker2D
 var direction : Vector2 = Vector2.ZERO
  
 func _ready():
-	Enemy = get_parent()
-	if Enemy != null:
-		group_name = Enemy.group_name
+	object = get_parent()
+	if object != null:
+		group_name = object.group_name
+	
 	Character.connect("Route_Change",Callable(self,"_On_Route_Changed"))
 	positions = get_tree().get_nodes_in_group(group_name)
 	_get_positions()

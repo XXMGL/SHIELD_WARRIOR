@@ -8,8 +8,8 @@ radius = 23.7746
 height = 63.3989
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akmr7"]
-radius = 6.38297
-height = 50.0001
+radius = 9.57446
+height = 77.778
 
 [node name="Bullet1" type="CharacterBody2D"]
 scale = Vector2(0.440001, 0.359999)
@@ -22,8 +22,8 @@ modulate = Color(1, 0, 0, 1)
 texture = ExtResource("2_xpg87")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-31.8181, 0)
-scale = Vector2(0.573568, 0.636996)
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(-1.81326, -1.15812)
 shape = SubResource("CapsuleShape2D_ekmi8")
 
 [node name="Detector" type="Area2D" parent="."]
@@ -31,8 +31,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2(9.09087, -1.42109e-14)
-scale = Vector2(4.27272, 1)
+scale = Vector2(1.45455, 0.340427)
 shape = SubResource("CapsuleShape2D_akmr7")
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

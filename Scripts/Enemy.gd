@@ -20,6 +20,8 @@ var Shoot_timer = 0.0
 #敌人类型
 enum Types {Enemy1, Enemy2, Enemy3, Enemy4, Enemy5}
 @export var Enemy_type = Types.Enemy1
+@export var suicide_attacker = false
+@export var suicide_attacker_damage = 0
 
 #Timer
 var Move_Timer = 0.0
@@ -59,6 +61,7 @@ func _process(delta):
 				Shoot_timer = 0
 			pass
 		Types.Enemy3:
+			#敌人动画
 			pass
 		Types.Enemy4:
 			Shoot_timer += delta
@@ -96,6 +99,7 @@ func _physics_process(delta):
 			velocity = wander_direction.direction * move_speed
 			pass
 		Types.Enemy3:
+			velocity = wander_direction.direction * move_speed
 			pass
 		Types.Enemy4:
 			rotate(0.3)
@@ -181,4 +185,15 @@ func _change_route(routeName):
 	group_name = routeName
 	Character.emit_signal("Route_Change")
 	#print_debug("Change Route to: ", group_name)
+
+func _on_detector_body_entered(body):
+	if body.has_method("get_name") and body.get_name() == "Eage":
+		queue_free()  # 销毁子弹
+	if body.has_method("_CharacterDetection"):
+		queue_free()  # 销毁子弹
+		
+func _SuicideAttackerDamage():
+	return suicide_attacker_damage
+		
+
 	

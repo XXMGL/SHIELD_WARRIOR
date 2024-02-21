@@ -235,6 +235,35 @@ func _on_shield_body_entered(body):
 			Player_State = state.STATE_HURT
 			Recieved_damge = body._BulletDetection()
 			pass
+	elif body.has_method("_EnemyDetection"):
+		print_debug("敌人3攻击了你")
+		if body.suicide_attacker:
+			if Player_State == state.STATE_PARRYING or Player_State == state.STATE_PARRYSTART or Player_State == state.STATE_PARRYEND:
+				match Player_State:
+					state.STATE_PARRYING:
+						bullet_prefab = bullet_1_tscn
+						Trigger_WM()
+						pass
+					state.STATE_PARRYSTART:
+						bullet_prefab = bullet_1s_tscn
+						Player_State = state.STATE_PARRYING
+						pass
+					state.STATE_PARRYEND:
+						if CanPreciseParry == true:
+							bullet_prefab = bullet_1s_tscn
+							CanPreciseParry = false
+						pass
+				if Shards_Shoot_enabled == false:
+					_ShootBullet(bullet_prefab , 1)
+				elif Shards_Shoot_enabled == true:
+					for i in Shards_Acount:
+						_ShootBullet(bullet_prefab , 0.3)
+					pass
+				pass
+			elif Player_State == state.STATE_MOVE:
+				Player_State = state.STATE_HURT
+				Recieved_damge = body._SuicideAttackerDamage()
+				pass
 
 
 func get_closest_node_in_group(group_name: String) -> Node2D:

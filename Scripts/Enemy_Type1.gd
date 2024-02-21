@@ -76,3 +76,6 @@ func _EnemyDetection():
 
 func _on_bullet_spawner_body_entered(body):
 	pass
+
+
+	

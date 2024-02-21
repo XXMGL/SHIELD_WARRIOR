@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dp1hy60tuuynb"]
+[gd_scene load_steps=19 format=3 uid="uid://dp1hy60tuuynb"]
 
 [ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_lb5gq"]
 [ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_uf3ac"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/Enemy/Spawner/monster_spawner.tscn" id="5_8goud"]
 [ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="6_ud1p6"]
 [ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="7_1y1ny"]
+[ext_resource type="PackedScene" uid="uid://dj1afw7pe6sy6" path="res://TSCN/Enemy/Route/Route3.tscn" id="7_30e18"]
 [ext_resource type="PackedScene" uid="uid://bawemh5j3xama" path="res://TSCN/Player/SkillManager.tscn" id="7_mainc"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="7_mpvug"]
 [ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="8_t7we2"]
@@ -468,14 +469,16 @@ shape = SubResource("RectangleShape2D_g6eas")
 
 [node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 4
+SpawnEnemy = 2
 SpawnInterval = 0.4
 SpawnAmout = 1
+Enemy_Route = "Route3"
 
 [node name="MonsterSpawner2" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_8goud")]
 SpawnEnemy = 2
 SpawnInterval = 0.4
 SpawnAmout = 2
-Enemy_Route = "Route2"
+Enemy_Route = "Route3"
 
 [node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 4
@@ -516,6 +519,9 @@ SpawnAmout = 1
 visible = false
 
 [node name="Route2" parent="." instance=ExtResource("7_1y1ny")]
+visible = false
+
+[node name="Route3" parent="." instance=ExtResource("7_30e18")]
 visible = false
 
 [node name="Enemies" type="Node" parent="." groups=["Enemies"]]
