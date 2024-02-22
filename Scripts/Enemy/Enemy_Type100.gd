@@ -49,6 +49,7 @@ var SC_SM3 = 5
 
 #移动模式2
 
+var isdead = false
 
 signal Route_Change_Signal
 
@@ -59,6 +60,7 @@ func _ready():
 	Boss_Timer = 0
 	Health = MaxHealth
 	HPBar.init_value(Health)
+	isdead = false
 	pass
 
 func _physics_process(delta):
@@ -104,7 +106,8 @@ func _physics_process(delta):
 					
 	move_and_slide()	
 				
-	if Health <= 0:
+	if Health <= 0 and isdead == false:
+		isdead = true
 		BossAnimation.play("die")
 		await BossAnimation.animation_finished
 		queue_free()  # 销毁

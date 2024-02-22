@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://buv885dhmnd04"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_qgn7n"]
+[ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_ecx0a"]
 [ext_resource type="Texture2D" uid="uid://bg7arnchdahij" path="res://ART Assets/monster_16.png" id="2_qbc50"]
 [ext_resource type="Texture2D" uid="uid://dona67h6fl3gk" path="res://ART Assets/shape.png" id="3_4lnoo"]
 
@@ -54,7 +54,7 @@ _data = {
 position = Vector2(1149, -4)
 collision_layer = 2
 collision_mask = 48
-script = ExtResource("1_qgn7n")
+script = ExtResource("1_ecx0a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)

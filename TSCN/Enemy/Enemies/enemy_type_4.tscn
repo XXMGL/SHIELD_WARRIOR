@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4gln86iwnr31"]
 
 [ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="1_dylub"]
-[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ngl1t"]
+[ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_i2tgp"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="2_itd6y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hrins"]
@@ -16,9 +16,9 @@ radius = 10.8108
 [node name="enemy_type_4" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_ngl1t")
+script = ExtResource("1_i2tgp")
 ShootDuration = 0.15
-wander_direction = NodePath("Wonder")
+wander_direction = NodePath("Wander")
 group_name = "EnemyType4"
 Enemy_type = 3
 
@@ -40,7 +40,7 @@ shape = SubResource("CircleShape2D_hrins")
 position = Vector2(-15, 0)
 shape = SubResource("CircleShape2D_ew82i")
 
-[node name="Wonder" parent="." instance=ExtResource("2_itd6y")]
+[node name="Wander" parent="." instance=ExtResource("2_itd6y")]
 position = Vector2(15, 0)
 
 [node name="BulletSpawners" type="Node2D" parent="."]

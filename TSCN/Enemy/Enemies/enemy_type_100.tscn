@@ -454,9 +454,8 @@ ShootChance_SM1 = 8
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -13.5523)
 sprite_frames = SubResource("SpriteFrames_25imx")
-animation = &"die"
-frame = 18
-frame_progress = 1.0
+animation = &"fly"
+frame_progress = 0.427388
 
 [node name="Wander" parent="." instance=ExtResource("3_epibi")]
 

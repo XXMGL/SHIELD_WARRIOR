@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c5t1yksxxjvd4"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_lvq8l"]
 [ext_resource type="Texture2D" uid="uid://88d6he6g3v8i" path="res://ART Assets/m18_Fly.png" id="1_tlib0"]
+[ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_uadow"]
 [ext_resource type="Texture2D" uid="uid://dona67h6fl3gk" path="res://ART Assets/shape.png" id="2_b223m"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_eeae5"]
 
@@ -53,7 +53,7 @@ height = 10.0
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_lvq8l")
+script = ExtResource("1_uadow")
 move_speed = 200
 Health = 3
 ShootDuration = 1.2
