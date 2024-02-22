@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1hf4asyqmdma"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy_Type100.gd" id="1_7vqtj"]
+[ext_resource type="Script" path="res://Scripts/Enemy/Enemy_Type100.gd" id="1_7vqtj"]
 [ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="2_k8ps3"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_epibi"]
 [ext_resource type="PackedScene" uid="uid://4p5bpot3wv21" path="res://TSCN/UI/health_bar.tscn" id="4_kqtam"]

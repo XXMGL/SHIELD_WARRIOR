@@ -64,6 +64,6 @@ toggle_mode = true
 text = "NEXT LEVEL"
 icon_alignment = 1
 
-[connection signal="pressed" from="RESUME" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="RESUME" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="RESUME" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="NEXT LEVEL" to="." method="_on_next_level_pressed"]

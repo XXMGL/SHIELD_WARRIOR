@@ -20,8 +20,17 @@ var Spwaners = []
 var SpawnersForThisWave = []
 var WaveEnd = false
 
+#Wave间结算
+var PL_bw
+var PL_aw
+var PL_N
+
+#关卡间结算
+
 
 func _ready():
+	PL_bw = Character.LevelNum
+	PL_aw = Character.LevelNum
 	WaveNum = 0
 	progress = 0
 	Level_Timer.start()
@@ -107,6 +116,15 @@ func _on_progress_value_changed(value):
 func load_next_level():
 	
 	get_tree().change_scene_to_file(Level_Path)
+	
+func Level_Up_WaveCheck():
+	PL_aw = Character.LevelNum
+	var Level_Up_Window_prefab = preload("res://TSCN/UI/level_up.tscn")
+	var Level_Up_Window = Level_Up_Window_prefab.instantiate()
+	add_child(Level_Up_Window)
+	# 禁用游戏中的各种活动
+	get_tree().paused = true	
+	pass
 		
 
 

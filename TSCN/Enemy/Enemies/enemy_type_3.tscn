@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dgfrbi5gvr7or"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_12515"]
+[ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_12515"]
 [ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_ygchk"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_dmncn"]
 
