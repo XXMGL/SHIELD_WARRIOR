@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cms7ypqa7gt5m"]
+
+[ext_resource type="Script" path="res://exp.gd" id="1_fqck6"]
+[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_hncvk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bu7j5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b48sj"]
+
+[node name="exp_1" type="CharacterBody2D"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(537, 326)
+scale = Vector2(12.8426, 12.8426)
+script = ExtResource("1_fqck6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.160001, 0.160001)
+shape = SubResource("CapsuleShape2D_bu7j5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.807843, 0, 1)
+scale = Vector2(0.0400014, 0.0400014)
+texture = ExtResource("2_hncvk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.12, 0.12)
+shape = SubResource("CapsuleShape2D_b48sj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
