@@ -38,6 +38,6 @@ func _get_next_position():
 	
 func _On_Route_Changed():
 	#print("route changed")
-	group_name = Enemy.group_name
+	group_name = object.group_name
 	positions = get_tree().get_nodes_in_group(group_name)
 	pass
