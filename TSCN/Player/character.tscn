@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://d2x6f6qphmp8o"]
+[gd_scene load_steps=42 format=3 uid="uid://d2x6f6qphmp8o"]
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_xj0ro"]
 [ext_resource type="Texture2D" uid="uid://ex1yede4oqr3" path="res://ART Assets/sprites/shield_3.png" id="2_3iyvm"]
 [ext_resource type="Texture2D" uid="uid://cqv15mg4h7e38" path="res://ART Assets/sprites/dead_1.png" id="2_11tcf"]
 [ext_resource type="Texture2D" uid="uid://dona67h6fl3gk" path="res://ART Assets/shape.png" id="2_k6up6"]
 [ext_resource type="Texture2D" uid="uid://b4x2j0ngnbyun" path="res://ART Assets/sprites/idle_1.png" id="2_la00f"]
+[ext_resource type="Texture2D" uid="uid://c4v5yxc7cr7yh" path="res://ART Assets/hit/hit1.png" id="3_6a3bn"]
 [ext_resource type="Texture2D" uid="uid://b4anqpxrky1jj" path="res://ART Assets/sprites/shield_4.png" id="3_go87i"]
 [ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="3_ixepo"]
 [ext_resource type="Texture2D" uid="uid://28l57ahr080g" path="res://ART Assets/sprites/dead_2.png" id="3_vautv"]
@@ -16,12 +17,22 @@
 [ext_resource type="PackedScene" uid="uid://4p5bpot3wv21" path="res://TSCN/UI/health_bar.tscn" id="5_ux7kb"]
 [ext_resource type="Texture2D" uid="uid://mmwja7cy3o5x" path="res://ART Assets/sprites/shield_1.png" id="6_ki5ed"]
 [ext_resource type="Texture2D" uid="uid://b428rol75yhdq" path="res://ART Assets/sprites/idle_2.png" id="7_qg6n2"]
+[ext_resource type="Texture2D" uid="uid://dufh71moff1b3" path="res://ART Assets/shiny/shiny1.png" id="8_c1ebf"]
 [ext_resource type="Texture2D" uid="uid://co5y0gq6fkgjg" path="res://ART Assets/sprites/idle_3.png" id="8_hxfy4"]
 [ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="9_a7756"]
+[ext_resource type="Texture2D" uid="uid://d2bgbuphookgx" path="res://ART Assets/shiny/shiny2.png" id="9_amjf2"]
 [ext_resource type="Texture2D" uid="uid://jsrnp5ej5jql" path="res://ART Assets/sprites/run_2.png" id="10_jccdn"]
+[ext_resource type="Texture2D" uid="uid://b14tkjxcd3x0w" path="res://ART Assets/shiny/shiny3.png" id="10_u80mt"]
+[ext_resource type="Texture2D" uid="uid://ynxkegjpy8l0" path="res://ART Assets/shiny/shiny4.png" id="11_kalpq"]
 [ext_resource type="Texture2D" uid="uid://btif6jd3u2yjk" path="res://ART Assets/sprites/run_3.png" id="11_mld1d"]
 [ext_resource type="Texture2D" uid="uid://bth80rtj7vapx" path="res://ART Assets/sprites/run_4.png" id="12_8bfn0"]
+[ext_resource type="Texture2D" uid="uid://bb1pd27onhqmf" path="res://ART Assets/shiny/shiny5.png" id="12_gdgtl"]
 [ext_resource type="Texture2D" uid="uid://ddmstp5ceaooo" path="res://ART Assets/sprites/run_5.png" id="13_b34lq"]
+[ext_resource type="Texture2D" uid="uid://cii6dwvhi726k" path="res://ART Assets/shiny/shiny6.png" id="13_so4ab"]
+[ext_resource type="Texture2D" uid="uid://g1ohb14gtiac" path="res://ART Assets/shiny/shiny7.png" id="14_pyvlw"]
+[ext_resource type="Texture2D" uid="uid://b3erfi2bi5pm3" path="res://ART Assets/shiny/shiny8.png" id="15_w5lhg"]
+[ext_resource type="Texture2D" uid="uid://b88xnvt62wwf4" path="res://ART Assets/shiny/shiny9.png" id="16_6lima"]
+[ext_resource type="Texture2D" uid="uid://t2fdh1qv54hj" path="res://ART Assets/shiny/shiny10.png" id="17_30u5v"]
 [ext_resource type="Script" path="res://Scripts/exp/EXP_BAR.gd" id="22_e3qov"]
 [ext_resource type="PackedScene" uid="uid://cbn7nujagg22q" path="res://TSCN/Player/Skills/wing_man.tscn" id="23_2qvxq"]
 
@@ -35,6 +46,14 @@ height = 36.7574
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b7dcl"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6a3bn")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_go87i")
@@ -64,10 +83,40 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_go87i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_c1ebf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_amjf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u80mt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kalpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gdgtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_so4ab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pyvlw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_w5lhg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6lima")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_30u5v")
 }],
 "loop": false,
 "name": &"ParryStart",
-"speed": 32.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -180,9 +229,7 @@ texture = ExtResource("2_k6up6")
 position = Vector2(-13.4553, 0)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_b7dcl")
-animation = &"ParryEnd"
-frame = 3
-frame_progress = 1.0
+animation = &"ParryStart"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.99999, -3.00001)
