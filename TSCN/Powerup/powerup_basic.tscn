@@ -9,8 +9,10 @@ radius = 17.72
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_baes1"]
 
-[node name="PowerupBasic" type="CharacterBody2D"]
+[node name="PowerupBasic" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
 script = ExtResource("1_blsms")
+wander_direction = NodePath("Wander")
+group_name = "PowerupRoute"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
@@ -19,9 +21,11 @@ texture = ExtResource("2_u3p40")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ka37w")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Detector" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
 shape = SubResource("CircleShape2D_baes1")
 
 [node name="Wander" parent="." instance=ExtResource("3_fwgow")]
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

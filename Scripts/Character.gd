@@ -8,7 +8,8 @@ extends CharacterBody2D
 
 
 # 玩家移动
-@export var MOVE_SPEED = 200 #玩家的移动速度
+@export var Basic_movespeed = 200
+var MOVE_SPEED = 200 #玩家的移动速度
 @export var SlowDown = 1 #玩家减速系数
 var motion = Vector2() # 玩家移动方向向量
 
@@ -27,8 +28,11 @@ var canPary = true
 var isParring = false
 
 #玩家生命值与体力条
-@export var Max_stamina = 100 # 玩家最大体力值
-@export var Max_health = 100
+@export var Basic_health = 100
+@export var Basic_stamina = 100
+
+var Max_stamina = 100 # 玩家最大体力值
+var Max_health = 100
 var stamina = 100
 var health  = 100
 @export var stamina_Cousume = 20
@@ -53,6 +57,11 @@ var Reposition_enabled : bool = false
 var Target_Enemy
 
 func _ready():
+	MOVE_SPEED = Basic_movespeed
+	Max_health = Basic_health
+	Max_stamina = Basic_stamina
+
+	
 	stamina = Max_stamina
 	health = Max_health
 	canPary = true
