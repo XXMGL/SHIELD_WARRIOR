@@ -64,7 +64,7 @@ func ShootBullet_WM():
 	#print_debug(bullet.MoveDirection)
 	pass
 	
-func _CharacterDetection():
+func _WingManDetection():
 	# 目前只用作碰撞检测时识别node
 	pass
 

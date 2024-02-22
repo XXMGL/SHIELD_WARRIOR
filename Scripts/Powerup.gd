@@ -1,16 +1,33 @@
 extends CharacterBody2D
 
+var player
+
 enum PowerupType {recover_life_value, raise_stamina_limit, increase_movement_speed}
 @export var powerup_type = PowerupType.recover_life_value
 
+@export var life_recovery_value = 50
+@export var stamina_raise_value = 20
+@export var movespeed_increase_value = 20
+
 @export var wander_direction : Node2D
 @export var group_name : String
+@export var move_speed = 100 
 
 func _ready():
-	pass
+	player = get_tree().get_first_node_in_group("Player")
+	if player.health == player.Max_health:
+		var random_value = randi_range(0, 2)  # 生成0到2之间的随机整数
+		if random_value == PowerupType.recover_life_value:
+			random_value = randi_range(1, 2)  # 如果随机值是 recover_life_value，则重新生成随机数
+		powerup_type = random_value
+	else :
+		var random_value = randi_range(0, 2)  # 生成0到2之间的随机整数
+		powerup_type = random_value
 
 
 func _physics_process(delta):
+	velocity = wander_direction.direction * move_speed
+	move_and_slide()
 	pass
 	
 
@@ -21,4 +38,19 @@ func _on_detector_body_entered(body):
 		queue_free()
 
 func ActivePowerupFunc(body):
-	pass
+	match powerup_type:
+		PowerupType.recover_life_value:
+			body.health += life_recovery_value
+			if body.health > body.Max_health:
+				body.health = body.Max_health
+			print_debug("玩家生命")
+			pass
+		PowerupType.raise_stamina_limit:
+			body.Max_stamina += stamina_raise_value
+			print_debug("玩家精力上限")
+			pass
+		PowerupType.increase_movement_speed:
+			body.MOVE_SPEED += movespeed_increase_value
+			print_debug("玩家玩家移速")
+			pass
+

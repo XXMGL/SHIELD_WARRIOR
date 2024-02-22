@@ -53,6 +53,8 @@ func _on_detector_body_entered(body):
 		queue_free()  # 销毁子弹
 	if OriginFrom == Origin.From_Enemy and body.has_method("_CharacterDetection"):
 		queue_free()  # 销毁子弹
+	if OriginFrom == Origin.From_Enemy and body.has_method("_WingManDetection"):
+		queue_free() # 销毁
 	if OriginFrom == Origin.From_Player and body.has_method("_EnemyDetection"):
 		queue_free()  # 销毁子弹
 		
