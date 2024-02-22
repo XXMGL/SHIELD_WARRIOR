@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bngog8llj80fc"]
 
-[ext_resource type="Script" path="res://Scripts/MonsterSpawner.gd" id="1_ho5ja"]
+[ext_resource type="Script" path="res://Scripts/Enemy/MonsterSpawner.gd" id="1_ho5ja"]
 
 [node name="MonsterSpawner" type="CanvasLayer"]
 script = ExtResource("1_ho5ja")

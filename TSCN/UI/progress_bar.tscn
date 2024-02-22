@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwctiepk50p6s"]
 
-[ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="1_ga7j5"]
+[ext_resource type="Script" path="res://Scripts/UI/ProgressBar.gd" id="1_lgthl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27n5c"]
 
@@ -58,7 +58,7 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_27n5c")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fnfu1")
 value = 42.33
 show_percentage = false
-script = ExtResource("1_ga7j5")
+script = ExtResource("1_lgthl")
 
 [node name="ProgressBar2" type="ProgressBar" parent="."]
 z_index = -1

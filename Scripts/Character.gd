@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-@onready var StaminaBar = $CanvasLayer/StaminaBar
-@onready var HealthBar = $CanvasLayer/HealthBar
+@onready var StaminaBar = $CanvasLayer/Sprite2D/StaminaBar
+@onready var HealthBar = $CanvasLayer/Sprite2D/HealthBar
 @onready var ShieldSprite = $SHIELD/Sprite2D
 @onready var ShieldShadow = $SHIELD/Shadow
 @onready var CharacterAnimation = $Sprite2D
-
+@onready var Exp_Bar = $CanvasLayer/EXP/EXP_BAR
+@onready var Level_Num_InCanvas = $CanvasLayer/Sprite2D/LEVEL/LevelNum
+@onready var OnHit_Timer = $OnHit_Timer
 
 # 玩家移动
 @export var Basic_movespeed = 200
@@ -47,6 +49,12 @@ var IndicatorDirection
 @export var Shooting_Offset = 10
 
 signal Route_Change
+
+#角色等级系统
+var LevelNum = 1
+var Exp = 0
+var Exp_to_NextLevel = 15
+
 #技能组
 #1 Shards_Shoot
 var Shards_Shoot_enabled : bool = false
@@ -60,6 +68,8 @@ func _ready():
 	MOVE_SPEED = Basic_movespeed
 	Max_health = Basic_health
 	Max_stamina = Basic_stamina
+	Exp_Bar.max_value = Exp_to_NextLevel
+	Level_Num_InCanvas.text = str(LevelNum)
 
 	
 	stamina = Max_stamina
@@ -87,9 +97,12 @@ func _process(delta):
 	Indicator.global_position = global_position + IndicatorDirection*distance
 	Indicator.rotation = atan2(IndicatorDirection.y,IndicatorDirection.x)
 	
+	Exp_Bar.value = Exp
 	StaminaBar.value_1 = stamina
 	HealthBar.value_1 = health
+	
 	_MOVE(MOVE_SPEED / SlowDown) # 减速移动
+	_LevelingUp()
 	
 	if motion.length() >= 0.01:
 		CharacterAnimation.play("running")
@@ -245,7 +258,7 @@ func _on_shield_body_entered(body):
 			Recieved_damge = body._BulletDetection()
 			pass
 	elif body.has_method("_EnemyDetection"):
-		print_debug("敌人3攻击了你")
+		#print_debug("敌人3攻击了你")
 		if body.suicide_attacker:
 			if Player_State == state.STATE_PARRYING or Player_State == state.STATE_PARRYSTART or Player_State == state.STATE_PARRYEND:
 				match Player_State:
@@ -289,6 +302,15 @@ func get_closest_node_in_group(group_name: String) -> Node2D:
 					closest_distance = distance
 					closest_node = node
 	return closest_node
+
+func _LevelingUp():
+	if Exp >= Exp_to_NextLevel:
+		Exp = 0
+		LevelNum += 1
+		Exp_to_NextLevel += 15
+		Exp_Bar.max_value = Exp_to_NextLevel
+		Level_Num_InCanvas.text = str(LevelNum)
+	pass
 	
 func Trigger_WM():
 	var childs = get_children()

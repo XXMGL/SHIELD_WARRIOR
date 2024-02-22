@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="7_1y1ny"]
 [ext_resource type="PackedScene" uid="uid://dj1afw7pe6sy6" path="res://TSCN/Enemy/Route/Route3.tscn" id="7_30e18"]
 [ext_resource type="PackedScene" uid="uid://bawemh5j3xama" path="res://TSCN/Player/SkillManager.tscn" id="7_mainc"]
-[ext_resource type="Script" path="res://Scripts/UI.gd" id="7_mpvug"]
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="7_mpvug"]
 [ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="8_t7we2"]
 [ext_resource type="PackedScene" uid="uid://ypt4tfxejfsk" path="res://TSCN/Powerup/powerup_route.tscn" id="8_y8udy"]
 

@@ -42,7 +42,7 @@ func _process(delta):
 
 func _on_detector_body_entered(body):
 	if body.has_method("get_name") and body.get_name() == "Eage":
-		print_debug("11")
+		#print_debug("11")
 		queue_free()  # 销毁子弹
 	if OriginFrom == Origin.From_Enemy and body.has_method("_CharacterDetection"):
 		#print("11")

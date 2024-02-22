@@ -15,6 +15,7 @@ var x_direction:int
 
 var bullet1_tscn = preload("res://TSCN/Bullet/bullet_1.tscn")
 var bullet2_tscn = preload("res://TSCN/Bullet/bullet_2.tscn")
+var exp_tscn = preload("res://TSCN/Player/LevelUp/exp.tscn")
 var Shoot_timer = 0.0
 
 #敌人类型
@@ -27,6 +28,9 @@ enum Types {Enemy1, Enemy2, Enemy3, Enemy4, Enemy5}
 var Move_Timer = 0.0
 var Shoot_Timer = 0.0
 
+#exp
+@export var exp_Amout = 5
+@export var exp_Num = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -77,7 +81,7 @@ func _process(delta):
 				Shoot_timer = 0
 			pass	
 	if Health <= 0:
-		queue_free()  # 销毁
+		_Die()  # 销毁
 	
 func _physics_process(delta):
 	match Enemy_type:
@@ -194,6 +198,14 @@ func _on_detector_body_entered(body):
 		
 func _SuicideAttackerDamage():
 	return suicide_attacker_damage
+	
+func _Die():
+	for i in range(exp_Amout):
+		var exp = exp_tscn.instantiate()
+		get_parent().add_child(exp)
+		exp.position = global_position
+		exp.exp_Num = exp_Num
+	queue_free()
 		
 
 	

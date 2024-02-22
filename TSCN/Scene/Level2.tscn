@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/Enemy/Spawner/monster_spawner.tscn" id="4_3mg64"]
 [ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="5_hrr1j"]
 [ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="6_00omi"]
-[ext_resource type="Script" path="res://Scripts/UI.gd" id="7_wec02"]
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="7_wec02"]
 [ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="8_bjill"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdlto"]

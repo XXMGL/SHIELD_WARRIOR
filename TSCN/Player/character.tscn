@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d2x6f6qphmp8o"]
+[gd_scene load_steps=31 format=3 uid="uid://d2x6f6qphmp8o"]
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_xj0ro"]
 [ext_resource type="Texture2D" uid="uid://ex1yede4oqr3" path="res://ART Assets/sprites/shield_3.png" id="2_3iyvm"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://btif6jd3u2yjk" path="res://ART Assets/sprites/run_3.png" id="11_mld1d"]
 [ext_resource type="Texture2D" uid="uid://bth80rtj7vapx" path="res://ART Assets/sprites/run_4.png" id="12_8bfn0"]
 [ext_resource type="Texture2D" uid="uid://ddmstp5ceaooo" path="res://ART Assets/sprites/run_5.png" id="13_b34lq"]
+[ext_resource type="Script" path="res://Scripts/exp/EXP_BAR.gd" id="22_e3qov"]
 [ext_resource type="PackedScene" uid="uid://cbn7nujagg22q" path="res://TSCN/Player/Skills/wing_man.tscn" id="23_2qvxq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6aij"]
@@ -131,6 +132,12 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63iax"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50qxc"]
+size = Vector2(15.5799, 28.4409)
+
 [node name="Character" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 position = Vector2(100, 400)
@@ -187,35 +194,66 @@ frame_progress = 0.941704
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="StaminaBar" parent="CanvasLayer" instance=ExtResource("4_o3c40")]
-offset_left = 104.0
-offset_top = 55.0
-offset_right = 404.0
-offset_bottom = 85.0
-scale = Vector2(0.460754, 0.528625)
-
-[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("5_ux7kb")]
-offset_left = 104.0
-offset_top = 20.0
-offset_right = 404.0
-offset_bottom = 50.0
-scale = Vector2(0.462821, 0.647597)
-
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(60, 36)
+position = Vector2(60.5965, 59.0103)
 scale = Vector2(2.46386, 2.37543)
 texture = ExtResource("2_la00f")
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="StaminaBar" parent="CanvasLayer/Sprite2D" instance=ExtResource("4_o3c40")]
+offset_left = 17.8582
+offset_top = 7.99855
+offset_right = 317.858
+offset_bottom = 37.9986
+scale = Vector2(0.216704, 0.248625)
+
+[node name="HealthBar" parent="CanvasLayer/Sprite2D" instance=ExtResource("5_ux7kb")]
+offset_left = 17.8582
+offset_top = -6.73562
+offset_right = 317.858
+offset_bottom = 23.2644
+scale = Vector2(0.234125, 0.327597)
+
+[node name="LEVEL" type="TextEdit" parent="CanvasLayer/Sprite2D"]
+custom_minimum_size = Vector2(100, 50)
+offset_left = 18.0219
+offset_top = -24.842
+offset_right = 118.022
+offset_bottom = 25.158
+scale = Vector2(0.393794, 0.393794)
+theme_override_styles/normal = SubResource("StyleBoxFlat_63iax")
+text = "LV:"
+
+[node name="LevelNum" type="TextEdit" parent="CanvasLayer/Sprite2D/LEVEL"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 28.8585
+offset_right = 128.858
+offset_bottom = 50.0
+scale = Vector2(0.992449, 0.992449)
+theme_override_styles/normal = SubResource("StyleBoxFlat_63iax")
+text = "999"
+
+[node name="EXP" type="Area2D" parent="CanvasLayer" groups=["ExpBar"]]
+position = Vector2(632, 580)
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("22_e3qov")
+
+[node name="EXP_BAR" type="ProgressBar" parent="CanvasLayer/EXP"]
 custom_minimum_size = Vector2(200, 20)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -100.0
-offset_top = 602.0
-offset_right = 100.0
-offset_bottom = 629.0
+offset_left = -98.0
+offset_top = -16.0
+offset_right = 102.0
+offset_bottom = 11.0
 grow_horizontal = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/EXP"]
+position = Vector2(2.38419e-07, -2)
+scale = Vector2(21.7131, 1.63546)
+shape = SubResource("RectangleShape2D_50qxc")
 
 [node name="Indicator" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0, 1)
@@ -231,5 +269,7 @@ position = Vector2(0, 45)
 
 [node name="WingMan3" parent="." instance=ExtResource("23_2qvxq")]
 position = Vector2(0, 45)
+
+[node name="OnHit_Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="SHIELD" to="." method="_on_shield_body_entered"]

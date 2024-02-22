@@ -26,13 +26,6 @@ func _physics_process(delta):
 	move_and_slide()
 	pass
 
-
-
-
-
-func _on_area_2d_body_entered(body):
-	pass # Replace with function body.
-
 func calculate_scale(Num: int) -> float:
 	return 3 + (Num - 1) / 3
 	
@@ -40,3 +33,11 @@ func FindExpBar():
 	var ExpBar = get_tree().get_first_node_in_group("ExpBar")
 	if ExpBar != null:
 		MoveDir = (ExpBar.global_position - global_position).normalized()
+
+
+func _on_area_2d_area_entered(area):
+	if area.has_method("Exp_Bar_Detection"):
+		Character.Exp+=exp_Num
+		#print_debug(Character.Exp)
+		queue_free()
+	pass # Replace with function body.
