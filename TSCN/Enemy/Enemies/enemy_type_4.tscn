@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4gln86iwnr31"]
 
 [ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="1_dylub"]
-[ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_ngl1t"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ngl1t"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="2_itd6y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hrins"]
@@ -43,22 +43,24 @@ shape = SubResource("CircleShape2D_ew82i")
 [node name="Wonder" parent="." instance=ExtResource("2_itd6y")]
 position = Vector2(15, 0)
 
-[node name="bullet_spawner_1" type="Area2D" parent="."]
+[node name="BulletSpawners" type="Node2D" parent="."]
+
+[node name="bullet_spawner_1" type="Area2D" parent="BulletSpawners"]
 position = Vector2(-26, 0)
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet_spawner_1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSpawners/bullet_spawner_1"]
 position = Vector2(11, 0)
 scale = Vector2(1.04645, 1.04496)
 shape = SubResource("CircleShape2D_q8vd1")
 
-[node name="bullet_spawner_2" type="Area2D" parent="."]
+[node name="bullet_spawner_2" type="Area2D" parent="BulletSpawners"]
 position = Vector2(28, 0)
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet_spawner_2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletSpawners/bullet_spawner_2"]
 position = Vector2(-13, 0)
 scale = Vector2(1.14705, 1.1964)
 shape = SubResource("CircleShape2D_57ixd")

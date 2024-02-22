@@ -23,6 +23,15 @@ func _ready():
 	else :
 		var random_value = randi_range(0, 2)  # 生成0到2之间的随机整数
 		powerup_type = random_value
+	
+	var sprite	
+	if (powerup_type == PowerupType.recover_life_value):
+		sprite = $Health
+	elif (powerup_type == PowerupType.raise_stamina_limit):
+		sprite = $Stamina
+	elif (powerup_type == PowerupType.increase_movement_speed):
+		sprite = $Speed
+	sprite.visible = true
 
 
 func _physics_process(delta):

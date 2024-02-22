@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ejwjq1eaxb0a"]
+[gd_scene load_steps=8 format=3 uid="uid://ejwjq1eaxb0a"]
 
 [ext_resource type="Script" path="res://Scripts/Powerup.gd" id="1_blsms"]
-[ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="2_u3p40"]
+[ext_resource type="Texture2D" uid="uid://cpq4b6ma8lvhf" path="res://ART Assets/LevelUP/levelup1.png" id="2_awf7w"]
+[ext_resource type="Texture2D" uid="uid://p8bg2jsmunla" path="res://ART Assets/LevelUP/levelup2.png" id="3_1wqlj"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_fwgow"]
+[ext_resource type="Texture2D" uid="uid://dd0deqdl1yiw3" path="res://ART Assets/LevelUP/levelup3.png" id="4_uh3q2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ka37w"]
 radius = 17.72
@@ -18,9 +20,20 @@ powerup_type = 2
 wander_direction = NodePath("Wander")
 group_name = "PowerupRoute"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_u3p40")
+[node name="Health" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_awf7w")
+
+[node name="Stamina" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_1wqlj")
+
+[node name="Speed" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_uh3q2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ka37w")
