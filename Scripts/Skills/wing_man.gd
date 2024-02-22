@@ -6,6 +6,7 @@ var target: Node2D
 # 移动速度
 @export var move_speed: float = 100
 # 当前角度
+@export var WM_Num = 0
 var current_angle: float = 0
 
 var levelNum = 0
@@ -29,8 +30,8 @@ func _physics_process(delta):
 		var target_position = target.global_position
 		
 		# 计算新位置
-		var new_x = target_position.x + cos(deg_to_rad(current_angle)) * radius
-		var new_y = target_position.y + sin(deg_to_rad(current_angle)) * radius
+		var new_x = target_position.x + cos(deg_to_rad(current_angle)+WM_Num*120) * radius
+		var new_y = target_position.y + sin(deg_to_rad(current_angle)+WM_Num*120) * radius
 		
 		# 移动到新位置
 		global_position = Vector2(new_x, new_y)
@@ -51,12 +52,26 @@ func deactivate():
 func ShootBullet_WM():
 	var bullet = BulletPrefab.instantiate()
 	#get_parent().add_child(bullet)
-	get_parent().call_deferred("add_child", bullet)
+	get_parent().get_parent().call_deferred("add_child", bullet)
 	bullet.position = $BulletSpawner.global_position
 	if Character.Target_Enemy != null:
-		bullet.MoveDirection = (Character.Target_Enemy.global_position - $BulletSpawner.global_position).normalized()
+		#bullet.MoveDirection = (Character.Target_Enemy.global_position - $BulletSpawner.global_position).normalized()
+		bullet.MoveDirection = Character.IndicatorDirection
+		#bullet.MoveDirection = Vector2(1,0)
 	else:
 		bullet.MoveDirection = Vector2(1,0)
 		pass
 	#print_debug(bullet.MoveDirection)
 	pass
+	
+func _CharacterDetection():
+	# 目前只用作碰撞检测时识别node
+	pass
+
+
+func _on_bullet_spawner_body_entered(body):
+	if body.has_method("_BulletDetection"):
+		#print_debug("11")
+		ShootBullet_WM()
+		pass
+	pass # Replace with function body.

@@ -208,6 +208,17 @@ position = Vector2(60, 36)
 scale = Vector2(2.46386, 2.37543)
 texture = ExtResource("2_la00f")
 
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 20)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 602.0
+offset_right = 100.0
+offset_bottom = 629.0
+grow_horizontal = 2
+
 [node name="Indicator" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(26.004, -0.875174)
@@ -216,9 +227,14 @@ texture = ExtResource("3_ixepo")
 
 [node name="WingMan" parent="." instance=ExtResource("23_2qvxq")]
 position = Vector2(0, 45)
+WM_Num = 0
 
 [node name="WingMan2" parent="." instance=ExtResource("23_2qvxq")]
-position = Vector2(0, -43.5)
-radius = 60.0
+position = Vector2(0, 45)
+WM_Num = 1
+
+[node name="WingMan3" parent="." instance=ExtResource("23_2qvxq")]
+position = Vector2(0, 45)
+WM_Num = 2
 
 [connection signal="body_entered" from="SHIELD" to="." method="_on_shield_body_entered"]

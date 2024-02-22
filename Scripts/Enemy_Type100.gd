@@ -105,6 +105,9 @@ func _physics_process(delta):
 	
 func _EnemyDetection():
 	pass
+	
+func _BossDetection():
+	pass
 
 
 
