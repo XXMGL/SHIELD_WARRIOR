@@ -22,20 +22,18 @@ group_name = "PowerupRoute"
 
 [node name="Health" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_awf7w")
 
 [node name="Stamina" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_1wqlj")
 
 [node name="Speed" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_uh3q2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.44001, 1.92954)
 shape = SubResource("CircleShape2D_ka37w")
 
 [node name="Detector" type="Area2D" parent="."]
@@ -43,6 +41,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+scale = Vector2(1.48001, 1.4)
 shape = SubResource("CircleShape2D_baes1")
 
 [node name="Wander" parent="." instance=ExtResource("3_fwgow")]
