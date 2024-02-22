@@ -95,12 +95,6 @@ func _process(delta):
 		CharacterAnimation.play("running")
 	else :
 		CharacterAnimation.play("idle")
-	#if isParring:
-		#ShieldSprite.play("ParryStart")
-		#await ShieldSprite.animation_finished
-		#ShieldSprite.stop()
-	#else :
-		#ShieldSprite.play("ParryEnd")
 	
 	match Player_State:
 		state.STATE_MOVE:
