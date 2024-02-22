@@ -21,6 +21,9 @@ func _ready():
 	pass
 	
 func _process(delta):
+	if OriginFrom == Origin.From_Player:
+		#print_debug(global_position)
+		pass
 	match OriginFrom:
 		Origin.From_Enemy:
 			pass
@@ -39,12 +42,17 @@ func _process(delta):
 
 func _on_detector_body_entered(body):
 	if body.has_method("get_name") and body.get_name() == "Eage":
+		print_debug("11")
 		queue_free()  # 销毁子弹
 	if OriginFrom == Origin.From_Enemy and body.has_method("_CharacterDetection"):
+		#print("11")
 		queue_free()  # 销毁子弹
 	if OriginFrom == Origin.From_Player and body.has_method("_EnemyDetection"):
+		#print_debug("11")
 		body.Health -= Damage
 		if canRunThrough:
+			if body.has_method("_BossDetection"):
+				queue_free()
 			pass
 		else:
 			queue_free()  # 销毁子弹
