@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var player_root = "Character" # 玩家路径
 @export var enemy_Root = "Enemy_Type1" #敌人路径
 
-@onready var BulletAnimation = $AnimationPlayer
+# @onready var BulletAnimation = $AnimationPlayer
 
 var x_direction = 1
 var x_velocity
@@ -24,7 +24,7 @@ func _ready():
 func _process(delta):
 	match OriginFrom:
 		Origin.From_Enemy:
-			BulletAnimation.play("shoot")
+			# BulletAnimation.play("shoot")
 			_FoundTarget()
 			x_direction = -1
 			x_velocity = x_direction * move_speed

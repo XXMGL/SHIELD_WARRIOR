@@ -80,7 +80,7 @@ position = Vector2(-1.56249, 0)
 scale = Vector2(3.54907, 0.517015)
 shape = SubResource("CapsuleShape2D_akmr7")
 
-[node name="RAnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_csx68")
 }

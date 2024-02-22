@@ -5,7 +5,7 @@ var x_velocity
 var y_direction = 1
 var y_velocity
 
-@onready var BulletAnimation = $AnimationPlayer
+# @onready var BulletAnimation = $AnimationPlayer
 
 
 @export var move_speed = 200  # 在x方向的移动速度
@@ -30,7 +30,7 @@ func _process(delta):
 	
 	match OriginFrom:
 		Origin.From_Enemy:
-			BulletAnimation.play("shoot")
+			# BulletAnimation.play("shoot")
 			pass
 		Origin.From_Player:
 			pass
