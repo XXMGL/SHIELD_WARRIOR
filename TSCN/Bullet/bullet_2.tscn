@@ -1,13 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://cicweg071xjvc"]
+[gd_scene load_steps=8 format=3 uid="uid://cicweg071xjvc"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_2.gd" id="1_7ss2j"]
-[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="2_ypk75"]
+[ext_resource type="Texture2D" uid="uid://kvj1hx6bd7ui" path="res://ART Assets/bullet/enemy/m11_Projectile.png" id="2_tgmt6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tgwo"]
 radius = 71.4569
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dh0lt"]
 radius = 10.4812
+
+[sub_resource type="Animation" id="Animation_v82rj"]
+resource_name = "shoot"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_nnclq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ublx4"]
+_data = {
+"RESET": SubResource("Animation_nnclq"),
+"shoot": SubResource("Animation_v82rj")
+}
 
 [node name="Bullet2" type="CharacterBody2D"]
 scale = Vector2(0.440001, 0.359999)
@@ -16,10 +54,10 @@ collision_mask = 0
 script = ExtResource("1_7ss2j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
 position = Vector2(2.27272, -11.1111)
 scale = Vector2(7.44447, 7.44447)
-texture = ExtResource("2_ypk75")
+texture = ExtResource("2_tgmt6")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.573568, 0.636996)
@@ -33,5 +71,10 @@ collision_mask = 3
 position = Vector2(1.13687e-13, 0)
 scale = Vector2(3.45454, 3.55556)
 shape = SubResource("CircleShape2D_dh0lt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ublx4")
+}
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

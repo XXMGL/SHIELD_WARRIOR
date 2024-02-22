@@ -1,7 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdaml3cu45p8m"]
+[gd_scene load_steps=9 format=3 uid="uid://bdaml3cu45p8m"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_2.gd" id="1_yfbkf"]
-[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="2_8sj6e"]
+[ext_resource type="Texture2D" uid="uid://dujg66lfvfwej" path="res://ART Assets/bullet/player/_dogen1.png" id="2_dx4w0"]
+[ext_resource type="Texture2D" uid="uid://cj8txp5iupr4i" path="res://ART Assets/bullet/player/_dogen2.png" id="3_s6ufi"]
+[ext_resource type="Texture2D" uid="uid://bgqyyowyewcy4" path="res://ART Assets/bullet/player/_dogen3.png" id="4_v1efn"]
+[ext_resource type="Texture2D" uid="uid://c1pbn3rnma3wj" path="res://ART Assets/bullet/player/_dogen4.png" id="5_o76s6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g42nn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dx4w0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s6ufi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v1efn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o76s6")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 18.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 27.7609
@@ -21,12 +44,13 @@ OriginFrom = 1
 canRunThrough = true
 Reposition = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.85098, 0, 0.894118, 1)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.980392, 3.72734)
 rotation = 3.14159
-scale = Vector2(1.87821, 2.53524)
-texture = ExtResource("2_8sj6e")
+sprite_frames = SubResource("SpriteFrames_g42nn")
+animation = &"shoot"
+frame = 3
+frame_progress = 0.614615
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5.88235, 0)

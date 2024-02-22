@@ -41,6 +41,7 @@ position = Vector2(-15, 0)
 shape = SubResource("CircleShape2D_ew82i")
 
 [node name="Wonder" parent="." instance=ExtResource("2_itd6y")]
+visible = false
 position = Vector2(15, 0)
 
 [node name="bullet_spawner_1" type="Area2D" parent="."]

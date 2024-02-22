@@ -66,6 +66,7 @@ func _process(delta):
 			pass
 		Types.Enemy3:
 			#敌人动画
+			EnemyAnimation.play("Fly")
 			pass
 		Types.Enemy4:
 			Shoot_timer += delta

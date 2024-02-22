@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwdqhxu8ubagf"]
+[gd_scene load_steps=8 format=3 uid="uid://dwdqhxu8ubagf"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_1.gd" id="1_jxfb6"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_xpg87"]
+[ext_resource type="Texture2D" uid="uid://bi8km0qk7ud3q" path="res://ART Assets/bullet/enemy/m2_Projectile.png" id="2_05kpa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 23.7746
@@ -11,17 +11,55 @@ height = 63.3989
 radius = 9.57446
 height = 77.778
 
+[sub_resource type="Animation" id="Animation_eyrma"]
+resource_name = "shoot"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_q5jly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r52tr"]
+_data = {
+"RESET": SubResource("Animation_q5jly"),
+"shoot": SubResource("Animation_eyrma")
+}
+
 [node name="Bullet1" type="CharacterBody2D"]
-scale = Vector2(0.440001, 0.359999)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_jxfb6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("2_xpg87")
+texture = ExtResource("2_05kpa")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1.90735e-06, 0)
 scale = Vector2(-1.81326, -1.15812)
 shape = SubResource("CapsuleShape2D_ekmi8")
@@ -31,7 +69,13 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+visible = false
 scale = Vector2(1.45455, 0.340427)
 shape = SubResource("CapsuleShape2D_akmr7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r52tr")
+}
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

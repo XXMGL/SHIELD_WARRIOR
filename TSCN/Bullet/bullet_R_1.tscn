@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://beg1h5tj86547"]
+[gd_scene load_steps=8 format=3 uid="uid://beg1h5tj86547"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_2.gd" id="1_i4p6q"]
-[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="2_150b5"]
+[ext_resource type="Texture2D" uid="uid://c5spe1d12o43x" path="res://ART Assets/bullet/player/m3_Projectile.png" id="2_f14k1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 27.7609
@@ -10,6 +10,44 @@ height = 68.5858
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akmr7"]
 radius = 2.12766
 height = 50.0001
+
+[sub_resource type="Animation" id="Animation_otsbi"]
+resource_name = "shoot"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_3gnwo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_csx68"]
+_data = {
+"RESET": SubResource("Animation_3gnwo"),
+"shoot": SubResource("Animation_otsbi")
+}
 
 [node name="Bullet_R_1" type="CharacterBody2D"]
 scale = Vector2(0.440001, 0.359999)
@@ -21,10 +59,10 @@ OriginFrom = 1
 Damage = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.54544, 2.77779)
+position = Vector2(-1.19209e-06, 2.77778)
 rotation = 3.14159
-scale = Vector2(-2.13557, 2.39022)
-texture = ExtResource("2_150b5")
+texture = ExtResource("2_f14k1")
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11.3636, 0)
@@ -41,5 +79,10 @@ collision_mask = 3
 position = Vector2(-1.56249, 0)
 scale = Vector2(3.54907, 0.517015)
 shape = SubResource("CapsuleShape2D_akmr7")
+
+[node name="RAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_csx68")
+}
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dgfrbi5gvr7or"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_12515"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_ygchk"]
+[ext_resource type="Texture2D" uid="uid://c2qbrwpb17ihj" path="res://ART Assets/05/fly/m2_Fly.png" id="2_twsif"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_dmncn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
@@ -14,6 +14,7 @@ height = 38.0
 
 [sub_resource type="Animation" id="Animation_xluoh"]
 resource_name = "Fly"
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -22,10 +23,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_e1mw7"]
@@ -61,7 +62,9 @@ suicide_attacker = true
 suicide_attacker_damage = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ygchk")
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_twsif")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5.36, 3.72222)

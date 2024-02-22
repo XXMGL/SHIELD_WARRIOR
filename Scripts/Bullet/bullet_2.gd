@@ -5,6 +5,9 @@ var x_velocity
 var y_direction = 1
 var y_velocity
 
+@onready var BulletAnimation = $AnimationPlayer
+
+
 @export var move_speed = 200  # 在x方向的移动速度
 
 enum Origin{From_Enemy, From_Player}
@@ -20,12 +23,14 @@ var MoveDirection = Vector2(-1 , 0)
 func _ready():
 	pass
 	
-func _process(delta):
+func _process(delta):            
 	if OriginFrom == Origin.From_Player:
 		#print_debug(global_position)
 		pass
+	
 	match OriginFrom:
 		Origin.From_Enemy:
+			BulletAnimation.play("shoot")
 			pass
 		Origin.From_Player:
 			pass
