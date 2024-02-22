@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var BulletSpawner_pos3 = $BulletSpawner3
 @onready var HPBar = $HP
 @onready var ShootTimer = $Timer
+@onready var BossAnimation = $Sprite2D
 
 @export var player_root = "玩家路径" # 玩家路径
 @export var move_speed = 100  
@@ -63,10 +64,13 @@ func _ready():
 func _physics_process(delta):
 	HPBar.value_1 = Health * 100 / MaxHealth
 	if Health >= MaxHealth*3/4:
+		BossAnimation.play("fly")
 		SM = ShootMode.SM1
 	elif Health >= MaxHealth /3:
+		BossAnimation.play("attack")
 		SM = ShootMode.SM2
 	elif Health <MaxHealth /3:
+		BossAnimation.play("attack")
 		SM = ShootMode.Mad
 	#print(Health)
 	match SM:
@@ -101,6 +105,8 @@ func _physics_process(delta):
 	move_and_slide()	
 				
 	if Health <= 0:
+		BossAnimation.play("die")
+		await BossAnimation.animation_finished
 		queue_free()  # 销毁
 	
 func _EnemyDetection():
