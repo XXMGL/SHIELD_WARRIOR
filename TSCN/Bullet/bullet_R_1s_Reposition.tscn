@@ -47,6 +47,7 @@ Reposition = true
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.980392, 3.72734)
 rotation = 3.14159
+scale = Vector2(1, 1.5)
 sprite_frames = SubResource("SpriteFrames_g42nn")
 animation = &"shoot"
 frame = 3

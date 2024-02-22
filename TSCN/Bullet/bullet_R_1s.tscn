@@ -1,7 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://djh0dfhh8ok15"]
+[gd_scene load_steps=7 format=3 uid="uid://djh0dfhh8ok15"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_2.gd" id="1_0cs4y"]
-[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="2_s3t7c"]
+[ext_resource type="Texture2D" uid="uid://dujg66lfvfwej" path="res://ART Assets/bullet/player/_dogen1.png" id="2_ygqc7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4o1n"]
+atlas = ExtResource("2_ygqc7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sg4xs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4o1n")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 27.7609
@@ -20,12 +35,12 @@ move_speed = 550
 OriginFrom = 1
 canRunThrough = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.85098, 0, 0.894118, 1)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.980392, 3.72734)
 rotation = 3.14159
 scale = Vector2(1.87821, 2.53524)
-texture = ExtResource("2_s3t7c")
+sprite_frames = SubResource("SpriteFrames_sg4xs")
+animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5.88235, 0)

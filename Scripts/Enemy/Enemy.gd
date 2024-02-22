@@ -12,6 +12,8 @@ var y_direction:int
 var x_direction:int
 
 @onready var EnemyAnimation = $AnimationPlayer
+@onready var EnemyAnimator = $AnimatedSprite2D
+
 
 var bullet1_tscn = preload("res://TSCN/Bullet/bullet_1.tscn")
 var bullet2_tscn = preload("res://TSCN/Bullet/bullet_2.tscn")
@@ -69,6 +71,7 @@ func _process(delta):
 			EnemyAnimation.play("Fly")
 			pass
 		Types.Enemy4:
+			EnemyAnimator.play("Fly")
 			Shoot_timer += delta
 			if Shoot_timer >= ShootDuration:
 				_ShootBullet_Enemy4()

@@ -1,7 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwdqhxu8ubagf"]
+[gd_scene load_steps=7 format=3 uid="uid://dwdqhxu8ubagf"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_1.gd" id="1_jxfb6"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_xpg87"]
+[ext_resource type="Texture2D" uid="uid://bi8km0qk7ud3q" path="res://ART Assets/bullet/enemy/m2_Projectile.png" id="2_j8jqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3458t"]
+atlas = ExtResource("2_j8jqv")
+region = Rect2(0, 0, 64, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u10r5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3458t")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 23.7746
@@ -17,9 +32,10 @@ collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_jxfb6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("2_xpg87")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_u10r5")
+animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.90735e-06, 0)

@@ -1,7 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://drhbcbtxm8gf1"]
+[gd_scene load_steps=7 format=3 uid="uid://drhbcbtxm8gf1"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_2.gd" id="1_kyh6u"]
-[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="2_3uym1"]
+[ext_resource type="Texture2D" uid="uid://c5spe1d12o43x" path="res://ART Assets/bullet/player/m3_Projectile.png" id="2_rayx4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wqes"]
+atlas = ExtResource("2_rayx4")
+region = Rect2(0, 0, 64, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cf0qp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wqes")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 27.7609
@@ -21,11 +36,12 @@ OriginFrom = 1
 Damage = 2
 Reposition = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.54544, 2.77779)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.27272, 2.77779)
 rotation = 3.14159
-scale = Vector2(-2.13557, 2.39022)
-texture = ExtResource("2_3uym1")
+scale = Vector2(1.055, 1.055)
+sprite_frames = SubResource("SpriteFrames_cf0qp")
+animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11.3636, 0)
