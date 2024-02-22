@@ -5,6 +5,9 @@ extends Node2D
 @onready var LevelProgressBar = $UI/LevelProgress
 @onready var LevelIndicator = $UI/LevelProgress/Sprite2D
 
+
+var powerup = preload("res://TSCN/Powerup/powerup_basic.tscn")
+
 var LevelLength: float
 var LevelLength_Max :float
 var progress:float
@@ -87,7 +90,9 @@ func _WaveCheck():
 	for spawner in SpawnersForThisWave:
 		if spawner.fullActivated == true:
 			spawner_HasEnemies -= 1
-	if spawner_HasEnemies == 0 and EnemiesInGround.size() == 1 and WaveEnd == false:
+	if spawner_HasEnemies == 0 and EnemiesInGround.size() == 1 and WaveEnd == false: # powerup释放点
+		var Powerup = powerup.instantiate()
+		get_parent().add_child(Powerup)
 		progress += WaveTimer -3
 		WaveTimer = 3
 		WaveEnd = true

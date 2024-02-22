@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dp1hy60tuuynb"]
+[gd_scene load_steps=20 format=3 uid="uid://dp1hy60tuuynb"]
 
 [ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_lb5gq"]
 [ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_uf3ac"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bawemh5j3xama" path="res://TSCN/Player/SkillManager.tscn" id="7_mainc"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="7_mpvug"]
 [ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="8_t7we2"]
+[ext_resource type="PackedScene" uid="uid://ypt4tfxejfsk" path="res://TSCN/Powerup/powerup_route.tscn" id="8_y8udy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdlto"]
 texture = ExtResource("2_uf3ac")
@@ -522,6 +523,9 @@ visible = false
 visible = false
 
 [node name="Route3" parent="." instance=ExtResource("7_30e18")]
+visible = false
+
+[node name="PowerupRoute" parent="." instance=ExtResource("8_y8udy")]
 visible = false
 
 [node name="Enemies" type="Node" parent="." groups=["Enemies"]]
