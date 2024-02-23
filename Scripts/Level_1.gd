@@ -29,6 +29,7 @@ var PL_N
 
 
 func _ready():
+	Activate_Character()
 	PL_bw = Character.LevelNum
 	PL_aw = Character.LevelNum
 	WaveNum = 0
@@ -125,6 +126,12 @@ func Level_Up_WaveCheck():
 	# 禁用游戏中的各种活动
 	get_tree().paused = true	
 	pass
+	
+func Activate_Character():
+	if Character.process_mode != Node.PROCESS_MODE_INHERIT:
+		Character.process_mode = Node.PROCESS_MODE_INHERIT
+		Character.visible = true
+	Character._Show_UI()
 		
 
 

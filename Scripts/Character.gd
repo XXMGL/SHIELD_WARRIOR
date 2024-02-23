@@ -320,3 +320,11 @@ func Trigger_WM():
 			#print_debug(child)
 			child.ShootBullet_WM()
 	pass
+
+func _hide_UI():
+	var UI = $CanvasLayer
+	UI.visible = false
+	
+func _Show_UI():
+	var UI = $CanvasLayer
+	UI.visible = true
