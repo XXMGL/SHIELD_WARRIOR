@@ -54,8 +54,9 @@ collision_mask = 0
 script = ExtResource("1_7ss2j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.27272, -11.1111)
-scale = Vector2(7.44447, 7.44447)
+position = Vector2(-11.3636, -2.77779)
+rotation = 3.14159
+scale = Vector2(4.11113, 4.11113)
 texture = ExtResource("2_tgmt6")
 hframes = 4
 

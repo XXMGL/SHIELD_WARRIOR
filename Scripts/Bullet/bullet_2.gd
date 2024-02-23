@@ -7,6 +7,8 @@ var y_velocity
 
 # @onready var BulletAnimation = $AnimationPlayer
 
+enum Types{Bullet1, Bullet2}
+@export var BulletType = Types.Bullet2
 
 @export var move_speed = 200  # 在x方向的移动速度
 
@@ -38,10 +40,19 @@ func _process(delta):
 		Reposition_Timer += delta
 		if Reposition_Timer >= 0.5:
 			#print_debug(Reposition_Target)
-			if Reposition_Target != null:
+			if Reposition_Target != null and Reposition_Target.isDead == false:
 				MoveDirection = (Reposition_Target.global_position - global_position).normalized()
 				move_speed *= 1
+	match BulletType:
+		Types.Bullet1:
+			_ToPlayer()
+		Types.Bullet2:
+			pass
 	velocity = move_speed*MoveDirection
+	#rotation = atan2(MoveDirection.x,MoveDirection.y)
+	#look_at(MoveDirection)
+	var next_position = global_position + velocity * delta
+	look_at(next_position)
 	move_and_slide()	
 
 
@@ -67,3 +78,7 @@ func _on_detector_body_entered(body):
 				
 func _BulletDetection():
 	return Damage
+	
+func _ToPlayer():
+	var target = get_tree().get_first_node_in_group("Player")
+	MoveDirection = (target.global_position - global_position).normalized()

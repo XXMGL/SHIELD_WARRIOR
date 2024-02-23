@@ -320,7 +320,7 @@ func _LevelingUp():
 	
 func Trigger_WM():
 	var childs = get_children()
-	var WMs = []
+	#var WMs = []
 	for child in childs:
 		if child.is_in_group("WM"):
 			#print_debug(child)

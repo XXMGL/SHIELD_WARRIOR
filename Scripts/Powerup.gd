@@ -34,7 +34,7 @@ func _ready():
 	sprite.visible = true
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = wander_direction.direction * move_speed
 	move_and_slide()
 	pass

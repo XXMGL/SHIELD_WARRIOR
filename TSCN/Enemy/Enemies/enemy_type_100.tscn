@@ -448,7 +448,6 @@ wander_direction = NodePath("Wander")
 group_name = "Route1"
 approachingSpeed = 50
 ShootDuration = 2
-MaxHealth = 100
 ShootChance_SM1 = 8
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]

@@ -49,7 +49,7 @@ var SC_SM3 = 5
 
 #移动模式2
 
-var isdead = false
+var isDead = false
 
 signal Route_Change_Signal
 
@@ -60,7 +60,7 @@ func _ready():
 	Boss_Timer = 0
 	Health = MaxHealth
 	HPBar.init_value(Health)
-	isdead = false
+	isDead = false
 	pass
 
 func _physics_process(delta):
@@ -109,8 +109,9 @@ func _physics_process(delta):
 					
 	move_and_slide()	
 				
-	if Health <= 0 and isdead == false:
-		isdead = true
+	if Health <= 0 and isDead == false:
+		velocity = Vector2(0,0)
+		isDead = true
 		BossAnimation.play("die")
 		await BossAnimation.animation_finished
 		get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
@@ -125,11 +126,11 @@ func _BossDetection():
 
 
 
-func _on_bullet_spawner_body_entered(body):
+func _on_bullet_spawner_body_entered(_body):
 	pass
 	
 	
-func _FoundTarget(TargetPath):
+func _FoundTarget(_TargetPath):
 	var target = get_tree().get_first_node_in_group("Player")
 	if target != null:
 		var target_position = target.global_position
@@ -208,6 +209,6 @@ func _change_route(routeName):
 	#print_debug("11")
 	
 func _Play_Animation(Anim_Name):
-	if isdead == false:
+	if isDead == false:
 		BossAnimation.play(Anim_Name)
 	pass

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwdqhxu8ubagf"]
 
-[ext_resource type="Script" path="res://Scripts/Bullet/bullet_1.gd" id="1_jxfb6"]
+[ext_resource type="Script" path="res://Scripts/Bullet/bullet_2.gd" id="1_mxhoa"]
 [ext_resource type="Texture2D" uid="uid://bi8km0qk7ud3q" path="res://ART Assets/bullet/enemy/m2_Projectile.png" id="2_j8jqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3458t"]
@@ -30,9 +30,11 @@ height = 77.778
 scale = Vector2(0.440001, 0.359999)
 collision_layer = 8
 collision_mask = 0
-script = ExtResource("1_jxfb6")
+script = ExtResource("1_mxhoa")
+BulletType = 0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_u10r5")
 animation = &"shoot"

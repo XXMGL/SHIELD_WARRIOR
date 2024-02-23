@@ -86,6 +86,7 @@ func _process(delta):
 			pass	
 	if Health <= 0 and isDead == false:
 		isDead = true
+		#remove_from_group("Enemies")
 		EnemyAnimator.play("Die")
 		await EnemyAnimator.animation_finished
 		_Die()  # 销毁
@@ -122,6 +123,8 @@ func _physics_process(delta):
 		Types.Enemy5:
 			velocity = wander_direction.direction * move_speed
 			pass
+	if Health <= 0:
+		velocity = Vector2(0,0)
 	move_and_slide()	
 	pass
 
@@ -190,7 +193,7 @@ func _EnemyDetection():
 	pass
 
 
-func _on_bullet_spawner_body_entered(body):
+func _on_bullet_spawner_body_entered(_body):
 	pass
 	
 func _change_route(routeName):

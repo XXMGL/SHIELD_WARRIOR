@@ -23,7 +23,7 @@ func deactivate_skill(skill_index):
 	skills[skill_index].deactivate()
 
 	
-func _process(delta):
+func _process(_delta):
 	#print_debug(skills)
 	activate_skill(0)
 	activate_skill(1)

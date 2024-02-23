@@ -13,7 +13,7 @@ func _ready():
 	MoveDir = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	ToExpBar = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Speed >= 0 and ToExpBar == false:
 		Speed -= 7
 	else:

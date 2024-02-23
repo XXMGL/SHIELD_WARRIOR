@@ -21,7 +21,7 @@ enum Origin{From_Enemy, From_Player}
 func _ready():
 	pass
 	
-func _process(delta):
+func _process(_delta):
 	match OriginFrom:
 		Origin.From_Enemy:
 			# BulletAnimation.play("shoot")
