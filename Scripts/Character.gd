@@ -28,6 +28,7 @@ var bullet_prefab
 var CanPreciseParry = false # 玩家一次举盾进行精确弹反，只能反弹一次特殊子弹
 var canPary = true
 var isParring = false
+var isDead = false
 
 #玩家生命值与体力条
 @export var Basic_health = 100
@@ -105,15 +106,15 @@ func _process(delta):
 	_LevelingUp()
 	
 	if motion.length() >= 0.01:
-		CharacterAnimation.play("running")
+		#CharacterAnimation.play("running")
+		_Character_Animation_Play("running")
 	else :
-		CharacterAnimation.play("idle")
-	#if isParring:
-		#ShieldSprite.play("ParryStart")
-		#await ShieldSprite.animation_finished
-		#ShieldSprite.stop()
-	#else :
-		#ShieldSprite.play("ParryEnd")
+		#CharacterAnimation.play("idle")
+		_Character_Animation_Play("idle")
+	
+	if health <= 0 and isDead == false:
+		isDead = true
+		Player_State = state.STATE_DIE
 	
 	match Player_State:
 		state.STATE_MOVE:
@@ -129,7 +130,8 @@ func _process(delta):
 			 #只有当玩家按下parry按键并且parry冷却倒计时小于零才能进行格挡
 			if Input.is_action_pressed("parry") and parry_CountDown<=0 and canPary == true:
 				Player_State = state.STATE_PARRYSTART # 进入Parry前摇状态
-				ShieldSprite.play("ParryStart")
+				#ShieldSprite.play("ParryStart")
+				_Shield_Animation_Play("ParryStart")
 				parry_timer = 0.0
 			#_MOVE(MOVE_SPEED) # 移动
 			pass
@@ -146,14 +148,16 @@ func _process(delta):
 			#_MOVE(MOVE_SPEED / SlowDown) # 减速移动
 			pass
 		state.STATE_PARRYING:
-			ShieldSprite.play("Parrying")
+			#ShieldSprite.play("Parrying")
+			_Shield_Animation_Play("Parrying")
 			_OutofStamina()
 			SlowDown = 2
 			stamina -= stamina_Cousume *delta
 			# 松开Parry按键进入后摇
 			if not Input.is_action_pressed("parry"):
 				Player_State = state.STATE_PARRYEND
-				ShieldSprite.play("ParryEnd")
+				#ShieldSprite.play("ParryEnd")
+				_Shield_Animation_Play("ParryEnd")
 				parry_timer = 0.0
 			#_MOVE(MOVE_SPEED / SlowDown)
 			pass
@@ -172,6 +176,8 @@ func _process(delta):
 			pass
 		state.STATE_DIE:
 			CharacterAnimation.play("dead")
+			await CharacterAnimation.animation_finished
+			_Die()
 			pass
 			
 
@@ -328,3 +334,19 @@ func _hide_UI():
 func _Show_UI():
 	var UI = $CanvasLayer
 	UI.visible = true
+	
+func _Die():
+	#Character.visible = false
+	get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
+	pass
+
+func _Character_Animation_Play(Animation_Name):
+	if isDead == false:
+		CharacterAnimation.play(Animation_Name)
+		
+func _Shield_Animation_Play(Animation_Name):
+	if isDead == false:
+		ShieldSprite.play(Animation_Name)
+		
+func _Rebirth():
+	Player_State = state.STATE_MOVE

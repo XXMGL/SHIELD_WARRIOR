@@ -11,7 +11,7 @@ extends CharacterBody2D
 var y_direction:int
 var x_direction:int
 
-@onready var EnemyAnimation = $AnimationPlayer
+#@onready var EnemyAnimation = $AnimationPlayer
 @onready var EnemyAnimator = $AnimatedSprite2D
 
 
@@ -34,6 +34,7 @@ var Shoot_Timer = 0.0
 @export var exp_Amout = 5
 @export var exp_Num = 1
 
+var isDead = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	match Enemy_type:
@@ -53,38 +54,40 @@ func _ready():
 func _process(delta):
 	match Enemy_type:
 		Types.Enemy1:
-			EnemyAnimation.play("idle")
+			_Play_Animation("Fly")
 			Shoot_timer += delta
 			if Shoot_timer >= ShootDuration:
 				_ShootBullet(bullet1_tscn)
 				Shoot_timer = 0
 			pass
 		Types.Enemy2:
-			EnemyAnimation.play("Fly")
+			_Play_Animation("Fly")
 			Shoot_timer += delta
 			if Shoot_timer >= ShootDuration:
 				_ShootBullet(bullet2_tscn)
 				Shoot_timer = 0
 			pass
 		Types.Enemy3:
-			#敌人动画
-			EnemyAnimation.play("Fly")
+			_Play_Animation("Fly")
 			pass
 		Types.Enemy4:
-			EnemyAnimator.play("Fly")
+			_Play_Animation("Fly")
 			Shoot_timer += delta
 			if Shoot_timer >= ShootDuration:
 				_ShootBullet_Enemy4()
 				Shoot_timer = 0
 			pass
 		Types.Enemy5:
-			EnemyAnimation.play("Fly")
+			_Play_Animation("Fly")
 			Shoot_timer += delta
 			if Shoot_timer >= ShootDuration:
 				_ShootBullet_Enemy5()
 				Shoot_timer = 0
 			pass	
-	if Health <= 0:
+	if Health <= 0 and isDead == false:
+		isDead = true
+		EnemyAnimator.play("Die")
+		await EnemyAnimator.animation_finished
 		_Die()  # 销毁
 	
 func _physics_process(delta):
@@ -144,17 +147,16 @@ func _ShootBullet(bullet_Prefab):
 func _ShootBullet_Enemy4():
 	var bullet1 = bullet2_tscn.instantiate()
 	get_parent().add_child(bullet1)
-	var bullet1Direction = (get_node("bullet_spawner_1").global_position - global_position).normalized()
-	bullet1.position = get_node("bullet_spawner_1").global_position
+	var bullet1Direction = (get_node("BulletSpawners/bullet_spawner_1").global_position - global_position).normalized()
+	bullet1.position = get_node("BulletSpawners/bullet_spawner_1").global_position
 	bullet1.rotation = atan2(bullet1Direction.x, bullet1Direction.y)
 	#print_debug("bullet1Direction: ", bullet1Direction)
 	bullet1.MoveDirection = bullet1Direction
 	
-	
 	var bullet2= bullet2_tscn.instantiate()
 	get_parent().add_child(bullet2)
-	var bullet2Direction = (get_node("bullet_spawner_2").global_position - global_position ).normalized()
-	bullet2.position = get_node("bullet_spawner_2").global_position
+	var bullet2Direction = (get_node("BulletSpawners/bullet_spawner_2").global_position - global_position ).normalized()
+	bullet2.position = get_node("BulletSpawners/bullet_spawner_2").global_position
 	bullet2.rotation = atan2(bullet2Direction.x, bullet2Direction.y)
 	bullet2.MoveDirection = bullet2Direction
 	
@@ -213,5 +215,10 @@ func _Die():
 		exp.exp_Num = exp_Num
 	queue_free()
 		
+		
+func _Play_Animation(Anim_Name):
+	if isDead == false:
+		EnemyAnimator.play(Anim_Name)
+	pass
 
 	

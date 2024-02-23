@@ -1,8 +1,134 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgfrbi5gvr7or"]
+[gd_scene load_steps=24 format=3 uid="uid://dgfrbi5gvr7or"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_ak5uo"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="2_ygchk"]
+[ext_resource type="Texture2D" uid="uid://55kxngjwbs3k" path="res://ART Assets/05/dead/m2_Dead.png" id="2_d1lwl"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_dmncn"]
+[ext_resource type="Texture2D" uid="uid://c2qbrwpb17ihj" path="res://ART Assets/05/fly/m2_Fly.png" id="3_jke4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n5j1"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a50tr"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l03cj"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o783c"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w0fo"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tds5e"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c1lb"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c67u2"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy45e"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(800, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cux8u"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(900, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb1ll"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(1000, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rhnr"]
+atlas = ExtResource("2_d1lwl")
+region = Rect2(1100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shy7j"]
+atlas = ExtResource("3_jke4t")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k6d2"]
+atlas = ExtResource("3_jke4t")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8cis"]
+atlas = ExtResource("3_jke4t")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skye7"]
+atlas = ExtResource("3_jke4t")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ks1w5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n5j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a50tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l03cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o783c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w0fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tds5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c1lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c67u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy45e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cux8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb1ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rhnr")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shy7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k6d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8cis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skye7")
+}],
+"loop": true,
+"name": &"Fly",
+"speed": 8.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
 radius = 7.63889
@@ -11,43 +137,6 @@ height = 22.2222
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ijuf"]
 radius = 16.0
 height = 38.0
-
-[sub_resource type="Animation" id="Animation_xluoh"]
-resource_name = "Fly"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-}
-
-[sub_resource type="Animation" id="Animation_e1mw7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vu03j"]
-_data = {
-"Fly": SubResource("Animation_xluoh"),
-"RESET": SubResource("Animation_e1mw7")
-}
 
 [node name="Enemy_Type3" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
 collision_layer = 10
@@ -60,8 +149,10 @@ Enemy_type = 2
 suicide_attacker = true
 suicide_attacker_damage = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ygchk")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_ks1w5")
+animation = &"Die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5.36, 3.72222)
@@ -78,10 +169,5 @@ collision_mask = 3
 position = Vector2(53, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6ijuf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vu03j")
-}
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

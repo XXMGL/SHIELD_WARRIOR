@@ -66,13 +66,16 @@ func _ready():
 func _physics_process(delta):
 	HPBar.value_1 = Health * 100 / MaxHealth
 	if Health >= MaxHealth*3/4:
-		BossAnimation.play("fly")
+		#BossAnimation.play("fly")
+		_Play_Animation("fly")
 		SM = ShootMode.SM1
 	elif Health >= MaxHealth /3:
-		BossAnimation.play("attack")
+		#BossAnimation.play("attack")
+		_Play_Animation("attack")
 		SM = ShootMode.SM2
 	elif Health <MaxHealth /3:
-		BossAnimation.play("attack")
+		#BossAnimation.play("attack")
+		_Play_Animation("attack")
 		SM = ShootMode.Mad
 	#print(Health)
 	match SM:
@@ -110,7 +113,9 @@ func _physics_process(delta):
 		isdead = true
 		BossAnimation.play("die")
 		await BossAnimation.animation_finished
+		get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
 		queue_free()  # 销毁
+		
 	
 func _EnemyDetection():
 	pass
@@ -201,3 +206,8 @@ func _change_route(routeName):
 	group_name = routeName
 	Character.emit_signal("Route_Change")
 	#print_debug("11")
+	
+func _Play_Animation(Anim_Name):
+	if isdead == false:
+		BossAnimation.play(Anim_Name)
+	pass
