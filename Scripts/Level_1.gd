@@ -50,6 +50,7 @@ func _ready():
 
 func _process(_delta):
 	LevelProgressBar.value = progress*100/LevelLength_Max
+	Level_Up_WaveCheck()
 	_WaveCheck()
 	pass
 
@@ -60,6 +61,7 @@ func _on_timer_timeout():
 	WaveTimer -= 1
 	#print("关卡进行中，剩余： ", LevelLength)
 	if WaveTimer <= 0:
+		PL_aw = Character.LevelNum
 		LevelLength -= WaveLength
 		WaveNum+=1
 		_GetWaveLength()
@@ -124,11 +126,13 @@ func load_next_level():
 	
 func Level_Up_WaveCheck():
 	PL_aw = Character.LevelNum
-	var Level_Up_Window_prefab = preload("res://TSCN/UI/level_up.tscn")
-	var Level_Up_Window = Level_Up_Window_prefab.instantiate()
-	add_child(Level_Up_Window)
-	# 禁用游戏中的各种活动
-	get_tree().paused = true	
+	if PL_aw > PL_bw:
+		PL_bw += 1
+		var Level_Up_Window_prefab = preload("res://TSCN/UI/level_up.tscn")
+		var Level_Up_Window = Level_Up_Window_prefab.instantiate()
+		add_child(Level_Up_Window)
+		# 禁用游戏中的各种活动
+		get_tree().paused = true	
 	pass
 	
 func Activate_Character():

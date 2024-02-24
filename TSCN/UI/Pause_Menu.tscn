@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://cajd6xsq2lmky"]
 
-[ext_resource type="Script" path="res://TSCN/UI/Pause_Menu.gd" id="1_inuum"]
+[ext_resource type="Script" path="res://Scripts/UI/Pause_Menu.gd" id="1_2i20b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwiq0"]
 bg_color = Color(0.25098, 0.25098, 0.25098, 0.317647)
 
 [node name="Pause_Menu" type="CanvasLayer"]
-script = ExtResource("1_inuum")
+script = ExtResource("1_2i20b")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 40.0

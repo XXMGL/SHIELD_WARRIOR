@@ -3,8 +3,9 @@ extends Button
 var Sk_Layout1 = preload("res://ART Assets/Level_1_templete.png")
 var Sk_Layout2 = preload("res://ART Assets/Level_2_templete.png")
 
-enum SK{skill1,skill2}
+enum SK{skill1,skill2,skill3}
 @export var Skill = SK.skill1
+var Skillindex
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +17,11 @@ func _ready():
 		SK.skill2:
 			Layout.texture = Sk_Layout2
 			pass
+		SK.skill3:
+			Layout.texture = Sk_Layout1
+			pass
 	pass # Replace with function body.
+	
 
 
 

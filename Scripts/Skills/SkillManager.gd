@@ -25,8 +25,9 @@ func deactivate_skill(skill_index):
 	
 func _process(_delta):
 	#print_debug(skills)
-	activate_skill(0)
-	activate_skill(1)
+	#activate_skill(0)
+	#activate_skill(1)
+	pass
 	
 func _active_skill3():
 	

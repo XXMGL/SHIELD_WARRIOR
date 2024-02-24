@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b4x2j0ngnbyun" path="res://ART Assets/sprites/idle_1.png" id="2_la00f"]
 [ext_resource type="Texture2D" uid="uid://c4v5yxc7cr7yh" path="res://ART Assets/hit/hit1.png" id="3_6a3bn"]
 [ext_resource type="Texture2D" uid="uid://b4anqpxrky1jj" path="res://ART Assets/sprites/shield_4.png" id="3_go87i"]
-[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="3_ixepo"]
 [ext_resource type="Texture2D" uid="uid://28l57ahr080g" path="res://ART Assets/sprites/dead_2.png" id="3_vautv"]
 [ext_resource type="Texture2D" uid="uid://c15ff0q4avwcx" path="res://ART Assets/sprites/shield_5.png" id="4_gdi7q"]
 [ext_resource type="PackedScene" uid="uid://bwctiepk50p6s" path="res://TSCN/UI/progress_bar.tscn" id="4_o3c40"]
@@ -35,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://t2fdh1qv54hj" path="res://ART Assets/shiny/shiny10.png" id="17_30u5v"]
 [ext_resource type="Script" path="res://Scripts/exp/EXP_BAR.gd" id="22_e3qov"]
 [ext_resource type="PackedScene" uid="uid://cbn7nujagg22q" path="res://TSCN/Player/Skills/wing_man.tscn" id="23_2qvxq"]
+[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="34_fwr80"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6aij"]
 radius = 9.88873
@@ -305,8 +305,8 @@ shape = SubResource("RectangleShape2D_50qxc")
 [node name="Indicator" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(26.004, -0.875174)
-scale = Vector2(0.100309, 0.0897604)
-texture = ExtResource("3_ixepo")
+scale = Vector2(0.301463, 0.26976)
+texture = ExtResource("34_fwr80")
 
 [node name="WingMan" parent="." instance=ExtResource("23_2qvxq")]
 position = Vector2(0, 45)

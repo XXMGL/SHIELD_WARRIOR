@@ -10,3 +10,5 @@ script = ExtResource("1_nq2dk")
 [node name="ShardsShootSkills" parent="." instance=ExtResource("2_05nwr")]
 
 [node name="Reposition" parent="." instance=ExtResource("3_ab1em")]
+
+[node name="Node2D" type="Node2D" parent="."]
