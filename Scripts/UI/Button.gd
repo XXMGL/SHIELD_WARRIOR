@@ -27,19 +27,19 @@ func _ready():
 			pass
 
 func _process(delta):
-	_SetSkillByIndex()
 	_SetSkillInterface()
+	pass
 
 
-func _SetSkillByIndex():
+
+		
+func _SetSkillInterface():
 	if Skillindex == 0:
 		Skill = SK.skill1
 	elif Skillindex == 1:
 		Skill = SK.skill2
 	elif Skillindex == 2:
 		Skill = SK.skill3
-		
-func _SetSkillInterface():
 	var Layout = get_child(0)
 	match Skill:
 		SK.skill1:
@@ -56,7 +56,9 @@ func _SetSkillInterface():
 			pass
 		
 
-
-
-
-
+func _on_pressed():
+	SkillManager.activate_skill(Skillindex)
+	get_tree().paused = false
+	get_parent().get_parent().queue_free()
+	pass # Replace with function body.
+	

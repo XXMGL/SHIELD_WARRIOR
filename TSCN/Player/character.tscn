@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d2x6f6qphmp8o"]
+[gd_scene load_steps=41 format=3 uid="uid://d2x6f6qphmp8o"]
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_xj0ro"]
 [ext_resource type="Texture2D" uid="uid://ex1yede4oqr3" path="res://ART Assets/sprites/shield_3.png" id="2_3iyvm"]
@@ -33,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://b88xnvt62wwf4" path="res://ART Assets/shiny/shiny9.png" id="16_6lima"]
 [ext_resource type="Texture2D" uid="uid://t2fdh1qv54hj" path="res://ART Assets/shiny/shiny10.png" id="17_30u5v"]
 [ext_resource type="Script" path="res://Scripts/exp/EXP_BAR.gd" id="22_e3qov"]
-[ext_resource type="PackedScene" uid="uid://cbn7nujagg22q" path="res://TSCN/Player/Skills/wing_man.tscn" id="23_2qvxq"]
 [ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="34_fwr80"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6aij"]
@@ -307,15 +306,6 @@ modulate = Color(0, 1, 0, 1)
 position = Vector2(26.004, -0.875174)
 scale = Vector2(0.301463, 0.26976)
 texture = ExtResource("34_fwr80")
-
-[node name="WingMan" parent="." instance=ExtResource("23_2qvxq")]
-position = Vector2(0, 45)
-
-[node name="WingMan2" parent="." instance=ExtResource("23_2qvxq")]
-position = Vector2(0, 45)
-
-[node name="WingMan3" parent="." instance=ExtResource("23_2qvxq")]
-position = Vector2(0, 45)
 
 [node name="OnHit_Timer" type="Timer" parent="."]
 

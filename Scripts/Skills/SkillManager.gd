@@ -5,7 +5,7 @@ var player
 #@onready var Skill1 = preload("res://TSCN/Player/Skills/shards_shoot_skills.tscn")
 @onready var Skill1 = $ShardsShootSkills
 @onready var Skill2 = $Reposition
-@onready var Skill3 = preload("res://TSCN/Player/Skills/wing_man.tscn")
+@onready var Skill3 = $Wing_Man
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")

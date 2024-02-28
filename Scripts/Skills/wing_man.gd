@@ -17,6 +17,8 @@ var BulletPrefab = preload("res://TSCN/Bullet/bullet_R_1.tscn")
 
 var Name = "Wing Man"
 
+
+
 func _ready():
 	target = get_parent()
 	pass
@@ -39,14 +41,6 @@ func _physics_process(delta):
 		global_position = Vector2(new_x, new_y)
 	pass
 
-func activate():
-	levelNum = 1
-	#levelNum += 1
-	
-
-	
-	#player.Shards_Shoot_enabled = true
-	pass
 	
 func deactivate():
 	pass
@@ -77,3 +71,5 @@ func _on_bullet_spawner_body_entered(body):
 		ShootBullet_WM()
 		pass
 	pass # Replace with function body.
+	
+
