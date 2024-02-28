@@ -7,6 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avtoe"]
 
 [node name="Enemy_Type101" type="CharacterBody2D" node_paths=PackedStringArray("move_direction") groups=["Boss_Tail"]]
+scale = Vector2(3, 3)
 collision_mask = 0
 script = ExtResource("2_iifg6")
 move_direction = NodePath("Wonder")

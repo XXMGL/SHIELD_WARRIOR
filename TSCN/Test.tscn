@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="2_dqy2v"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(723, 271)
 
 [node name="Route1" parent="." instance=ExtResource("2_dqy2v")]
 

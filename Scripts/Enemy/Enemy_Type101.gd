@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var tail = preload("res://TSCN/Enemy/Enemies/enemy_type_101_Tail.tscn")
 @onready var tailGenerateTimer = $Tail_Generate_Timer
-var tailGenerateDuration = 0.2
+var tailGenerateDuration = 0.8
 
 @export var move_direction = Node2D
 @export var move_speed = 100
