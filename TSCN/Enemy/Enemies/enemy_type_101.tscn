@@ -22,5 +22,7 @@ shape = SubResource("CircleShape2D_3jura")
 [node name="Wander" parent="." instance=ExtResource("2_w5p02")]
 
 [node name="Tail_Generate_Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
 
 [connection signal="timeout" from="Tail_Generate_Timer" to="." method="_on_tail_generate_timer_timeout"]
