@@ -32,3 +32,7 @@ func _process(_delta):
 func _active_skill3():
 	
 	pass
+	
+func _get_Names():
+	#Name = Skill.Name
+	pass

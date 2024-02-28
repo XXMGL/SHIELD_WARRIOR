@@ -2,6 +2,7 @@ extends Node
 
 var levelNum = 0
 var ShardsNum = [3,5,9]
+var Name = "Shards Shoot"
 
 func activate():
 	levelNum = 1

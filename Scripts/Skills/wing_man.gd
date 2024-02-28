@@ -15,6 +15,8 @@ var AimTarget: Node2D
 
 var BulletPrefab = preload("res://TSCN/Bullet/bullet_R_1.tscn")
 
+var Name = "Wing Man"
+
 func _ready():
 	target = get_parent()
 	pass

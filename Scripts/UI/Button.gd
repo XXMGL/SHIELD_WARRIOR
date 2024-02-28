@@ -1,5 +1,7 @@
 extends Button
 
+@onready var SkillName = $LineEdit
+
 var Sk_Layout1 = preload("res://ART Assets/Level_1_templete.png")
 var Sk_Layout2 = preload("res://ART Assets/Level_2_templete.png")
 
@@ -13,15 +15,48 @@ func _ready():
 	match Skill:
 		SK.skill1:
 			Layout.texture = Sk_Layout1
+			SkillName.text = "Shards Shoot"
 			pass
 		SK.skill2:
 			Layout.texture = Sk_Layout2
+			SkillName.text = "Retargeting Bullet"
 			pass
 		SK.skill3:
 			Layout.texture = Sk_Layout1
+			SkillName.text = "Wingman"
 			pass
-	pass # Replace with function body.
-	
+
+func _process(delta):
+	_SetSkillByIndex()
+	_SetSkillInterface()
+
+
+func _SetSkillByIndex():
+	if Skillindex == 0:
+		Skill = SK.skill1
+	elif Skillindex == 1:
+		Skill = SK.skill2
+	elif Skillindex == 2:
+		Skill = SK.skill3
+		
+func _SetSkillInterface():
+	var Layout = get_child(0)
+	match Skill:
+		SK.skill1:
+			Layout.texture = Sk_Layout1
+			SkillName.text = "Shards Shoot"
+			pass
+		SK.skill2:
+			Layout.texture = Sk_Layout2
+			SkillName.text = "Retargeting Bullet"
+			pass
+		SK.skill3:
+			Layout.texture = Sk_Layout1
+			SkillName.text = "Wingman"
+			pass
+		
+
+
 
 
 

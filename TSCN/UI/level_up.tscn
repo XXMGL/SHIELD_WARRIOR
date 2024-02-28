@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkajes0imhptc"]
+[gd_scene load_steps=5 format=3 uid="uid://dkajes0imhptc"]
 
 [ext_resource type="Texture2D" uid="uid://dhem5p0ny6vp2" path="res://ART Assets/Level_1_templete.png" id="1_cnqsp"]
 [ext_resource type="Script" path="res://Scripts/UI/level_up_Menu.gd" id="1_wsfcg"]
 [ext_resource type="Script" path="res://Scripts/UI/Button.gd" id="2_s0c20"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbjp0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="LevelUp" type="CanvasLayer"]
+process_mode = 3
 layer = 10
 script = ExtResource("1_wsfcg")
 
@@ -40,6 +44,24 @@ Skill = 1
 position = Vector2(103, 252.5)
 texture = ExtResource("1_cnqsp")
 
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Button"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.324
+anchor_right = 0.512
+anchor_bottom = 0.324
+offset_left = -92.96
+offset_top = -4.62
+offset_right = 91.04
+offset_bottom = 45.38
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
+text = "Skill"
+alignment = 1
+expand_to_text_length = true
+
 [node name="Button2" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(205, 505)
 layout_mode = 2
@@ -50,6 +72,24 @@ Skill = 1
 position = Vector2(103, 252.5)
 texture = ExtResource("1_cnqsp")
 
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Button2"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.324
+anchor_right = 0.512
+anchor_bottom = 0.324
+offset_left = -92.96
+offset_top = -4.62
+offset_right = 91.04
+offset_bottom = 45.38
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
+text = "Skill"
+alignment = 1
+expand_to_text_length = true
+
 [node name="Button3" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(205, 505)
 layout_mode = 2
@@ -59,3 +99,24 @@ Skill = 1
 [node name="Layout" type="Sprite2D" parent="HBoxContainer/Button3"]
 position = Vector2(103, 252.5)
 texture = ExtResource("1_cnqsp")
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Button3"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.324
+anchor_right = 0.512
+anchor_bottom = 0.324
+offset_left = -92.96
+offset_top = -4.62
+offset_right = 91.04
+offset_bottom = 45.38
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
+text = "Skill"
+alignment = 1
+expand_to_text_length = true
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_pressed"]

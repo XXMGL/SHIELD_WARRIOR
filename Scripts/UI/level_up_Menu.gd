@@ -8,6 +8,7 @@ var Buttons = []
 #var SkillManager = preload("res://TSCN/Player/SkillManager.tscn")
 
 var skillsPool = []
+var indexRange = []
 
 func _ready():
 	_Shuffle()
@@ -23,9 +24,18 @@ func _Shuffle():
 	pass
 	
 func _GetRandomSkill(Button):
+	
 	var randomNum = randi_range(0,skillsPool.size()-1)
-	skillsPool.remove_at(randomNum)
-	print_debug(skillsPool)
+	while randomNum in indexRange:
+		randomNum = randi_range(0,skillsPool.size()-1)
 	Button.Skillindex = randomNum
-	print_debug(Button.Skillindex)
+	indexRange.append(randomNum)
+	#print_debug(Button.Skill)
+	
 	pass
+	
+
+	
+
+
+	

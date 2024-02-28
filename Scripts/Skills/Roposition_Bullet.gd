@@ -2,6 +2,8 @@ extends Node
 
 var levelNum = 0
 var Bulllet_ac = [1,1.5,3]
+var Name = "Reposition"
+
 
 func activate():
 	levelNum = 1
