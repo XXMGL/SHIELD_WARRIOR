@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwoaeo88ew2j4"]
+
+[ext_resource type="Texture2D" uid="uid://cgudr5akgaod3" path="res://icon.svg" id="1_8o2a0"]
+[ext_resource type="Script" path="res://Scripts/Enemy/Enemy_Type101_Tail.gd" id="2_iifg6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avtoe"]
+
+[node name="Enemy_Type101" type="CharacterBody2D" groups=["Boss_Tail"]]
+collision_mask = 0
+script = ExtResource("2_iifg6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_avtoe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_8o2a0")

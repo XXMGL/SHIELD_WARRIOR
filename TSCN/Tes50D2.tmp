@@ -1,11 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://brv15wuthrs34"]
 
-[ext_resource type="PackedScene" uid="uid://do1k81y5plj65" path="res://TSCN/Enemy/Enemies/enemy_type_101.tscn" id="1_pxenf"]
+[ext_resource type="PackedScene" uid="uid://bri2p727adna3" path="res://TSCN/Enemy/Enemies/enemy_type_101.tscn" id="1_pxenf"]
 [ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="2_dqy2v"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(723, 271)
-
-[node name="Route1" parent="." instance=ExtResource("2_dqy2v")]
 
 [node name="Enemy_Type101" parent="." instance=ExtResource("1_pxenf")]
+position = Vector2(983, 114)
+move_speed = null
+ShootDuration = null
+MaxHealth = null
+
+[node name="Route1" parent="." instance=ExtResource("2_dqy2v")]
