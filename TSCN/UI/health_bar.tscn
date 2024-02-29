@@ -77,12 +77,4 @@ show_percentage = false
 wait_time = 0.4
 one_shot = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(300, 20)
-layout_mode = 1
-offset_top = -21.5802
-offset_right = 300.0
-offset_bottom = 18.4198
-text = "HEALTH"
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgyhfu3p7rr7t"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Heart.gd" id="1_rrply"]
+
+[node name="Panel" type="Panel" groups=["Heart"]]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 10)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rrply")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 5)
+scale = Vector2(0.01, 0.01)

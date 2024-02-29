@@ -135,6 +135,7 @@ offset_bottom = -20.0
 text = "SHUFFLE"
 
 [node name="LineEdit" type="LineEdit" parent="Shuffle"]
+layout_mode = 0
 offset_left = 218.0
 offset_top = 10.0
 offset_right = 379.0
@@ -142,6 +143,7 @@ offset_bottom = 41.0
 text = "Shuffle Chance："
 
 [node name="ShuffleC" type="LineEdit" parent="Shuffle"]
+layout_mode = 0
 offset_left = 348.0
 offset_top = 10.0
 offset_right = 415.063

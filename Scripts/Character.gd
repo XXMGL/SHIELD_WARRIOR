@@ -50,6 +50,8 @@ var IndicatorDirection
 @export var Shooting_Offset = 10
 
 signal Route_Change
+signal Gethit
+signal Recovery
 
 #角色等级系统
 var LevelNum = 1
@@ -65,7 +67,14 @@ var Shards_Acount = 1
 var Reposition_enabled : bool = false
 var Target_Enemy
 
+#3 Wing Man
+
+#4 Resilient Heart
+var Resilient_Heart_enabled : bool = false
+var HeartNum = 3
+
 func _ready():
+	
 	MOVE_SPEED = Basic_movespeed
 	Max_health = Basic_health
 	Max_stamina = Basic_stamina
@@ -170,6 +179,7 @@ func _process(delta):
 			#_MOVE(MOVE_SPEED / SlowDown)
 			pass
 		state.STATE_HURT:
+			emit_signal("Gethit")
 			health -= Recieved_damge
 			Recieved_damge = 0
 			Player_State = state.STATE_MOVE
@@ -240,6 +250,7 @@ func _on_shield_body_entered(body):
 		if Player_State == state.STATE_PARRYING or Player_State == state.STATE_PARRYSTART or Player_State == state.STATE_PARRYEND:
 			match Player_State:
 				state.STATE_PARRYING:
+					emit_signal("Recovery")
 					bullet_prefab = bullet_1_tscn
 					Trigger_WM()
 					pass
@@ -249,6 +260,7 @@ func _on_shield_body_entered(body):
 					pass
 				state.STATE_PARRYEND:
 					if CanPreciseParry == true:
+						emit_signal("Recovery")
 						bullet_prefab = bullet_1s_tscn
 						CanPreciseParry = false
 					pass
@@ -350,3 +362,10 @@ func _Shield_Animation_Play(Animation_Name):
 		
 func _Rebirth():
 	Player_State = state.STATE_MOVE
+	
+func _R_Heart():
+	var R_Heart_tscn = load("res://TSCN/UI/Heart.tscn")
+	var Location = $CanvasLayer/Sprite2D
+	var Heart_Bar = R_Heart_tscn.instantiate()
+	Location.add_child(Heart_Bar)
+	pass

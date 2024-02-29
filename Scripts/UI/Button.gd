@@ -5,7 +5,7 @@ extends Button
 var Sk_Layout1 = preload("res://ART Assets/Level_1_templete.png")
 var Sk_Layout2 = preload("res://ART Assets/Level_2_templete.png")
 
-enum SK{skill1,skill2,skill3}
+enum SK{skill1,skill2,skill3,skill4}
 @export var Skill = SK.skill1
 var Skillindex
 
@@ -25,6 +25,10 @@ func _ready():
 			Layout.texture = Sk_Layout1
 			SkillName.text = "Wingman"
 			pass
+		SK.skill4:
+			Layout.texture = Sk_Layout2
+			SkillName.text = "Resilient Heart"
+			pass
 
 func _process(delta):
 	_SetSkillInterface()
@@ -40,6 +44,8 @@ func _SetSkillInterface():
 		Skill = SK.skill2
 	elif Skillindex == 2:
 		Skill = SK.skill3
+	elif Skillindex == 3:
+		Skill = SK.skill4
 	var Layout = get_child(0)
 	match Skill:
 		SK.skill1:
@@ -53,6 +59,10 @@ func _SetSkillInterface():
 		SK.skill3:
 			Layout.texture = Sk_Layout1
 			SkillName.text = "Wingman"
+			pass
+		SK.skill4:
+			Layout.texture = Sk_Layout2
+			SkillName.text = "Resilient Heart"
 			pass
 		
 
