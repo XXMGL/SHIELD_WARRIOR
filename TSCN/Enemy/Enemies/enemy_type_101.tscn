@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://do1k81y5plj65"]
+[gd_scene load_steps=6 format=3 uid="uid://do1k81y5plj65"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/Enemy_Type101.gd" id="1_q3frq"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="2_w5p02"]
 [ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="3_d2mje"]
+[ext_resource type="PackedScene" uid="uid://4p5bpot3wv21" path="res://TSCN/UI/health_bar.tscn" id="4_3fvqq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jura"]
 
@@ -52,6 +53,13 @@ position = Vector2(-7.33333, -7)
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="HP" parent="." instance=ExtResource("4_3fvqq")]
+offset_left = -16.6667
+offset_top = -19.6667
+offset_right = 283.333
+offset_bottom = 10.3333
+scale = Vector2(0.114491, 0.116203)
 
 [connection signal="timeout" from="Tail_Generate_Timer" to="." method="_on_tail_generate_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

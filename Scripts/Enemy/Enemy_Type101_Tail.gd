@@ -28,6 +28,7 @@ var group_name : String
 
 # Boss生命
 @export var Health = 50
+var isDead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,6 +45,7 @@ func _physics_process(delta):
 	
 	if (Health <= 0):
 		SM = ShootMode.Die
+		isDead = true
 	
 	move_and_slide()
 	

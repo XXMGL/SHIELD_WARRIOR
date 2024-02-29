@@ -31,9 +31,11 @@ var bulletSpawners = []
 @export var group_name : String
 
 # 生命
+@onready var HPBar = $HP
 var Health = 1
 @export var MaxHealth = 200
 var canBeHurt = false
+var isDead = false
 
 # Boss 状态
 enum ShootMode{SM1, SM2, Mad, Weak, Die}
@@ -43,6 +45,8 @@ var isWeak = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	HPBar.visible = false
+	HPBar.init_value(Health)
 	spawnLocation = global_position
 	bulletSpawners = [bulletSpawner1, bulletSpawner2,bulletSpawner3,bulletSpawner4,bulletSpawner5,bulletSpawner6,bulletSpawner7,bulletSpawner8]
 	tailGenerateTimer.wait_time = tailGenerateDuration
@@ -53,6 +57,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	HPBar.value_1 = Health * 100 / MaxHealth
+	
 	TailsCheck()
 	ChangeTailsState()
 	move()
@@ -60,10 +66,13 @@ func _physics_process(delta):
 	
 	if (!canBeHurt):
 		Health = MaxHealth
+	else :
+		HPBar.visible = true
 		
 		
 	if (Health <= 0):
 		SM = ShootMode.Die
+		isDead = true
 		
 	move_and_slide()
 	
