@@ -9,6 +9,23 @@
 [ext_resource type="Texture2D" uid="uid://b428rol75yhdq" path="res://ART Assets/sprites/idle_2.png" id="6_ve1kk"]
 [ext_resource type="Texture2D" uid="uid://co5y0gq6fkgjg" path="res://ART Assets/sprites/idle_3.png" id="7_bf327"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_k5mii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hqs3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ve1kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bf327")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa4kk"]
 atlas = ExtResource("5_bfcbu")
 region = Rect2(0, 0, 175, 170)
@@ -87,23 +104,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k5mii"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_hqs3s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ve1kk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_bf327")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 3.0
-}]
-
 [node name="Start Menu" type="CanvasLayer"]
 script = ExtResource("1_gcfm8")
 
@@ -171,17 +171,18 @@ theme = ExtResource("2_q3ixt")
 theme_override_font_sizes/font_size = 24
 text = "Exit"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(642, 128)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(901, 479)
 rotation = -3.14159
-scale = Vector2(3.20147, -3.20147)
-sprite_frames = SubResource("SpriteFrames_0qo1j")
+scale = Vector2(8.84425, -8.84425)
+sprite_frames = SubResource("SpriteFrames_k5mii")
 animation = &"idle"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1002, 495)
-scale = Vector2(-7.09425, 7.09425)
-sprite_frames = SubResource("SpriteFrames_k5mii")
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(695, 106)
+rotation = 3.14159
+scale = Vector2(2.46912, -2.46912)
+sprite_frames = SubResource("SpriteFrames_0qo1j")
 animation = &"idle"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
