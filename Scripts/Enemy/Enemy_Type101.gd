@@ -5,6 +5,7 @@ var tail = preload("res://TSCN/Enemy/Enemies/enemy_type_101_Tail.tscn")
 @onready var tailGenerateTimer = $Tail_Generate_Timer
 var tailGenerateDuration = 0.8
 var tails = []
+var spawnLocation
 
 # 子弹
 @onready var Bullet = preload("res://TSCN/Bullet/bullet_2.tscn")
@@ -42,6 +43,7 @@ var isWeak = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	spawnLocation = global_position
 	bulletSpawners = [bulletSpawner1, bulletSpawner2,bulletSpawner3,bulletSpawner4,bulletSpawner5,bulletSpawner6,bulletSpawner7,bulletSpawner8]
 	tailGenerateTimer.wait_time = tailGenerateDuration
 	ShootTimer.wait_time = ShootDuration
@@ -71,10 +73,12 @@ func move():
 func add_tails():
 	if (tails.size() < 6):
 		var new_tail = tail.instantiate()
+		new_tail.position = spawnLocation
 		new_tail.move_speed = move_speed
 		new_tail.group_name = group_name
 		get_parent().add_child(new_tail)
-		tails.append(new_tail)
+		new_tail.add_to_group("Enemies")
+		tails.append(new_tail)	
 	#print_debug(tails)
 
 func _on_tail_generate_timer_timeout():
