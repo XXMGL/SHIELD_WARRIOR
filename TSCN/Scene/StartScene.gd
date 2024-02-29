@@ -1,8 +1,12 @@
 extends CanvasLayer
 
+@onready var CharacterAnimation = $AnimatedSprite2D
+@onready var EnemyAnimation = $AnimatedSprite2D2
 
 func _ready():
 	_HidePlayer()
+	CharacterAnimation.play("idle")
+	EnemyAnimation.play("idle")
 	pass
 
 

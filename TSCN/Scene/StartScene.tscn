@@ -1,10 +1,116 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctpqhidtjvoye"]
+[gd_scene load_steps=21 format=3 uid="uid://ctpqhidtjvoye"]
 
 [ext_resource type="Script" path="res://StartGameButton.gd" id="1_6bigr"]
 [ext_resource type="Script" path="res://TSCN/Scene/StartScene.gd" id="1_gcfm8"]
+[ext_resource type="Texture2D" uid="uid://8ft7cors1ey7" path="res://ART Assets/300ppi/007.png" id="2_nlred"]
+[ext_resource type="Theme" uid="uid://c64bsys0v2vl0" path="res://ART Assets/Button2_theme.tres" id="2_q3ixt"]
+[ext_resource type="Texture2D" uid="uid://b4xl4qriwn5iw" path="res://ART Assets/Boss/fly/m16_Idle.png" id="5_bfcbu"]
+[ext_resource type="Texture2D" uid="uid://b4x2j0ngnbyun" path="res://ART Assets/sprites/idle_1.png" id="5_hqs3s"]
+[ext_resource type="Texture2D" uid="uid://b428rol75yhdq" path="res://ART Assets/sprites/idle_2.png" id="6_ve1kk"]
+[ext_resource type="Texture2D" uid="uid://co5y0gq6fkgjg" path="res://ART Assets/sprites/idle_3.png" id="7_bf327"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa4kk"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(0, 0, 175, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i2dt"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(175, 0, 175, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flpey"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(350, 0, 175, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihoe6"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(525, 0, 175, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko0yt"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(700, 0, 175, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqkkg"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(875, 0, 175, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux6nl"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(1050, 0, 175, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c36yy"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(1225, 0, 175, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtr53"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(1400, 0, 175, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hrf4"]
+atlas = ExtResource("5_bfcbu")
+region = Rect2(1575, 0, 175, 170)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qo1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa4kk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i2dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flpey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihoe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko0yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqkkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux6nl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c36yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtr53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hrf4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k5mii"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hqs3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ve1kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bf327")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
 
 [node name="Start Menu" type="CanvasLayer"]
 script = ExtResource("1_gcfm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(259.452, 322.95)
+scale = Vector2(1.85495, 1.47295)
+texture = ExtResource("2_nlred")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(1152, 648)
@@ -17,31 +123,65 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -137.0
-offset_top = -71.0
-offset_right = 137.0
-offset_bottom = -16.0
+offset_left = -531.0
+offset_top = -245.0
+offset_right = -139.0
+offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 28
 text = "Shield Warrior"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -27.0
-offset_top = 66.0
-offset_right = 28.0
-offset_bottom = 102.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 20
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 34.0
+offset_top = 210.0
+offset_right = 299.0
+offset_bottom = 602.0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 24
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_q3ixt")
+theme_override_font_sizes/font_size = 24
 text = "Start"
 script = ExtResource("1_6bigr")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="Button2" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_q3ixt")
+theme_override_font_sizes/font_size = 24
+text = "Control"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_q3ixt")
+theme_override_font_sizes/font_size = 24
+text = "Credit"
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_q3ixt")
+theme_override_font_sizes/font_size = 24
+text = "Exit"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(642, 128)
+rotation = -3.14159
+scale = Vector2(3.20147, -3.20147)
+sprite_frames = SubResource("SpriteFrames_0qo1j")
+animation = &"idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1002, 495)
+scale = Vector2(-7.09425, 7.09425)
+sprite_frames = SubResource("SpriteFrames_k5mii")
+animation = &"idle"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]

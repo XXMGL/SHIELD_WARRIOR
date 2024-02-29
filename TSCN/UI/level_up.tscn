@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkajes0imhptc"]
+[gd_scene load_steps=9 format=3 uid="uid://dkajes0imhptc"]
 
-[ext_resource type="Texture2D" uid="uid://dhem5p0ny6vp2" path="res://ART Assets/Level_1_templete.png" id="1_cnqsp"]
 [ext_resource type="Script" path="res://Scripts/UI/level_up_Menu.gd" id="1_wsfcg"]
 [ext_resource type="Script" path="res://Scripts/UI/Button.gd" id="2_s0c20"]
+[ext_resource type="Texture2D" uid="uid://cvinyc472ukgp" path="res://ART Assets/300ppi/005.png" id="3_mwp26"]
+[ext_resource type="Texture2D" uid="uid://bkalajwuxgcuc" path="res://ART Assets/300ppi/006.png" id="4_k7mc8"]
+[ext_resource type="Theme" uid="uid://bhatp4358wb26" path="res://ART Assets/Button_theme.tres" id="6_l0ym7"]
+[ext_resource type="Texture2D" uid="uid://cl08ft4qglhd" path="res://ART Assets/300ppi/004.png" id="6_ln1bi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbjp0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -23,29 +26,42 @@ offset_bottom = 40.0
 scale = Vector2(1, 0.92)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(700, 500)
+custom_minimum_size = Vector2(700, 400)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -266.0
-offset_right = 350.0
-offset_bottom = 234.0
+offset_left = -496.0
+offset_top = -220.0
+offset_right = 496.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 49
 
 [node name="Button" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(205, 505)
+custom_minimum_size = Vector2(294.55, 400)
 layout_mode = 2
 script = ExtResource("2_s0c20")
 Skill = 1
 
 [node name="Layout" type="Sprite2D" parent="HBoxContainer/Button"]
-position = Vector2(103, 252.5)
-texture = ExtResource("1_cnqsp")
+position = Vector2(150, 200)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("3_mwp26")
+
+[node name="icon" type="Sprite2D" parent="HBoxContainer/Button/Layout"]
+position = Vector2(0, -143.82)
+scale = Vector2(0.405, 0.405)
+
+[node name="iconContainer" type="Sprite2D" parent="HBoxContainer/Button/Layout"]
+position = Vector2(0, -145)
+texture = ExtResource("4_k7mc8")
+
+[node name="Skill" type="Sprite2D" parent="HBoxContainer/Button/Layout"]
+position = Vector2(0, 78.6517)
+texture = ExtResource("6_ln1bi")
 
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer/Button"]
 custom_minimum_size = Vector2(100, 50)
@@ -55,25 +71,38 @@ anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -92.96
-offset_top = -4.62
-offset_right = 91.04
-offset_bottom = 45.38
-theme_override_font_sizes/font_size = 15
+offset_left = -92.8096
+offset_top = 38.4
+offset_right = 91.1904
+offset_bottom = 88.4
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
 text = "Skill"
 alignment = 1
 expand_to_text_length = true
 
 [node name="Button2" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(205, 505)
+custom_minimum_size = Vector2(295, 400)
 layout_mode = 2
 script = ExtResource("2_s0c20")
 Skill = 1
 
 [node name="Layout" type="Sprite2D" parent="HBoxContainer/Button2"]
-position = Vector2(103, 252.5)
-texture = ExtResource("1_cnqsp")
+position = Vector2(150, 200)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("3_mwp26")
+
+[node name="icon" type="Sprite2D" parent="HBoxContainer/Button2/Layout"]
+position = Vector2(0, -143.82)
+scale = Vector2(0.405, 0.405)
+
+[node name="iconContainer" type="Sprite2D" parent="HBoxContainer/Button2/Layout"]
+position = Vector2(0, -145)
+texture = ExtResource("4_k7mc8")
+
+[node name="Skill" type="Sprite2D" parent="HBoxContainer/Button2/Layout"]
+position = Vector2(0, 78.652)
+texture = ExtResource("6_ln1bi")
 
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer/Button2"]
 custom_minimum_size = Vector2(100, 50)
@@ -83,25 +112,38 @@ anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -92.96
-offset_top = -4.62
-offset_right = 91.04
-offset_bottom = 45.38
-theme_override_font_sizes/font_size = 15
+offset_left = -92.6
+offset_top = 37.4
+offset_right = 91.4
+offset_bottom = 87.4
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
 text = "Skill"
 alignment = 1
 expand_to_text_length = true
 
 [node name="Button3" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(205, 505)
+custom_minimum_size = Vector2(295, 400)
 layout_mode = 2
 script = ExtResource("2_s0c20")
 Skill = 1
 
 [node name="Layout" type="Sprite2D" parent="HBoxContainer/Button3"]
-position = Vector2(103, 252.5)
-texture = ExtResource("1_cnqsp")
+position = Vector2(150, 200)
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("3_mwp26")
+
+[node name="icon" type="Sprite2D" parent="HBoxContainer/Button3/Layout"]
+position = Vector2(0, -143.82)
+scale = Vector2(0.405, 0.405)
+
+[node name="iconContainer" type="Sprite2D" parent="HBoxContainer/Button3/Layout"]
+position = Vector2(0, -145)
+texture = ExtResource("4_k7mc8")
+
+[node name="Skill" type="Sprite2D" parent="HBoxContainer/Button3/Layout"]
+position = Vector2(0, 78.652)
+texture = ExtResource("6_ln1bi")
 
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer/Button3"]
 custom_minimum_size = Vector2(100, 50)
@@ -111,11 +153,11 @@ anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -92.96
-offset_top = -4.62
-offset_right = 91.04
-offset_bottom = 45.38
-theme_override_font_sizes/font_size = 15
+offset_left = -92.6
+offset_top = 40.4
+offset_right = 91.4
+offset_bottom = 90.4
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
 text = "Skill"
 alignment = 1
@@ -132,21 +174,22 @@ offset_left = -100.456
 offset_top = -70.0
 offset_right = 99.5439
 offset_bottom = -20.0
+theme = ExtResource("6_l0ym7")
 text = "SHUFFLE"
 
 [node name="LineEdit" type="LineEdit" parent="Shuffle"]
 layout_mode = 0
 offset_left = 218.0
-offset_top = 10.0
-offset_right = 379.0
-offset_bottom = 41.0
+offset_top = 11.0
+offset_right = 593.0
+offset_bottom = 42.0
 text = "Shuffle Chance："
 
 [node name="ShuffleC" type="LineEdit" parent="Shuffle"]
 layout_mode = 0
-offset_left = 348.0
+offset_left = 467.0
 offset_top = 10.0
-offset_right = 415.063
+offset_right = 534.063
 offset_bottom = 41.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_avdxa")
 text = "xxx"

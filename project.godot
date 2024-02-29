@@ -24,6 +24,10 @@ SkillManager="*res://TSCN/Player/SkillManager.tscn"
 
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom_font="res://Font/PressStart2P.ttf"
+
 [input]
 
 move_right={
