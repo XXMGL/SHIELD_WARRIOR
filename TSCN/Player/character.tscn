@@ -279,6 +279,18 @@ scale = Vector2(0.992449, 0.992449)
 theme_override_styles/normal = SubResource("StyleBoxFlat_63iax")
 text = "999"
 
+[node name="R_H" type="Marker2D" parent="CanvasLayer/Sprite2D"]
+position = Vector2(18.0219, -6.31898)
+
+[node name="Label" type="Label" parent="CanvasLayer/Sprite2D"]
+offset_left = 18.0219
+offset_top = -12.6336
+offset_right = 106.022
+offset_bottom = 24.3664
+scale = Vector2(0.141641, 0.141641)
+theme_override_font_sizes/font_size = 27
+text = "Health"
+
 [node name="EXP" type="Area2D" parent="CanvasLayer" groups=["ExpBar"]]
 position = Vector2(576, 608)
 collision_layer = 128

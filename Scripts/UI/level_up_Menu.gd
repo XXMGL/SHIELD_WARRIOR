@@ -31,6 +31,7 @@ func _GetRandomSkill(Button):
 	var randomNum = randi_range(0,skillsPool.size()-1)
 	while randomNum in indexRange:
 		randomNum = randi_range(0,skillsPool.size()-1)
+	#print_debug(randomNum)
 	Button.Skillindex = randomNum
 	indexRange.append(randomNum)
 	pass

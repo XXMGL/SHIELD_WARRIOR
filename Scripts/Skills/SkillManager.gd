@@ -6,12 +6,14 @@ var player
 @onready var Skill1 = $ShardsShootSkills
 @onready var Skill2 = $Reposition
 @onready var Skill3 = $Wing_Man
+@onready var Skill4 = $Resilient_Heart
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")
 	skills.append(Skill1)
 	skills.append(Skill2)
 	skills.append(Skill3)
+	skills.append(Skill4)
 	#skills = []
 	pass # Replace with function body.
 

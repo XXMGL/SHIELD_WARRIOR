@@ -41,6 +41,7 @@ func _ready():
 	LevelProgressBar.connect("value_changed",Callable(self,"_on_progress_value_changed"))
 	
 	Character.health = 100
+	Character.HeartNum = 3
 	Character.isDead = false
 	Character._Rebirth()
 
