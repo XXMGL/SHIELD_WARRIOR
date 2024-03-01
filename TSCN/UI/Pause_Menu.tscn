@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cajd6xsq2lmky"]
+[gd_scene load_steps=5 format=3 uid="uid://cajd6xsq2lmky"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Pause_Menu.gd" id="1_2i20b"]
+[ext_resource type="Theme" uid="uid://bqsmj0oirjwsl" path="res://ART Assets/Panel.tres" id="2_f13ox"]
+[ext_resource type="Theme" uid="uid://c64bsys0v2vl0" path="res://ART Assets/Button2_theme.tres" id="3_1pi5l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwiq0"]
 bg_color = Color(0.25098, 0.25098, 0.25098, 0.317647)
@@ -14,56 +16,61 @@ offset_bottom = 40.0
 scale = Vector2(28.844, 16.209)
 theme_override_styles/panel = SubResource("StyleBoxFlat_kwiq0")
 
-[node name="RESUME" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 40)
+[node name="Panel2" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -68.0
-offset_right = 50.0
-offset_bottom = -28.0
+offset_left = -112.0
+offset_top = -138.0
+offset_right = 112.0
+offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_f13ox")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -85.0
+offset_right = 71.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="RESUME" type="Button" parent="Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme = ExtResource("3_1pi5l")
+theme_override_font_sizes/font_size = 12
 text = "RESUME"
 icon_alignment = 1
 
-[node name="MAIN MENU" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 40)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -21.0
-offset_right = 50.0
-offset_bottom = 19.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MAIN MENU" type="Button" parent="Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme = ExtResource("3_1pi5l")
+theme_override_font_sizes/font_size = 12
 toggle_mode = true
 text = "MAIN MENU"
 icon_alignment = 1
 
-[node name="NEXT LEVEL" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 40)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = 27.0
-offset_right = 52.0
-offset_bottom = 67.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="NEXT LEVEL" type="Button" parent="Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+theme = ExtResource("3_1pi5l")
+theme_override_font_sizes/font_size = 12
 toggle_mode = true
 text = "NEXT LEVEL"
 icon_alignment = 1
 
-[connection signal="pressed" from="RESUME" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="RESUME" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="NEXT LEVEL" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Panel2/VBoxContainer/RESUME" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel2/VBoxContainer/RESUME" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel2/VBoxContainer/NEXT LEVEL" to="." method="_on_next_level_pressed"]

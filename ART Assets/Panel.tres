@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bqsmj0oirjwsl"]
+
+[ext_resource type="Texture2D" uid="uid://dt6aq88ctt1ty" path="res://ART Assets/300ppi/GUI.png" id="1_nfciv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sk384"]
+texture = ExtResource("1_nfciv")
+region_rect = Rect2(2, 34, 44, 44)
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_sk384")
