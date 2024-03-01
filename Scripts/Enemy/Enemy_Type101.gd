@@ -130,7 +130,7 @@ func TailsCheck():
 		for i in tails:
 			if (i.SM == i.ShootMode.Die):
 				diedTailCount += 1
-		print_debug(diedTailCount)
+		#print_debug(diedTailCount)
 		# Tail死亡超过两个，进入状态2
 		if (diedTailCount >= 2):
 			SM = ShootMode.SM2
