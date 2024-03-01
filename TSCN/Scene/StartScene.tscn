@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ctpqhidtjvoye"]
+[gd_scene load_steps=39 format=3 uid="uid://ctpqhidtjvoye"]
 
 [ext_resource type="Script" path="res://StartGameButton.gd" id="1_6bigr"]
 [ext_resource type="Script" path="res://TSCN/Scene/StartScene.gd" id="1_gcfm8"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b4x2j0ngnbyun" path="res://ART Assets/sprites/idle_1.png" id="5_hqs3s"]
 [ext_resource type="Texture2D" uid="uid://b428rol75yhdq" path="res://ART Assets/sprites/idle_2.png" id="6_ve1kk"]
 [ext_resource type="Texture2D" uid="uid://co5y0gq6fkgjg" path="res://ART Assets/sprites/idle_3.png" id="7_bf327"]
+[ext_resource type="Texture2D" uid="uid://bg7arnchdahij" path="res://ART Assets/monster_16.png" id="9_e3lwn"]
+[ext_resource type="Texture2D" uid="uid://c72ak4nir7bhx" path="res://ART Assets/04/monster_20.png" id="10_vimg5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k5mii"]
 animations = [{
@@ -104,6 +106,120 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn02m"]
+atlas = ExtResource("9_e3lwn")
+region = Rect2(0, 0, 52, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5tic"]
+atlas = ExtResource("9_e3lwn")
+region = Rect2(52, 0, 52, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu06r"]
+atlas = ExtResource("9_e3lwn")
+region = Rect2(104, 0, 52, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e5jl"]
+atlas = ExtResource("9_e3lwn")
+region = Rect2(156, 0, 52, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn161"]
+atlas = ExtResource("9_e3lwn")
+region = Rect2(208, 0, 52, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8drxs"]
+atlas = ExtResource("9_e3lwn")
+region = Rect2(260, 0, 52, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf40p"]
+atlas = ExtResource("9_e3lwn")
+region = Rect2(312, 0, 52, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sd2q"]
+atlas = ExtResource("9_e3lwn")
+region = Rect2(364, 0, 52, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ii8oe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn02m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5tic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu06r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e5jl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn161")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8drxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf40p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sd2q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwrin"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(0, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fj52"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(67, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku30d"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(134, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmq5o"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(201, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02hxg"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(268, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h3rm"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(335, 0, 67, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qy2hk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwrin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fj52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku30d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmq5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02hxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h3rm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
 [node name="Start Menu" type="CanvasLayer"]
 script = ExtResource("1_gcfm8")
 
@@ -184,5 +300,31 @@ rotation = 3.14159
 scale = Vector2(2.46912, -2.46912)
 sprite_frames = SubResource("SpriteFrames_0qo1j")
 animation = &"idle"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(822.409, 92.8937)
+scale = Vector2(-1.51575, 1.51575)
+sprite_frames = SubResource("SpriteFrames_ii8oe")
+animation = &"idle"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(577.089, 222.47)
+scale = Vector2(-1.13454, 1.13454)
+sprite_frames = SubResource("SpriteFrames_ii8oe")
+animation = &"idle"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(598.004, 78.2728)
+scale = Vector2(-0.865457, 0.865457)
+sprite_frames = SubResource("SpriteFrames_ii8oe")
+animation = &"idle"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(817, 182)
+scale = Vector2(-1.77416, 1.77416)
+sprite_frames = SubResource("SpriteFrames_qy2hk")
+animation = &"idle"
+frame = 5
+frame_progress = 0.792784
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
