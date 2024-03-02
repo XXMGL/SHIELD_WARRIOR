@@ -23,8 +23,9 @@ var Shoot_timer = 0.0
 #敌人类型
 enum Types {Enemy1, Enemy2, Enemy3, Enemy4, Enemy5}
 @export var Enemy_type = Types.Enemy1
+@export var direct_attacker = false
 @export var suicide_attacker = false
-@export var suicide_attacker_damage = 0
+@export var direct_attack_damage = 0
 
 #Timer
 var Move_Timer = 0.0
@@ -205,10 +206,14 @@ func _on_detector_body_entered(body):
 	if body.has_method("get_name") and body.get_name() == "Eage":
 		queue_free()  # 销毁子弹
 	if body.has_method("_CharacterDetection"):
-		queue_free()  # 销毁子弹
+		#queue_free()  # 销毁子弹
+		pass
 		
-func _SuicideAttackerDamage():
-	return suicide_attacker_damage
+func _GetDamage():
+	return direct_attack_damage
+
+func _isDirectAttacker():
+	return direct_attacker
 	
 func _Die():
 	for i in range(exp_Amout):

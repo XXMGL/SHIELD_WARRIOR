@@ -38,11 +38,12 @@ func _process(delta):
 			pass
 	if Reposition == true:
 		Reposition_Timer += delta
-		if Reposition_Timer >= 0.5:
+		if Reposition_Timer >= 0.25:
 			#print_debug(Reposition_Target)
 			if Reposition_Target != null and Reposition_Target.isDead == false:
 				MoveDirection = (Reposition_Target.global_position - global_position).normalized()
-				move_speed *= 1
+				move_speed *= Character.R_Bullet_ac
+				Reposition = false
 	match BulletType:
 		Types.Bullet1:
 			_ToPlayer()
@@ -77,6 +78,9 @@ func _on_detector_body_entered(body):
 		
 				
 func _BulletDetection():
+	pass
+
+func _GetDamage():
 	return Damage
 	
 func _ToPlayer():

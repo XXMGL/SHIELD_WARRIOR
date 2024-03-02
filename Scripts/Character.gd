@@ -29,11 +29,11 @@ var CanPreciseParry = false # 玩家一次举盾进行精确弹反，只能反�
 var canPary = true
 var isParring = false
 var isDead = false
+var isShoot = false #用于控制玩家是否已经进行过射击
 
 #玩家生命值与体力条
 @export var Basic_health = 100
 @export var Basic_stamina = 100
-
 var Max_stamina = 100 # 玩家最大体力值
 var Max_health = 100
 var stamina = 100
@@ -65,6 +65,7 @@ var Shards_Acount = 1
 
 #2 Reposition
 var Reposition_enabled : bool = false
+var R_Bullet_ac = 1.0
 var Target_Enemy
 
 #3 Wing Man
@@ -225,11 +226,14 @@ func _ShootBullet(Bullet,DamageScale):
 	#print_debug(offset_angle)
 	var original_direction = IndicatorDirection
 	var rotated_direction = original_direction.rotated(offset_angle)
-	bullet.Reposition_Target = Target_Enemy
+	_Do_Reposition(bullet)
+	#bullet.Reposition_Target = Target_Enemy
 	bullet.Damage *= DamageScale
 	bullet.position = $SHIELD.global_position
 	bullet.rotation = Indicator.rotation
 	bullet.MoveDirection = rotated_direction
+	
+	Trigger_WM()
 	
 	
 func _OutofStamina():
@@ -246,13 +250,28 @@ func _OutofStamina():
 
 
 func _on_shield_body_entered(body):
-	if body.has_method("_BulletDetection"):
+	if body.has_method("_BulletDetection") or (body.has_method("_isDirectAttacker")and body._isDirectAttacker()):
 		if Player_State == state.STATE_PARRYING or Player_State == state.STATE_PARRYSTART or Player_State == state.STATE_PARRYEND:
-			match Player_State:
+			isShoot = true
+			_Set_Bullet_Prefab()
+			_Do_ShardsShoot(bullet_prefab)
+			if isShoot == true:
+				_ShootBullet(bullet_prefab , 1)
+				isShoot = false
+		elif Player_State == state.STATE_MOVE:
+			Player_State = state.STATE_HURT
+			Recieved_damge = body._GetDamage()
+			pass
+		if body.has_method("_isDirectAttacker") and body.suicide_attacker:
+			body.queue_free()
+		
+
+
+func _Set_Bullet_Prefab():
+	match Player_State:
 				state.STATE_PARRYING:
 					emit_signal("Recovery")
 					bullet_prefab = bullet_1_tscn
-					Trigger_WM()
 					pass
 				state.STATE_PARRYSTART:
 					bullet_prefab = bullet_1s_tscn
@@ -264,47 +283,6 @@ func _on_shield_body_entered(body):
 						bullet_prefab = bullet_1s_tscn
 						CanPreciseParry = false
 					pass
-			if Shards_Shoot_enabled == false:
-				_ShootBullet(bullet_prefab , 1)
-			elif Shards_Shoot_enabled == true:
-				for i in Shards_Acount:
-					_ShootBullet(bullet_prefab , 0.3)
-				pass
-			pass
-		elif Player_State == state.STATE_MOVE:
-			Player_State = state.STATE_HURT
-			Recieved_damge = body._BulletDetection()
-			pass
-	elif body.has_method("_EnemyDetection"):
-		#print_debug("敌人3攻击了你")
-		if body.suicide_attacker:
-			if Player_State == state.STATE_PARRYING or Player_State == state.STATE_PARRYSTART or Player_State == state.STATE_PARRYEND:
-				match Player_State:
-					state.STATE_PARRYING:
-						bullet_prefab = bullet_1_tscn
-						Trigger_WM()
-						pass
-					state.STATE_PARRYSTART:
-						bullet_prefab = bullet_1s_tscn
-						Player_State = state.STATE_PARRYING
-						pass
-					state.STATE_PARRYEND:
-						if CanPreciseParry == true:
-							bullet_prefab = bullet_1s_tscn
-							CanPreciseParry = false
-						pass
-				if Shards_Shoot_enabled == false:
-					_ShootBullet(bullet_prefab , 1)
-				elif Shards_Shoot_enabled == true:
-					for i in Shards_Acount:
-						_ShootBullet(bullet_prefab , 0.3)
-					pass
-				pass
-			elif Player_State == state.STATE_MOVE:
-				Player_State = state.STATE_HURT
-				Recieved_damge = body._SuicideAttackerDamage()
-				pass
-
 
 func get_closest_node_in_group(group_name: String) -> Node2D:
 	var mouse_position = get_global_mouse_position()
@@ -330,15 +308,6 @@ func _LevelingUp():
 		Level_Num_InCanvas.text = str(LevelNum)
 	pass
 	
-func Trigger_WM():
-	var childs = get_children()
-	#var WMs = []
-	for child in childs:
-		if child.is_in_group("WM"):
-			#print_debug(child)
-			child.ShootBullet_WM()
-	pass
-
 func _hide_UI():
 	var UI = $CanvasLayer
 	UI.visible = false
@@ -348,7 +317,6 @@ func _Show_UI():
 	UI.visible = true
 	
 func _Die():
-	#Character.visible = false
 	get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
 	pass
 
@@ -363,7 +331,35 @@ func _Shield_Animation_Play(Animation_Name):
 func _Rebirth():
 	Player_State = state.STATE_MOVE
 	
+	
+#Skill1 ShardsShoot
+func _Do_ShardsShoot(bullet_prefab):
+	if Shards_Shoot_enabled == true and isShoot == true:
+		for i in Shards_Acount:
+			_ShootBullet(bullet_prefab , 0.3)
+		isShoot = false
+
+#Skill2 Repositioning
+func _Do_Reposition(bullet_prefab):
+	if Reposition_enabled == true:
+		bullet_prefab.Reposition = true
+		bullet_prefab.Reposition_Target = Target_Enemy
+		
+#Skill3 WingMan
+func Trigger_WM():
+	var childs = get_children()
+	#var WMs = []
+	for child in childs:
+		if child.is_in_group("WM") and child.isLv2 == true:
+			#print_debug(child)
+			child.ShootBullet_WM()
+	pass	
+	
+#Skill4 Resilient Heart
 func _R_Heart():
+	var R_Heart_Bar = get_tree().get_first_node_in_group("R_Heart")
+	if R_Heart_Bar!=null:
+		R_Heart_Bar.queue_free()
 	var R_Heart_tscn = load("res://TSCN/UI/Heart.tscn")
 	var Location = $CanvasLayer/Sprite2D
 	var Heart_Bar = R_Heart_tscn.instantiate()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/Heart_Health.gd" id="1_r2o5f"]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[node name="R_Heart" type="HBoxContainer" groups=["R_Heart"]]
 custom_minimum_size = Vector2(200, 10)
 offset_left = 18.0
 offset_top = -6.0

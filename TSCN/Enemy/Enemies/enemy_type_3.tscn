@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dgfrbi5gvr7or"]
+[gd_scene load_steps=23 format=3 uid="uid://dgfrbi5gvr7or"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_ak5uo"]
 [ext_resource type="Texture2D" uid="uid://55kxngjwbs3k" path="res://ART Assets/05/dead/m2_Dead.png" id="2_d1lwl"]
@@ -131,12 +131,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
-radius = 7.63889
-height = 22.2222
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ijuf"]
-radius = 16.0
-height = 38.0
+radius = 4.47761
+height = 12.8955
 
 [node name="Enemy_Type3" type="CharacterBody2D" node_paths=PackedStringArray("wander_direction")]
 collision_layer = 10
@@ -146,10 +142,11 @@ move_speed = 200
 wander_direction = NodePath("Wander")
 group_name = "Route3"
 Enemy_type = 2
+direct_attacker = true
 suicide_attacker = true
-suicide_attacker_damage = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 4)
 scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_ks1w5")
 animation = &"Die"
@@ -167,7 +164,7 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
 position = Vector2(53, 0)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_6ijuf")
+scale = Vector2(5.36, 3.72222)
+shape = SubResource("CapsuleShape2D_8pncm")
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

@@ -17,7 +17,8 @@ var BulletPrefab = preload("res://TSCN/Bullet/bullet_R_1.tscn")
 
 var Name = "Wing Man"
 
-
+@export var isLv2 = false
+@export var isLv3 = false
 
 func _ready():
 	target = get_parent()
@@ -46,19 +47,21 @@ func deactivate():
 	pass
 	
 func ShootBullet_WM():
-	var bullet = BulletPrefab.instantiate()
+	var newBulletPrefab
+	if isLv3 == true:
+		newBulletPrefab = Character.bullet_prefab
+	else:
+		newBulletPrefab = BulletPrefab
+	var bullet = newBulletPrefab.instantiate()
 	#get_parent().add_child(bullet)
 	get_parent().get_parent().call_deferred("add_child", bullet)
 	bullet.position = $BulletSpawner.global_position
+	_Do_Reposition(bullet)
 	if Character.Target_Enemy != null:
-		#bullet.MoveDirection = (Character.Target_Enemy.global_position - $BulletSpawner.global_position).normalized()
 		bullet.MoveDirection = Character.IndicatorDirection
-		#bullet.MoveDirection = Vector2(1,0)
 	else:
 		bullet.MoveDirection = Vector2(1,0)
-		pass
-	#print_debug(bullet.MoveDirection)
-	pass
+
 	
 func _WingManDetection():
 	# 目前只用作碰撞检测时识别node
@@ -67,9 +70,19 @@ func _WingManDetection():
 
 func _on_bullet_spawner_body_entered(body):
 	if body.has_method("_BulletDetection"):
-		#print_debug("11")
-		ShootBullet_WM()
-		pass
-	pass # Replace with function body.
+		var bullet = BulletPrefab.instantiate()
+		get_parent().get_parent().call_deferred("add_child", bullet)
+		bullet.position = $BulletSpawner.global_position
+		_Do_Reposition(bullet)
+		if Character.Target_Enemy != null:
+			bullet.MoveDirection = Character.IndicatorDirection
+		else:
+			bullet.MoveDirection = Vector2(1,0)
+
+	
+func _Do_Reposition(bullet_prefab):
+	if Character.Reposition_enabled == true and isLv3 == true:
+		bullet_prefab.Reposition = true
+		bullet_prefab.Reposition_Target = Character.Target_Enemy
 	
 

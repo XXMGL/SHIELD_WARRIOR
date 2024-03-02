@@ -19,12 +19,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
-radius = 23.7746
-height = 63.3989
+radius = 19.1882
+height = 38.3765
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akmr7"]
-radius = 9.57446
-height = 77.778
+radius = 17.1874
+height = 130.555
 
 [node name="Bullet1" type="CharacterBody2D"]
 scale = Vector2(0.440001, 0.359999)
