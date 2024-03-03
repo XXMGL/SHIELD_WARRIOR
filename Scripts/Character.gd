@@ -75,7 +75,7 @@ var Resilient_Heart_enabled : bool = false
 var HeartNum = 3
 
 func _ready():
-	
+	# 一些数据初始化
 	MOVE_SPEED = Basic_movespeed
 	Max_health = Basic_health
 	Max_stamina = Basic_stamina
@@ -95,24 +95,25 @@ func _ready():
 
 
 func _process(delta):
-	#print_debug(global_position)
-	#print_debug(Shards_Shoot_enabled)
-	#print_debug(get_closest_node_in_group("Enemies"))
 	if Reposition_enabled == true:
+		#获取最近的敌人单位
 		Target_Enemy = get_closest_node_in_group("Enemies")
 	#获取玩家鼠标位置
 	mouse_global_pos = get_global_mouse_position()
+	#设置方向指示器方向
 	IndicatorDirection = (mouse_global_pos - global_position).normalized()
+	#设置指示器位置
 	if IndicatorDirection.x <= 0.6:
 		IndicatorDirection.x = 0.6
 	Indicator.global_position = global_position + IndicatorDirection*distance
 	Indicator.rotation = atan2(IndicatorDirection.y,IndicatorDirection.x)
-	
+	#设置UI
 	Exp_Bar.value = Exp
 	StaminaBar.value_1 = stamina
 	HealthBar.value_1 = health
-	
+	#玩家移动
 	_MOVE(MOVE_SPEED / SlowDown) # 减速移动
+	#玩家升级
 	_LevelingUp()
 	
 	if motion.length() >= 0.01:

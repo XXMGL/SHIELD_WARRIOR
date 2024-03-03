@@ -40,30 +40,30 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 49
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="Skill1" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(294.55, 400)
 layout_mode = 2
 script = ExtResource("2_s0c20")
 Skill = 1
 
-[node name="Layout" type="Sprite2D" parent="HBoxContainer/Button"]
+[node name="Layout" type="Sprite2D" parent="HBoxContainer/Skill1"]
 position = Vector2(150, 200)
 scale = Vector2(0.89, 0.89)
 texture = ExtResource("3_mwp26")
 
-[node name="icon" type="Sprite2D" parent="HBoxContainer/Button/Layout"]
+[node name="icon" type="Sprite2D" parent="HBoxContainer/Skill1/Layout"]
 position = Vector2(0, -143.82)
 scale = Vector2(0.405, 0.405)
 
-[node name="iconContainer" type="Sprite2D" parent="HBoxContainer/Button/Layout"]
+[node name="iconContainer" type="Sprite2D" parent="HBoxContainer/Skill1/Layout"]
 position = Vector2(0, -145)
 texture = ExtResource("4_k7mc8")
 
-[node name="Skill" type="Sprite2D" parent="HBoxContainer/Button/Layout"]
+[node name="Skill" type="Sprite2D" parent="HBoxContainer/Skill1/Layout"]
 position = Vector2(0, 78.6517)
 texture = ExtResource("6_ln1bi")
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Button"]
+[node name="Text" type="Label" parent="HBoxContainer/Skill1"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 1
 anchors_preset = -1
@@ -78,33 +78,33 @@ offset_bottom = 88.4
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
 text = "Skill"
-alignment = 1
-expand_to_text_length = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(295, 400)
+[node name="Skill2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(294.55, 400)
 layout_mode = 2
 script = ExtResource("2_s0c20")
 Skill = 1
 
-[node name="Layout" type="Sprite2D" parent="HBoxContainer/Button2"]
+[node name="Layout" type="Sprite2D" parent="HBoxContainer/Skill2"]
 position = Vector2(150, 200)
 scale = Vector2(0.89, 0.89)
 texture = ExtResource("3_mwp26")
 
-[node name="icon" type="Sprite2D" parent="HBoxContainer/Button2/Layout"]
+[node name="icon" type="Sprite2D" parent="HBoxContainer/Skill2/Layout"]
 position = Vector2(0, -143.82)
 scale = Vector2(0.405, 0.405)
 
-[node name="iconContainer" type="Sprite2D" parent="HBoxContainer/Button2/Layout"]
+[node name="iconContainer" type="Sprite2D" parent="HBoxContainer/Skill2/Layout"]
 position = Vector2(0, -145)
 texture = ExtResource("4_k7mc8")
 
-[node name="Skill" type="Sprite2D" parent="HBoxContainer/Button2/Layout"]
-position = Vector2(0, 78.652)
+[node name="Skill" type="Sprite2D" parent="HBoxContainer/Skill2/Layout"]
+position = Vector2(0, 78.6517)
 texture = ExtResource("6_ln1bi")
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Button2"]
+[node name="Text" type="Label" parent="HBoxContainer/Skill2"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 1
 anchors_preset = -1
@@ -112,40 +112,40 @@ anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -92.6
-offset_top = 37.4
-offset_right = 91.4
-offset_bottom = 87.4
+offset_left = -92.8096
+offset_top = 38.4
+offset_right = 91.1904
+offset_bottom = 88.4
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
 text = "Skill"
-alignment = 1
-expand_to_text_length = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button3" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(295, 400)
+[node name="Skill3" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(294.55, 400)
 layout_mode = 2
 script = ExtResource("2_s0c20")
 Skill = 1
 
-[node name="Layout" type="Sprite2D" parent="HBoxContainer/Button3"]
+[node name="Layout" type="Sprite2D" parent="HBoxContainer/Skill3"]
 position = Vector2(150, 200)
 scale = Vector2(0.89, 0.89)
 texture = ExtResource("3_mwp26")
 
-[node name="icon" type="Sprite2D" parent="HBoxContainer/Button3/Layout"]
+[node name="icon" type="Sprite2D" parent="HBoxContainer/Skill3/Layout"]
 position = Vector2(0, -143.82)
 scale = Vector2(0.405, 0.405)
 
-[node name="iconContainer" type="Sprite2D" parent="HBoxContainer/Button3/Layout"]
+[node name="iconContainer" type="Sprite2D" parent="HBoxContainer/Skill3/Layout"]
 position = Vector2(0, -145)
 texture = ExtResource("4_k7mc8")
 
-[node name="Skill" type="Sprite2D" parent="HBoxContainer/Button3/Layout"]
-position = Vector2(0, 78.652)
+[node name="Skill" type="Sprite2D" parent="HBoxContainer/Skill3/Layout"]
+position = Vector2(0, 78.6517)
 texture = ExtResource("6_ln1bi")
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Button3"]
+[node name="Text" type="Label" parent="HBoxContainer/Skill3"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 1
 anchors_preset = -1
@@ -153,15 +153,15 @@ anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -92.6
-offset_top = 40.4
-offset_right = 91.4
-offset_bottom = 90.4
+offset_left = -92.8096
+offset_top = 38.4
+offset_right = 91.1904
+offset_bottom = 88.4
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
 text = "Skill"
-alignment = 1
-expand_to_text_length = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Shuffle" type="Button" parent="."]
 custom_minimum_size = Vector2(200, 50)
@@ -194,7 +194,7 @@ offset_bottom = 41.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_avdxa")
 text = "xxx"
 
-[connection signal="pressed" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_pressed"]
-[connection signal="pressed" from="HBoxContainer/Button2" to="HBoxContainer/Button2" method="_on_pressed"]
-[connection signal="pressed" from="HBoxContainer/Button3" to="HBoxContainer/Button3" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Skill1" to="HBoxContainer/Skill1" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Skill2" to="HBoxContainer/Skill2" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Skill3" to="HBoxContainer/Skill3" method="_on_pressed"]
 [connection signal="pressed" from="Shuffle" to="." method="_on_shuffle_pressed"]

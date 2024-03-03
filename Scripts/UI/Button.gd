@@ -1,6 +1,6 @@
 extends Button
 
-@onready var SkillName = $LineEdit
+@onready var SkillName = $Text
 
 var Sk_Layout1 = preload("res://ART Assets/300ppi/005.png")
 var Sk_Layout2 = preload("res://ART Assets/300ppi/008.png")
