@@ -21,11 +21,16 @@ var exp_tscn = preload("res://TSCN/Player/LevelUp/exp.tscn")
 var Shoot_timer = 0.0
 
 #敌人类型
-enum Types {Enemy1, Enemy2, Enemy3, Enemy4, Enemy5}
+enum Types {Enemy1, Enemy2, Enemy3, Enemy4, Enemy5, Enemy6}
 @export var Enemy_type = Types.Enemy1
 @export var direct_attacker = false
 @export var suicide_attacker = false
 @export var direct_attack_damage = 0
+
+# 近战攻击敌人状态
+enum DirectAttackerState {wander, attacking, attack_finish}
+var direct_attacker_state = DirectAttackerState.wander
+var target_position
 
 #Timer
 var Move_Timer = 0.0
@@ -48,6 +53,11 @@ func _ready():
 		Types.Enemy4:
 			pass
 		Types.Enemy5:
+			pass
+		Types.Enemy6:
+			var AttackTimer = $AttackTimer
+			AttackTimer.wait_time = ShootDuration
+			AttackTimer.start()
 			pass
 	pass # Replace with function body.
 
@@ -120,10 +130,24 @@ func _physics_process(delta):
 			bullet_spawners.rotate(0.3)
 			velocity = wander_direction.direction * move_speed
 			pass
-			
 		Types.Enemy5:
 			velocity = wander_direction.direction * move_speed
 			pass
+		Types.Enemy6:
+			match direct_attacker_state:
+				DirectAttackerState.wander:
+					velocity = (wander_direction.current_position.position - position).normalized() * move_speed
+					pass
+				DirectAttackerState.attacking:
+					velocity = (target_position - position).normalized() * 5 * move_speed
+					if (global_position.distance_to(target_position) < 10):
+						direct_attacker_state = DirectAttackerState.attack_finish
+					pass
+				DirectAttackerState.attack_finish:
+					velocity = (wander_direction.current_position.position - position).normalized() * 5 * move_speed
+					if (global_position.distance_to(wander_direction.current_position.position) < 20):
+						direct_attacker_state = DirectAttackerState.wander
+					pass
 	if Health <= 0:
 		velocity = Vector2(0,0)
 	move_and_slide()	
@@ -203,10 +227,9 @@ func _change_route(routeName):
 	#print_debug("Change Route to: ", group_name)
 
 func _on_detector_body_entered(body):
-	if body.has_method("get_name") and body.get_name() == "Eage":
-		queue_free()  # 销毁子弹
 	if body.has_method("_CharacterDetection"):
-		#queue_free()  # 销毁子弹
+		if (suicide_attacker):
+			queue_free()  # 销毁子弹
 		pass
 		
 func _GetDamage():
@@ -229,4 +252,12 @@ func _Play_Animation(Anim_Name):
 		EnemyAnimator.play(Anim_Name)
 	pass
 
+func _on_attack_timer_timeout():
+	#print_debug("1")
+	# is_direct_attack = true
+	direct_attacker_state = DirectAttackerState.attacking
+	
+	var target = get_tree().get_first_node_in_group("Player")
+	if target != null:
+		target_position = target.global_position
 	
