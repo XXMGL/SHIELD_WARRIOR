@@ -27,4 +27,4 @@ func _on_next_level_pressed():
 	
 func load_next_level():
 	
-	get_tree().change_scene_to_file("res://TSCN/Scene/Level2.tscn")
+	get_tree().change_scene_to_file("res://TSCN/Scene/default_scene.tscn")

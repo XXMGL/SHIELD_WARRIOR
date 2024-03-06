@@ -1,4 +1,7 @@
 extends CharacterBody2D
+
+@onready var MF_Animation = $AnimatedSprite2D
+@onready var MF_Timer = $Timer
 # 目标对象
 var target: Node2D
 # 旋转半径
@@ -15,17 +18,20 @@ var AimTarget: Node2D
 
 var BulletPrefab = preload("res://TSCN/Bullet/bullet_R_1.tscn")
 
-var Name = "Wing Man"
+var Skill_Lv = 0
 
-@export var isLv2 = false
-@export var isLv3 = false
+var is_Lv_3:bool = false
+
+var is_Guardian:bool = false
 
 func _ready():
-	#print_debug(isLv2,isLv3)
-	target = get_parent()
+	MF_Timer.start()
+	SkillManager.connect("B_Skill2_up",Callable(self,"_B_Skill2_up"))
+	target = get_tree().get_first_node_in_group("Player")
 	pass
 
 func _physics_process(delta):
+	MF_Animation.play("Fly")
 	if target:
 		# 每帧增加一个角度
 		current_angle += move_speed * delta
@@ -42,48 +48,33 @@ func _physics_process(delta):
 		# 移动到新位置
 		global_position = Vector2(new_x, new_y)
 	pass
-
 	
-func deactivate():
-	pass
-	
-func ShootBullet_WM():
-	var newBulletPrefab
-	if isLv3 == true:
-		newBulletPrefab = Character.bullet_prefab
-	else:
-		newBulletPrefab = BulletPrefab
+func ShootBullet_MF():
+	var newBulletPrefab = BulletPrefab
 	var bullet = newBulletPrefab.instantiate()
-	#get_parent().add_child(bullet)
-	get_parent().get_parent().call_deferred("add_child", bullet)
+	get_parent().get_parent().add_child(bullet)
+	#get_parent().get_parent().call_deferred("add_child", bullet)
+	if is_Lv_3 == true:
+		bullet.Damage_Scale = 2
 	bullet.position = $BulletSpawner.global_position
-	_Do_Reposition(bullet)
 	if Character.Target_Enemy != null:
 		bullet.MoveDirection = Character.IndicatorDirection
 	else:
 		bullet.MoveDirection = Vector2(1,0)
 
+
+func _on_timer_timeout():
+	ShootBullet_MF()
+	pass # Replace with function body.
 	
-func _WingManDetection():
-	# 目前只用作碰撞检测时识别node
+func _B_Skill2_up():
+	Skill_Lv += 1
+	print_debug(Skill_Lv)
+	if Skill_Lv == 1:
+		pass
+	elif Skill_Lv == 2:
+		MF_Timer.wait_time = 0.5
+		pass
+	elif Skill_Lv == 3:
+		is_Lv_3 == true
 	pass
-
-
-func _on_bullet_spawner_body_entered(body):
-	if body.has_method("_BulletDetection"):
-		var bullet = BulletPrefab.instantiate()
-		get_parent().get_parent().call_deferred("add_child", bullet)
-		bullet.position = $BulletSpawner.global_position
-		_Do_Reposition(bullet)
-		if Character.Target_Enemy != null:
-			bullet.MoveDirection = Character.IndicatorDirection
-		else:
-			bullet.MoveDirection = Vector2(1,0)
-
-	
-func _Do_Reposition(bullet_prefab):
-	if Character.Reposition_enabled == true and isLv3 == true:
-		bullet_prefab.Reposition = true
-		bullet_prefab.Reposition_Target = Character.Target_Enemy
-	
-

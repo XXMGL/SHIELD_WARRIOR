@@ -17,6 +17,8 @@ func _ready():
 	#Character.connect("Gethit",Callable(self,"_Get_Hit"))
 	#Character.connect("precise_Parry",Callable(self,"_Get_Guardian_Shield"))
 	SkillManager.connect("B_Skill1_up",Callable(self,"_B_Skill1_up"))
+	Character.connect("precise_Parry",Callable(self,"_Get_Guardian_Shield"))
+	Character.connect("Gethit",Callable(self,"_Get_Hit"))
 	pass # Replace with function body.
 
 
@@ -48,11 +50,10 @@ func _Get_Hit():
 	
 func _B_Skill1_up():
 	Skill_Level += 1
-	#Skill_Level = SkillManager
+	print_debug(Skill_Level)
 	Slot_is_Trigger = true
 	if Skill_Level == 1:
-		Character.connect("precise_Parry",Callable(self,"_Get_Guardian_Shield"))
-		Character.connect("Gethit",Callable(self,"_Get_Hit"))
+		pass
 	if Skill_Level == 2:
 		is_Yellow_Shield = true
 	if Skill_Level == 3:

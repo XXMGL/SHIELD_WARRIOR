@@ -13,11 +13,13 @@ var Skills_legendary : Array
 @onready var Skill4 = $Resilient_Heart
 
 @onready var B_Skill1 = $Guardian_Shield
+@onready var B_Skill2 = $Mystic_Familiar
 
 var skills_rarity_index:int = 0
 # Called when the node enters the scene tree for the first time.
 #signals
 signal B_Skill1_up
+signal B_Skill2_up
 func _ready():
 	#player = get_tree().get_nodes_in_group("Player")
 	#skills.append(Skill1)
@@ -28,8 +30,10 @@ func _ready():
 	_Get_Skills("Blue", skills_B)
 	skills_Pool = skills_B
 	#print_debug(skills_Pool)
+	activate_skill(1)
+	activate_skill(1)
 	#skills = []
-	#B_Skill1.activate()
+	#Skill3.activate()
 	pass # Replace with function body.
 
 

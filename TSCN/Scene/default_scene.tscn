@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dp1hy60tuuynb"]
+[gd_scene load_steps=19 format=3 uid="uid://dp1hy60tuuynb"]
 
 [ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_lb5gq"]
 [ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_uf3ac"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="6_ud1p6"]
 [ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="7_1y1ny"]
 [ext_resource type="PackedScene" uid="uid://dj1afw7pe6sy6" path="res://TSCN/Enemy/Route/Route3.tscn" id="7_30e18"]
-[ext_resource type="PackedScene" uid="uid://bawemh5j3xama" path="res://TSCN/Player/SkillManager.tscn" id="7_mainc"]
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="7_mpvug"]
 [ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="8_t7we2"]
 [ext_resource type="PackedScene" uid="uid://ypt4tfxejfsk" path="res://TSCN/Powerup/powerup_route.tscn" id="8_y8udy"]
@@ -527,8 +526,6 @@ visible = false
 visible = false
 
 [node name="Enemies" type="Node" parent="." groups=["Enemies"]]
-
-[node name="SkillManager" parent="." instance=ExtResource("7_mainc")]
 
 [node name="UI" type="CanvasLayer" parent="." groups=["UI"]]
 process_mode = 3

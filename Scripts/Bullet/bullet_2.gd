@@ -15,6 +15,7 @@ enum Types{Bullet1, Bullet2}
 enum Origin{From_Enemy, From_Player}
 @export var OriginFrom = Origin.From_Enemy
 @export var Damage = 10
+var Damage_Scale = 1
 
 @export var canRunThrough = false
 @export var Reposition = false
@@ -68,7 +69,7 @@ func _on_detector_body_entered(body):
 		queue_free() # 销毁
 	if OriginFrom == Origin.From_Player and body.has_method("_EnemyDetection"):
 		#print_debug("11")
-		body.Health -= Damage
+		body.Health -= Damage * Damage_Scale
 		if canRunThrough:
 			if body.has_method("_BossDetection"):
 				queue_free()
