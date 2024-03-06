@@ -1,20 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://bawemh5j3xama"]
+[gd_scene load_steps=7 format=3 uid="uid://bawemh5j3xama"]
 
 [ext_resource type="Script" path="res://Scripts/Skills/SkillManager.gd" id="1_nq2dk"]
 [ext_resource type="PackedScene" uid="uid://dwugbvw55tef3" path="res://TSCN/Player/Skills/shards_shoot_skills.tscn" id="2_05nwr"]
 [ext_resource type="PackedScene" uid="uid://c804ai0xjo3tb" path="res://TSCN/Player/Skills/Reposition_Bullet.tscn" id="3_ab1em"]
 [ext_resource type="Script" path="res://Scripts/Skills/Resilient_Heart.gd" id="5_73aly"]
 [ext_resource type="Script" path="res://Scripts/Skills/AddWM.gd" id="5_pupns"]
+[ext_resource type="Script" path="res://Scripts/Skills/Guardian_Shield.gd" id="6_j5h5g"]
 
 [node name="SkillManager" type="Node"]
 script = ExtResource("1_nq2dk")
 
-[node name="ShardsShootSkills" parent="." instance=ExtResource("2_05nwr")]
+[node name="ShardsShootSkills" parent="." groups=["Legendary"] instance=ExtResource("2_05nwr")]
 
-[node name="Reposition" parent="." instance=ExtResource("3_ab1em")]
+[node name="Reposition" parent="." groups=["Legendary"] instance=ExtResource("3_ab1em")]
 
-[node name="Wing_Man" type="Node" parent="."]
+[node name="Wing_Man" type="Node" parent="." groups=["Legendary"]]
 script = ExtResource("5_pupns")
 
-[node name="Resilient_Heart" type="Node" parent="."]
+[node name="Resilient_Heart" type="Node" parent="." groups=["Legendary"]]
 script = ExtResource("5_73aly")
+
+[node name="Guardian_Shield" type="Node" parent="." groups=["Blue"]]
+script = ExtResource("6_j5h5g")

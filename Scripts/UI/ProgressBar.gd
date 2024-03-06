@@ -29,3 +29,4 @@ func init_value(Input_value):
 
 func _on_timer_timeout():
 	progressBar2.value = value_1
+	

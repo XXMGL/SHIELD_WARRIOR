@@ -20,7 +20,7 @@ func _ready():
 		pass
 	Hearts = get_children()
 	Character.connect("Gethit",Callable(self,"_GetHit"))
-	Character.connect("Recovery",Callable(self,"_Recovery"))
+	Character.connect("precise_Parry",Callable(self,"_Recovery"))
 
 
 

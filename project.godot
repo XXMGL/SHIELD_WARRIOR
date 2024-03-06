@@ -18,11 +18,20 @@ config/icon="res://icon.svg"
 [autoload]
 
 Character="*res://TSCN/Player/character.tscn"
+CharacterData="*res://TSCN/Player/character_data.tscn"
 SkillManager="*res://TSCN/Player/SkillManager.tscn"
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://ART Assets/": "green",
+"res://Scripts/": "blue",
+"res://TSCN/": "red"
+}
 
 [gui]
 

@@ -41,6 +41,7 @@ var health  = 100
 @export var stamina_Cousume = 20
 @export var stamina_Recover = 10
 var Recieved_damge = 0
+var damage_Scale = 1# 控制受到伤害幅度
 
 #玩家鼠标操控
 var mouse_global_pos
@@ -51,7 +52,8 @@ var IndicatorDirection
 
 signal Route_Change
 signal Gethit
-signal Recovery
+signal precise_Parry
+#signal Recovery
 
 #角色等级系统
 var LevelNum = 1
@@ -73,6 +75,9 @@ var Target_Enemy
 #4 Resilient Heart
 var Resilient_Heart_enabled : bool = false
 var HeartNum = 3
+
+#1.1 Guardian Shield
+var Guardian_Shield_enabled: bool = false
 
 func _ready():
 	# 一些数据初始化
@@ -115,6 +120,8 @@ func _process(delta):
 	_MOVE(MOVE_SPEED / SlowDown) # 减速移动
 	#玩家升级
 	_LevelingUp()
+	#耐力耗尽
+	_OutofStamina()
 	
 	if motion.length() >= 0.01:
 		#CharacterAnimation.play("running")
@@ -131,7 +138,7 @@ func _process(delta):
 		state.STATE_MOVE:
 			ShieldSprite.visible = false
 			ShieldShadow.visible = false
-			_OutofStamina()
+			#_OutofStamina()
 			SlowDown = 1
 			parry_CountDown -= delta
 			#体力恢复，大于最大体力值时不再恢复
@@ -149,7 +156,7 @@ func _process(delta):
 		state.STATE_PARRYSTART:
 			ShieldSprite.visible = true
 			ShieldShadow.visible = true
-			_OutofStamina()
+			#_OutofStamina()
 			SlowDown = 2
 			CanPreciseParry = true # 每一次举盾期间可以反弹一次特殊子弹
 			stamina -= stamina_Cousume *delta
@@ -161,7 +168,7 @@ func _process(delta):
 		state.STATE_PARRYING:
 			#ShieldSprite.play("Parrying")
 			_Shield_Animation_Play("Parrying")
-			_OutofStamina()
+			#_OutofStamina()
 			SlowDown = 2
 			stamina -= stamina_Cousume *delta
 			# 松开Parry按键进入后摇
@@ -182,7 +189,10 @@ func _process(delta):
 			pass
 		state.STATE_HURT:
 			emit_signal("Gethit")
-			health -= Recieved_damge
+			#print_debug("damage_Scale: ",damage_Scale)
+			health -= Recieved_damge*damage_Scale
+			#print_debug("Recieved_damge: ",Recieved_damge*damage_Scale)
+			damage_Scale = 1
 			Recieved_damge = 0
 			Player_State = state.STATE_MOVE
 			pass
@@ -235,6 +245,14 @@ func _ShootBullet(Bullet,DamageScale):
 	bullet.MoveDirection = rotated_direction
 	
 	Trigger_WM()
+
+func _Make_a_Shoot():
+	isShoot = true
+	_Set_Bullet_Prefab()
+	_Do_ShardsShoot(bullet_prefab)
+	if isShoot == true:
+		_ShootBullet(bullet_prefab , 1)
+		isShoot = false
 	
 	
 func _OutofStamina():
@@ -253,12 +271,7 @@ func _OutofStamina():
 func _on_shield_body_entered(body):
 	if body.has_method("_BulletDetection") or (body.has_method("_isDirectAttacker")and body._isDirectAttacker()):
 		if Player_State == state.STATE_PARRYING or Player_State == state.STATE_PARRYSTART or Player_State == state.STATE_PARRYEND:
-			isShoot = true
-			_Set_Bullet_Prefab()
-			_Do_ShardsShoot(bullet_prefab)
-			if isShoot == true:
-				_ShootBullet(bullet_prefab , 1)
-				isShoot = false
+			_Make_a_Shoot()
 		elif Player_State == state.STATE_MOVE:
 			Player_State = state.STATE_HURT
 			Recieved_damge = body._GetDamage()
@@ -271,16 +284,16 @@ func _on_shield_body_entered(body):
 func _Set_Bullet_Prefab():
 	match Player_State:
 				state.STATE_PARRYING:
-					emit_signal("Recovery")
 					bullet_prefab = bullet_1_tscn
 					pass
 				state.STATE_PARRYSTART:
+					emit_signal("precise_Parry")
 					bullet_prefab = bullet_1s_tscn
 					Player_State = state.STATE_PARRYING
 					pass
 				state.STATE_PARRYEND:
 					if CanPreciseParry == true:
-						emit_signal("Recovery")
+						emit_signal("precise_Parry")
 						bullet_prefab = bullet_1s_tscn
 						CanPreciseParry = false
 					pass

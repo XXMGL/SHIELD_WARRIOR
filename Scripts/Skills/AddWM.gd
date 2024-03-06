@@ -6,6 +6,7 @@ var Name = "Wing Man"
 var WingMan_tscn = preload("res://TSCN/Player/Skills/wing_man.tscn")
 var weight = 2 #The possibility of this skill appearing in the upgrade interface has been determined.
 @export var isFullLv = false #it will turn to ture if the skill is full level.
+var is_Displaying = false #it will turn to true if the skill is on level_up interface
 #skill at full level wont appear in the skill pool
 
 func activate():
