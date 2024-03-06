@@ -6,11 +6,13 @@ var Enemy2_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_2.tscn")
 var Enemy3_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_3.tscn")
 var Enemy4_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_4.tscn")
 var Enemy5_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_5.tscn")
+var Enemy6_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_6.tscn")
+var Enemy7_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_7.tscn")
 var Enemy100_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_100.tscn")
 var Enemy101_prefab = preload("res://TSCN/Enemy/Enemies/enemy_type_101.tscn")
 var WaveDuration = 10
 @export var SpwanIndex: int
-enum EnemyTypes{Enemy1, Enemy2 , Enemy3, Enemy4, Enemy5, Enemy100, Enemy101}
+enum EnemyTypes{Enemy1, Enemy2 , Enemy3, Enemy4, Enemy5, Enemy6, Enemy7, Enemy100, Enemy101}
 @export var SpawnEnemy = EnemyTypes.Enemy1
 @export var SpawnInterval: float
 var spawn_timer: Timer
@@ -42,30 +44,30 @@ func _on_timer_timeout():
 				
 			EnemyTypes.Enemy2:
 				NewEnemy = Enemy2_prefab.instantiate()
-				#NewEnemy.group_name = "Route"+str(randf_range(1, 2))
-				#var routeName = "Route"+str(randi_range(1, 2))
 				NewEnemy.group_name = Enemy_Route
 				NewEnemy._change_route(NewEnemy.group_name)
 				pass
 				
 			EnemyTypes.Enemy3:
 				NewEnemy = Enemy3_prefab.instantiate()
-				#NewEnemy.group_name = "Route"+str(randf_range(1, 2))
-				#var routeName = "Route"+str(randi_range(1, 2))
 				NewEnemy.group_name = Enemy_Route
 				pass 
 				
 			EnemyTypes.Enemy4:
 				NewEnemy = Enemy4_prefab.instantiate()
-				#NewEnemy.group_name = "Route"+str(randf_range(1, 2))
-				#var routeName = "Route"+str(randi_range(1, 2))
 				NewEnemy.group_name = Enemy_Route
 				pass
 				
 			EnemyTypes.Enemy5:
 				NewEnemy = Enemy5_prefab.instantiate()
-				#NewEnemy.group_name = "Route"+str(randf_range(1, 2))
-				#var routeName = "Route"+str(randi_range(1, 2))
+				NewEnemy.group_name = Enemy_Route
+				pass 
+			EnemyTypes.Enemy6:
+				NewEnemy = Enemy6_prefab.instantiate()
+				NewEnemy.group_name = Enemy_Route
+				pass 
+			EnemyTypes.Enemy7:
+				NewEnemy = Enemy7_prefab.instantiate()
 				NewEnemy.group_name = Enemy_Route
 				pass 
 				

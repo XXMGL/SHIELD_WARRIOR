@@ -21,7 +21,7 @@ var exp_tscn = preload("res://TSCN/Player/LevelUp/exp.tscn")
 var Shoot_timer = 0.0
 
 #敌人类型
-enum Types {Enemy1, Enemy2, Enemy3, Enemy4, Enemy5, Enemy6}
+enum Types {Enemy1, Enemy2, Enemy3, Enemy4, Enemy5, Enemy6, Enemy7}
 @export var Enemy_type = Types.Enemy1
 @export var direct_attacker = false
 @export var suicide_attacker = false
@@ -55,6 +55,11 @@ func _ready():
 		Types.Enemy5:
 			pass
 		Types.Enemy6:
+			var AttackTimer = $AttackTimer
+			AttackTimer.wait_time = ShootDuration
+			AttackTimer.start()
+			pass
+		Types.Enemy7:
 			var AttackTimer = $AttackTimer
 			AttackTimer.wait_time = ShootDuration
 			AttackTimer.start()
@@ -95,6 +100,15 @@ func _process(delta):
 				_ShootBullet_Enemy5()
 				Shoot_timer = 0
 			pass	
+		Types.Enemy6:
+			pass
+		Types.Enemy7:
+			if (direct_attacker_state == DirectAttackerState.wander):
+				Shoot_timer += delta
+				if Shoot_timer >= ShootDuration/10:
+					_ShootBullet(bullet1_tscn)
+					Shoot_timer = 0
+			pass
 	if Health <= 0 and isDead == false:
 		isDead = true
 		#remove_from_group("Enemies")
@@ -133,7 +147,22 @@ func _physics_process(delta):
 		Types.Enemy5:
 			velocity = wander_direction.direction * move_speed
 			pass
-		Types.Enemy6:
+		Types.Enemy6 or Types.Enemy7:
+			match direct_attacker_state:
+				DirectAttackerState.wander:
+					velocity = (wander_direction.current_position.position - position).normalized() * move_speed
+					pass
+				DirectAttackerState.attacking:
+					velocity = (target_position - position).normalized() * 5 * move_speed
+					if (global_position.distance_to(target_position) < 10):
+						direct_attacker_state = DirectAttackerState.attack_finish
+					pass
+				DirectAttackerState.attack_finish:
+					velocity = (wander_direction.current_position.position - position).normalized() * 5 * move_speed
+					if (global_position.distance_to(wander_direction.current_position.position) < 20):
+						direct_attacker_state = DirectAttackerState.wander
+					pass
+		Types.Enemy7:
 			match direct_attacker_state:
 				DirectAttackerState.wander:
 					velocity = (wander_direction.current_position.position - position).normalized() * move_speed

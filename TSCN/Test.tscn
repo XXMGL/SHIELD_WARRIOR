@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://brv15wuthrs34"]
 
 [ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="2_dqy2v"]
-[ext_resource type="PackedScene" uid="uid://nmh0ag54utvi" path="res://TSCN/Enemy/Enemies/enemy_type_6.tscn" id="2_ehdel"]
+[ext_resource type="PackedScene" uid="uid://dcriewppv4iev" path="res://TSCN/Enemy/Enemies/enemy_type_7.tscn" id="2_jgisx"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Route1" parent="." instance=ExtResource("2_dqy2v")]
 
-[node name="Enemy_Type6" parent="." instance=ExtResource("2_ehdel")]
+[node name="Enemy_Type7" parent="." instance=ExtResource("2_jgisx")]
