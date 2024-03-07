@@ -262,9 +262,7 @@ position = Vector2(-2, 4)
 rotation = 3.14159
 scale = Vector2(1.4, -1.4)
 sprite_frames = SubResource("SpriteFrames_ks1w5")
-animation = &"Attack"
-frame = 15
-frame_progress = 1.0
+animation = &"Die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5.36, 3.72222)

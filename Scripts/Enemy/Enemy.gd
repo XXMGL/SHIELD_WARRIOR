@@ -104,12 +104,20 @@ func _process(delta):
 			pass
 		Types.Enemy7:
 			if (direct_attacker_state == DirectAttackerState.wander):
-				EnemyAnimator.play("Fly")
+				if (!isDead):
+					EnemyAnimator.play("Fly")
 				Shoot_timer += delta
 				if Shoot_timer >= ShootDuration/10:
 					_ShootBullet(bullet1_tscn)
 					Shoot_timer = 0
+			elif (direct_attacker_state == DirectAttackerState.attacking):
+				if (!isDead):
+					EnemyAnimator.play("Attack")
+			elif (direct_attacker_state == DirectAttackerState.attack_finish):
+				if (!isDead):
+					EnemyAnimator.play("Fly")
 			pass
+			
 	if Health <= 0 and isDead == false:
 		isDead = true
 		#remove_from_group("Enemies")
@@ -148,7 +156,7 @@ func _physics_process(delta):
 		Types.Enemy5:
 			velocity = wander_direction.direction * move_speed
 			pass
-		Types.Enemy6 or Types.Enemy7:
+		Types.Enemy6:
 			match direct_attacker_state:
 				DirectAttackerState.wander:
 					velocity = (wander_direction.current_position.position - position).normalized() * move_speed
@@ -169,11 +177,13 @@ func _physics_process(delta):
 					velocity = (wander_direction.current_position.position - position).normalized() * move_speed
 					pass
 				DirectAttackerState.attacking:
+					# EnemyAnimator.play("Attack")
 					velocity = (target_position - position).normalized() * 5 * move_speed
 					if (global_position.distance_to(target_position) < 10):
 						direct_attacker_state = DirectAttackerState.attack_finish
 					pass
 				DirectAttackerState.attack_finish:
+					# EnemyAnimator.play("Fly")
 					velocity = (wander_direction.current_position.position - position).normalized() * 5 * move_speed
 					if (global_position.distance_to(wander_direction.current_position.position) < 20):
 						direct_attacker_state = DirectAttackerState.wander
