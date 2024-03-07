@@ -2,8 +2,10 @@ extends Button
 
 @onready var SkillName = $Text
 
-var Sk_Layout1 = preload("res://ART Assets/300ppi/005.png")
-var Sk_Layout2 = preload("res://ART Assets/300ppi/008.png")
+var Sk_Layout1 = preload("res://ART Assets/SkillCardBG/Green.png")
+var Sk_Layout2 = preload("res://ART Assets/SkillCardBG/Blue.png")
+var Sk_Layout3 = preload("res://ART Assets/SkillCardBG/Golden.png")
+
 var Sk_Icon1 = preload("res://ART Assets/300ppi/012.png")
 var Sk_Icon2 = preload("res://ART Assets/300ppi/011.png")
 var Sk_Icon3 = preload("res://ART Assets/300ppi/009.png")

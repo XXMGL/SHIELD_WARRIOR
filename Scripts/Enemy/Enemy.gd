@@ -101,9 +101,11 @@ func _process(delta):
 				Shoot_timer = 0
 			pass	
 		Types.Enemy6:
+			EnemyAnimator.play("Fly")
 			pass
 		Types.Enemy7:
 			if (direct_attacker_state == DirectAttackerState.wander):
+				EnemyAnimator.play("Fly")
 				Shoot_timer += delta
 				if Shoot_timer >= ShootDuration/10:
 					_ShootBullet(bullet1_tscn)
