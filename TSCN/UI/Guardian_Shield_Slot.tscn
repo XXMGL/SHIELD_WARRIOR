@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://de30fbi7ka8ur"]
 
-[ext_resource type="Texture2D" uid="uid://d3gdkv0e8h3jo" path="res://ART Assets/heart0.png" id="1_1a8bq"]
 [ext_resource type="Script" path="res://Scripts/Skills/Guardian_Shield_Slot.gd" id="1_5adcu"]
+[ext_resource type="Texture2D" uid="uid://qyljdtltb76y" path="res://ART Assets/ShieldSkill/4.png" id="2_ufpu2"]
 
 [node name="Guardian_Shield_Slot" type="CanvasLayer" groups=["Shield_Slot"]]
 script = ExtResource("1_5adcu")
@@ -9,4 +9,4 @@ script = ExtResource("1_5adcu")
 [node name="Slot" type="Sprite2D" parent="."]
 position = Vector2(245, 18)
 scale = Vector2(0.0417254, 0.0417254)
-texture = ExtResource("1_1a8bq")
+texture = ExtResource("2_ufpu2")
