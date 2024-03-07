@@ -269,7 +269,11 @@ texture = ExtResource("3_6ynih")
 position = Vector2(26.9231, 0)
 
 [node name="Timer" type="Timer" parent="."]
-process_callback = 0
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

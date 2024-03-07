@@ -6,7 +6,7 @@ var skills : Array#Legendary Skills pool
 var skills_B:Array#Blue Skills pool
 var skills_G:Array#Green SKills pool
 var Skills_legendary : Array
-#@onready var Skill1 = preload("res://TSCN/Player/Skills/shards_shoot_skills.tscn")
+
 @onready var Skill1 = $ShardsShootSkills
 @onready var Skill2 = $Reposition
 @onready var Skill3 = $Wing_Man
@@ -16,10 +16,14 @@ var Skills_legendary : Array
 @onready var B_Skill2 = $Mystic_Familiar
 
 var skills_rarity_index:int = 0
-# Called when the node enters the scene tree for the first time.
+
+#Skills Branches
+signal B_Skill2_1
+
 #signals
 signal B_Skill1_up
 signal B_Skill2_up
+
 func _ready():
 	#player = get_tree().get_nodes_in_group("Player")
 	#skills.append(Skill1)
@@ -32,6 +36,11 @@ func _ready():
 	#print_debug(skills_Pool)
 	activate_skill(1)
 	activate_skill(1)
+	activate_skill(1)
+	activate_skill(0)
+	activate_skill(0)
+	activate_skill(0)
+	#activate_skill(0)
 	#skills = []
 	#Skill3.activate()
 	pass # Replace with function body.
@@ -62,3 +71,16 @@ func _Set_Skill_Pool(index):
 		skills_Pool = skills_B
 	elif index == 2:
 		skills_Pool = skills_G
+		
+func _Set_branch_index(skill,index):
+	skill.branch_index = index
+	pass
+
+func _Get_branch_index(skill):
+	return skill.branch_index
+
+func _Get_Skill_has_branch(skill):
+	return skill.has_branch
+	
+func _Get_brach_size(skill):
+	return skill.branch_size

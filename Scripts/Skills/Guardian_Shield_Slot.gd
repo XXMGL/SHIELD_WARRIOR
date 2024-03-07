@@ -17,6 +17,7 @@ func _ready():
 	#Character.connect("Gethit",Callable(self,"_Get_Hit"))
 	#Character.connect("precise_Parry",Callable(self,"_Get_Guardian_Shield"))
 	SkillManager.connect("B_Skill1_up",Callable(self,"_B_Skill1_up"))
+	SkillManager.connect("B_Skill2_1",Callable(self,"_Get_Guardian_Shield"))
 	Character.connect("precise_Parry",Callable(self,"_Get_Guardian_Shield"))
 	Character.connect("Gethit",Callable(self,"_Get_Hit"))
 	pass # Replace with function body.
@@ -42,7 +43,7 @@ func _Get_Hit():
 		if is_Yellow_Shield == true:
 			Character.stamina_Recover = CharacterData.stamina_Recover
 		if is_Red_Shield == true:
-			Character._Make_a_Shoot()
+			Character._Make_a_Shoot(Character._Get_Shield_position())
 		#Character.damage_Scale = 1
 		Slot_is_Empty = true
 		#print_debug(Character.damage_Scale)
@@ -50,7 +51,7 @@ func _Get_Hit():
 	
 func _B_Skill1_up():
 	Skill_Level += 1
-	print_debug(Skill_Level)
+	#print_debug(Skill_Level)
 	Slot_is_Trigger = true
 	if Skill_Level == 1:
 		pass

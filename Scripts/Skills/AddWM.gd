@@ -10,6 +10,7 @@ var is_Displaying = false #it will turn to true if the skill is on level_up inte
 # skills branches
 var has_branch:bool = false
 var branch_index:int = 0
+var branch_size:int = 1
 #skill at full level wont appear in the skill pool
 
 func activate():

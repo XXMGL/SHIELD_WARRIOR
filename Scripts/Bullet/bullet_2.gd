@@ -67,6 +67,10 @@ func _on_detector_body_entered(body):
 		queue_free()  # 销毁子弹
 	if OriginFrom == Origin.From_Enemy and body.has_method("_WingManDetection"):
 		queue_free() # 销毁
+	if OriginFrom == Origin.From_Enemy and body.has_method("_MF_Detection"):
+		if body.has_Shield != null and body.has_Shield == true:
+			body.has_Shield = false
+			queue_free() # 销毁
 	if OriginFrom == Origin.From_Player and body.has_method("_EnemyDetection"):
 		#print_debug("11")
 		body.Health -= Damage * Damage_Scale
