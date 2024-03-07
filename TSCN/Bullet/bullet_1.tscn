@@ -1,21 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwdqhxu8ubagf"]
+[gd_scene load_steps=12 format=3 uid="uid://dwdqhxu8ubagf"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_2.gd" id="1_mxhoa"]
 [ext_resource type="Texture2D" uid="uid://bi8km0qk7ud3q" path="res://ART Assets/bullet/enemy/m2_Projectile.png" id="2_j8jqv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3458t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_njgw2"]
 atlas = ExtResource("2_j8jqv")
 region = Rect2(0, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2gsf"]
+atlas = ExtResource("2_j8jqv")
+region = Rect2(64, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xc1g"]
+atlas = ExtResource("2_j8jqv")
+region = Rect2(128, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxajb"]
+atlas = ExtResource("2_j8jqv")
+region = Rect2(192, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujtwg"]
+atlas = ExtResource("2_j8jqv")
+region = Rect2(256, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts14x"]
+atlas = ExtResource("2_j8jqv")
+region = Rect2(320, 0, 64, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u10r5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3458t")
+"texture": SubResource("AtlasTexture_njgw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2gsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xc1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxajb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujtwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts14x")
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
@@ -33,11 +68,12 @@ collision_mask = 0
 script = ExtResource("1_mxhoa")
 BulletType = 0
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_u10r5")
 animation = &"shoot"
+frame_progress = 0.469673
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.90735e-06, 0)

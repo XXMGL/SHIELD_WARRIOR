@@ -5,7 +5,7 @@ var x_velocity
 var y_direction = 1
 var y_velocity
 
-# @onready var BulletAnimation = $AnimationPlayer
+
 
 enum Types{Bullet1, Bullet2}
 @export var BulletType = Types.Bullet2
@@ -23,7 +23,10 @@ var Reposition_Timer = 0
 var Reposition_Target:Node2D
 var MoveDirection = Vector2(-1 , 0)
 
+@onready var BulletAnimation = $AnimatedSprite2D
+
 func _ready():
+	BulletAnimation.play("shoot")
 	pass
 	
 func _process(delta):            
@@ -33,7 +36,6 @@ func _process(delta):
 	
 	match OriginFrom:
 		Origin.From_Enemy:
-			# BulletAnimation.play("shoot")
 			pass
 		Origin.From_Player:
 			pass

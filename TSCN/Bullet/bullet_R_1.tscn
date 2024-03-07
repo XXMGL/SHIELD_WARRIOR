@@ -1,7 +1,57 @@
-[gd_scene load_steps=8 format=3 uid="uid://baomwpgr6gpc3"]
+[gd_scene load_steps=12 format=3 uid="uid://baomwpgr6gpc3"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_2.gd" id="1_i4p6q"]
 [ext_resource type="Texture2D" uid="uid://c5spe1d12o43x" path="res://ART Assets/bullet/player/m3_Projectile.png" id="2_f14k1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k2bc"]
+atlas = ExtResource("2_f14k1")
+region = Rect2(0, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sndeo"]
+atlas = ExtResource("2_f14k1")
+region = Rect2(64, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xsde"]
+atlas = ExtResource("2_f14k1")
+region = Rect2(128, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p0y6"]
+atlas = ExtResource("2_f14k1")
+region = Rect2(192, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6i82"]
+atlas = ExtResource("2_f14k1")
+region = Rect2(256, 0, 64, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdkos"]
+atlas = ExtResource("2_f14k1")
+region = Rect2(320, 0, 64, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85ca8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k2bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sndeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xsde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p0y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6i82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdkos")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 8.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekmi8"]
 radius = 27.7609
@@ -10,44 +60,6 @@ height = 68.5858
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akmr7"]
 radius = 2.12766
 height = 50.0001
-
-[sub_resource type="Animation" id="Animation_3gnwo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_otsbi"]
-resource_name = "shoot"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_csx68"]
-_data = {
-"RESET": SubResource("Animation_3gnwo"),
-"shoot": SubResource("Animation_otsbi")
-}
 
 [node name="Bullet_R_1" type="CharacterBody2D"]
 scale = Vector2(0.440001, 0.359999)
@@ -58,11 +70,13 @@ move_speed = 350
 OriginFrom = 1
 Damage = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.19209e-06, 2.77778)
 rotation = 3.14159
-texture = ExtResource("2_f14k1")
-hframes = 6
+sprite_frames = SubResource("SpriteFrames_85ca8")
+animation = &"shoot"
+frame = 3
+frame_progress = 0.822687
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11.3636, 0)
@@ -79,10 +93,5 @@ collision_mask = 3
 position = Vector2(-1.56249, 0)
 scale = Vector2(3.54907, 0.517015)
 shape = SubResource("CapsuleShape2D_akmr7")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_csx68")
-}
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

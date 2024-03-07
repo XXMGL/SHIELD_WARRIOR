@@ -1,7 +1,43 @@
-[gd_scene load_steps=8 format=3 uid="uid://cicweg071xjvc"]
+[gd_scene load_steps=10 format=3 uid="uid://cicweg071xjvc"]
 
 [ext_resource type="Script" path="res://Scripts/Bullet/bullet_2.gd" id="1_7ss2j"]
 [ext_resource type="Texture2D" uid="uid://kvj1hx6bd7ui" path="res://ART Assets/bullet/enemy/m11_Projectile.png" id="2_tgmt6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyrvd"]
+atlas = ExtResource("2_tgmt6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yunwv"]
+atlas = ExtResource("2_tgmt6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6akws"]
+atlas = ExtResource("2_tgmt6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2kkv"]
+atlas = ExtResource("2_tgmt6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epgpq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyrvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yunwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6akws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2kkv")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 8.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tgwo"]
 radius = 71.4569
@@ -9,56 +45,19 @@ radius = 71.4569
 [sub_resource type="CircleShape2D" id="CircleShape2D_dh0lt"]
 radius = 10.4812
 
-[sub_resource type="Animation" id="Animation_nnclq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_v82rj"]
-resource_name = "shoot"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ublx4"]
-_data = {
-"RESET": SubResource("Animation_nnclq"),
-"shoot": SubResource("Animation_v82rj")
-}
-
 [node name="Bullet2" type="CharacterBody2D"]
 scale = Vector2(0.440001, 0.359999)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_7ss2j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-11.3636, -2.77779)
 rotation = 3.14159
 scale = Vector2(4.11113, 4.11113)
-texture = ExtResource("2_tgmt6")
-hframes = 4
+sprite_frames = SubResource("SpriteFrames_epgpq")
+animation = &"shoot"
+frame_progress = 0.15467
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.573568, 0.636996)
@@ -72,10 +71,5 @@ collision_mask = 3
 position = Vector2(1.13687e-13, 0)
 scale = Vector2(3.45454, 3.55556)
 shape = SubResource("CircleShape2D_dh0lt")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ublx4")
-}
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

@@ -11,7 +11,6 @@ extends CharacterBody2D
 var y_direction:int
 var x_direction:int
 
-#@onready var EnemyAnimation = $AnimationPlayer
 @onready var EnemyAnimator = $AnimatedSprite2D
 
 
