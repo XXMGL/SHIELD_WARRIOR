@@ -100,21 +100,25 @@ func _process(delta):
 				Shoot_timer = 0
 			pass	
 		Types.Enemy6:
-			EnemyAnimator.play("Fly")
+			if (!isDead):
+				if (direct_attacker_state == DirectAttackerState.wander):
+					EnemyAnimator.play("Fly")
+				elif (direct_attacker_state == DirectAttackerState.attacking):
+					EnemyAnimator.play("Attack")
+				elif (direct_attacker_state == DirectAttackerState.attack_finish):
+					EnemyAnimator.play("Fly")
 			pass
 		Types.Enemy7:
-			if (direct_attacker_state == DirectAttackerState.wander):
-				if (!isDead):
+			if (!isDead):
+				if (direct_attacker_state == DirectAttackerState.wander):
 					EnemyAnimator.play("Fly")
-				Shoot_timer += delta
-				if Shoot_timer >= ShootDuration/10:
-					_ShootBullet(bullet1_tscn)
-					Shoot_timer = 0
-			elif (direct_attacker_state == DirectAttackerState.attacking):
-				if (!isDead):
+					Shoot_timer += delta
+					if Shoot_timer >= ShootDuration/10:
+						_ShootBullet(bullet1_tscn)
+						Shoot_timer = 0
+				elif (direct_attacker_state == DirectAttackerState.attacking):
 					EnemyAnimator.play("Attack")
-			elif (direct_attacker_state == DirectAttackerState.attack_finish):
-				if (!isDead):
+				elif (direct_attacker_state == DirectAttackerState.attack_finish):
 					EnemyAnimator.play("Fly")
 			pass
 			
