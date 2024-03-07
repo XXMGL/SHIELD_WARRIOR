@@ -469,12 +469,10 @@ shape = SubResource("RectangleShape2D_g6eas")
 
 [node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 4
-SpawnEnemy = 5
 SpawnInterval = 0.4
 SpawnAmout = 1
 
 [node name="MonsterSpawner2" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_8goud")]
-SpawnEnemy = 5
 SpawnInterval = 0.4
 SpawnAmout = 4
 Enemy_Route = "Route3"
