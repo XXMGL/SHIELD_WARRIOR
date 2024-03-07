@@ -20,8 +20,8 @@ var Boss_Timer
 var bullet1_tscn = preload("res://TSCN/Bullet/bullet_1.tscn")
 var bullet2_tscn = preload("res://TSCN/Bullet/bullet_2.tscn")
 
-var Health = 1
-@export var MaxHealth = 1000
+var Health = 1.0
+@export var MaxHealth = 1000.0
 
 enum ShootMode{SM1,SM2,Mad}
 @export var SM = ShootMode.SM1
@@ -64,8 +64,9 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	print_debug(Health)
 	HPBar.value_1 = Health * 100 / MaxHealth
-	if Health >= MaxHealth*3/4:
+	if Health >= MaxHealth * 3/4:
 		#BossAnimation.play("fly")
 		_Play_Animation("fly")
 		SM = ShootMode.SM1

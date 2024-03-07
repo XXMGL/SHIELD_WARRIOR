@@ -45,7 +45,7 @@ func _on_timer_timeout():
 			EnemyTypes.Enemy2:
 				NewEnemy = Enemy2_prefab.instantiate()
 				NewEnemy.group_name = Enemy_Route
-				NewEnemy._change_route(NewEnemy.group_name)
+				# NewEnemy._change_route(NewEnemy.group_name)
 				pass
 				
 			EnemyTypes.Enemy3:
