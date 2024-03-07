@@ -1,8 +1,10 @@
 extends CanvasLayer
 
 @onready var Slot = $Slot
-var Empty_Slot_Texture = preload("res://ART Assets/heart0.png")
-var Filled_Slot_Texture = preload("res://ART Assets/heart.png")
+var Empty_Slot_Texture = preload("res://ART Assets/ShieldSkill/7.png")
+var Blue_Slot_Texture = preload("res://ART Assets/ShieldSkill/4.png")
+var Yellow_Slot_Texture = preload("res://ART Assets/ShieldSkill/5.png")
+var Red_Slot_Texture = preload("res://ART Assets/ShieldSkill/6.png")
 var Slot_is_Trigger:bool = false
 var Slot_is_Empty:bool = true
 var is_Yellow_Shield:bool = false
@@ -28,7 +30,7 @@ func _process(delta):
 
 func _Get_Guardian_Shield():
 	if Slot_is_Empty == true:
-		Slot.texture = Filled_Slot_Texture
+		Slot.texture = Blue_Slot_Texture
 		Character.damage_Scale = 0
 		if is_Yellow_Shield == true:
 			Character.stamina_Recover = CharacterData.stamina_Recover * 2
@@ -56,5 +58,7 @@ func _B_Skill1_up():
 		pass
 	if Skill_Level == 2:
 		is_Yellow_Shield = true
+		Slot.texture = Yellow_Slot_Texture
 	if Skill_Level == 3:
 		is_Red_Shield = true
+		Slot.texture = Red_Slot_Texture
