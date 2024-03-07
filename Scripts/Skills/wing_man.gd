@@ -58,10 +58,7 @@ func ShootBullet_WM():
 	get_parent().get_parent().call_deferred("add_child", bullet)
 	bullet.position = $BulletSpawner.global_position
 	_Do_Reposition(bullet)
-	if Character.Target_Enemy != null:
-		bullet.MoveDirection = Character.IndicatorDirection
-	else:
-		bullet.MoveDirection = Vector2(1,0)
+	bullet.MoveDirection = Character.IndicatorDirection
 
 	
 func _WingManDetection():

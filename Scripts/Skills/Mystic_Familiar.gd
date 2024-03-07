@@ -7,8 +7,11 @@ var weight = 2 #The possibility of this skill appearing in the upgrade interface
 @export var isFullLv = false #it will turn to ture if the skill is full level.
 var is_Displaying = false #it will turn to true if the skill is on level_up interface
 # skills branches
-var has_branch:bool = false
+var has_branch:bool = true
 var branch_index:int = 0
+var branch_size:int = 2
+
+var Mystic_Familiar
 #skill at full level wont appear in the skill pool
 
 func activate():
@@ -23,7 +26,14 @@ func activate():
 		var player = get_tree().get_first_node_in_group("Player")
 		player.add_child(Added_MF)
 		Added_MF.Skill_Lv = levelNum
+		Mystic_Familiar = Added_MF
+	if levelNum == 3:
+		has_branch = true
+	if levelNum == 4:
+		has_branch = false
+
 	pass
+	#print_debug(Mystic_Familiar.branch_index)
 	
 func deactivate():
 

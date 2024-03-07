@@ -62,11 +62,20 @@ func _GetRandomSkill(Button):
 	while randomIndex in indexRange and skillsPool.size() >= 3:
 		randomIndex = weightedIndexes[randi() % weightedIndexes.size()]
 	indexRange.append(randomIndex)
-	#print_debug(weightedIndexes)
+	#print_debug(SkillManager._Get_Skill_has_branch(skillsPool[0]))
+	_Check_Skill_Branches(Button,randomIndex)
 	Button.Skillindex = randomIndex
 	Button.Rarity_index = skills_rarity_index
 	#print_debug(Button.Skillindex,",",Button.Rarity_index)
 	pass
+
+func _Check_Skill_Branches(Button,index):
+	if SkillManager._Get_Skill_has_branch(skillsPool[index]) == true:
+		var randomindex = randi_range(1,SkillManager._Get_brach_size(skillsPool[index]))
+		SkillManager._Set_branch_index(skillsPool[index],randomindex)
+		Button.Branch_index = randomindex
+	else:
+		Button.Branch_index = SkillManager._Get_branch_index(skillsPool[index])
 
 func _on_shuffle_pressed():
 	#if ShuffleChance >0:

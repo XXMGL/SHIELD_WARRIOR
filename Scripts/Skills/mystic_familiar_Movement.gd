@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var MF_Animation = $AnimatedSprite2D
 @onready var MF_Timer = $Timer
+@onready var Shield_Timer = $Timer2
 # 目标对象
 var target: Node2D
 # 旋转半径
@@ -21,8 +22,16 @@ var BulletPrefab = preload("res://TSCN/Bullet/bullet_R_1.tscn")
 var Skill_Lv = 0
 
 var is_Lv_3:bool = false
+var is_LV_4_1:bool = false
+var is_LV_4_2:bool = false
+var is_LV_5_1:bool = false
+var is_LV_5_2:bool = false
 
-var is_Guardian:bool = false
+var has_Shield:bool = false
+
+var branch_index:int = 0
+
+var Shooting_Offset = Character.Shooting_Offset
 
 func _ready():
 	MF_Timer.start()
@@ -50,26 +59,41 @@ func _physics_process(delta):
 	pass
 	
 func ShootBullet_MF():
-	var newBulletPrefab = BulletPrefab
-	var bullet = newBulletPrefab.instantiate()
-	get_parent().get_parent().add_child(bullet)
-	#get_parent().get_parent().call_deferred("add_child", bullet)
-	if is_Lv_3 == true:
-		bullet.Damage_Scale = 2
-	bullet.position = $BulletSpawner.global_position
-	if Character.Target_Enemy != null:
-		bullet.MoveDirection = Character.IndicatorDirection
-	else:
-		bullet.MoveDirection = Vector2(1,0)
+	if is_LV_5_1 == false and is_LV_5_2 == false:
+		var newBulletPrefab = BulletPrefab
+		var bullet = newBulletPrefab.instantiate()
+		get_parent().get_parent().add_child(bullet)
+		Shooting_Offset = Character.Shooting_Offset
+		var offset_angle = deg_to_rad(randf_range(-Shooting_Offset, Shooting_Offset))
+		if is_Lv_3 == true:
+			bullet.Damage_Scale = 2
+		bullet.position = $BulletSpawner.global_position
+		var original_direction = Character.IndicatorDirection
+		var rotated_direction = original_direction.rotated(offset_angle)
+		if is_LV_4_2 == true:
+			bullet.MoveDirection = rotated_direction
+		else:
+			bullet.MoveDirection = Vector2(1,0)
+	elif is_LV_5_1 == true:
+		SkillManager.emit_signal("B_Skill2_1")
+	elif is_LV_5_2 == true:
+		Character._Make_a_Shoot($BulletSpawner.global_position)
+		pass
 
+func _MF_Detection():
+	if has_Shield == true:
+		return true
+	else:
+		return false
 
 func _on_timer_timeout():
 	ShootBullet_MF()
 	pass # Replace with function body.
 	
 func _B_Skill2_up():
+	#print_debug(branch_index)
 	Skill_Lv += 1
-	print_debug(Skill_Lv)
+	#print_debug(Skill_Lv)
 	if Skill_Lv == 1:
 		pass
 	elif Skill_Lv == 2:
@@ -77,4 +101,41 @@ func _B_Skill2_up():
 		pass
 	elif Skill_Lv == 3:
 		is_Lv_3 == true
-	pass
+	elif Skill_Lv == 4:
+		branch_index = SkillManager._Get_branch_index(SkillManager.B_Skill2)
+		if branch_index == 1:
+			is_LV_4_1 = true
+			Shield_Timer.start()
+			Character.connect("Gethit",Callable(self,"_Get_Hit"))
+			
+		elif branch_index == 2:
+			is_LV_4_2 = true
+		else:
+			print_debug("Error")
+	elif Skill_Lv == 5:
+		if branch_index == 1:
+			MF_Timer.wait_time = 3
+			is_LV_4_1 = false
+			is_LV_5_1 = true
+			_initiate_Guardian_Shield()		
+		elif branch_index == 2:
+			is_LV_4_2 = false
+			is_LV_5_2 = true
+		else:
+			print_debug("Error")
+			
+			
+func _initiate_Guardian_Shield():
+	var Slot_in_Scene = get_tree().get_nodes_in_group("Shield_Slot")
+	if Slot_in_Scene.size()<1:
+		var Slot_tscn = load("res://TSCN/UI/Guardian_Shield_Slot.tscn")
+		var new_Slot = Slot_tscn.instantiate()
+		SkillManager.add_child(new_Slot)
+		new_Slot.Skill_Level = 1
+
+func _Get_Hit():
+	Shield_Timer.start()
+
+func _on_timer_2_timeout():
+	has_Shield = true
+	pass # Replace with function body.

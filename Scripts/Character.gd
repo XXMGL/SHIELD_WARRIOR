@@ -49,6 +49,7 @@ var Indicator
 @export var distance = 10
 var IndicatorDirection
 @export var Shooting_Offset = 10
+var Shield_position
 
 signal Route_Change
 signal Gethit
@@ -86,7 +87,6 @@ func _ready():
 	Max_stamina = Basic_stamina
 	Exp_Bar.max_value = Exp_to_NextLevel
 	Level_Num_InCanvas.text = str(LevelNum)
-
 	
 	stamina = Max_stamina
 	health = Max_health
@@ -229,7 +229,7 @@ func _CharacterDetection():
 	# 目前只用作碰撞检测时识别node
 	pass
 	
-func _ShootBullet(Bullet,DamageScale):
+func _ShootBullet(Bullet,DamageScale,position):
 	var bullet = Bullet.instantiate()
 	#get_parent().add_child(bullet) 不能用，因为同时检测碰撞并Add child会报错
 	get_parent().call_deferred("add_child", bullet)
@@ -240,19 +240,20 @@ func _ShootBullet(Bullet,DamageScale):
 	_Do_Reposition(bullet)
 	#bullet.Reposition_Target = Target_Enemy
 	bullet.Damage *= DamageScale
-	bullet.position = $SHIELD.global_position
+	bullet.position = position
 	bullet.rotation = Indicator.rotation
 	bullet.MoveDirection = rotated_direction
 	
 	Trigger_WM()
 
-func _Make_a_Shoot():
+func _Make_a_Shoot(position):
 	isShoot = true
 	_Set_Bullet_Prefab()
-	_Do_ShardsShoot(bullet_prefab)
+	_Do_ShardsShoot(bullet_prefab, position)
 	if isShoot == true:
-		_ShootBullet(bullet_prefab , 1)
+		_ShootBullet(bullet_prefab , 1, position)
 		isShoot = false
+	bullet_prefab = bullet_1_tscn
 	
 	
 func _OutofStamina():
@@ -271,7 +272,7 @@ func _OutofStamina():
 func _on_shield_body_entered(body):
 	if body.has_method("_BulletDetection") or (body.has_method("_isDirectAttacker")and body._isDirectAttacker()):
 		if Player_State == state.STATE_PARRYING or Player_State == state.STATE_PARRYSTART or Player_State == state.STATE_PARRYEND:
-			_Make_a_Shoot()
+			_Make_a_Shoot($SHIELD.global_position)
 		elif Player_State == state.STATE_MOVE:
 			Player_State = state.STATE_HURT
 			Recieved_damge = body._GetDamage()
@@ -347,10 +348,10 @@ func _Rebirth():
 	
 	
 #Skill1 ShardsShoot
-func _Do_ShardsShoot(bullet_prefab):
+func _Do_ShardsShoot(bullet_prefab , position):
 	if Shards_Shoot_enabled == true and isShoot == true:
 		for i in Shards_Acount:
-			_ShootBullet(bullet_prefab , 0.3)
+			_ShootBullet(bullet_prefab , 0.3, position)
 		isShoot = false
 
 #Skill2 Repositioning
@@ -379,3 +380,7 @@ func _R_Heart():
 	var Heart_Bar = R_Heart_tscn.instantiate()
 	Location.add_child(Heart_Bar)
 	pass
+	
+func _Get_Shield_position():
+	Shield_position = $SHIELD.global_position
+	return $SHIELD.global_position
