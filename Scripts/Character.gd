@@ -181,6 +181,7 @@ func _process(delta):
 			pass
 		state.STATE_PARRYEND:
 			# _Shield_Animation_Play("ParryEnd")
+			
 			SlowDown = 2
 			parry_timer += delta
 			if parry_timer >= ParryDuration:
@@ -260,9 +261,10 @@ func _Make_a_Shoot(position):
 func _OutofStamina():
 	if stamina <= 0:
 		canPary = false
+		stamina += 1 #使Stamina不小于0，以便于parry_timer不会被一直设置为0
 		parry_timer = 0.0
 		Player_State = state.STATE_PARRYEND
-		# ShieldSprite.play("ParryEnd")
+		ShieldSprite.play("ParryEnd")
 	if stamina == Max_stamina and canPary == false:
 		canPary = true	
 
