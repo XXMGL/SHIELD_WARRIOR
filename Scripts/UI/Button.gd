@@ -27,8 +27,6 @@ func _process(delta):
 	_SetSkillInterface()
 	pass
 
-
-
 		
 func _SetSkillInterface():
 	if Skillindex == 0 and Rarity_index == 0:
@@ -51,17 +49,17 @@ func _Set_Skills_Layout():
 	var Icon = $Layout/icon
 	match Skill:
 		SK.skill1:
-			Layout.texture = Sk_Layout2
+			Layout.texture = Sk_Layout3
 			Icon.texture = Sk_Icon1
 			SkillName.text = "Shards Shoot"
 			pass
 		SK.skill2:
-			Layout.texture = Sk_Layout2
+			Layout.texture = Sk_Layout3
 			Icon.texture = Sk_Icon2
 			SkillName.text = "Retargeting Bullet"
 			pass
 		SK.skill3:
-			Layout.texture = Sk_Layout2
+			Layout.texture = Sk_Layout3
 			Icon.texture = Sk_Icon3
 			SkillName.text = "Wingman"
 			pass
@@ -71,17 +69,20 @@ func _Set_Skills_Layout():
 			SkillName.text = "Resilient Heart"
 			pass
 		SK.B_skill1:
-			Layout.texture = Sk_Layout1
+			Layout.texture = Sk_Layout2
 			Icon.texture = Sk_Icon4
 			SkillName.text = "Guardian Heart"
 		SK.B_skill2:
-			Layout.texture = Sk_Layout1
+			Layout.texture = Sk_Layout2
 			if Branch_index == 1:	
 				Icon.texture = Sk_Icon4
 				SkillName.text = "Mystic Familiar_1"
 			elif Branch_index == 2:
 				Icon.texture = Sk_Icon3
 				SkillName.text = "Mystic Familiar_2"
+			elif Branch_index == 0:
+				Icon.texture = Sk_Icon4
+				SkillName.text = "Mystic Familiar"
 			else:
 				Icon.texture = Sk_Icon2
 				SkillName.text = "Error"

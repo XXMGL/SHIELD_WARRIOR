@@ -13,7 +13,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avdxa"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="LevelUp" type="CanvasLayer"]
+[node name="LevelUp" type="CanvasLayer" groups=["Level_up"]]
 process_mode = 3
 layer = 10
 script = ExtResource("1_wsfcg")

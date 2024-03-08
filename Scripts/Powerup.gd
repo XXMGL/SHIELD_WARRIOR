@@ -13,7 +13,12 @@ enum PowerupType {recover_life_value, raise_stamina_limit, increase_movement_spe
 @export var group_name : String
 @export var move_speed = 100 
 
+
+
 func _ready():
+	Tutorial.emit_signal("power_up_showing_up")
+	
+	
 	player = get_tree().get_first_node_in_group("Player")
 	if player.health == player.Max_health:
 		var random_value = randi_range(0, 2)  # 生成0到2之间的随机整数

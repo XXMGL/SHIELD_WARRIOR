@@ -29,6 +29,9 @@ var PL_N
 
 
 func _ready():
+	Tutorial.emit_signal("enter_Level1")
+	
+	
 	Activate_Character()
 	PL_bw = Character.LevelNum
 	PL_aw = Character.LevelNum
@@ -128,6 +131,7 @@ func load_next_level():
 func Level_Up_WaveCheck():
 	PL_aw = Character.LevelNum
 	if PL_aw > PL_bw:
+		Tutorial.emit_signal("leving_up_interface")
 		PL_bw += 1
 		var Level_Up_Window_prefab = preload("res://TSCN/UI/level_up.tscn")
 		var Level_Up_Window = Level_Up_Window_prefab.instantiate()

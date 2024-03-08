@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://daq31l14kp1r0"]
+
+[ext_resource type="Script" path="res://Scripts/UI/tutorial_interface.gd" id="1_2xn1o"]
+[ext_resource type="Texture2D" uid="uid://cl08ft4qglhd" path="res://ART Assets/300ppi/004.png" id="1_xergj"]
+
+[node name="Tutorial_interface" type="CanvasLayer"]
+process_mode = 3
+layer = 15
+script = ExtResource("1_2xn1o")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1151.99
+offset_bottom = 648.59
+
+[node name="tutorial image" type="Sprite2D" parent="."]
+position = Vector2(593, 336)
+scale = Vector2(3.24, 1.68)
+texture = ExtResource("1_xergj")
+
+[node name="Close button" type="Button" parent="tutorial image"]
+offset_left = 62.6542
+offset_top = -137.5
+offset_right = 150.654
+offset_bottom = -113.5
+text = "Close"
+
+[connection signal="button_down" from="tutorial image/Close button" to="." method="_on_close_button_button_down"]

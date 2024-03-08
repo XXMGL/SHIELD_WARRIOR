@@ -34,8 +34,8 @@ func _ready():
 	_Get_Skills("Blue", skills_B)
 	skills_Pool = skills_B
 	#print_debug(skills_Pool)
-	#activate_skill(1)
-	#activate_skill(1)
+	activate_skill(1)
+	activate_skill(1)
 	#activate_skill(1)
 	#activate_skill(0)
 	#activate_skill(0)

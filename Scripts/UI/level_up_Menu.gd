@@ -19,6 +19,8 @@ var skills_rarity_index:int = 0
 @export var skills_G_weight = 0
 
 func _ready():
+	
+	
 	ShuffleChance_Text.text = str(ShuffleChance)
 	_Shuffle()
 	pass

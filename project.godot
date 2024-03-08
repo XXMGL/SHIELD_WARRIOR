@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Character="*res://TSCN/Player/character.tscn"
 CharacterData="*res://TSCN/Player/character_data.tscn"
 SkillManager="*res://TSCN/Player/SkillManager.tscn"
+Tutorial="*res://TSCN/UI/tutorial.tscn"
 
 [display]
 
