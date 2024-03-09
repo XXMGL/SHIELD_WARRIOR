@@ -235,8 +235,6 @@ position = Vector2(5.99999, -3.00001)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mve0x")
 animation = &"running"
-frame = 1
-frame_progress = 0.941704
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -375,9 +375,7 @@ shape = SubResource("RectangleShape2D_avtoe")
 position = Vector2(0.333333, 1.33333)
 scale = Vector2(-0.386, 0.386)
 sprite_frames = SubResource("SpriteFrames_h3tss")
-animation = &"fly2"
-frame = 1
-frame_progress = 0.62863
+animation = &"endAttack"
 
 [node name="Wonder" parent="." instance=ExtResource("3_7a2qe")]
 

@@ -63,23 +63,35 @@ texture = ExtResource("4_k7mc8")
 position = Vector2(0, 78.6517)
 texture = ExtResource("6_ln1bi")
 
-[node name="Text" type="Label" parent="HBoxContainer/Skill1"]
+[node name="SkillName" type="Label" parent="HBoxContainer/Skill1/Layout/Skill"]
 custom_minimum_size = Vector2(100, 50)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -92.8096
-offset_top = 38.4
-offset_right = 91.1904
-offset_bottom = 88.4
-theme_override_font_sizes/font_size = 10
+offset_left = -216.764
+offset_top = -202.735
+offset_right = -32.764
+offset_bottom = -152.735
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
-text = "Skill"
+text = "Guardian Shield"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SkillContent" type="RichTextLabel" parent="HBoxContainer/Skill1/Layout/Skill"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.27
+offset_top = -47.191
+offset_right = -35.2697
+offset_bottom = 106.809
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "Content Content Content"
 
 [node name="Skill2" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(294.55, 400)
@@ -104,23 +116,35 @@ texture = ExtResource("4_k7mc8")
 position = Vector2(0, 78.6517)
 texture = ExtResource("6_ln1bi")
 
-[node name="Text" type="Label" parent="HBoxContainer/Skill2"]
+[node name="SkillName" type="Label" parent="HBoxContainer/Skill2/Layout/Skill"]
 custom_minimum_size = Vector2(100, 50)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -92.8096
-offset_top = 38.4
-offset_right = 91.1904
-offset_bottom = 88.4
-theme_override_font_sizes/font_size = 10
+offset_left = -216.764
+offset_top = -202.735
+offset_right = -32.764
+offset_bottom = -152.735
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
-text = "Skill"
+text = "Guardian Shield"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SkillContent" type="RichTextLabel" parent="HBoxContainer/Skill2/Layout/Skill"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.27
+offset_top = -47.191
+offset_right = -35.2697
+offset_bottom = 106.809
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "Content Content Content"
 
 [node name="Skill3" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(294.55, 400)
@@ -145,23 +169,35 @@ texture = ExtResource("4_k7mc8")
 position = Vector2(0, 78.6517)
 texture = ExtResource("6_ln1bi")
 
-[node name="Text" type="Label" parent="HBoxContainer/Skill3"]
+[node name="SkillName" type="Label" parent="HBoxContainer/Skill3/Layout/Skill"]
 custom_minimum_size = Vector2(100, 50)
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -92.8096
-offset_top = 38.4
-offset_right = 91.1904
-offset_bottom = 88.4
-theme_override_font_sizes/font_size = 10
+offset_left = -216.764
+offset_top = -202.735
+offset_right = -32.764
+offset_bottom = -152.735
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
-text = "Skill"
+text = "Guardian Shield"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SkillContent" type="RichTextLabel" parent="HBoxContainer/Skill3/Layout/Skill"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.27
+offset_top = -47.191
+offset_right = -35.2697
+offset_bottom = 106.809
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "Content Content Content"
 
 [node name="Shuffle" type="Button" parent="."]
 custom_minimum_size = Vector2(200, 50)

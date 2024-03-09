@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuhw0qdwde0r4"
-path="res://.godot/imported/Blue.png-e14b0fb2b1b5a2c998489367e739818b.ctex"
+uid="uid://d2ehwcn1ftpyg"
+path="res://.godot/imported/Reposition.png-d8465e74488856e6df8d9c09dc0da186.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/SkillCardBG/Blue.png"
-dest_files=["res://.godot/imported/Blue.png-e14b0fb2b1b5a2c998489367e739818b.ctex"]
+source_file="res://ART Assets/Skills Icons/Reposition.png"
+dest_files=["res://.godot/imported/Reposition.png-d8465e74488856e6df8d9c09dc0da186.ctex"]
 
 [params]
 

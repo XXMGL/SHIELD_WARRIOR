@@ -24,26 +24,18 @@ signal B_Skill2_1
 signal B_Skill1_up
 signal B_Skill2_up
 
+signal Lv_up_Refresh
+
 func _ready():
 	#player = get_tree().get_nodes_in_group("Player")
-	#skills.append(Skill1)
-	#skills.append(Skill2)
-	#skills.append(Skill3)
-	#skills.append(Skill4)
 	_Get_Skills("Legendary", skills)
 	_Get_Skills("Blue", skills_B)
 	skills_Pool = skills_B
+	activate_skill(1)
+	activate_skill(1)
+	activate_skill(1)
 	#print_debug(skills_Pool)
-	activate_skill(1)
-	activate_skill(1)
-	#activate_skill(1)
-	#activate_skill(0)
-	#activate_skill(0)
-	#activate_skill(0)
-	#activate_skill(0)
-	#skills = []
-	#Skill3.activate()
-	pass # Replace with function body.
+
 
 
 func activate_skill(skill_index):

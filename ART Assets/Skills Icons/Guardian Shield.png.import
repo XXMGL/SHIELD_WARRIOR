@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbskspcrncwai"
-path="res://.godot/imported/Green.png-86ea1dd3ebdb62b0f2ca14680efcd86f.ctex"
+uid="uid://p2e87lf5i2q1"
+path="res://.godot/imported/Guardian Shield.png-1d59429dc3ec217c8a513fb0381d9332.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/SkillCardBG/Green.png"
-dest_files=["res://.godot/imported/Green.png-86ea1dd3ebdb62b0f2ca14680efcd86f.ctex"]
+source_file="res://ART Assets/Skills Icons/Guardian Shield.png"
+dest_files=["res://.godot/imported/Guardian Shield.png-1d59429dc3ec217c8a513fb0381d9332.ctex"]
 
 [params]
 
