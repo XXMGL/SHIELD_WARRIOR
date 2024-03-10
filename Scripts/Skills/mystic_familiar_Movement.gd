@@ -29,7 +29,7 @@ var is_LV_5_2:bool = false
 
 var has_Shield:bool = false
 
-var branch_index:int = 0
+var branch_index:int = 1
 
 var Shooting_Offset = Character.Shooting_Offset
 

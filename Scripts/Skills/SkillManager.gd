@@ -5,7 +5,8 @@ var skills_Pool:Array
 var skills : Array#Legendary Skills pool
 var skills_B:Array#Blue Skills pool
 var skills_G:Array#Green SKills pool
-var Skills_legendary : Array
+var skills_legendary:Array#Legendary Skills pool
+var skills_Available:Array
 
 @onready var Skill1 = $ShardsShootSkills
 @onready var Skill2 = $Reposition
@@ -27,14 +28,12 @@ signal B_Skill2_up
 signal Lv_up_Refresh
 
 func _ready():
+	connect("Lv_up_Refresh",Callable(self,"_Get_Availabel_Skills"))
 	#player = get_tree().get_nodes_in_group("Player")
-	_Get_Skills("Legendary", skills)
-	_Get_Skills("Blue", skills_B)
-	skills_Pool = skills_B
-	activate_skill(1)
-	activate_skill(1)
-	activate_skill(1)
-	#print_debug(skills_Pool)
+	_Get_Skills("Legendary", skills_legendary)
+	_Get_Skills("Rare", skills_B)
+	skills_Pool = skills_legendary
+	_Get_Availabel_Skills()
 
 
 
@@ -58,7 +57,7 @@ func _Get_Skills(Skills_Class, Skills_Array):
 
 func _Set_Skill_Pool(index):
 	if index == 0:
-		skills_Pool = skills
+		skills_Pool = skills_legendary
 	elif index == 1:
 		skills_Pool = skills_B
 	elif index == 2:
@@ -76,3 +75,12 @@ func _Get_Skill_has_branch(skill):
 	
 func _Get_brach_size(skill):
 	return skill.branch_size
+	
+func _Get_Availabel_Skills():
+	skills_Available = []
+	var SM_skills = get_tree().get_nodes_in_group("SkillManager_skills")
+	for skill in SM_skills:
+		if skill.isFullLv == false:
+			skills_Available.append(skill)
+	#print_debug("Available Skills number: ",skills_Available.size())
+	pass

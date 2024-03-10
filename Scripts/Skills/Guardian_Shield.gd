@@ -9,12 +9,15 @@ var weight = 2 #The possibility of this skill appearing in the upgrade interface
 var is_Displaying = false #it will turn to true if the skill is on level_up interface
 # skills branches
 var has_branch:bool = false
-var branch_index:int = 0
+var branch_index:int = 1
 var branch_size:int = 1
 
 func activate():
-	levelNum+=1
 	SkillManager.emit_signal("B_Skill1_up")
+	if levelNum < MaxLevel:
+		levelNum += 1
+	if levelNum >= MaxLevel:
+		isFullLv = true
 	if levelNum == 1:
 		var Slot_in_Scene = get_tree().get_nodes_in_group("Shield_Slot")
 		if Slot_in_Scene.size()<1:

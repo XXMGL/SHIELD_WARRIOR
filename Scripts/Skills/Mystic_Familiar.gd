@@ -8,7 +8,7 @@ var weight = 2 #The possibility of this skill appearing in the upgrade interface
 var is_Displaying = false #it will turn to true if the skill is on level_up interface
 # skills branches
 var has_branch:bool = false
-var branch_index:int = 0
+var branch_index:int = 1
 var branch_size:int = 2
 
 var Mystic_Familiar
