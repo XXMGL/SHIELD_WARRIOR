@@ -1,7 +1,6 @@
 extends CanvasLayer
 
-@onready var Tutorial_Image = $"tutorial image"
-@onready var close_Button = $"tutorial image/Close button"
+@onready var close_Button = $"TutorialImage/Close button"
 
 
 func _on_close_button_button_down():
@@ -9,3 +8,8 @@ func _on_close_button_button_down():
 	if lv_up_window == null:
 		get_tree().paused = false
 	queue_free()
+	
+func _Load_Totorial_img(key:String):
+	var img = load("res://ART Assets/Tutorials/"+key+".png")
+	var Tutorial_Image = $TutorialImage/img
+	Tutorial_Image.texture = img

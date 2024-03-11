@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://daq31l14kp1r0"]
+[gd_scene load_steps=8 format=3 uid="uid://daq31l14kp1r0"]
 
 [ext_resource type="Script" path="res://Scripts/UI/tutorial_interface.gd" id="1_2xn1o"]
 [ext_resource type="Texture2D" uid="uid://cl08ft4qglhd" path="res://ART Assets/300ppi/004.png" id="1_xergj"]
+[ext_resource type="Texture2D" uid="uid://02g77mqafeyb" path="res://ART Assets/Tutorials/Tutorial1.png" id="3_1ougv"]
+[ext_resource type="Texture2D" uid="uid://cuwyul3towcv4" path="res://ART Assets/Tutorials/Cross_Button.png" id="3_4fasc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aks4a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4g26"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dklrt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Tutorial_interface" type="CanvasLayer"]
 process_mode = 3
@@ -12,16 +23,25 @@ script = ExtResource("1_2xn1o")
 offset_right = 1151.99
 offset_bottom = 648.59
 
-[node name="tutorial image" type="Sprite2D" parent="."]
+[node name="TutorialImage" type="Sprite2D" parent="."]
 position = Vector2(593, 336)
 scale = Vector2(3.24, 1.68)
 texture = ExtResource("1_xergj")
 
-[node name="Close button" type="Button" parent="tutorial image"]
-offset_left = 62.6542
-offset_top = -137.5
-offset_right = 150.654
-offset_bottom = -113.5
-text = "Close"
+[node name="Close button" type="Button" parent="TutorialImage"]
+offset_left = 99.6914
+offset_top = -143.452
+offset_right = 1107.69
+offset_bottom = 1261.55
+scale = Vector2(0.025, 0.025)
+theme_override_styles/normal = SubResource("StyleBoxFlat_aks4a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a4g26")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dklrt")
+icon = ExtResource("3_4fasc")
 
-[connection signal="button_down" from="tutorial image/Close button" to="." method="_on_close_button_button_down"]
+[node name="img" type="Sprite2D" parent="TutorialImage"]
+position = Vector2(1.85185, 1.78571)
+scale = Vector2(0.138649, 0.256067)
+texture = ExtResource("3_1ougv")
+
+[connection signal="button_down" from="TutorialImage/Close button" to="." method="_on_close_button_button_down"]

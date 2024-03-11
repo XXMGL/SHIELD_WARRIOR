@@ -25,17 +25,20 @@ func _add_on_enter_Level1_Num():
 	enter_Level1_Num+=1
 	if enter_Level1_Num == 1:
 		var T_I = tutorial_interface.instantiate()
-		get_parent().add_child(T_I)
-		get_tree().paused = true
-func _add_on_power_up_showing_up_Num():
-	power_up_showing_up_Num+=1
-	if power_up_showing_up_Num == 1:
-		var T_I = tutorial_interface.instantiate()
+		T_I._Load_Totorial_img("Tutorial1")
 		get_parent().add_child(T_I)
 		get_tree().paused = true
 func _add_on_leving_up_interface_Num():
 	leving_up_interface_Num+=1
 	if leving_up_interface_Num == 1:
 		var T_I = tutorial_interface.instantiate()
+		T_I._Load_Totorial_img("Tutorial2")
+		get_parent().add_child(T_I)
+		get_tree().paused = true
+func _add_on_power_up_showing_up_Num():
+	power_up_showing_up_Num+=1
+	if power_up_showing_up_Num == 1:
+		var T_I = tutorial_interface.instantiate()
+		T_I._Load_Totorial_img("Tutorial3")
 		get_parent().add_child(T_I)
 		get_tree().paused = true

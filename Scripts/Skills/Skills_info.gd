@@ -26,24 +26,24 @@ var skill_data = {
 	},
 	"Legendary":{
 		"Shards Shoot":{
-			"LV1":{"LV1":"111"},
-			"LV2":{"LV2":"222"},
-			"LV3":{"LV3":"333"}
+			"LV1":{"LV1":"Shard Burst: Bullets now split into 3 fragments, dealing 30% of the original damage."},
+			"LV2":{"LV2":"Increased Shards: Bullets now split into 5 fragments."},
+			"LV3":{"LV3":"Massive Shards: Bullets now split into 9 fragments."}
 		},
 		"Reposition":{
-			"LV1":{"LV1":"111"},
-			"LV2":{"LV2":"222"},
-			"LV3":{"LV3":"333"}
+			"LV1":{"LV1":"Repositioning: Bullets will fly towards the nearest enemy unit after traveling for a while."},
+			"LV2":{"LV2":"Accelerated Repositioning: Bullets' flight speed increases by 50% after repositioning."},
+			"LV3":{"LV3":"High-speed Repositioning: Bullets' flight speed increases by 200% after repositioning."}
 		},
 		"Wingman":{
-			"LV1":{"LV1":"111"},
-			"LV2":{"LV2":"222"},
-			"LV3":{"LV3":"333"}
+			"LV1":{"LV1":"Protection!: Your wing man now blocks bullets for you and sends them back."},
+			"LV2":{"LV2":"Assistant!: Your wing man now fires bullets alongside the player."},
+			"LV3":{"LV3":"Synchronization!: Your wing man now inherits the player's bullet type."}
 		},
 		"Resilient Heart":{
-			"LV1":{"LV1":"111"},
-			"LV2":{"LV2":"222"},
-			"LV3":{"LV3":"333"}
+			"LV1":{"LV1":"Steadfast Grace: Players will lose their health bar and instead gain three red hearts. When damaged, the player loses one heart, and gains one heart upon perfect parry."},
+			"LV2":{"LV2":"Conservative Strategy: Players gain a fourth red heart."},
+			"LV3":{"LV3":"Easygoing: Players regain all hearts upon a perfect parry."}
 		}
 	},
 	"Empty":{
