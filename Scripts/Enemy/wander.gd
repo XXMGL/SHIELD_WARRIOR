@@ -9,8 +9,11 @@ var temp_positions : Array
 var current_position : Marker2D
  
 var direction : Vector2 = Vector2.ZERO
+
+var disable_Wander = false
  
 func _ready():
+	LevelManager.connect("Final_Enemy_Die",Callable(self,"_Set_Disable"))
 	object = get_parent()
 	if object != null:
 		group_name = object.group_name
@@ -21,8 +24,9 @@ func _ready():
 	_get_next_position()
  
 func _physics_process(_delta):
-	if global_position.distance_to(current_position.position) < 10:
-		_get_next_position()
+	if disable_Wander == false:
+		if global_position.distance_to(current_position.position) < 10:
+			_get_next_position()
  
 func _get_positions():
 	temp_positions = positions.duplicate()
@@ -39,3 +43,6 @@ func _On_Route_Changed():
 	group_name = object.group_name
 	positions = get_tree().get_nodes_in_group(group_name)
 	pass
+	
+func _Set_Disable():
+	disable_Wander = true

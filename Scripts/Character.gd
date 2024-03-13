@@ -16,6 +16,7 @@ var MOVE_SPEED = 200 #玩家的移动速度
 var motion = Vector2() # 玩家移动方向向量
 
 #玩家状态
+@export var Allow_To_Control = true
 enum state {STATE_MOVE, STATE_HURT, STATE_DIE, STATE_PARRYING,  STATE_PARRYSTART, STATE_PARRYEND} # 玩家状态
 var Player_State = state.STATE_MOVE
 @export var ParryDuration = 0.1 #举盾前摇与后摇时间
@@ -206,6 +207,7 @@ func _process(delta):
 			
 
 func _MOVE(speed):
+		if Allow_To_Control == true:
 			motion = Vector2(0,0) #初始化玩家的移动向量w	
 			# 检测键盘输入并更新移动向量
 			if Input.is_action_pressed("move_right"):
@@ -223,9 +225,16 @@ func _MOVE(speed):
 			#将移动向量乘以移动速度乘以delta来实现平滑的移动
 			motion *= speed
 			
-			#将motion变量赋予velocity并且控制玩家移动
-			set_velocity(motion)
-			move_and_slide()		
+		elif Allow_To_Control == false:
+			motion = Vector2(1,0) #初始化玩家的移动向量w	
+			#将移动向量归一化，防止对角线移动速度更快
+			motion = motion.normalized()			
+			#将移动向量乘以移动速度乘以delta来实现平滑的移动
+			motion *= speed
+			pass
+		#将motion变量赋予velocity并且控制玩家移动
+		set_velocity(motion)
+		move_and_slide()		
 			
 func _CharacterDetection():
 	# 目前只用作碰撞检测时识别node

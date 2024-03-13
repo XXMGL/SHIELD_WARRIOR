@@ -26,6 +26,7 @@ var MoveDirection = Vector2(-1 , 0)
 @onready var BulletAnimation = $AnimatedSprite2D
 
 func _ready():
+	LevelManager.connect("Final_Enemy_Die",Callable(self,"_Self_Destroy"))
 	BulletAnimation.play("shoot")
 	pass
 	
@@ -93,3 +94,6 @@ func _GetDamage():
 func _ToPlayer():
 	var target = get_tree().get_first_node_in_group("Player")
 	MoveDirection = (target.global_position - global_position).normalized()
+	
+func _Self_Destroy():
+	queue_free()

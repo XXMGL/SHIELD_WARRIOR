@@ -23,6 +23,7 @@ var fullActivated = false
 
 
 func _ready():
+	AllowedToSpawn = false
 	spawn_timer = $Timer
 	spawn_timer.wait_time  = SpawnInterval
 	for child in $SpawnLocations.get_children():

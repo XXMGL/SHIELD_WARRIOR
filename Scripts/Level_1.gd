@@ -19,6 +19,8 @@ var WaveNum = 0
 var Spwaners = []
 var SpawnersForThisWave = []
 var WaveEnd = false
+var lastWaveStarted = false
+var Reward_is_Shown = false
 
 #Wave间结算
 var PL_bw
@@ -27,11 +29,16 @@ var PL_N
 
 #关卡间结算
 
+#升级时技能稀有度权重
+var skills_L_weight = 1
+var skills_B_weight = 9
+var skills_G_weight = 0
+
 
 func _ready():
 	Tutorial.emit_signal("enter_Level1")
 	
-	
+	Character.Allow_To_Control = true
 	Activate_Character()
 	PL_bw = Character.LevelNum
 	PL_aw = Character.LevelNum
@@ -47,8 +54,8 @@ func _ready():
 	Character.HeartNum = 3
 	Character.isDead = false
 	Character._Rebirth()
-
 	
+	LevelManager.connect("Final_Enemy_Die",Callable(self,"Level_Acomplish"))
 
 
 
@@ -77,7 +84,15 @@ func _on_timer_timeout():
 		var FinalWaves = get_tree().get_nodes_in_group("FinalWave")
 		for FinalWave in FinalWaves:
 			FinalWave.AllowedToSpawn = true
-		#$Timer.stop()
+		_Last_Wave_Check()
+
+func _Last_Wave_Check():
+	var EnemiesInGround = get_tree().get_nodes_in_group("Enemies")
+	if EnemiesInGround.size() > 1 and lastWaveStarted == false:
+		lastWaveStarted = true
+	if EnemiesInGround.size() <= 1 and lastWaveStarted == true:
+		LevelManager.emit_signal("Final_Enemy_Die")
+	pass
 
 
 func _GetWaveLength():
@@ -125,19 +140,17 @@ func _on_progress_value_changed(value):
 	pass
 	
 func load_next_level():
+	LevelManager.emit_signal("Move_In_Next_Level")
+	#get_tree().change_scene_to_file(Level_Path)
+	get_tree().call_deferred("change_scene_to_file",Level_Path)
 	
-	get_tree().change_scene_to_file(Level_Path)
 	
 func Level_Up_WaveCheck():
 	PL_aw = Character.LevelNum
 	if PL_aw > PL_bw:
 		Tutorial.emit_signal("leving_up_interface")
 		PL_bw += 1
-		var Level_Up_Window_prefab = preload("res://TSCN/UI/level_up.tscn")
-		var Level_Up_Window = Level_Up_Window_prefab.instantiate()
-		add_child(Level_Up_Window)
-		# 禁用游戏中的各种活动
-		get_tree().paused = true	
+		LevelManager.Level_up_Interface(skills_L_weight,skills_B_weight,skills_G_weight)
 	pass
 	
 func Activate_Character():
@@ -145,7 +158,24 @@ func Activate_Character():
 		Character.process_mode = Node.PROCESS_MODE_INHERIT
 		Character.visible = true
 	Character._Show_UI()
-		
-
-
+	
+func Level_Acomplish():
+	if Reward_is_Shown == false:
+		LevelManager.Level_up_Interface(10,1,0)	
+		Character.Allow_To_Control = false
+		Reward_is_Shown = true
+	
+func _on_jump_to_next_level_body_entered(body):
+	if body.has_method("_CharacterDetection"):
+		if body.Allow_To_Control == false:
+			_Reposition_Character(body)
+			load_next_level()
+			Character.Allow_To_Control = true
+		pass
+	pass # Replace with function body.
+	
+func _Reposition_Character(Char):
+	var Default_Position = $Player_Defalult_position
+	Char.global_position = Default_Position.global_position
+	pass
 

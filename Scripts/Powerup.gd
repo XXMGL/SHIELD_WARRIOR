@@ -17,7 +17,7 @@ enum PowerupType {recover_life_value, raise_stamina_limit, increase_movement_spe
 
 func _ready():
 	Tutorial.emit_signal("power_up_showing_up")
-	
+	LevelManager.connect("Final_Enemy_Die",Callable(self,"_self_Destroy"))
 	
 	player = get_tree().get_first_node_in_group("Player")
 	if player.health == player.Max_health:
@@ -57,14 +57,17 @@ func ActivePowerupFunc(body):
 			body.health += life_recovery_value
 			if body.health > body.Max_health:
 				body.health = body.Max_health
-			print_debug("玩家生命")
+			#print_debug("玩家生命")
 			pass
 		PowerupType.raise_stamina_limit:
 			body.Max_stamina += stamina_raise_value
-			print_debug("玩家精力上限")
+			#print_debug("玩家精力上限")
 			pass
 		PowerupType.increase_movement_speed:
 			body.MOVE_SPEED += movespeed_increase_value
-			print_debug("玩家玩家移速")
+			#print_debug("玩家玩家移速")
 			pass
+			
+func _self_Destroy():
+	queue_free()
 

@@ -64,7 +64,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	print_debug(Health)
+	#print_debug(Health)
 	HPBar.value_1 = Health * 100 / MaxHealth
 	if Health >= MaxHealth * 3/4:
 		#BossAnimation.play("fly")
@@ -115,7 +115,8 @@ func _physics_process(delta):
 		isDead = true
 		BossAnimation.play("die")
 		await BossAnimation.animation_finished
-		get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
+		#get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
+		#LevelManager.emit_signal("Final_Enemy_Die")
 		queue_free()  # 销毁
 		
 	
