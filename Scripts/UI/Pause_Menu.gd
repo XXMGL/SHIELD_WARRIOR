@@ -1,8 +1,13 @@
 extends CanvasLayer
 
 
+var NextScene:String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var levelScript = get_tree().get_nodes_in_group("Level")
+	NextScene = levelScript[0].Level_Path
+	print_debug(NextScene)
 	pass # Replace with function body.
 
 
@@ -27,4 +32,4 @@ func _on_next_level_pressed():
 	
 func load_next_level():
 	
-	get_tree().change_scene_to_file("res://TSCN/Scene/default_scene.tscn")
+	get_tree().change_scene_to_file(NextScene)

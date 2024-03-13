@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dp1hy60tuuynb"]
+[gd_scene load_steps=22 format=3 uid="uid://dp1hy60tuuynb"]
 
 [ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_lb5gq"]
 [ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_uf3ac"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="7_1y1ny"]
 [ext_resource type="PackedScene" uid="uid://dj1afw7pe6sy6" path="res://TSCN/Enemy/Route/Route3.tscn" id="7_30e18"]
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="7_mpvug"]
+[ext_resource type="PackedScene" uid="uid://dqdglohdy5xk4" path="res://TSCN/Enemy/Route/Route4.tscn" id="8_8y5pd"]
 [ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="8_t7we2"]
 [ext_resource type="PackedScene" uid="uid://ypt4tfxejfsk" path="res://TSCN/Powerup/powerup_route.tscn" id="8_y8udy"]
+[ext_resource type="PackedScene" uid="uid://c45xicx5ao4r" path="res://TSCN/Enemy/Route/Route5.tscn" id="9_tlgoy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdlto"]
 texture = ExtResource("2_uf3ac")
@@ -406,7 +408,7 @@ size = Vector2(23.7597, 20)
 
 [node name="Level1" type="Node2D" groups=["Level"]]
 script = ExtResource("1_lb5gq")
-Level_Path = "res://TSCN/Scene/default_scene.tscn"
+Level_Path = "res://TSCN/Scene/Level2.tscn"
 Waves = [30, 30, 30]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -471,50 +473,50 @@ shape = SubResource("RectangleShape2D_g6eas")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_8goud")]
-SpwanIndex = 4
+SpwanIndex = 5
 SpawnInterval = 0.4
-SpawnAmout = 1
+SpawnAmout = 10
 
-[node name="MonsterSpawner2" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_8goud")]
-SpawnEnemy = 6
-SpawnInterval = 0.4
-SpawnAmout = 1
-Enemy_Route = "Route3"
+[node name="MonsterSpawner2" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("5_8goud")]
+SpwanIndex = 5
+SpawnInterval = 1.0
 
 [node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("5_8goud")]
-SpwanIndex = 4
+SpwanIndex = 9
+SpawnEnemy = 2
 SpawnInterval = 0.4
-SpawnAmout = 1
+SpawnAmout = 10
+Enemy_Route = "Route3"
 
-[node name="MonsterSpawner4" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("5_8goud")]
-SpawnEnemy = 0
+[node name="MonsterSpawner4" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("5_8goud")]
+SpwanIndex = 9
+SpawnEnemy = 2
 SpawnInterval = 0.4
-SpawnAmout = 1
+SpawnAmout = 10
+Enemy_Route = "Route3"
 
 [node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 4
-SpawnInterval = 0.4
-SpawnAmout = 1
+SpawnEnemy = 5
+SpawnInterval = 1.0
+SpawnAmout = 4
 
-[node name="MonsterSpawner6" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("5_8goud")]
-SpawnEnemy = 0
+[node name="MonsterSpawner6" parent="." groups=["FinalWave"] instance=ExtResource("5_8goud")]
+SpwanIndex = 5
 SpawnInterval = 0.4
-SpawnAmout = 1
+SpawnAmout = 10
 
-[node name="MonsterSpawner7" parent="." groups=["Wave4", "Wave_General"] instance=ExtResource("5_8goud")]
-SpwanIndex = 4
-SpawnInterval = 0.4
-SpawnAmout = 1
+[node name="MonsterSpawner7" parent="." groups=["FinalWave"] instance=ExtResource("5_8goud")]
+SpwanIndex = 7
+SpawnInterval = 0.6
+SpawnAmout = 10
+Enemy_Route = "Route4"
 
-[node name="MonsterSpawner8" parent="." groups=["Wave4", "Wave_General"] instance=ExtResource("5_8goud")]
-SpawnEnemy = 0
-SpawnInterval = 0.4
-SpawnAmout = 1
-
-[node name="MonsterSpawner9" parent="." groups=["FinalWave"] instance=ExtResource("5_8goud")]
-SpawnEnemy = 7
-SpawnInterval = 0.4
-SpawnAmout = 1
+[node name="MonsterSpawner8" parent="." groups=["FinalWave"] instance=ExtResource("5_8goud")]
+SpwanIndex = 9
+SpawnInterval = 0.8
+SpawnAmout = 10
+Enemy_Route = "Route5"
 
 [node name="Route1" parent="." instance=ExtResource("6_ud1p6")]
 visible = false
@@ -523,6 +525,12 @@ visible = false
 visible = false
 
 [node name="Route3" parent="." instance=ExtResource("7_30e18")]
+visible = false
+
+[node name="Route4" parent="." instance=ExtResource("8_8y5pd")]
+visible = false
+
+[node name="Route5" parent="." instance=ExtResource("9_tlgoy")]
 visible = false
 
 [node name="PowerupRoute" parent="." instance=ExtResource("8_y8udy")]

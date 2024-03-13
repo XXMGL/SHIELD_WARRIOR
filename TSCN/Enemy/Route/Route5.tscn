@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c45xicx5ao4r"]
+
+[node name="Route5" type="CanvasLayer"]
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["Route5"]]
+position = Vector2(1074, 197)
+
+[node name="Marker2D2" type="Marker2D" parent="." groups=["Route5"]]
+position = Vector2(674, 197)
+
+[node name="Marker2D3" type="Marker2D" parent="." groups=["Route5"]]
+position = Vector2(674, 583)
+
+[node name="Marker2D4" type="Marker2D" parent="." groups=["Route5"]]
+position = Vector2(1074, 583)

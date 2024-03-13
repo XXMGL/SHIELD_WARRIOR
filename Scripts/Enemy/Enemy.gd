@@ -154,7 +154,7 @@ func _physics_process(delta):
 		Types.Enemy4:
 			var bullet_spawners
 			bullet_spawners = $BulletSpawners
-			bullet_spawners.rotate(0.3)
+			bullet_spawners.rotate(0.15)
 			velocity = wander_direction.direction * move_speed
 			pass
 		Types.Enemy5:

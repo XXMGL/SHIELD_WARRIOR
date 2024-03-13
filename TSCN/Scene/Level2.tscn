@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1pppinre2ldf"]
+[gd_scene load_steps=23 format=3 uid="uid://b1pppinre2ldf"]
 
 [ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_am18v"]
 [ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_p4baf"]
@@ -6,8 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/Enemy/Spawner/monster_spawner.tscn" id="4_3mg64"]
 [ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="5_hrr1j"]
 [ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="6_00omi"]
+[ext_resource type="PackedScene" uid="uid://dj1afw7pe6sy6" path="res://TSCN/Enemy/Route/Route3.tscn" id="7_kuclt"]
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="7_wec02"]
 [ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="8_bjill"]
+[ext_resource type="PackedScene" uid="uid://dqdglohdy5xk4" path="res://TSCN/Enemy/Route/Route4.tscn" id="8_hsn2x"]
+[ext_resource type="PackedScene" uid="uid://c45xicx5ao4r" path="res://TSCN/Enemy/Route/Route5.tscn" id="9_4fa24"]
+[ext_resource type="PackedScene" uid="uid://ypt4tfxejfsk" path="res://TSCN/Powerup/powerup_route.tscn" id="10_77c3w"]
+[ext_resource type="PackedScene" uid="uid://cignpu8l1vsy0" path="res://TSCN/Enemy/Route/Route6.tscn" id="10_p7pdx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdlto"]
 texture = ExtResource("2_p4baf")
@@ -399,9 +404,11 @@ _data = {
 "Run": SubResource("Animation_hqsjl")
 }
 
-[node name="Level1" type="Node2D" groups=["Level"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nu7l7"]
+size = Vector2(23.7597, 20)
+
+[node name="Level2" type="Node2D" groups=["Level"]]
 script = ExtResource("1_am18v")
-Level_Path = "res://TSCN/Scene/default_scene.tscn"
 Waves = [30, 30, 30]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -466,55 +473,76 @@ shape = SubResource("RectangleShape2D_g6eas")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 4
-SpawnInterval = 0.4
-SpawnAmout = 10
+SpwanIndex = 5
+SpawnEnemy = 3
+SpawnInterval = 1.0
+SpawnAmout = 4
+Enemy_Route = "Route6"
 
-[node name="MonsterSpawner2" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpawnEnemy = 2
-SpawnInterval = 0.4
-SpawnAmout = 2
-Enemy_Route = "Route2"
+[node name="MonsterSpawner9" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("4_3mg64")]
+SpawnEnemy = 0
+SpawnInterval = 1.0
+SpawnAmout = 4
+
+[node name="MonsterSpawner2" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_3mg64")]
+SpwanIndex = 5
+SpawnInterval = 1.0
 
 [node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 4
+SpwanIndex = 9
+SpawnEnemy = 2
 SpawnInterval = 0.4
-SpawnAmout = 3
+SpawnAmout = 10
+Enemy_Route = "Route3"
 
-[node name="MonsterSpawner4" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpawnEnemy = 0
+[node name="MonsterSpawner4" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("4_3mg64")]
+SpwanIndex = 9
+SpawnEnemy = 2
 SpawnInterval = 0.4
-SpawnAmout = 2
+SpawnAmout = 10
+Enemy_Route = "Route3"
 
 [node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("4_3mg64")]
 SpwanIndex = 4
-SpawnInterval = 0.4
-SpawnAmout = 3
+SpawnEnemy = 5
+SpawnInterval = 1.0
+SpawnAmout = 4
 
-[node name="MonsterSpawner6" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpawnEnemy = 0
+[node name="MonsterSpawner6" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
+SpwanIndex = 5
 SpawnInterval = 0.4
-SpawnAmout = 2
+SpawnAmout = 10
 
-[node name="MonsterSpawner7" parent="." groups=["Wave4", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 4
-SpawnInterval = 0.4
-SpawnAmout = 3
+[node name="MonsterSpawner7" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
+SpwanIndex = 7
+SpawnInterval = 0.6
+SpawnAmout = 10
+Enemy_Route = "Route4"
 
-[node name="MonsterSpawner8" parent="." groups=["Wave4", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpawnEnemy = 0
-SpawnInterval = 0.4
-SpawnAmout = 2
-
-[node name="MonsterSpawner9" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
-SpawnEnemy = 3
-SpawnInterval = 0.4
-SpawnAmout = 1
+[node name="MonsterSpawner8" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
+SpwanIndex = 9
+SpawnInterval = 0.8
+SpawnAmout = 10
+Enemy_Route = "Route5"
 
 [node name="Route1" parent="." instance=ExtResource("5_hrr1j")]
 visible = false
 
 [node name="Route2" parent="." instance=ExtResource("6_00omi")]
+visible = false
+
+[node name="Route3" parent="." instance=ExtResource("7_kuclt")]
+visible = false
+
+[node name="Route4" parent="." instance=ExtResource("8_hsn2x")]
+visible = false
+
+[node name="Route5" parent="." instance=ExtResource("9_4fa24")]
+visible = false
+
+[node name="Route6" parent="." instance=ExtResource("10_p7pdx")]
+
+[node name="PowerupRoute" parent="." instance=ExtResource("10_77c3w")]
 visible = false
 
 [node name="Enemies" type="Node" parent="." groups=["Enemies"]]
@@ -550,4 +578,16 @@ libraries = {
 "": SubResource("AnimationLibrary_2e2so")
 }
 
+[node name="Jump_To_Next_Level" type="Area2D" parent="."]
+position = Vector2(1220, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jump_To_Next_Level"]
+position = Vector2(-41, 7)
+scale = Vector2(5.16, 48.88)
+shape = SubResource("RectangleShape2D_nu7l7")
+
+[node name="Player_Defalult_position" type="Marker2D" parent="."]
+position = Vector2(139, 394)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Jump_To_Next_Level" to="." method="_on_jump_to_next_level_body_entered"]
