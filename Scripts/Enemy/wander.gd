@@ -38,10 +38,10 @@ func _get_next_position():
 	current_position = temp_positions.pop_front()
 	direction = (current_position.position - global_position).normalized()
 	
-func _On_Route_Changed():
+func _On_Route_Changed(newRoute):
 	#print("route changed")
 	group_name = object.group_name
-	positions = get_tree().get_nodes_in_group(group_name)
+	positions = get_tree().get_nodes_in_group(newRoute)
 	pass
 	
 func _Set_Disable():

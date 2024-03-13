@@ -97,7 +97,7 @@ func _physics_process(delta):
 			pass
 		ShootMode.Mad:
 			if Reposition == false:
-				_change_route("Route2")
+				_change_route("Route6")
 				wander_direction._get_positions()
 				wander_direction._get_next_position()
 				Reposition = true

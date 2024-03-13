@@ -1,21 +1,21 @@
-[gd_scene load_steps=23 format=3 uid="uid://b1pppinre2ldf"]
+[gd_scene load_steps=23 format=3 uid="uid://bv6cqxrgbmasd"]
 
-[ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_am18v"]
-[ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_p4baf"]
-[ext_resource type="Texture2D" uid="uid://b8pjwdbh75r6j" path="res://ART Assets/BG.png" id="3_ry48e"]
-[ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/Enemy/Spawner/monster_spawner.tscn" id="4_3mg64"]
-[ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="5_hrr1j"]
-[ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="6_00omi"]
-[ext_resource type="PackedScene" uid="uid://dj1afw7pe6sy6" path="res://TSCN/Enemy/Route/Route3.tscn" id="7_kuclt"]
-[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="7_wec02"]
-[ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="8_bjill"]
-[ext_resource type="PackedScene" uid="uid://dqdglohdy5xk4" path="res://TSCN/Enemy/Route/Route4.tscn" id="8_hsn2x"]
-[ext_resource type="PackedScene" uid="uid://c45xicx5ao4r" path="res://TSCN/Enemy/Route/Route5.tscn" id="9_4fa24"]
-[ext_resource type="PackedScene" uid="uid://ypt4tfxejfsk" path="res://TSCN/Powerup/powerup_route.tscn" id="10_77c3w"]
-[ext_resource type="PackedScene" uid="uid://cignpu8l1vsy0" path="res://TSCN/Enemy/Route/Route6.tscn" id="10_p7pdx"]
+[ext_resource type="Script" path="res://Scripts/Level_1.gd" id="1_200yd"]
+[ext_resource type="Texture2D" uid="uid://c1kkbqeahsj3r" path="res://ART Assets/tileset_dungeon_blue.png" id="2_6giab"]
+[ext_resource type="Texture2D" uid="uid://b8pjwdbh75r6j" path="res://ART Assets/BG.png" id="3_qnv3x"]
+[ext_resource type="PackedScene" uid="uid://bngog8llj80fc" path="res://TSCN/Enemy/Spawner/monster_spawner.tscn" id="4_x73jj"]
+[ext_resource type="PackedScene" uid="uid://j7yj3bpw4ya6" path="res://TSCN/Enemy/Route/Route1.tscn" id="5_xrcme"]
+[ext_resource type="PackedScene" uid="uid://cak05h3181w8l" path="res://TSCN/Enemy/Route/Route2.tscn" id="6_8rrgl"]
+[ext_resource type="PackedScene" uid="uid://dj1afw7pe6sy6" path="res://TSCN/Enemy/Route/Route3.tscn" id="7_h6ly5"]
+[ext_resource type="PackedScene" uid="uid://dqdglohdy5xk4" path="res://TSCN/Enemy/Route/Route4.tscn" id="8_qkxi2"]
+[ext_resource type="PackedScene" uid="uid://c45xicx5ao4r" path="res://TSCN/Enemy/Route/Route5.tscn" id="9_klhv3"]
+[ext_resource type="PackedScene" uid="uid://cignpu8l1vsy0" path="res://TSCN/Enemy/Route/Route6.tscn" id="10_bw2b5"]
+[ext_resource type="PackedScene" uid="uid://ypt4tfxejfsk" path="res://TSCN/Powerup/powerup_route.tscn" id="11_xslvg"]
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="12_cc7q8"]
+[ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="13_8co87"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdlto"]
-texture = ExtResource("2_p4baf")
+texture = ExtResource("2_6giab")
 texture_region_size = Vector2i(26, 26)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -407,10 +407,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu7l7"]
 size = Vector2(23.7597, 20)
 
-[node name="Level2" type="Node2D" groups=["Level"]]
-script = ExtResource("1_am18v")
-Level_Path = "res://TSCN/Scene/Level3.tscn"
-Waves = [30, 30, 30]
+[node name="Level3" type="Node2D" groups=["Level"]]
+script = ExtResource("1_200yd")
+Waves = [30, 30, 30, 30]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ogprh")
@@ -431,7 +430,7 @@ scale = Vector2(0.112032, 0.634554)
 [node name="Sprite2D" type="Sprite2D" parent="BackGround"]
 visible = false
 scale = Vector2(6.70738, -1.185)
-texture = ExtResource("3_ry48e")
+texture = ExtResource("3_qnv3x")
 
 [node name="Eage" type="StaticBody2D" parent="BackGround"]
 collision_layer = 16
@@ -473,82 +472,74 @@ shape = SubResource("RectangleShape2D_g6eas")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("4_3mg64")]
+[node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("4_x73jj")]
 SpwanIndex = 5
-SpawnEnemy = 3
+SpawnEnemy = 7
 SpawnInterval = 1.0
-SpawnAmout = 4
+SpawnAmout = 1
 Enemy_Route = "Route6"
 
-[node name="MonsterSpawner9" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("4_3mg64")]
+[node name="MonsterSpawner9" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("4_x73jj")]
 SpawnEnemy = 0
 SpawnInterval = 1.0
 SpawnAmout = 4
 
-[node name="MonsterSpawner2" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_3mg64")]
+[node name="MonsterSpawner2" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_x73jj")]
 SpawnEnemy = 0
 SpawnInterval = 1.0
 SpawnAmout = 6
 
-[node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_3mg64")]
+[node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_x73jj")]
 SpwanIndex = 7
 SpawnEnemy = 5
 SpawnInterval = 1.0
 SpawnAmout = 6
 Enemy_Route = "Route6"
 
-[node name="MonsterSpawner8" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_3mg64")]
+[node name="MonsterSpawner8" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_x73jj")]
 SpwanIndex = 5
 SpawnInterval = 0.4
 SpawnAmout = 4
 
-[node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("4_3mg64")]
+[node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("4_x73jj")]
 SpwanIndex = 5
 SpawnEnemy = 4
 SpawnInterval = 1.0
 SpawnAmout = 10
 Enemy_Route = "Route4"
 
-[node name="MonsterSpawner6" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 5
-SpawnEnemy = 3
+[node name="MonsterSpawner6" parent="." groups=["FinalWave"] instance=ExtResource("4_x73jj")]
+SpwanIndex = 10
+SpawnEnemy = 7
 SpawnInterval = 0.4
-SpawnAmout = 15
-Enemy_Route = "Route6"
+SpawnAmout = 1
+Enemy_Route = "Route2"
 
-[node name="MonsterSpawner7" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 7
-SpawnEnemy = 2
-SpawnInterval = 0.6
-SpawnAmout = 10
-Enemy_Route = "Route3"
-
-[node name="Route1" parent="." instance=ExtResource("5_hrr1j")]
+[node name="Route1" parent="." instance=ExtResource("5_xrcme")]
 visible = false
 
-[node name="Route2" parent="." instance=ExtResource("6_00omi")]
+[node name="Route2" parent="." instance=ExtResource("6_8rrgl")]
+
+[node name="Route3" parent="." instance=ExtResource("7_h6ly5")]
 visible = false
 
-[node name="Route3" parent="." instance=ExtResource("7_kuclt")]
+[node name="Route4" parent="." instance=ExtResource("8_qkxi2")]
 visible = false
 
-[node name="Route4" parent="." instance=ExtResource("8_hsn2x")]
+[node name="Route5" parent="." instance=ExtResource("9_klhv3")]
 visible = false
 
-[node name="Route5" parent="." instance=ExtResource("9_4fa24")]
+[node name="Route6" parent="." instance=ExtResource("10_bw2b5")]
 visible = false
 
-[node name="Route6" parent="." instance=ExtResource("10_p7pdx")]
-visible = false
-
-[node name="PowerupRoute" parent="." instance=ExtResource("10_77c3w")]
+[node name="PowerupRoute" parent="." instance=ExtResource("11_xslvg")]
 visible = false
 
 [node name="Enemies" type="Node" parent="." groups=["Enemies"]]
 
 [node name="UI" type="CanvasLayer" parent="." groups=["UI"]]
 process_mode = 3
-script = ExtResource("7_wec02")
+script = ExtResource("12_cc7q8")
 
 [node name="LevelProgress" type="ProgressBar" parent="UI"]
 custom_minimum_size = Vector2(500, 30)
@@ -570,7 +561,7 @@ show_percentage = false
 [node name="Sprite2D" type="Sprite2D" parent="UI/LevelProgress"]
 position = Vector2(1, -25)
 scale = Vector2(1, 1.44444)
-texture = ExtResource("8_bjill")
+texture = ExtResource("13_8co87")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/LevelProgress/Sprite2D"]
 libraries = {
