@@ -258,7 +258,6 @@ ShootDuration = 0.8
 wander_direction = NodePath("Wander")
 group_name = "Route1"
 Enemy_type = 1
-exp_Num = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
