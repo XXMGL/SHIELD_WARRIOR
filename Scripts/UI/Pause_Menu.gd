@@ -7,7 +7,7 @@ var NextScene:String
 func _ready():
 	var levelScript = get_tree().get_nodes_in_group("Level")
 	NextScene = levelScript[0].Level_Path
-	print_debug(NextScene)
+	# print_debug(NextScene)
 	pass # Replace with function body.
 
 
