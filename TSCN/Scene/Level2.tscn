@@ -485,45 +485,40 @@ SpawnInterval = 1.0
 SpawnAmout = 4
 
 [node name="MonsterSpawner2" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 5
+SpawnEnemy = 0
 SpawnInterval = 1.0
+SpawnAmout = 6
 
 [node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 9
-SpawnEnemy = 2
-SpawnInterval = 0.4
-SpawnAmout = 10
-Enemy_Route = "Route3"
-
-[node name="MonsterSpawner4" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 9
-SpawnEnemy = 2
-SpawnInterval = 0.4
-SpawnAmout = 10
-Enemy_Route = "Route3"
-
-[node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 4
+SpwanIndex = 7
 SpawnEnemy = 5
 SpawnInterval = 1.0
+SpawnAmout = 6
+Enemy_Route = "Route6"
+
+[node name="MonsterSpawner8" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("4_3mg64")]
+SpwanIndex = 5
+SpawnInterval = 0.4
 SpawnAmout = 4
+
+[node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("4_3mg64")]
+SpwanIndex = 5
+SpawnEnemy = 4
+SpawnInterval = 1.0
+SpawnAmout = 10
 
 [node name="MonsterSpawner6" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
 SpwanIndex = 5
+SpawnEnemy = 3
 SpawnInterval = 0.4
-SpawnAmout = 10
+SpawnAmout = 15
 
 [node name="MonsterSpawner7" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
 SpwanIndex = 7
+SpawnEnemy = 2
 SpawnInterval = 0.6
 SpawnAmout = 10
-Enemy_Route = "Route4"
-
-[node name="MonsterSpawner8" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
-SpwanIndex = 9
-SpawnInterval = 0.8
-SpawnAmout = 10
-Enemy_Route = "Route5"
+Enemy_Route = "Route3"
 
 [node name="Route1" parent="." instance=ExtResource("5_hrr1j")]
 visible = false
