@@ -733,6 +733,7 @@ size = Vector2(23.7597, 20)
 
 [node name="Level3" type="Node2D" groups=["Level"]]
 script = ExtResource("1_200yd")
+Level_index = 3
 Waves = [30, 30, 30, 30]
 
 [node name="TileMap" type="TileMap" parent="."]

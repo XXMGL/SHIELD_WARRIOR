@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://d2x6f6qphmp8o"]
+[gd_scene load_steps=51 format=3 uid="uid://d2x6f6qphmp8o"]
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_xj0ro"]
 [ext_resource type="Texture2D" uid="uid://ex1yede4oqr3" path="res://ART Assets/sprites/shield_3.png" id="2_3iyvm"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://b88xnvt62wwf4" path="res://ART Assets/shiny/shiny9.png" id="16_6lima"]
 [ext_resource type="Texture2D" uid="uid://t2fdh1qv54hj" path="res://ART Assets/shiny/shiny10.png" id="17_30u5v"]
 [ext_resource type="Script" path="res://Scripts/exp/EXP_BAR.gd" id="22_e3qov"]
+[ext_resource type="Texture2D" uid="uid://kiqxhfd67ljb" path="res://ART Assets/MysticFamiliar/VFX_60x60.png" id="31_kctps"]
 [ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="34_fwr80"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6aij"]
@@ -180,6 +181,73 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm565"]
+atlas = ExtResource("31_kctps")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jlnx"]
+atlas = ExtResource("31_kctps")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox2rs"]
+atlas = ExtResource("31_kctps")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5ck3"]
+atlas = ExtResource("31_kctps")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjk47"]
+atlas = ExtResource("31_kctps")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g53v"]
+atlas = ExtResource("31_kctps")
+region = Rect2(300, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i2sa"]
+atlas = ExtResource("31_kctps")
+region = Rect2(360, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8c80"]
+atlas = ExtResource("31_kctps")
+region = Rect2(420, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmrb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm565")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jlnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox2rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5ck3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjk47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g53v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i2sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8c80")
+}],
+"loop": true,
+"name": &"shield",
+"speed": 8.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63iax"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -235,6 +303,13 @@ position = Vector2(5.99999, -3.00001)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_mve0x")
 animation = &"running"
+
+[node name="SkillShield" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.392157, 1, 1, 1)
+position = Vector2(6, -1)
+scale = Vector2(0.64, 0.64)
+sprite_frames = SubResource("SpriteFrames_xmrb5")
+animation = &"shield"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

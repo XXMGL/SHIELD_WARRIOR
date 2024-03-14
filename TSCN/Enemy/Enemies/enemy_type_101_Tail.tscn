@@ -1,5 +1,6 @@
-[gd_scene load_steps=53 format=3 uid="uid://cwoaeo88ew2j4"]
+[gd_scene load_steps=54 format=3 uid="uid://cwoaeo88ew2j4"]
 
+[ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="2_44loh"]
 [ext_resource type="Script" path="res://Scripts/Enemy/Enemy_Type101_Tail.gd" id="2_iifg6"]
 [ext_resource type="Texture2D" uid="uid://ldkh2fsnllkc" path="res://ART Assets/101/101_2.png" id="2_w6086"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_7a2qe"]
@@ -195,6 +196,14 @@ region = Rect2(300, 0, 100, 100)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_44loh")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bwfk8")
 }, {
 "duration": 1.0,
@@ -372,10 +381,10 @@ move_direction = NodePath("Wonder")
 shape = SubResource("RectangleShape2D_avtoe")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.333333, 1.33333)
-scale = Vector2(-0.386, 0.386)
+position = Vector2(-2.98023e-08, 0)
+scale = Vector2(-0.016, 0.016)
 sprite_frames = SubResource("SpriteFrames_h3tss")
-animation = &"endAttack"
+animation = &"1"
 
 [node name="Wonder" parent="." instance=ExtResource("3_7a2qe")]
 

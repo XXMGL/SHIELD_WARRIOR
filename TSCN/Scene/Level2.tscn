@@ -733,6 +733,7 @@ size = Vector2(23.7597, 20)
 
 [node name="Level2" type="Node2D" groups=["Level"]]
 script = ExtResource("1_am18v")
+Level_index = 2
 Level_Path = "res://TSCN/Scene/Level3.tscn"
 Waves = [30, 30, 30]
 

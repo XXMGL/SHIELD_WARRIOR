@@ -20,9 +20,12 @@ var Name = "Wing Man"
 @export var isLv2 = false
 @export var isLv3 = false
 
+@onready var WingManAnimator = $AnimatedSprite2D
+
 func _ready():
 	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 	target = get_parent()
+	WingManAnimator.play("fly")
 	pass
 
 func _physics_process(delta):

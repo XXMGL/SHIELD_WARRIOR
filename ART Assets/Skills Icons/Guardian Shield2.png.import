@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://disl1y5kw0dxf"
-path="res://.godot/imported/Wingman.png-89d59da38bb236635b4d4105590dcdc6.ctex"
+uid="uid://dard7l2wro76g"
+path="res://.godot/imported/Guardian Shield2.png-8f32feeda302c39ca59f1ff7e99a6533.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Wingman.png"
-dest_files=["res://.godot/imported/Wingman.png-89d59da38bb236635b4d4105590dcdc6.ctex"]
+source_file="res://ART Assets/Skills Icons/Guardian Shield2.png"
+dest_files=["res://.godot/imported/Guardian Shield2.png-8f32feeda302c39ca59f1ff7e99a6533.ctex"]
 
 [params]
 

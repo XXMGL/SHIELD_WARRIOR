@@ -1,8 +1,9 @@
 extends CanvasLayer
 
-@onready var Skills_Container = $Skills_Container/BoxContainer
+@onready var Skills_Container = $Panel2/Skills_Container/BoxContainer
 @onready var Level = $Level
 @onready var PlayerLV = $PlayerLV
+@onready var PlayerAnimator = $AnimatedSprite2D
 var Skills_Icon = preload("res://TSCN/UI/End_Scene_Skill_Display.tscn")
 var Skills_Size = 0
 
@@ -13,6 +14,7 @@ func _ready():
 	_Set_Skills_Icons()
 	_Set_PlayerLV()
 	_Set_Level()
+	PlayerAnimator.play("idle")
 	pass # Replace with function body.
 
 
