@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://qly0i24b0kmd"]
+
+[ext_resource type="Script" path="res://Scripts/UI/EndScene/End_Scene_Skill_Display.gd" id="1_mn6n8"]
+[ext_resource type="Texture2D" uid="uid://p2e87lf5i2q1" path="res://ART Assets/Skills Icons/Guardian Shield.png" id="1_nbmi6"]
+
+[node name="Skill1" type="Button"]
+custom_minimum_size = Vector2(70, 70)
+script = ExtResource("1_mn6n8")
+
+[node name="BG_Skill" type="Sprite2D" parent="."]
+position = Vector2(35, 35)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("1_nbmi6")
+
+[node name="Skill_LV" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 71.0
+offset_right = 67.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 15
+text = "LV 3"

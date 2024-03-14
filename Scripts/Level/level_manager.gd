@@ -4,6 +4,8 @@ signal Final_Enemy_Die
 signal Move_To_Next_Level
 signal Move_In_Next_Level
 
+var LevelNum = 0
+
 func Level_up_Interface(L_Weight,B_Weight,G_Weight):
 	var Level_Up_Window_prefab = load("res://TSCN/UI/level_up.tscn")
 	var Level_Up_Window = Level_Up_Window_prefab.instantiate()

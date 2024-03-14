@@ -3,7 +3,9 @@ extends Node
 var levelNum = 0
 var MaxLevel = 3
 var WM_Lv = [1,2,3]
-var Name = "Wing Man"
+var Name = "Wingman"
+var Rarity = "Legendary"
+var Skill_index = 2
 var WingMan_tscn = preload("res://TSCN/Player/Skills/wing_man.tscn")
 var weight = 2 #The possibility of this skill appearing in the upgrade interface has been determined.
 @export var isFullLv = false #it will turn to ture if the skill is full level.
@@ -13,6 +15,9 @@ var has_branch:bool = false
 var branch_index:int = 1
 var branch_size:int = 1
 #skill at full level wont appear in the skill pool
+
+func _ready():
+	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 
 func activate():
 	if levelNum < MaxLevel:
@@ -36,4 +41,6 @@ func activate():
 	pass
 	
 func deactivate():
+	levelNum = 0
+	isFullLv = false
 	pass

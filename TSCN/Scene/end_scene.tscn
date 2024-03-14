@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://4pb7e40n6wor"]
+
+[ext_resource type="Theme" uid="uid://c64bsys0v2vl0" path="res://ART Assets/Button2_theme.tres" id="1_i5wna"]
+[ext_resource type="Script" path="res://Scripts/UI/EndScene/end_scene.gd" id="1_lgecg"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bbaws"]
+
+[node name="EndScene" type="CanvasLayer"]
+script = ExtResource("1_lgecg")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 650.0
+
+[node name="BG_Overall" type="Sprite2D" parent="."]
+
+[node name="Replay" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 60)
+offset_left = 553.0
+offset_top = 563.0
+offset_right = 814.2
+offset_bottom = 623.0
+theme = ExtResource("1_i5wna")
+theme_override_font_sizes/font_size = 24
+text = "REPLAY"
+
+[node name="Main Menu" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 60)
+offset_left = 848.0
+offset_top = 563.0
+offset_right = 1109.2
+offset_bottom = 623.0
+theme = ExtResource("1_i5wna")
+theme_override_font_sizes/font_size = 24
+text = "MAIN MENU"
+
+[node name="Skills_Container" type="BoxContainer" parent="."]
+offset_left = 406.0
+offset_top = 256.0
+offset_right = 1106.0
+offset_bottom = 548.0
+size_flags_stretch_ratio = 1.22
+theme_override_constants/separation = 30
+vertical = true
+
+[node name="BoxContainer" type="BoxContainer" parent="Skills_Container"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="BoxContainer2" type="BoxContainer" parent="Skills_Container"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="BoxContainer3" type="BoxContainer" parent="Skills_Container"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="BG_Skills" type="Sprite2D" parent="Skills_Container"]
+texture = SubResource("ViewportTexture_bbaws")
+
+[node name="Level" type="Label" parent="."]
+offset_left = 555.0
+offset_top = 55.0
+offset_right = 667.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 31
+text = "LEVEL 1"
+
+[node name="PlayerLV" type="Label" parent="."]
+offset_left = 870.0
+offset_top = 56.0
+offset_right = 994.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 31
+text = "LV 3"
+
+[connection signal="pressed" from="Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]

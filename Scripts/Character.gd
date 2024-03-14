@@ -60,7 +60,7 @@ signal precise_Parry
 #角色等级系统
 var LevelNum = 1
 var Exp = 0
-var Exp_to_NextLevel = 15
+var Exp_to_NextLevel = 60
 
 #技能组
 #1 Shards_Shoot
@@ -330,7 +330,7 @@ func _LevelingUp():
 	if Exp >= Exp_to_NextLevel:
 		Exp = 0
 		LevelNum += 1
-		Exp_to_NextLevel += 15
+		Exp_to_NextLevel += 45
 		Exp_Bar.max_value = Exp_to_NextLevel
 		Level_Num_InCanvas.text = str(LevelNum)
 	pass
@@ -344,7 +344,7 @@ func _Show_UI():
 	UI.visible = true
 	
 func _Die():
-	get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
+	get_tree().change_scene_to_file("res://TSCN/Scene/end_scene.tscn")
 	pass
 
 func _Character_Animation_Play(Animation_Name):
@@ -355,8 +355,6 @@ func _Shield_Animation_Play(Animation_Name):
 	if isDead == false:
 		ShieldSprite.play(Animation_Name)
 		
-func _Rebirth():
-	Player_State = state.STATE_MOVE
 	
 	
 #Skill1 ShardsShoot
@@ -396,3 +394,9 @@ func _R_Heart():
 func _Get_Shield_position():
 	Shield_position = $SHIELD.global_position
 	return $SHIELD.global_position
+
+func _Rebirth():
+	Player_State = state.STATE_MOVE
+	health = CharacterData.Basic_health
+	isDead = false
+	HeartNum = 3

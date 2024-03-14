@@ -11,6 +11,7 @@ var Hearts = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 	Heart_Num = Character.HeartNum
 	Max_HeartsNum = Character.HeartNum
 	for i in range(Max_HeartsNum):
@@ -46,5 +47,8 @@ func _Recovery():
 		for i in Max_HeartsNum-1:
 			Hearts[i].isFilled = true
 		pass
+		
+func deactivate():
+	queue_free()
 	
 

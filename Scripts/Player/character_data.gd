@@ -6,3 +6,4 @@ extends Node2D
 @export var stamina_Cousume = 20
 @export var stamina_Recover = 10
 
+

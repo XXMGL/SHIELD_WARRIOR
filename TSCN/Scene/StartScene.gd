@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var EnemyAnimation5 = $AnimatedSprite2D6
 
 func _ready():
+	SkillManager.emit_signal("DeactiveAllSkills")
 	_HidePlayer()
 	CharacterAnimation.play("idle")
 	EnemyAnimation.play("idle")
@@ -19,7 +20,6 @@ func _ready():
 
 
 func _HidePlayer():
-	
 	Character.process_mode = Node.PROCESS_MODE_DISABLED
 	Character.visible = false
 	Character._hide_UI()

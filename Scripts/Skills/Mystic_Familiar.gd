@@ -3,6 +3,8 @@ extends Node
 var levelNum = 0
 var MaxLevel = 5
 var Name = "Mystic_Familiar"
+var Rarity = "Rare"
+var Skill_index = 1
 var weight = 2 #The possibility of this skill appearing in the upgrade interface has been determined.
 @export var isFullLv = false #it will turn to ture if the skill is full level.
 var is_Displaying = false #it will turn to true if the skill is on level_up interface
@@ -13,6 +15,9 @@ var branch_size:int = 2
 
 var Mystic_Familiar
 #skill at full level wont appear in the skill pool
+
+func _ready():
+	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 
 func activate():
 	SkillManager.emit_signal("B_Skill2_up")
@@ -36,6 +41,8 @@ func activate():
 	#print_debug(Mystic_Familiar.branch_index)
 	
 func deactivate():
-
+	levelNum = 0
+	isFullLv = false
+	has_branch = false
 	pass
 	

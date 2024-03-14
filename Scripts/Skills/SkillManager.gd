@@ -27,12 +27,17 @@ signal B_Skill2_up
 
 signal Lv_up_Refresh
 
+signal DeactiveAllSkills
+
 func _ready():
 	connect("Lv_up_Refresh",Callable(self,"_Get_Availabel_Skills"))
 	#player = get_tree().get_nodes_in_group("Player")
 	_Get_Skills("Legendary", skills_legendary)
 	_Get_Skills("Rare", skills_B)
 	skills_Pool = skills_legendary
+	activate_skill(1)
+	activate_skill(2)
+	activate_skill(3)
 	_Get_Availabel_Skills()
 
 
@@ -83,4 +88,18 @@ func _Get_Availabel_Skills():
 		if skill.isFullLv == false:
 			skills_Available.append(skill)
 	#print_debug("Available Skills number: ",skills_Available.size())
+	pass
+	
+func _Get_Activate_Skills(index):
+	skills_Available = []
+	var SM_skills = get_tree().get_nodes_in_group("SkillManager_skills")
+	for skill in SM_skills:
+		if skill.levelNum > 0 and skill.is_Displaying == false:
+			skills_Available.append(skill)
+			#skill.is_Displaying = true
+	if skills_Available.size() != 0:
+		var skills_info = {"size":skills_Available.size(),"skill":skills_Available[index]}
+		return skills_info
+	else:
+		return {"size":skills_Available.size(),"skill":null}
 	pass

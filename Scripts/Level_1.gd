@@ -8,6 +8,7 @@ extends Node2D
 
 var powerup = preload("res://TSCN/Powerup/powerup_basic.tscn")
 
+@export var Level_index = 1
 var LevelLength: float
 var LevelLength_Max :float
 var progress:float
@@ -51,11 +52,11 @@ func _ready():
 	LevelProgressBar.connect("value_changed",Callable(self,"_on_progress_value_changed"))
 	
 	Character.health = 100
-	Character.HeartNum = 3
 	Character.isDead = false
 	Character._Rebirth()
 	
 	LevelManager.connect("Final_Enemy_Die",Callable(self,"Level_Acomplish"))
+	LevelManager.LevelNum = Level_index
 
 
 

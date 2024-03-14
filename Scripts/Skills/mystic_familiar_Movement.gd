@@ -34,6 +34,7 @@ var branch_index:int = 1
 var Shooting_Offset = Character.Shooting_Offset
 
 func _ready():
+	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 	MF_Timer.start()
 	SkillManager.connect("B_Skill2_up",Callable(self,"_B_Skill2_up"))
 	target = get_tree().get_first_node_in_group("Player")
@@ -139,3 +140,7 @@ func _Get_Hit():
 func _on_timer_2_timeout():
 	has_Shield = true
 	pass # Replace with function body.
+	
+func deactivate():
+	queue_free()
+	pass

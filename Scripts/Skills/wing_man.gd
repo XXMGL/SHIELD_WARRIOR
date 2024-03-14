@@ -21,7 +21,7 @@ var Name = "Wing Man"
 @export var isLv3 = false
 
 func _ready():
-	#print_debug(isLv2,isLv3)
+	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 	target = get_parent()
 	pass
 
@@ -45,6 +45,7 @@ func _physics_process(delta):
 
 	
 func deactivate():
+	queue_free()
 	pass
 	
 func ShootBullet_WM():
@@ -82,5 +83,6 @@ func _Do_Reposition(bullet_prefab):
 	if Character.Reposition_enabled == true and isLv3 == true:
 		bullet_prefab.Reposition = true
 		bullet_prefab.Reposition_Target = Character.Target_Enemy
+		
 	
 

@@ -15,6 +15,7 @@ var Skill_Level = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 	Slot.texture = Empty_Slot_Texture
 	#Character.connect("Gethit",Callable(self,"_Get_Hit"))
 	#Character.connect("precise_Parry",Callable(self,"_Get_Guardian_Shield"))
@@ -63,3 +64,6 @@ func _B_Skill1_up():
 	if Skill_Level == 3:
 		is_Red_Shield = true
 		Slot.texture = Red_Slot_Texture
+		
+func deactivate():
+	queue_free()
