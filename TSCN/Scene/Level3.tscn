@@ -849,7 +849,7 @@ Enemy_Route = "Route4"
 
 [node name="MonsterSpawner9" parent="." groups=["FinalWave"] instance=ExtResource("4_x73jj")]
 SpwanIndex = 10
-SpawnEnemy = 7
+SpawnEnemy = 14
 SpawnInterval = 0.4
 SpawnAmout = 1
 

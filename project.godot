@@ -23,6 +23,7 @@ LevelManager="*res://TSCN/Scene/level_manager.tscn"
 SkillManager="*res://TSCN/Player/SkillManager.tscn"
 Tutorial="*res://TSCN/UI/tutorial.tscn"
 Skills_info="*res://Scripts/Skills/Skills_info.gd"
+EnemyInfor="*res://Scripts/Enemy/EnemyInfor.gd"
 
 [display]
 
