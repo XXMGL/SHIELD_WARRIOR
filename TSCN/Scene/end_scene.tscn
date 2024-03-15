@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3hpqcvsxayyd"]
+[gd_scene load_steps=8 format=3 uid="uid://3hpqcvsxayyd"]
 
 [ext_resource type="Theme" uid="uid://c64bsys0v2vl0" path="res://ART Assets/Button2_theme.tres" id="1_i5wna"]
 [ext_resource type="Script" path="res://Scripts/UI/EndScene/end_scene.gd" id="1_lgecg"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b4x2j0ngnbyun" path="res://ART Assets/sprites/idle_1.png" id="4_h3dg2"]
 [ext_resource type="Texture2D" uid="uid://b428rol75yhdq" path="res://ART Assets/sprites/idle_2.png" id="5_0r2f7"]
 [ext_resource type="Texture2D" uid="uid://co5y0gq6fkgjg" path="res://ART Assets/sprites/idle_3.png" id="6_o4l6u"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_bbaws"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mnha4"]
 animations = [{
@@ -86,36 +84,14 @@ offset_right = 1101.0
 offset_bottom = 539.0
 theme = ExtResource("3_y36lm")
 
-[node name="Skills_Container" type="BoxContainer" parent="Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 79.0
-offset_top = 40.0
-offset_right = -71.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_stretch_ratio = 1.22
-theme_override_constants/separation = 30
-vertical = true
-
-[node name="BoxContainer" type="BoxContainer" parent="Panel2/Skills_Container"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="BoxContainer2" type="BoxContainer" parent="Panel2/Skills_Container"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-
-[node name="BoxContainer3" type="BoxContainer" parent="Panel2/Skills_Container"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-
-[node name="BG_Skills" type="Sprite2D" parent="Panel2/Skills_Container"]
-texture = SubResource("ViewportTexture_bbaws")
+[node name="Skills_Container" type="GridContainer" parent="Panel2"]
+offset_left = 50.0
+offset_top = 29.0
+offset_right = 550.0
+offset_bottom = 329.0
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 30
+columns = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(259, 359)

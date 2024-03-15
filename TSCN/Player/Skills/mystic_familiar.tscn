@@ -584,8 +584,8 @@ shape = SubResource("CapsuleShape2D_og8kq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-7.69231, -1.92308)
 sprite_frames = SubResource("SpriteFrames_ghuyh")
-animation = &"Skill2"
-frame_progress = 0.792111
+animation = &"Fly"
+frame_progress = 0.0420553
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0.588235)

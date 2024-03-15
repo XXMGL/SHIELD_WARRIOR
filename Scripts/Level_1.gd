@@ -72,7 +72,7 @@ func _on_timer_timeout():
 	progress += 1
 	WaveTimer -= 1
 	#print("关卡进行中，剩余： ", LevelLength)
-	if WaveTimer <= 0:
+	if WaveTimer <= 0 and WaveNum < Waves.size():
 		PL_aw = Character.LevelNum
 		LevelLength -= WaveLength
 		WaveNum+=1

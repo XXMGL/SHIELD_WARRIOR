@@ -400,3 +400,5 @@ func _Rebirth():
 	health = CharacterData.Basic_health
 	isDead = false
 	HeartNum = 3
+	LevelNum = 1
+	#Level_Num_InCanvas = str(LevelNum)

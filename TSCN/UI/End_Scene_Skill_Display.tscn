@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://qly0i24b0kmd"]
 
 [ext_resource type="Script" path="res://Scripts/UI/EndScene/End_Scene_Skill_Display.gd" id="1_mn6n8"]
-[ext_resource type="Texture2D" uid="uid://p2e87lf5i2q1" path="res://ART Assets/Skills Icons/Guardian Shield.png" id="1_nbmi6"]
+[ext_resource type="Texture2D" uid="uid://b0srbqr5ox8gn" path="res://ART Assets/Skills Icons/Guardian Shield.png" id="1_nbmi6"]
 
 [node name="Skill1" type="Button"]
 custom_minimum_size = Vector2(70, 70)

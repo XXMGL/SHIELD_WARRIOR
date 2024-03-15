@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var Skills_Container = $Panel2/Skills_Container/BoxContainer
+@onready var Skills_Container = $Panel2/Skills_Container
 @onready var Level = $Level
 @onready var PlayerLV = $PlayerLV
 @onready var PlayerAnimator = $AnimatedSprite2D
@@ -9,18 +9,17 @@ var Skills_Size = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	LevelManager.emit_signal("End_Game")
 	_HidePlayer()
 	_Get_Skills_Size()
 	_Set_Skills_Icons()
 	_Set_PlayerLV()
 	_Set_Level()
+	_Set_Timer()
 	PlayerAnimator.play("idle")
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _HidePlayer():
 	Character.process_mode = Node.PROCESS_MODE_DISABLED
@@ -42,25 +41,29 @@ func _Set_Skills_Icons():
 		var skillName = skill_pool.keys()[skill_i.Skill_index]
 		icon.BG_Skill.texture = load("res://ART Assets/Skills Icons/"+skillName+".png")
 		icon.Skill_Lv.text = Lv
-	pass
 
 
 func _on_replay_pressed():
+	LevelManager.emit_signal("Start_Game")
 	SkillManager.emit_signal("DeactiveAllSkills")
 	get_tree().change_scene_to_file("res://TSCN/Scene/default_scene.tscn")
 	Character._Rebirth()
-	pass # Replace with function body.
+
 
 
 func _on_main_menu_pressed():
 	SkillManager.emit_signal("DeactiveAllSkills")
 	get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
 	Character._Rebirth()
-	pass # Replace with function body.
+
 	
 func _Set_Level():
 	Level.text = "Level " + str(LevelManager.LevelNum)
-	pass
+
 
 func _Set_PlayerLV():
 	PlayerLV.text = "LV "+ str(Character.LevelNum)
+	
+func _Set_Timer():
+	var Display_Time = $Timer
+	Display_Time.text = str(LevelManager.Game_Time_h_str)+":"+str(LevelManager.Game_Time_m_str)+":"+ str(LevelManager.Game_Time_s_str)

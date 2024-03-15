@@ -108,9 +108,10 @@ func _B_Skill2_up():
 			is_LV_4_1 = true
 			Shield_Timer.start()
 			Character.connect("Gethit",Callable(self,"_Get_Hit"))
-			
+			MF_Animation.play("Fly2")
 		elif branch_index == 2:
 			is_LV_4_2 = true
+			MF_Animation.play("Fly")
 		else:
 			print_debug("Error")
 	elif Skill_Lv == 5:
