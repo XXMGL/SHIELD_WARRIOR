@@ -85,6 +85,7 @@ offset_bottom = 539.0
 theme = ExtResource("3_y36lm")
 
 [node name="Skills_Container" type="GridContainer" parent="Panel2"]
+layout_mode = 0
 offset_left = 50.0
 offset_top = 29.0
 offset_right = 550.0

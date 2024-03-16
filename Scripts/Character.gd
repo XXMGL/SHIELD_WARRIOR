@@ -55,6 +55,7 @@ var Shield_position
 signal Route_Change
 signal Gethit
 signal precise_Parry
+signal heal
 #signal Recovery
 
 #角色等级系统
@@ -97,6 +98,7 @@ func _ready():
 	HealthBar.init_value(health)
 	Indicator = $Indicator
 	bullet_prefab = bullet_1_tscn
+	#health -= 50
 	pass
 
 

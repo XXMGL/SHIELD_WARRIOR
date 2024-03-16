@@ -22,6 +22,7 @@ var skills_rarity_index:int = 0
 signal B_Skill2_1
 
 #signals
+signal G_Skill1_up
 signal B_Skill1_up
 signal B_Skill2_up
 
@@ -34,10 +35,8 @@ func _ready():
 	#player = get_tree().get_nodes_in_group("Player")
 	_Get_Skills("Legendary", skills_legendary)
 	_Get_Skills("Rare", skills_B)
-	skills_Pool = skills_legendary
-	activate_skill(1)
-	activate_skill(2)
-	activate_skill(3)
+	_Get_Skills("Normal", skills_G)
+	skills_Pool = skills_G
 	_Get_Availabel_Skills()
 
 

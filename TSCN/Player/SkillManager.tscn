@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bawemh5j3xama"]
+[gd_scene load_steps=9 format=3 uid="uid://bawemh5j3xama"]
 
 [ext_resource type="Script" path="res://Scripts/Skills/SkillManager.gd" id="1_nq2dk"]
 [ext_resource type="PackedScene" uid="uid://dwugbvw55tef3" path="res://TSCN/Player/Skills/shards_shoot_skills.tscn" id="2_05nwr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Skills/AddWM.gd" id="5_pupns"]
 [ext_resource type="Script" path="res://Scripts/Skills/Guardian_Shield.gd" id="6_j5h5g"]
 [ext_resource type="Script" path="res://Scripts/Skills/Mystic_Familiar.gd" id="7_a5lbb"]
+[ext_resource type="Script" path="res://Scripts/Skills/Heal_Bird_SKM.gd" id="8_yusad"]
 
 [node name="SkillManager" type="Node"]
 script = ExtResource("1_nq2dk")
@@ -26,3 +27,6 @@ script = ExtResource("6_j5h5g")
 
 [node name="Mystic_Familiar" type="Node" parent="." groups=["Rare", "SkillManager_skills"]]
 script = ExtResource("7_a5lbb")
+
+[node name="Heal_Bird" type="Node" parent="." groups=["Normal"]]
+script = ExtResource("8_yusad")

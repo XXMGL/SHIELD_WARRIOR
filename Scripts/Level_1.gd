@@ -32,8 +32,8 @@ var PL_N
 
 #升级时技能稀有度权重
 var skills_L_weight = 1
-var skills_B_weight = 9
-var skills_G_weight = 0
+var skills_B_weight = 5
+var skills_G_weight = 5
 
 
 func _ready():

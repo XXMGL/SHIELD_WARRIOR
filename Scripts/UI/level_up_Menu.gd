@@ -15,7 +15,7 @@ var skillsPool = []
 var skills_rarity_index:int = 0
 @export var skills_L_weight = 5
 @export var skills_B_weight = 5
-@export var skills_G_weight = 0
+@export var skills_G_weight = 2
 
 func _ready():
 	ShuffleChance_Text.text = str(ShuffleChance)

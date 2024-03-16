@@ -3,9 +3,11 @@ extends Node
 var skill_data = {
 	"Normal":{
 		"Healbird":{
-			"LV1":"",
-			"LV2":"",
-			"LV3":""
+			"LV1":{"LV1":"Feather: Gain a Healing Bird that follows the player after respawning, providing continuous health regeneration."},
+			"LV2":{"LV2":"Growth: The Healing Bird will provide increased healing."},
+			"LV3":{"LV3":"Praise: The Healing Bird now enhances the player's stamina regeneration rate."},
+			"LV4":{"LV4":"Support: The Healing Bird provides additional stamina regeneration."},
+			"LV5":{"LV5":"Care: During a Perfect Parry, the Healing Bird provides extra health and stamina regeneration."}
 		}
 	},
 	"Rare":{

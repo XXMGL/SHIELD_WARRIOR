@@ -22,6 +22,7 @@ func _ready():
 	Hearts = get_children()
 	Character.connect("Gethit",Callable(self,"_GetHit"))
 	Character.connect("precise_Parry",Callable(self,"_Recovery"))
+	Character.connect("heal",Callable(self,"_Recovery"))
 
 
 
