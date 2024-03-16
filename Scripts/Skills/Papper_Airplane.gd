@@ -2,9 +2,9 @@ extends Node
 
 var levelNum = 0
 var MaxLevel = 5
-var Name = "BouncingBall"
+var Name = "Papper Airplane"
 var Rarity = "Normal"
-var Skill_index = 1
+var Skill_index = 2
 var weight = 2 #The possibility of this skill appearing in the upgrade interface has been determined.
 @export var isFullLv = false #it will turn to ture if the skill is full level.
 var is_Displaying = false #it will turn to true if the skill is on level_up interface
@@ -24,23 +24,25 @@ func activate():
 	if levelNum >= MaxLevel:
 		isFullLv = true
 	if levelNum == 1:
-		Character.G_Skill2_Active_Lv1 = true
+		Character.Bullet_Exist_Time *= 2
 	elif levelNum == 2:
-		Character.G_Skill2_Active_Lv2 = true
+		Character.G_Skill3_Active_Lv2 = true
 	elif levelNum == 3:
-		Character.Bullet_Bounce_Times = 1
+		Character.G_Skill3_Active_Lv3 = true
 	elif levelNum == 4:
-		Character.Bullet_Bounce_Times = 3
+		Character.G_Skill3_Active_Lv4 = true
 	elif levelNum == 5:
-		Character.G_Skill2_Active_Lv5 = true
+		Character.G_Skill3_Active_Lv5 = true
 		pass
 	pass
 	
 func deactivate():
 	levelNum = 0
 	isFullLv = false
-	Character.Bullet_Bounce_Times = CharacterData.Bullet_Bounce_Times
-	Character.G_Skill2_Active_Lv1 = false
-	Character.G_Skill2_Active_Lv2 = false
-	Character.G_Skill2_Active_Lv5 = false
+	Character.Bullet_Exist_Time = CharacterData.Bullet_Exist_Time
+	Character.G_Skill3_Active_Lv2 = false
+	Character.G_Skill3_Active_Lv3 = false
+	Character.G_Skill3_Active_Lv4 = false
+	Character.G_Skill3_Active_Lv5 = false
 	pass
+

@@ -39,6 +39,7 @@ func _update_Skill_info():
 	SkillContent.text = skill_pool[skillName][Lv].values()[Branch_index - 1]
 	Layout.texture = load("res://ART Assets/SkillCardBG/"+Rarity+".png")
 	Icon.texture = load("res://ART Assets/Skills Icons/"+skillName+".png")
+	#print_debug(Skillindex)
 	pass
 
 

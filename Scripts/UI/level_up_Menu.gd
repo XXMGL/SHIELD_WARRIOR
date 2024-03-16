@@ -41,7 +41,7 @@ func _Set_SkillsPool():
 	skills_rarity_index = randomIndex
 	SkillManager._Set_Skill_Pool(randomIndex)
 	skillsPool = SkillManager.skills_Pool
-	#print_debug(skillsPool)
+	#print_debug("skillsPool size: ",skillsPool.size(), "skillsPool: ",skillsPool)
 	pass
 	
 func _Check_Skill_Branches(Button,index):

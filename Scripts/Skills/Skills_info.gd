@@ -15,6 +15,13 @@ var skill_data = {
 			"LV3":{"LV3":"Rebound: Bullets gain an additional bounce chance. When hitting a wall, they bounce instead of disappearing."},
 			"LV4":{"LV4":"Bounce and Bounce: Bullets gain three additional bounce chances. When hitting a wall, they bounce instead of disappearing."},
 			"LV5":{"LV5":"Magical Rebound Magic: Each bounce increases bullet damage by 20%."}		
+		},
+		"Papper Airplane":{
+			"LV1":{"LV1":"Simple Construction: Bullets' duration doubled."},
+			"LV2":{"LV2":"Aerodynamics: Longer bullet duration increases damage multiplier."},
+			"LV3":{"LV3":"Resistance: Bullets' base flight speed reduced by 30%."},
+			"LV4":{"LV4":"Creativity: Bullets no longer vanish automatically."},
+			"LV5":{"LV5":"Stuck: Bullets' speed gradually decreases to 0 after firing."}		
 		}
 	},
 	"Rare":{

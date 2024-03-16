@@ -51,6 +51,7 @@ var Indicator
 var IndicatorDirection
 @export var Shooting_Offset = 10
 var Shield_position
+var Bullet_Exist_Time = 5
 
 signal Route_Change
 signal Gethit
@@ -87,6 +88,12 @@ var G_Skill2_Active_Lv1: bool = false
 var G_Skill2_Active_Lv2: bool = false
 var G_Skill2_Active_Lv5: bool = false
 var Bullet_Bounce_Times = 0
+
+#2.2 Papper Plane
+var G_Skill3_Active_Lv2:bool = false
+var G_Skill3_Active_Lv3:bool = false
+var G_Skill3_Active_Lv4:bool = false
+var G_Skill3_Active_Lv5:bool = false
 
 func _ready():
 	# 一些数据初始化
@@ -250,27 +257,17 @@ func _CharacterDetection():
 	
 func _ShootBullet(Bullet,DamageScale,position):
 	var bullet = Bullet.instantiate()
-	#get_parent().add_child(bullet) 不能用，因为同时检测碰撞并Add child会报错
 	get_parent().call_deferred("add_child", bullet)
 	var offset_angle = deg_to_rad(randf_range(-Shooting_Offset, Shooting_Offset))
-	#print_debug(offset_angle)
 	var original_direction = IndicatorDirection
 	var rotated_direction = original_direction.rotated(offset_angle)
 	_Do_Reposition(bullet)
-	#bullet.Reposition_Target = Target_Enemy
-	if G_Skill2_Active_Lv1:#1级技能判断
-		bullet.G_Skill2_Active_Lv1 = G_Skill2_Active_Lv1
-	if G_Skill2_Active_Lv2:
-		bullet.G_Skill2_Active_Lv2 = G_Skill2_Active_Lv2
-	if G_Skill2_Active_Lv5:
-		bullet.G_Skill2_Active_Lv5 = G_Skill2_Active_Lv5
-	print_debug(Bullet_Bounce_Times)
+	bullet.Bullet_exist_time = Bullet_Exist_Time
 	bullet.Bounce_Times = Bullet_Bounce_Times
 	bullet.Damage *= DamageScale
 	bullet.position = position
 	bullet.rotation = Indicator.rotation
 	bullet.MoveDirection = rotated_direction
-	
 	Trigger_WM()
 
 func _Make_a_Shoot(position):

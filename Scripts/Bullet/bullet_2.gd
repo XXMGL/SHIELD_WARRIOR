@@ -24,23 +24,32 @@ var Reposition_Target:Node2D
 var MoveDirection = Vector2(-1 , 0)
 
 @onready var BulletAnimation = $AnimatedSprite2D
-@export var G_Skill2_Active_Lv1 = false
-@export var G_Skill2_Active_Lv2 = false
-@export var G_Skill2_Active_Lv5 = false
+#Skill 2.1
+var G_Skill2_Active_Lv1_Ac = 1
+var G_Skill3_Active_Lv3_Ac = 1
+
+
 var Bounce_Times = 0 # Bullet bounces times in maximum
 var Bouncing_Times = 0
+
+var Bullet_exist_time = 6
+var Bullet_exist_timer = 0
+
 
 
 func _ready():
 	LevelManager.connect("Final_Enemy_Die",Callable(self,"_Self_Destroy"))
 	BulletAnimation.play("shoot")
-	if G_Skill2_Active_Lv1 == true:
-		move_speed += 100
-	if G_Skill2_Active_Lv2 == true:
+	_AC_Calculation()
+	if Character.G_Skill2_Active_Lv2 == true and OriginFrom == Origin.From_Player == true:
 		Damage_Scale = 1 * (move_speed/Default_move_speed)
-	pass
 	
-func _process(delta):            
+func _process(delta):   
+	if OriginFrom == Origin.From_Player == true and Character.G_Skill3_Active_Lv5 == true:
+		_Slow_Down(delta)
+	Bullet_exist_timer += delta
+	if Bullet_exist_timer >= Bullet_exist_time and Character.G_Skill3_Active_Lv4 == false:
+		_Self_Destroy()         
 	if OriginFrom == Origin.From_Player:
 		#print_debug(global_position)
 		pass
@@ -74,13 +83,14 @@ func _process(delta):
 func _on_detector_body_entered(body):
 	if body.has_method("get_name") and (body.get_name() == "R_Wall" or body.get_name() == "L_Wall" or body.get_name() == "T_Wall" or body.get_name() == "D_Wall" ):
 		if Bounce_Times > 0:
-			if G_Skill2_Active_Lv5 == true:
+			if Character.G_Skill3_Active_Lv5 == true:
 				Damage_Scale += 0.2
 			if body.get_name() == "R_Wall" or body.get_name() == "L_Wall":
 				MoveDirection.x =  - MoveDirection.x
 			elif body.get_name() == "T_Wall" or body.get_name() == "D_Wall":
 				MoveDirection.y =  - MoveDirection.y
 			Bounce_Times -= 1
+			#print_debug(Bullet_exist_timer)
 		else:
 			queue_free()
 	if OriginFrom == Origin.From_Enemy and body.has_method("_CharacterDetection"):
@@ -94,6 +104,12 @@ func _on_detector_body_entered(body):
 			queue_free() # 销毁
 	if OriginFrom == Origin.From_Player and body.has_method("_EnemyDetection"):
 		#print_debug("11")
+		if Character.G_Skill3_Active_Lv2 == true:
+			if Bullet_exist_timer >= 10:
+				Bullet_exist_timer = 10
+			Damage_Scale += Bullet_exist_timer
+			pass
+		print_debug("Damage: ",Damage * Damage_Scale, " Damage Scale: ", Damage_Scale)
 		body.Health -= Damage * Damage_Scale
 		if canRunThrough:
 			if body.has_method("_BossDetection"):
@@ -115,3 +131,21 @@ func _ToPlayer():
 	
 func _Self_Destroy():
 	queue_free()
+
+func _AC_Calculation():
+	Default_move_speed = move_speed
+	if Character.G_Skill2_Active_Lv1 == true:
+		G_Skill2_Active_Lv1_Ac = 1.2
+		#print_debug("Move Speed: ",move_speed)
+	if Character.G_Skill3_Active_Lv3 == true:
+		G_Skill3_Active_Lv3_Ac = 0.7
+	if OriginFrom == Origin.From_Player:
+		move_speed *= G_Skill2_Active_Lv1_Ac * G_Skill3_Active_Lv3_Ac
+
+func _Slow_Down(delta):
+	if move_speed >= 0:
+		move_speed -= delta * 35
+	if move_speed <= 0:
+		move_speed = 0
+		#print_debug(move_speed)
+	
