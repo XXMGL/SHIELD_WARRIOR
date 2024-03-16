@@ -82,6 +82,12 @@ var HeartNum = 3
 #1.1 Guardian Shield
 var Guardian_Shield_enabled: bool = false
 
+#2.1 Bullet Bounce
+var G_Skill2_Active_Lv1: bool = false
+var G_Skill2_Active_Lv2: bool = false
+var G_Skill2_Active_Lv5: bool = false
+var Bullet_Bounce_Times = 0
+
 func _ready():
 	# 一些数据初始化
 	MOVE_SPEED = Basic_movespeed
@@ -252,6 +258,14 @@ func _ShootBullet(Bullet,DamageScale,position):
 	var rotated_direction = original_direction.rotated(offset_angle)
 	_Do_Reposition(bullet)
 	#bullet.Reposition_Target = Target_Enemy
+	if G_Skill2_Active_Lv1:#1级技能判断
+		bullet.G_Skill2_Active_Lv1 = G_Skill2_Active_Lv1
+	if G_Skill2_Active_Lv2:
+		bullet.G_Skill2_Active_Lv2 = G_Skill2_Active_Lv2
+	if G_Skill2_Active_Lv5:
+		bullet.G_Skill2_Active_Lv5 = G_Skill2_Active_Lv5
+	print_debug(Bullet_Bounce_Times)
+	bullet.Bounce_Times = Bullet_Bounce_Times
 	bullet.Damage *= DamageScale
 	bullet.position = position
 	bullet.rotation = Indicator.rotation

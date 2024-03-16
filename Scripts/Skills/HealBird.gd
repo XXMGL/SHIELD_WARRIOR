@@ -15,11 +15,12 @@ var is_Lv_4:bool = false
 var is_Lv_5:bool = false
 
 func _ready():
+	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 	target = get_tree().get_first_node_in_group("Player")
 	SkillManager.connect("G_Skill1_up",Callable(self,"_G_Skill1_up"))
 	
 	
-func _process(delta):
+func _process(_delta):
 	if target:
 		var target_position = target.global_position
 		# 计算新位置
@@ -87,3 +88,7 @@ func Burst_Heal():
 func _on_heal_timer_timeout():
 	_Heal(heal_continue,stamina_continue)
 	pass # Replace with function body.
+	
+func deactivate():
+	queue_free()
+	pass

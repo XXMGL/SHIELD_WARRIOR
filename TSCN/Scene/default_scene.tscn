@@ -386,9 +386,6 @@ sources/0 = SubResource("TileSetAtlasSource_rdlto")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6eas"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxutl"]
-size = Vector2(10439.5, 270.025)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyhg2"]
 bg_color = Color(0.6, 0.6, 0.6, 0.411765)
 
@@ -405,6 +402,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu7l7"]
 size = Vector2(23.7597, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhxka"]
+size = Vector2(21.4851, 19.2667)
 
 [node name="Level1" type="Node2D" groups=["Level"]]
 script = ExtResource("1_lb5gq")
@@ -431,35 +431,6 @@ scale = Vector2(0.112032, 0.634554)
 visible = false
 scale = Vector2(6.70738, -1.185)
 texture = ExtResource("3_3tib5")
-
-[node name="Eage" type="StaticBody2D" parent="BackGround"]
-collision_layer = 16
-collision_mask = 0
-
-[node name="Top_Wall" type="CollisionShape2D" parent="BackGround/Eage"]
-position = Vector2(-8.926, -510.595)
-scale = Vector2(517.994, 2.57591)
-shape = SubResource("RectangleShape2D_g6eas")
-debug_color = Color(0, 0.580392, 0.792157, 0.419608)
-
-[node name="Bot_Wall" type="CollisionShape2D" parent="BackGround/Eage"]
-position = Vector2(-8.926, 513.747)
-scale = Vector2(517.994, 2.57591)
-shape = SubResource("RectangleShape2D_g6eas")
-
-[node name="Left_Wall" type="CollisionShape2D" parent="BackGround/Eage"]
-position = Vector2(-5275.27, 4.72775)
-scale = Vector2(22.0654, 50.4206)
-shape = SubResource("RectangleShape2D_g6eas")
-
-[node name="Right_Wall" type="CollisionShape2D" parent="BackGround/Eage"]
-position = Vector2(5212.78, 4.72775)
-scale = Vector2(22.0654, 50.4206)
-shape = SubResource("RectangleShape2D_g6eas")
-
-[node name="TopBar" type="CollisionShape2D" parent="BackGround/Eage"]
-position = Vector2(82.2969, -374.551)
-shape = SubResource("RectangleShape2D_sxutl")
 
 [node name="Eage2" type="StaticBody2D" parent="BackGround"]
 collision_layer = 32
@@ -579,6 +550,46 @@ shape = SubResource("RectangleShape2D_nu7l7")
 
 [node name="Player_Defalult_position" type="Marker2D" parent="."]
 position = Vector2(139, 394)
+
+[node name="R_Wall" type="StaticBody2D" parent="."]
+collision_layer = 18
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="R_Wall"]
+position = Vector2(1177, 315)
+rotation = -3.14159
+scale = Vector2(3.16498, -39.0213)
+shape = SubResource("RectangleShape2D_vhxka")
+
+[node name="L_Wall" type="StaticBody2D" parent="."]
+collision_layer = 18
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L_Wall"]
+position = Vector2(-8.99988, 315)
+rotation = -3.14159
+scale = Vector2(3.16498, -39.0213)
+shape = SubResource("RectangleShape2D_vhxka")
+
+[node name="T_Wall" type="StaticBody2D" parent="."]
+collision_layer = 18
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="T_Wall"]
+position = Vector2(586, 151)
+rotation = -3.14159
+scale = Vector2(58.2, 3.88486)
+shape = SubResource("RectangleShape2D_vhxka")
+
+[node name="D_Wall" type="StaticBody2D" parent="."]
+collision_layer = 18
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="D_Wall"]
+position = Vector2(586, 639)
+rotation = -3.14159
+scale = Vector2(58.2, 3.88486)
+shape = SubResource("RectangleShape2D_vhxka")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Jump_To_Next_Level" to="." method="_on_jump_to_next_level_body_entered"]

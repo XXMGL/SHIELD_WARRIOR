@@ -11,7 +11,7 @@ enum Types{Bullet1, Bullet2}
 @export var BulletType = Types.Bullet2
 
 @export var move_speed = 200  # 在x方向的移动速度
-
+var Default_move_speed = 200
 enum Origin{From_Enemy, From_Player}
 @export var OriginFrom = Origin.From_Enemy
 @export var Damage = 10
@@ -24,10 +24,20 @@ var Reposition_Target:Node2D
 var MoveDirection = Vector2(-1 , 0)
 
 @onready var BulletAnimation = $AnimatedSprite2D
+@export var G_Skill2_Active_Lv1 = false
+@export var G_Skill2_Active_Lv2 = false
+@export var G_Skill2_Active_Lv5 = false
+var Bounce_Times = 0 # Bullet bounces times in maximum
+var Bouncing_Times = 0
+
 
 func _ready():
 	LevelManager.connect("Final_Enemy_Die",Callable(self,"_Self_Destroy"))
 	BulletAnimation.play("shoot")
+	if G_Skill2_Active_Lv1 == true:
+		move_speed += 100
+	if G_Skill2_Active_Lv2 == true:
+		Damage_Scale = 1 * (move_speed/Default_move_speed)
 	pass
 	
 func _process(delta):            
@@ -62,9 +72,17 @@ func _process(delta):
 
 
 func _on_detector_body_entered(body):
-	if body.has_method("get_name") and body.get_name() == "Eage":
-		#print_debug("11")
-		queue_free()  # 销毁子弹
+	if body.has_method("get_name") and (body.get_name() == "R_Wall" or body.get_name() == "L_Wall" or body.get_name() == "T_Wall" or body.get_name() == "D_Wall" ):
+		if Bounce_Times > 0:
+			if G_Skill2_Active_Lv5 == true:
+				Damage_Scale += 0.2
+			if body.get_name() == "R_Wall" or body.get_name() == "L_Wall":
+				MoveDirection.x =  - MoveDirection.x
+			elif body.get_name() == "T_Wall" or body.get_name() == "D_Wall":
+				MoveDirection.y =  - MoveDirection.y
+			Bounce_Times -= 1
+		else:
+			queue_free()
 	if OriginFrom == Origin.From_Enemy and body.has_method("_CharacterDetection"):
 		#print("11")
 		queue_free()  # 销毁子弹
@@ -89,7 +107,7 @@ func _BulletDetection():
 	pass
 
 func _GetDamage():
-	return Damage
+	return Damage * Damage_Scale
 	
 func _ToPlayer():
 	var target = get_tree().get_first_node_in_group("Player")

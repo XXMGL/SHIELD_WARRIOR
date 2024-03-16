@@ -7,7 +7,14 @@ var skill_data = {
 			"LV2":{"LV2":"Growth: The Healing Bird will provide increased healing."},
 			"LV3":{"LV3":"Praise: The Healing Bird now enhances the player's stamina regeneration rate."},
 			"LV4":{"LV4":"Support: The Healing Bird provides additional stamina regeneration."},
-			"LV5":{"LV5":"Care: During a Perfect Parry, the Healing Bird provides extra health and stamina regeneration."}
+			"LV5":{"LV5":"Care: During a Perfect Parry, the Healing Bird provides extra health and stamina regeneration."}		
+		},
+		"Bouncing Ball":{
+			"LV1":{"LV1":"Gift: Bullet flight speed increased by 25%."},
+			"LV2":{"LV2":"Roll and Roll: Bullets deal increased damage as their flight speed increases."},
+			"LV3":{"LV3":"Rebound: Bullets gain an additional bounce chance. When hitting a wall, they bounce instead of disappearing."},
+			"LV4":{"LV4":"Bounce and Bounce: Bullets gain three additional bounce chances. When hitting a wall, they bounce instead of disappearing."},
+			"LV5":{"LV5":"Magical Rebound Magic: Each bounce increases bullet damage by 20%."}		
 		}
 	},
 	"Rare":{
