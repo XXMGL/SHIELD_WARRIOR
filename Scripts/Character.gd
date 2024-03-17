@@ -95,6 +95,8 @@ var G_Skill3_Active_Lv3:bool = false
 var G_Skill3_Active_Lv4:bool = false
 var G_Skill3_Active_Lv5:bool = false
 
+
+
 func _ready():
 	# 一些数据初始化
 	MOVE_SPEED = Basic_movespeed

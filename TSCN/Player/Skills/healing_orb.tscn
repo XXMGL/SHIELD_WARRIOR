@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://g0r4puqlck2"]
+
+[ext_resource type="Script" path="res://Scripts/Skills/HealingOrb.gd" id="1_knis8"]
+[ext_resource type="Texture2D" uid="uid://bo1myjriqjoov" path="res://ART Assets/heart.png" id="2_8m8kv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_plsh2"]
+radius = 54.0
+height = 108.0
+
+[node name="HealingOrb" type="CharacterBody2D"]
+script = ExtResource("1_knis8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.320001, 0.320001)
+shape = SubResource("CapsuleShape2D_plsh2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_8m8kv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

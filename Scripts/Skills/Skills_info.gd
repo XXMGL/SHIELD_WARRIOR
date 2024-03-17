@@ -22,6 +22,13 @@ var skill_data = {
 			"LV3":{"LV3":"Resistance: Bullets' base flight speed reduced by 30%."},
 			"LV4":{"LV4":"Creativity: Bullets no longer vanish automatically."},
 			"LV5":{"LV5":"Stuck: Bullets' speed gradually decreases to 0 after firing."}		
+		},
+		"Sapling":{
+			"LV1":{"LV1":"Rooted: Initial movement speed of incoming enemies reduced by 10%."},
+			"LV2":{"LV2":"Seedling: Every 10 enemies killed by the player, a healing orb is spawned at a specific location on the battlefield, restoring the player's health."},
+			"LV3":{"LV3":"Rainwater: When the player kills 100 enemies (60 in the testing version), the Sapling transforms into a Wardenwood, granting the player a legendary skill selection opportunity."},
+			"LV4":{"LV4":"Thorns: Sapling: Player's stamina consumption increased by 30%, immediately providing the Sapling with 20 additional enemy kill counts. Wardenwood: Deals 0.2 damage per second to all enemies on the battlefield."},
+			"LV5":{"LV5":"Wild Growth: Sapling: Player's stamina increased by 30%, immediately providing the Sapling with 40 additional enemy kill counts. Wardenwood: Any damage dealt by the player applies a 30% slow effect to enemies and grants a slow debuff marker."}		
 		}
 	},
 	"Rare":{

@@ -109,7 +109,7 @@ func _on_detector_body_entered(body):
 				Bullet_exist_timer = 10
 			Damage_Scale += Bullet_exist_timer
 			pass
-		print_debug("Damage: ",Damage * Damage_Scale, " Damage Scale: ", Damage_Scale)
+		#print_debug("Damage: ",Damage * Damage_Scale, " Damage Scale: ", Damage_Scale)
 		body.Health -= Damage * Damage_Scale
 		if canRunThrough:
 			if body.has_method("_BossDetection"):

@@ -4,3 +4,10 @@
 
 [node name="Character_Data" type="Node2D"]
 script = ExtResource("1_upt4l")
+
+[node name="G_Skill4" type="Marker2D" parent="."]
+position = Vector2(137, 427)
+
+[node name="G_Skill4_Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="G_Skill4_Timer" to="." method="_on_g_skill_4_timer_timeout"]

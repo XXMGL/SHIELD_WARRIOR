@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 #敌人基础数据
-@export var move_speed = 100  
+@export var move_speed = 100
+var move_speed_default = 100  
 @export var Health = 1
 @export var ShootDuration = 2.0
 @export var wander_direction : Node2D
@@ -39,9 +40,12 @@ var Shoot_Timer = 0.0
 @export var exp_Amout = 5
 @export var exp_Num = 1
 
+#G_Skill4
+var G_Skill4_Slow = false
 var isDead = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	move_speed_default = move_speed
 	match Enemy_type:
 		Types.Enemy1:
 			pass
@@ -63,6 +67,9 @@ func _ready():
 			AttackTimer.wait_time = ShootDuration
 			AttackTimer.start()
 			pass
+	
+	if CharacterData.G_Skill4_Active_Lv1 == true:
+		move_speed = 0.9*move_speed_default
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -288,6 +295,7 @@ func _Die():
 		get_parent().add_child(exp)
 		exp.position = global_position
 		exp.exp_Num = exp_Num
+		CharacterData.emit_signal("EnemyDie")
 	queue_free()
 		
 		
