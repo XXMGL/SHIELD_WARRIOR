@@ -37,6 +37,8 @@ func _ready():
 	_Get_Skills("Rare", skills_B)
 	_Get_Skills("Normal", skills_G)
 	skills_Pool = skills_G
+	
+	
 	_Get_Availabel_Skills()
 
 

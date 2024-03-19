@@ -50,6 +50,7 @@ func _on_detector_body_entered(body):
 	if body.has_method("_CharacterDetection"):
 		ActivePowerupFunc(body)
 		queue_free()
+		CharacterData.emit_signal("Pick_Up_Item")
 
 func ActivePowerupFunc(body):
 	match powerup_type:

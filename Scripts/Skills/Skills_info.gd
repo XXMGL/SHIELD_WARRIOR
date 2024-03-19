@@ -26,9 +26,16 @@ var skill_data = {
 		"Sapling":{
 			"LV1":{"LV1":"Rooted: Initial movement speed of incoming enemies reduced by 10%."},
 			"LV2":{"LV2":"Seedling: Every 10 enemies killed by the player, a healing orb is spawned at a specific location on the battlefield, restoring the player's health."},
-			"LV3":{"LV3":"Rainwater: When the player kills 100 enemies (60 in the testing version), the Sapling transforms into a Wardenwood, granting the player a legendary skill selection opportunity."},
+			"LV3":{"LV3":"Rain: When the player kills 100 enemies (60 in the testing version), the Sapling transforms into a Wardenwood, granting the player a legendary skill selection opportunity."},
 			"LV4":{"LV4":"Thorns: Sapling: Player's stamina consumption increased by 30%, immediately providing the Sapling with 20 additional enemy kill counts. Wardenwood: Deals 0.2 damage per second to all enemies on the battlefield."},
 			"LV5":{"LV5":"Wild Growth: Sapling: Player's stamina increased by 30%, immediately providing the Sapling with 40 additional enemy kill counts. Wardenwood: Any damage dealt by the player applies a 30% slow effect to enemies and grants a slow debuff marker."}		
+		},
+		"Green Soup":{
+			"LV1":{"LV1":"Witch's Exclusive Recipe: One chapter from the witch's five magic potion recipes, detailing the ingredients and steps to make the Green Soup. Perhaps collecting all the magic potion recipes will yield different results."},
+			"LV2":{"LV2":"Red Mushroom and Green Soup: Enemies receive a stack of Poison debuff upon taking any form of damage (Poison: Enemies lose one health point per second per stack of poison; boss maximum stack limit is 50 layers)."},
+			"LV3":{"LV3":"Foul Odor: Player gains a Poisonous Aura; enemies within the aura suffer 0.5 damage per second. Enemies within the aura suffer Poison debuff triggering 30% faster."},
+			"LV4":{"LV4":"Extra Ingredients!: Increased Poisonous Aura activation frequency by 5% when picking up items (maximum increase is 50%)."},
+			"LV5":{"LV5":"Keep Your Distance from That Pot: Poisonous Aura now moves to the player's cursor position instead of staying on the player."}		
 		}
 	},
 	"Rare":{

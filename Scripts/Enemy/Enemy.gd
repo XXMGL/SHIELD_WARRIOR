@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var move_speed = 100
 var move_speed_default = 100  
 @export var Health = 1
+var pre_Health
 @export var ShootDuration = 2.0
 @export var wander_direction : Node2D
 @export var group_name : String
@@ -43,9 +44,20 @@ var Shoot_Timer = 0.0
 #G_Skill4
 var G_Skill4_Slow = false
 var isDead = false
+
+#G_Skill5
+var Poison_Debuff = 0
+var Poison_Timer = 0
+var Poison_Trigger_Duration = 2
+var Poison_Trigger_Duration_Default = 2
+
+signal Get_Hit
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	connect("Get_Hit",Callable(self,"G_Skill5"))
 	move_speed_default = move_speed
+	pre_Health = Health
+	Poison_Trigger_Duration_Default = Poison_Trigger_Duration
 	match Enemy_type:
 		Types.Enemy1:
 			pass
@@ -128,6 +140,8 @@ func _process(delta):
 				elif (direct_attacker_state == DirectAttackerState.attack_finish):
 					EnemyAnimator.play("Fly")
 			pass
+	if Poison_Debuff > 0:
+		_Poison_Dot(delta)
 			
 	if Health <= 0 and isDead == false:
 		isDead = true
@@ -137,6 +151,7 @@ func _process(delta):
 		_Die()  # 销毁
 	
 func _physics_process(delta):
+	_Get_Hit()
 	match Enemy_type:
 		Types.Enemy1:
 			_FoundTarget()		
@@ -312,4 +327,24 @@ func _on_attack_timer_timeout():
 	var target = get_tree().get_first_node_in_group("Player")
 	if target != null:
 		target_position = target.global_position
+
+func _Get_Hit():
+	if Health < pre_Health:
+		emit_signal("Get_Hit")
+		pre_Health = Health
+	if Health > pre_Health:
+		pre_Health = Health
+	pass
 	
+func G_Skill5():
+	if CharacterData.G_Skill5_Active_Lv2 == true:
+		Poison_Debuff += 1
+	pass
+
+func _Poison_Dot(delta):
+	Poison_Timer += delta
+	if Poison_Timer >= Poison_Trigger_Duration:
+		Health -= 1*Poison_Debuff
+		#print_debug("毒发： ",Poison_Debuff)
+		Poison_Timer = 0
+	pass

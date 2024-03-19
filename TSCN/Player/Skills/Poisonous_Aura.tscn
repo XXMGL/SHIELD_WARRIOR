@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnqdhxc4cochw"]
+
+[ext_resource type="Texture2D" uid="uid://d3gdkv0e8h3jo" path="res://ART Assets/heart0.png" id="1_1un0o"]
+[ext_resource type="Script" path="res://Scripts/Skills/Poisonous_Aura.gd" id="1_eksky"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wl56y"]
+
+[node name="Poisonous_Aura" type="Area2D"]
+z_index = 4
+position = Vector2(9, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_eksky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.8, 6.8)
+shape = SubResource("CircleShape2D_wl56y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(0.311036, 0.311036)
+texture = ExtResource("1_1un0o")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

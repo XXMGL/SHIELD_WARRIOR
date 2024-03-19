@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://icvgqnmohgmj"]
+
+[ext_resource type="Script" path="res://Scripts/Player/mouse_pos.gd" id="1_o2ojt"]
+
+[node name="MousePos" type="Marker2D" groups=["Mouse_Pos"]]
+script = ExtResource("1_o2ojt")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://d2x6f6qphmp8o"]
+[gd_scene load_steps=52 format=3 uid="uid://d2x6f6qphmp8o"]
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_xj0ro"]
 [ext_resource type="Texture2D" uid="uid://ex1yede4oqr3" path="res://ART Assets/sprites/shield_3.png" id="2_3iyvm"]
@@ -35,6 +35,7 @@
 [ext_resource type="Script" path="res://Scripts/exp/EXP_BAR.gd" id="22_e3qov"]
 [ext_resource type="Texture2D" uid="uid://kiqxhfd67ljb" path="res://ART Assets/MysticFamiliar/VFX_60x60.png" id="31_kctps"]
 [ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="34_fwr80"]
+[ext_resource type="PackedScene" uid="uid://icvgqnmohgmj" path="res://TSCN/Player/mouse_pos.tscn" id="36_ldal5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6aij"]
 radius = 9.88873
@@ -393,5 +394,7 @@ scale = Vector2(0.301463, 0.26976)
 texture = ExtResource("34_fwr80")
 
 [node name="OnHit_Timer" type="Timer" parent="."]
+
+[node name="MousePos" parent="." instance=ExtResource("36_ldal5")]
 
 [connection signal="body_entered" from="SHIELD" to="." method="_on_shield_body_entered"]

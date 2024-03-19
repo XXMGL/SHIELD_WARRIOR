@@ -24,6 +24,15 @@ var G_Skill4_Kill_Amount_Lv2 = 0
 var G_Skill4_Kill_Amount_Lv3 = 60
 @onready var G_Skill4_Timer = $G_Skill4_Timer
 
+#2.4 Green Soup
+var G_Skill5_Active_Lv1:bool = false
+var G_Skill5_Active_Lv2:bool = false
+var G_Skill5_Active_Lv3:bool = false
+var G_Skill5_Active_Lv4:bool = false
+var G_Skill5_Active_Lv5:bool = false
+signal Pick_Up_Item
+signal G_Skill5_Change_Target
+
 func _ready():
 	connect("EnemyDie",Callable(self,"G_Skill4_Count"))
 
@@ -73,3 +82,4 @@ func G_Skill4_Count():
 func _on_g_skill_4_timer_timeout():
 	G_Skill4_Acive()
 	pass # Replace with function body.
+	

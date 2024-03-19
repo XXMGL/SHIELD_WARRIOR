@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bawemh5j3xama"]
+[gd_scene load_steps=13 format=3 uid="uid://bawemh5j3xama"]
 
 [ext_resource type="Script" path="res://Scripts/Skills/SkillManager.gd" id="1_nq2dk"]
 [ext_resource type="PackedScene" uid="uid://dwugbvw55tef3" path="res://TSCN/Player/Skills/shards_shoot_skills.tscn" id="2_05nwr"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/Skills/Bouncing_Ball.gd" id="9_6scq4"]
 [ext_resource type="Script" path="res://Scripts/Skills/Papper_Airplane.gd" id="10_fvods"]
 [ext_resource type="Script" path="res://Scripts/Skills/Sapling.gd" id="11_a4iv1"]
+[ext_resource type="Script" path="res://Scripts/Skills/GreenSoup.gd" id="12_auxgx"]
 
 [node name="SkillManager" type="Node"]
 script = ExtResource("1_nq2dk")
@@ -42,3 +43,6 @@ script = ExtResource("10_fvods")
 
 [node name="Sapling" type="Node" parent="." groups=["Normal"]]
 script = ExtResource("11_a4iv1")
+
+[node name="GreenSoup" type="Node" parent="." groups=["Normal"]]
+script = ExtResource("12_auxgx")

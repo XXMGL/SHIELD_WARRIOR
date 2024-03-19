@@ -53,7 +53,15 @@ var isDead = false
 
 signal Route_Change_Signal
 
+#G_Skill5
+var Poison_Debuff = 0
+var Poison_Timer = 0
+var Poison_Trigger_Duration = 2
+var Poison_Trigger_Duration_Default = 2
+var pre_Health
+
 func _ready():
+	pre_Health = Health
 	SC_SM1 = ShootChance_SM1
 	SC_SM2 = ShootChance_SM2
 	SC_SM3 = ShootChance_SM3
@@ -213,4 +221,28 @@ func _change_route(routeName):
 func _Play_Animation(Anim_Name):
 	if isDead == false:
 		BossAnimation.play(Anim_Name)
+	pass
+	
+#技能G_Skill5相关添加
+func _Get_Hit():
+	if Health < pre_Health:
+		emit_signal("Get_Hit")
+		pre_Health = Health
+	if Health > pre_Health:
+		pre_Health = Health
+	pass
+	
+func G_Skill5():
+	if CharacterData.G_Skill5_Active_Lv2 == true:
+		Poison_Debuff += 1
+		if Poison_Debuff>=50:
+			Poison_Debuff=50
+	pass
+
+func _Poison_Dot(delta):
+	Poison_Timer += delta
+	if Poison_Timer >= Poison_Trigger_Duration:
+		Health -= 1*Poison_Debuff
+		#print_debug("毒发： ",Poison_Debuff)
+		Poison_Timer = 0
 	pass

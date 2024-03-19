@@ -42,6 +42,13 @@ enum ShootMode{SM1, SM2, Mad, Weak, Die}
 @export var SM = ShootMode.SM1
 var isWeak = false
 
+#G_Skill5
+var Poison_Debuff = 0
+var Poison_Timer = 0
+var Poison_Trigger_Duration = 2
+var Poison_Trigger_Duration_Default = 2
+var pre_Health
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -177,3 +184,27 @@ func ShootBullets():
 		bullet.position = i.global_position
 		bullet.rotation = atan2(bulletDirection.x,bulletDirection.y)
 		bullet.MoveDirection = bulletDirection
+
+#技能G_Skill5相关添加
+func _Get_Hit():
+	if Health < pre_Health:
+		emit_signal("Get_Hit")
+		pre_Health = Health
+	if Health > pre_Health:
+		pre_Health = Health
+	pass
+	
+func G_Skill5():
+	if CharacterData.G_Skill5_Active_Lv2 == true:
+		Poison_Debuff += 1
+		if Poison_Debuff>=50:
+			Poison_Debuff=50
+	pass
+
+func _Poison_Dot(delta):
+	Poison_Timer += delta
+	if Poison_Timer >= Poison_Trigger_Duration:
+		Health -= 1*Poison_Debuff
+		#print_debug("毒发： ",Poison_Debuff)
+		Poison_Timer = 0
+	pass
