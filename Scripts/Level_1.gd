@@ -53,7 +53,7 @@ func _ready():
 	
 	Character.health = 100
 	Character.isDead = false
-	Character._Rebirth()
+	# Character._Rebirth()
 	Character.process_mode = Node.PROCESS_MODE_INHERIT
 	
 	LevelManager.connect("Final_Enemy_Die",Callable(self,"Level_Acomplish"))

@@ -44,6 +44,7 @@ var enemy_data = {
 				"EXP":8,
 				"EnemyType": 6,
 			},
+	},
 	"Boss":{
 		"Boss1":{
 			"Path":"res://TSCN/Enemy/Enemies/enemy_type_100.tscn"
@@ -51,6 +52,5 @@ var enemy_data = {
 		"Boss2":{
 			"Path":"res://TSCN/Enemy/Enemies/enemy_type_101.tscn"
 		}
-	}
 	}
 }

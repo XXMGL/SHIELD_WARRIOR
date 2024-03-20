@@ -9,6 +9,9 @@ extends Node2D
 var Bullet_Bounce_Times = 0
 var Bullet_Exist_Time = 5
 
+var LevelNum = 1
+var Exp = 0
+var Exp_to_NextLevel = 20 # 杜亦然调整经验值 60-》20
 
 #signal
 signal  EnemyDie

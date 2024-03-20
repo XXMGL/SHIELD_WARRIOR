@@ -4,6 +4,7 @@ extends Button
 func _on_pressed():
 	LevelManager.emit_signal("Start_Game")
 	Load_First_Scene()
+	Character._Rebirth()
 	pass # Replace with function body.
 
 

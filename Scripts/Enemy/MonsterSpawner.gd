@@ -99,12 +99,12 @@ func _on_timer_timeout():
 				pass 
 			
 			EnemyTypes.Boss1:
-				var prefab  = load(EnemyInfor.enemy_data["Boss"]["Boss1"]["Path"])
+				var prefab = load(EnemyInfor.enemy_data["Boss"]["Boss1"]["Path"])
 				NewEnemy = prefab.instantiate()
 				pass
 			
 			EnemyTypes.Boss2:
-				var prefab  = load(EnemyInfor.enemy_data["Boss"]["Boss2"]["Path"])
+				var prefab = load(EnemyInfor.enemy_data["Boss"]["Boss2"]["Path"])
 				NewEnemy = prefab.instantiate()
 				pass
 				

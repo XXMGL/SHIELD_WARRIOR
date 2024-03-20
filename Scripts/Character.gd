@@ -347,14 +347,9 @@ func _LevelingUp():
 	if Exp >= Exp_to_NextLevel:
 		Exp = 0
 		LevelNum += 1
-		Exp_to_NextLevel += 45
+		Exp_to_NextLevel += 30
 		Exp_Bar.max_value = Exp_to_NextLevel
 		Level_Num_InCanvas.text = str(LevelNum)
-	# 杜亦然更改重置经验条
-	if(Player_State == state.STATE_DIE):
-		LevelNum = 1
-		Exp = 0
-		Exp_to_NextLevel = 60
 	pass
 	
 func _hide_UI():
@@ -422,5 +417,7 @@ func _Rebirth():
 	health = CharacterData.Basic_health
 	isDead = false
 	HeartNum = 3
-	LevelNum = 1
+	LevelNum = CharacterData.LevelNum
+	Exp = CharacterData.Exp
+	Exp_to_NextLevel = CharacterData.Exp_to_NextLevel
 	#Level_Num_InCanvas = str(LevelNum)
