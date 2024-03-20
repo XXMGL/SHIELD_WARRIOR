@@ -445,48 +445,42 @@ shape = SubResource("RectangleShape2D_g6eas")
 
 [node name="MonsterSpawner" parent="." groups=["Wave1", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 5
+SpawnEnemyList = [4]
 SpawnInterval = 0.4
-SpawnAmout = 10
+EXP_Pool = 5
 
 [node name="MonsterSpawner2" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 5
+SpawnEnemyList = [4]
 SpawnInterval = 1.0
 
 [node name="MonsterSpawner3" parent="." groups=["Wave2", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 9
-SpawnEnemy = 2
+SpawnEnemyList = [4]
 SpawnInterval = 0.4
-SpawnAmout = 10
 Enemy_Route = "Route3"
 
 [node name="MonsterSpawner4" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 9
-SpawnEnemy = 2
 SpawnInterval = 0.4
-SpawnAmout = 10
 Enemy_Route = "Route3"
 
 [node name="MonsterSpawner5" parent="." groups=["Wave3", "Wave_General"] instance=ExtResource("5_8goud")]
 SpwanIndex = 4
-SpawnEnemy = 5
 SpawnInterval = 1.0
-SpawnAmout = 4
 
 [node name="MonsterSpawner6" parent="." groups=["FinalWave"] instance=ExtResource("5_8goud")]
 SpwanIndex = 5
 SpawnInterval = 0.4
-SpawnAmout = 10
 
 [node name="MonsterSpawner7" parent="." groups=["FinalWave"] instance=ExtResource("5_8goud")]
 SpwanIndex = 7
 SpawnInterval = 0.6
-SpawnAmout = 10
 Enemy_Route = "Route4"
 
 [node name="MonsterSpawner8" parent="." groups=["FinalWave"] instance=ExtResource("5_8goud")]
 SpwanIndex = 9
 SpawnInterval = 0.8
-SpawnAmout = 10
 Enemy_Route = "Route5"
 
 [node name="Route1" parent="." instance=ExtResource("6_ud1p6")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://nmh0ag54utvi"]
+[gd_scene load_steps=34 format=3 uid="uid://nmh0ag54utvi"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_pekqu"]
 [ext_resource type="Texture2D" uid="uid://cdltwbol5ilk2" path="res://ART Assets/06/Bat_v2_Dash.png" id="2_1ipek"]
@@ -53,22 +53,6 @@ region = Rect2(400, 0, 40, 42)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tyxjh"]
 atlas = ExtResource("2_1ipek")
 region = Rect2(440, 0, 40, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aabix"]
-atlas = ExtResource("2_1ipek")
-region = Rect2(480, 0, 40, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_otcyp"]
-atlas = ExtResource("2_1ipek")
-region = Rect2(520, 0, 40, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vpmo2"]
-atlas = ExtResource("2_1ipek")
-region = Rect2(560, 0, 40, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxh0u"]
-atlas = ExtResource("2_1ipek")
-region = Rect2(600, 0, 40, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0oo7"]
 atlas = ExtResource("3_3fd8y")
@@ -164,22 +148,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tyxjh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aabix")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_otcyp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vpmo2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxh0u")
 }],
 "loop": false,
 "name": &"Attack",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -255,7 +227,7 @@ position = Vector2(0, 6)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_ks1w5")
 animation = &"Attack"
-frame = 15
+frame = 11
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -29,8 +29,9 @@ enum Types {Enemy1, Enemy2, Enemy3, Enemy4, Enemy5, Enemy6, Enemy7}
 @export var direct_attack_damage = 0
 
 # 近战攻击敌人状态
-enum DirectAttackerState {wander, attacking, attack_finish}
+enum DirectAttackerState {wander, transfer, attacking, attack_finish}
 var direct_attacker_state = DirectAttackerState.wander
+var direct_attacker_is_attack = false
 var target_position
 
 #Timer
@@ -127,9 +128,15 @@ func _process(delta):
 			if (!isDead):
 				if (direct_attacker_state == DirectAttackerState.wander):
 					EnemyAnimator.play("Fly")
-				elif (direct_attacker_state == DirectAttackerState.attacking):
-					EnemyAnimator.play("Attack")
+				elif (direct_attacker_state == DirectAttackerState.transfer):
+					if (!direct_attacker_is_attack):
+						direct_attacker_is_attack = true
+						EnemyAnimator.play("Attack")
+						await EnemyAnimator.animation_finished
+						direct_attacker_state = DirectAttackerState.attacking
 				elif (direct_attacker_state == DirectAttackerState.attack_finish):
+					if (direct_attacker_is_attack):
+						direct_attacker_is_attack = false
 					EnemyAnimator.play("Fly")
 			pass
 		Types.Enemy7:
@@ -140,9 +147,15 @@ func _process(delta):
 					if Shoot_timer >= ShootDuration/10:
 						_ShootBullet(bullet1_tscn)
 						Shoot_timer = 0
-				elif (direct_attacker_state == DirectAttackerState.attacking):
-					EnemyAnimator.play("Attack")
+				elif (direct_attacker_state == DirectAttackerState.transfer):
+					if (!direct_attacker_is_attack):
+						direct_attacker_is_attack = true
+						EnemyAnimator.play("Attack")
+						await EnemyAnimator.animation_finished
+						direct_attacker_state = DirectAttackerState.attacking
 				elif (direct_attacker_state == DirectAttackerState.attack_finish):
+					if (direct_attacker_is_attack):
+						direct_attacker_is_attack = false
 					EnemyAnimator.play("Fly")
 			pass
 	if Poison_Debuff > 0:
@@ -193,6 +206,9 @@ func _physics_process(delta):
 				DirectAttackerState.wander:
 					velocity = (wander_direction.current_position.position - position).normalized() * move_speed
 					pass
+				DirectAttackerState.transfer:
+					velocity = Vector2.ZERO
+					pass
 				DirectAttackerState.attacking:
 					velocity = (target_position - position).normalized() * 5 * move_speed
 					if (global_position.distance_to(target_position) < 10):
@@ -207,6 +223,9 @@ func _physics_process(delta):
 			match direct_attacker_state:
 				DirectAttackerState.wander:
 					velocity = (wander_direction.current_position.position - position).normalized() * move_speed
+					pass
+				DirectAttackerState.transfer:
+					velocity = Vector2.ZERO
 					pass
 				DirectAttackerState.attacking:
 					# EnemyAnimator.play("Attack")
@@ -328,7 +347,7 @@ func _Play_Animation(Anim_Name):
 func _on_attack_timer_timeout():
 	#print_debug("1")
 	# is_direct_attack = true
-	direct_attacker_state = DirectAttackerState.attacking
+	direct_attacker_state = DirectAttackerState.transfer
 	
 	var target = get_tree().get_first_node_in_group("Player")
 	if target != null:
