@@ -51,6 +51,7 @@ func deactivate():
 	levelNum = 0
 	isFullLv = false
 	has_branch = false
+	branch_index = 1
 	CharacterData.B_Skill3_Active_Lv1 = true
 	CharacterData.B_Skill3_Active_Lv2 = true
 	CharacterData.B_Skill3_Active_Lv3 = true
