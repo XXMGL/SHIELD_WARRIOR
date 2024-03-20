@@ -832,7 +832,7 @@ SpwanIndex = 5
 SpawnEnemyList = [5, 6]
 SpawnInterval = 1.0
 EXP_Pool = 50
-Enemy_Route = "Route4"
+Enemy_Route = "Route6"
 
 [node name="MonsterSpawner6" parent="." groups=["FinalWave"] instance=ExtResource("4_3mg64")]
 SpwanIndex = 5
