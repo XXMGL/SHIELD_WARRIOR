@@ -33,7 +33,7 @@ var isDead = false
 var isShoot = false #用于控制玩家是否已经进行过射击
 
 #玩家生命值与体力条
-@export var Basic_health = 100
+@export var Basic_health = 200
 @export var Basic_stamina = 100
 var Max_stamina = 100 # 玩家最大体力值
 var Max_health = 100
@@ -61,9 +61,9 @@ signal heal
 #signal Recovery
 
 #角色等级系统
-var LevelNum = 1
+@export var LevelNum = 1
 var Exp = 0
-var Exp_to_NextLevel = 60
+var Exp_to_NextLevel = 20 # 杜亦然调整经验值 60-》20
 
 #技能组
 #1 Shards_Shoot
@@ -350,6 +350,11 @@ func _LevelingUp():
 		Exp_to_NextLevel += 45
 		Exp_Bar.max_value = Exp_to_NextLevel
 		Level_Num_InCanvas.text = str(LevelNum)
+	# 杜亦然更改重置经验条
+	if(Player_State == state.STATE_DIE):
+		LevelNum = 1
+		Exp = 0
+		Exp_to_NextLevel = 60
 	pass
 	
 func _hide_UI():

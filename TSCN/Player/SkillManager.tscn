@@ -33,20 +33,20 @@ script = ExtResource("6_j5h5g")
 [node name="Mystic_Familiar" type="Node" parent="." groups=["Rare", "SkillManager_skills"]]
 script = ExtResource("7_a5lbb")
 
-[node name="Bubble Gun" type="Node" parent="." groups=["Rare"]]
+[node name="Bubble Gun" type="Node" parent="." groups=["Rare", "SkillManager_skills"]]
 script = ExtResource("8_8hfmr")
 
-[node name="Heal_Bird" type="Node" parent="." groups=["Normal"]]
+[node name="Heal_Bird" type="Node" parent="." groups=["Normal", "SkillManager_skills"]]
 script = ExtResource("8_yusad")
 
-[node name="Bouncing_Ball" type="Node" parent="." groups=["Normal"]]
+[node name="Bouncing_Ball" type="Node" parent="." groups=["Normal", "SkillManager_skills"]]
 script = ExtResource("9_6scq4")
 
-[node name="Papper_Airplane" type="Node" parent="." groups=["Normal"]]
+[node name="Papper_Airplane" type="Node" parent="." groups=["Normal", "SkillManager_skills"]]
 script = ExtResource("10_fvods")
 
-[node name="Sapling" type="Node" parent="." groups=["Normal"]]
+[node name="Sapling" type="Node" parent="." groups=["Normal", "SkillManager_skills"]]
 script = ExtResource("11_a4iv1")
 
-[node name="GreenSoup" type="Node" parent="." groups=["Normal"]]
+[node name="GreenSoup" type="Node" parent="." groups=["Normal", "SkillManager_skills"]]
 script = ExtResource("12_auxgx")

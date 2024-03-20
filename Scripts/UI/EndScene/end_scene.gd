@@ -41,6 +41,8 @@ func _Set_Skills_Icons():
 		var skillName = skill_pool.keys()[skill_i.Skill_index]
 		icon.BG_Skill.texture = load("res://ART Assets/Skills Icons/"+skillName+".png")
 		icon.Skill_Lv.text = Lv
+		# print_debug("skillName: ", skillName)
+		# print_debug("Activate_Skills: ", skill_i)
 
 
 func _on_replay_pressed():

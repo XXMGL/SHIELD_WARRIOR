@@ -144,6 +144,7 @@ group_name = "Route3"
 Enemy_type = 2
 direct_attacker = true
 suicide_attacker = true
+exp_Amout = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 4)

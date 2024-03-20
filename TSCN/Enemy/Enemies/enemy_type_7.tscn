@@ -256,6 +256,7 @@ group_name = "Route1"
 Enemy_type = 6
 direct_attacker = true
 direct_attack_damage = 10
+exp_Amout = 8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 4)

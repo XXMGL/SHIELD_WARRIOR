@@ -62,7 +62,7 @@ func _ready():
 
 
 func _process(_delta):
-	LevelProgressBar.value = progress*100/LevelLength_Max
+	LevelProgressBar.value = progress * 100/LevelLength_Max
 	Level_Up_WaveCheck()
 	_WaveCheck()
 	pass
