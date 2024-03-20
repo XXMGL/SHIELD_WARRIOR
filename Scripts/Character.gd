@@ -56,6 +56,7 @@ var Bullet_Exist_Time = 5
 signal Route_Change
 signal Gethit
 signal precise_Parry
+signal parry
 signal heal
 #signal Recovery
 
@@ -312,6 +313,7 @@ func _on_shield_body_entered(body):
 func _Set_Bullet_Prefab():
 	match Player_State:
 				state.STATE_PARRYING:
+					emit_signal("parry")
 					bullet_prefab = bullet_1_tscn
 					pass
 				state.STATE_PARRYSTART:

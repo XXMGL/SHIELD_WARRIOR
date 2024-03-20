@@ -52,6 +52,12 @@ var skill_data = {
 			"LV4B":"Runebound Familiar: Drone bullets are aimed at the player's mouse direction."},
 			"LV5":{"LV5A":"Warding Sentinel: If the player does not have a shield token slot, the drone provides one. Gain a shield indicator token when the drone generates a shield.",
 			"LV5B":" Glyphic Familiar: The drone inherits the player's bullet effects."}
+		},
+		"Bubble Gun":{
+			"LV1":{"LV1":"Fondness: Generates a magic bubble at the mouse position when the player deflects bullets."},
+			"LV2":{"LV2":"Really Good At It: Bubbles from perfect parries are larger and deal more damage."},
+			"LV3":{"LV3A":"Breeze: Generated bubbles automatically track nearby enemies.","LV3B":"Resilient Bubbles: Bubbles burst upon contact with bullets, destroying the bullets."},
+			"LV4":{"LV4A":"Sticky Bubble Solution: Enemies hit by bubbles are slowed to 0 speed for 3 seconds.","LV4B":"Bubble Burst Magic: Bubbles explode into a barrage of regular bullets when they burst."},
 		}
 	},
 	"Legendary":{

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jg33wl56ttow"]
+
+[ext_resource type="Script" path="res://Scripts/Skills/bubble_generator.gd" id="1_noack"]
+
+[node name="Bubble Generator" type="Node"]
+script = ExtResource("1_noack")

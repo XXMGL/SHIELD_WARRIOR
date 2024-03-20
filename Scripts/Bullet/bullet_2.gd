@@ -98,6 +98,11 @@ func _on_detector_body_entered(body):
 		queue_free()  # 销毁子弹
 	if OriginFrom == Origin.From_Enemy and body.has_method("_WingManDetection"):
 		queue_free() # 销毁
+	if OriginFrom == Origin.From_Enemy and body.has_method("_Bubble_Detection"):
+		if body._Bubble_Detection() == true:
+			#body.queue_free()
+			#queue_free() # 销毁
+			pass
 	if OriginFrom == Origin.From_Enemy and body.has_method("_MF_Detection"):
 		if body.has_Shield != null and body.has_Shield == true:
 			body.has_Shield = false
@@ -148,4 +153,10 @@ func _Slow_Down(delta):
 	if move_speed <= 0:
 		move_speed = 0
 		#print_debug(move_speed)
+		
+func OriginFromEnemy():
+	if OriginFrom == Origin.From_Player:
+		return false
+	elif OriginFrom == Origin.From_Enemy:
+		return true
 	

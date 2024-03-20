@@ -51,6 +51,10 @@ var Poison_Timer = 0
 var Poison_Trigger_Duration = 2
 var Poison_Trigger_Duration_Default = 2
 
+#B_Skill3
+var Freeze = false
+var Freeze_Timer = 0
+
 signal Get_Hit
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -82,6 +86,7 @@ func _ready():
 	
 	if CharacterData.G_Skill4_Active_Lv1 == true:
 		move_speed = 0.9*move_speed_default
+		move_speed_default = move_speed
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -152,6 +157,7 @@ func _process(delta):
 	
 func _physics_process(delta):
 	_Get_Hit()
+	_Freeze(delta)
 	match Enemy_type:
 		Types.Enemy1:
 			_FoundTarget()		
@@ -348,3 +354,12 @@ func _Poison_Dot(delta):
 		#print_debug("毒发： ",Poison_Debuff)
 		Poison_Timer = 0
 	pass
+	
+func _Freeze(delta):
+	if Freeze == true:
+		Freeze_Timer += delta
+		move_speed = 0
+		if Freeze_Timer >= 3:
+			Freeze_Timer = 0
+			move_speed = move_speed_default
+			Freeze = false

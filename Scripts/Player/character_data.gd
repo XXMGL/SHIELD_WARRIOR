@@ -13,6 +13,13 @@ var Bullet_Exist_Time = 5
 #signal
 signal  EnemyDie
 
+#1.2 Bubble Gun
+var B_Skill3_Active_Lv1:bool = false
+var B_Skill3_Active_Lv2:bool = false
+var B_Skill3_Active_Lv3:bool = false
+var B_Skill3_Active_Lv4:bool = false
+var B_Skill3_Branch_index = 1
+
 #2.3 Sapling
 var G_Skill4_Active_Lv1:bool = false
 var G_Skill4_Active_Lv2:bool = false

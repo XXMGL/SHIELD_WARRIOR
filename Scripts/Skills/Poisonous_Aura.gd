@@ -14,6 +14,7 @@ func _ready():
 	Trigger_Duration_Default = Trigger_Duration
 	TriggerTimer.wait_time = Trigger_Duration
 	CharacterData.connect("G_Skill5_Change_Target",Callable(self,"_Change_Target"))
+	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 	pass # Replace with function body.
 
 func _process(delta):
@@ -30,6 +31,9 @@ func _Search_Enemies():
 		if body.is_in_group("Enemies") and body.has_method("_EnemyDetection"):
 			body.Health -= Damage
 			#print_debug("Body: ", body," Health: ", body.Health)
+			
+func deactivate():
+	queue_free()
 	
 	
 	
