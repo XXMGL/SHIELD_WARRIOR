@@ -5,12 +5,17 @@ var move_speed = 0.1
 var health = 1
 var bullet_Num = 5
 var bullet_Prefab = preload("res://TSCN/Bullet/bullet_R_1.tscn")
+var repture = false
+@onready var Animator = $AnimatedSprite2D
 
 func _ready():
+	Animator.play("appear")
 	#print_debug(CharacterData.B_Skill3_Branch_index)
 	pass
 
 func _process(delta):
+	if !repture:
+		Animator.play("move")
 	if CharacterData.B_Skill3_Active_Lv3 == true and CharacterData.B_Skill3_Branch_index == 1:
 		_Search_Enemies(delta)
 
@@ -25,7 +30,10 @@ func _on_enemy_detector_body_entered(body):
 		if body.OriginFromEnemy() == true:
 			body.queue_free()
 			health -= 1
-			if health <=0:
+			if health <=0 && !repture:
+				repture = true
+				Animator.play("rupture")
+				await Animator.animation_finished
 				Burst()
 				queue_free()
 		#queue_free()

@@ -164,7 +164,7 @@ collision_layer = 10
 collision_mask = 10
 script = ExtResource("1_qya84")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.54902)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_7pdel")
