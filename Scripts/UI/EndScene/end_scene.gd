@@ -3,7 +3,11 @@ extends CanvasLayer
 @onready var Skills_Container = $Panel2/Skills_Container
 @onready var Level = $Level
 @onready var PlayerLV = $PlayerLV
-@onready var PlayerAnimator = $AnimatedSprite2D
+@onready var EnemyAnimation = $BG1/AnimatedSprite2D2
+@onready var EnemyAnimation2 = $BG1/AnimatedSprite2D3
+@onready var EnemyAnimation3 = $BG1/AnimatedSprite2D4
+@onready var EnemyAnimation4 = $BG1/AnimatedSprite2D5
+@onready var EnemyAnimation5 = $BG1/AnimatedSprite2D6
 var Skills_Icon = preload("res://TSCN/UI/End_Scene_Skill_Display.tscn")
 var Skills_Size = 0
 
@@ -16,7 +20,11 @@ func _ready():
 	_Set_PlayerLV()
 	_Set_Level()
 	_Set_Timer()
-	PlayerAnimator.play("idle")
+	EnemyAnimation.play("idle")
+	EnemyAnimation2.play("idle")
+	EnemyAnimation3.play("idle")
+	EnemyAnimation4.play("idle")
+	EnemyAnimation5.play("idle")
 	pass # Replace with function body.
 
 
