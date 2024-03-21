@@ -1,9 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnqdhxc4cochw"]
+[gd_scene load_steps=9 format=3 uid="uid://bnqdhxc4cochw"]
 
-[ext_resource type="Texture2D" uid="uid://d3gdkv0e8h3jo" path="res://ART Assets/heart0.png" id="1_1un0o"]
 [ext_resource type="Script" path="res://Scripts/Skills/Poisonous_Aura.gd" id="1_eksky"]
+[ext_resource type="Texture2D" uid="uid://cp4n1ek00koeu" path="res://ART Assets/Retro Impact Effect Pack 3 D.png" id="2_70j3h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wl56y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_132vf"]
+atlas = ExtResource("2_70j3h")
+region = Rect2(32, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwfpw"]
+atlas = ExtResource("2_70j3h")
+region = Rect2(64, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mdxm"]
+atlas = ExtResource("2_70j3h")
+region = Rect2(96, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyfml"]
+atlas = ExtResource("2_70j3h")
+region = Rect2(128, 416, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhk81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_132vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwfpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mdxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyfml")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="Poisonous_Aura" type="Area2D"]
 z_index = 4
@@ -16,10 +52,11 @@ script = ExtResource("1_eksky")
 scale = Vector2(6.8, 6.8)
 shape = SubResource("CircleShape2D_wl56y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.141176)
-scale = Vector2(0.311036, 0.311036)
-texture = ExtResource("1_1un0o")
+scale = Vector2(4.075, 4.075)
+sprite_frames = SubResource("SpriteFrames_bhk81")
+frame_progress = 0.812252
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
