@@ -1,7 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpk6ny8s3fti5"]
+[gd_scene load_steps=9 format=3 uid="uid://cpk6ny8s3fti5"]
 
 [ext_resource type="Script" path="res://Scripts/Skills/HealBird.gd" id="1_lp8pp"]
-[ext_resource type="Texture2D" uid="uid://4usns5y65fvm" path="res://ART Assets/Monster.png" id="2_dpaqv"]
+[ext_resource type="Texture2D" uid="uid://cb0stxdnldsus" path="res://ART Assets/spritesheet.png" id="2_fhsy5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5j31"]
+atlas = ExtResource("2_fhsy5")
+region = Rect2(192, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k2i3"]
+atlas = ExtResource("2_fhsy5")
+region = Rect2(208, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w82yi"]
+atlas = ExtResource("2_fhsy5")
+region = Rect2(224, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mub31"]
+atlas = ExtResource("2_fhsy5")
+region = Rect2(240, 240, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfx3g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5j31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k2i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w82yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mub31")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 12.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mmlcb"]
 
@@ -10,9 +46,10 @@ scale = Vector2(0.44, 0.44)
 script = ExtResource("1_lp8pp")
 Offset = 30
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0707594, 0.0707594)
-texture = ExtResource("2_dpaqv")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sfx3g")
+animation = &"fly"
+frame_progress = 0.645564
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mmlcb")

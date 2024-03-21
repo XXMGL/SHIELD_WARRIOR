@@ -5,6 +5,7 @@ var target: Node2D
 var Skill_Lv = 0
 @export var heal_continue = 3
 @export var stamina_continue = 1
+@onready var BirdAnimator = $AnimatedSprite2D
 
 var heal_Count = 0
 
@@ -18,6 +19,7 @@ func _ready():
 	SkillManager.connect("DeactiveAllSkills",Callable(self,"deactivate"))
 	target = get_tree().get_first_node_in_group("Player")
 	SkillManager.connect("G_Skill1_up",Callable(self,"_G_Skill1_up"))
+	BirdAnimator.play("fly")
 	
 	
 func _process(_delta):

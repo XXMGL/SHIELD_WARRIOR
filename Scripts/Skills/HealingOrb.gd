@@ -1,7 +1,8 @@
 extends CharacterBody2D
+@onready var Animator = $AnimatedSprite2D
 
-
-
+func _ready():
+	Animator.play("default")
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("_CharacterDetection"):

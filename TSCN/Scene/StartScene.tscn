@@ -1,31 +1,68 @@
-[gd_scene load_steps=39 format=3 uid="uid://ctpqhidtjvoye"]
+[gd_scene load_steps=42 format=3 uid="uid://ctpqhidtjvoye"]
 
 [ext_resource type="Script" path="res://StartGameButton.gd" id="1_6bigr"]
 [ext_resource type="Script" path="res://TSCN/Scene/StartScene.gd" id="1_gcfm8"]
+[ext_resource type="Texture2D" uid="uid://i1if02ysxuvb" path="res://ART Assets/BG/MBG1 layer1.png" id="2_aa7kw"]
 [ext_resource type="Texture2D" uid="uid://8ft7cors1ey7" path="res://ART Assets/300ppi/007.png" id="2_nlred"]
 [ext_resource type="Theme" uid="uid://c64bsys0v2vl0" path="res://ART Assets/Button2_theme.tres" id="2_q3ixt"]
+[ext_resource type="Texture2D" uid="uid://cqygj3ojww5ke" path="res://ART Assets/BG/MBG1 layer2.png" id="3_mgvge"]
+[ext_resource type="Texture2D" uid="uid://0jtm6bwj23kx" path="res://ART Assets/BG/MBG1 layer7.png" id="4_b4hxy"]
 [ext_resource type="Texture2D" uid="uid://b4xl4qriwn5iw" path="res://ART Assets/Boss/fly/m16_Idle.png" id="5_bfcbu"]
-[ext_resource type="Texture2D" uid="uid://b4x2j0ngnbyun" path="res://ART Assets/sprites/idle_1.png" id="5_hqs3s"]
-[ext_resource type="Texture2D" uid="uid://b428rol75yhdq" path="res://ART Assets/sprites/idle_2.png" id="6_ve1kk"]
-[ext_resource type="Texture2D" uid="uid://co5y0gq6fkgjg" path="res://ART Assets/sprites/idle_3.png" id="7_bf327"]
+[ext_resource type="Texture2D" uid="uid://narflfs780hd" path="res://ART Assets/BG/MBG1 layer3.png" id="5_rloml"]
+[ext_resource type="Texture2D" uid="uid://che74p26mmdy2" path="res://ART Assets/BG/MBG1 layer4.png" id="6_88ygx"]
+[ext_resource type="Texture2D" uid="uid://djro50lptnb8a" path="res://ART Assets/BG/MBG1 layer5.png" id="7_g27pn"]
+[ext_resource type="Texture2D" uid="uid://donikdwhja847" path="res://ART Assets/BG/MBG1 layer6.png" id="8_qijvj"]
 [ext_resource type="Texture2D" uid="uid://bg7arnchdahij" path="res://ART Assets/monster_16.png" id="9_e3lwn"]
 [ext_resource type="Texture2D" uid="uid://c72ak4nir7bhx" path="res://ART Assets/04/monster_20.png" id="10_vimg5"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k5mii"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwrin"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(0, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fj52"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(67, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku30d"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(134, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmq5o"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(201, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02hxg"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(268, 0, 67, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h3rm"]
+atlas = ExtResource("10_vimg5")
+region = Rect2(335, 0, 67, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qy2hk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_hqs3s")
+"texture": SubResource("AtlasTexture_gwrin")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ve1kk")
+"texture": SubResource("AtlasTexture_3fj52")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_bf327")
+"texture": SubResource("AtlasTexture_ku30d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmq5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02hxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h3rm")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.0
+"speed": 6.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa4kk"]
@@ -103,7 +140,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yn02m"]
@@ -170,58 +207,71 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwrin"]
-atlas = ExtResource("10_vimg5")
-region = Rect2(0, 0, 67, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3fj52"]
-atlas = ExtResource("10_vimg5")
-region = Rect2(67, 0, 67, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ku30d"]
-atlas = ExtResource("10_vimg5")
-region = Rect2(134, 0, 67, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tmq5o"]
-atlas = ExtResource("10_vimg5")
-region = Rect2(201, 0, 67, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_02hxg"]
-atlas = ExtResource("10_vimg5")
-region = Rect2(268, 0, 67, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6h3rm"]
-atlas = ExtResource("10_vimg5")
-region = Rect2(335, 0, 67, 42)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qy2hk"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gwrin")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3fj52")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ku30d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tmq5o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_02hxg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6h3rm")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 6.0
-}]
-
 [node name="Start Menu" type="CanvasLayer"]
 script = ExtResource("1_gcfm8")
+
+[node name="BG1" type="Sprite2D" parent="."]
+position = Vector2(574.333, 325)
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("2_aa7kw")
+
+[node name="Layer1" type="Sprite2D" parent="BG1"]
+texture = ExtResource("3_mgvge")
+
+[node name="Layer6" type="Sprite2D" parent="BG1"]
+texture = ExtResource("4_b4hxy")
+
+[node name="Layer2" type="Sprite2D" parent="BG1"]
+texture = ExtResource("5_rloml")
+
+[node name="Layer3" type="Sprite2D" parent="BG1"]
+texture = ExtResource("6_88ygx")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="BG1"]
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(111.019, 10.2778)
+rotation = -3.14159
+scale = Vector2(0.492822, -0.492822)
+sprite_frames = SubResource("SpriteFrames_qy2hk")
+animation = &"idle"
+frame = 5
+frame_progress = 0.792784
+
+[node name="Layer4" type="Sprite2D" parent="BG1"]
+texture = ExtResource("7_g27pn")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="BG1"]
+position = Vector2(64.0741, 25)
+rotation = 3.14159
+scale = Vector2(0.685867, -0.685867)
+sprite_frames = SubResource("SpriteFrames_0qo1j")
+animation = &"idle"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="BG1"]
+modulate = Color(1, 1, 1, 0.823529)
+position = Vector2(141.574, 44.4444)
+rotation = -3.14159
+scale = Vector2(0.31515, -0.31515)
+sprite_frames = SubResource("SpriteFrames_ii8oe")
+animation = &"idle"
+
+[node name="Layer5" type="Sprite2D" parent="BG1"]
+texture = ExtResource("8_qijvj")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="BG1"]
+position = Vector2(12.4074, 57.2222)
+rotation = 3.14159
+scale = Vector2(0.421042, -0.421042)
+sprite_frames = SubResource("SpriteFrames_ii8oe")
+animation = &"idle"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="BG1"]
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(6.85184, 20.8333)
+rotation = 3.14159
+scale = Vector2(0.240405, -0.240405)
+sprite_frames = SubResource("SpriteFrames_ii8oe")
+animation = &"idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(259.452, 322.95)
@@ -229,9 +279,10 @@ scale = Vector2(1.85495, 1.47295)
 texture = ExtResource("2_nlred")
 
 [node name="Panel" type="Panel" parent="."]
+modulate = Color(0.784314, 1, 1, 0.568627)
 custom_minimum_size = Vector2(1152, 648)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -286,45 +337,5 @@ layout_mode = 2
 theme = ExtResource("2_q3ixt")
 theme_override_font_sizes/font_size = 24
 text = "Exit"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(901, 479)
-rotation = -3.14159
-scale = Vector2(8.84425, -8.84425)
-sprite_frames = SubResource("SpriteFrames_k5mii")
-animation = &"idle"
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(695, 106)
-rotation = 3.14159
-scale = Vector2(2.46912, -2.46912)
-sprite_frames = SubResource("SpriteFrames_0qo1j")
-animation = &"idle"
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
-position = Vector2(822.409, 92.8937)
-scale = Vector2(-1.51575, 1.51575)
-sprite_frames = SubResource("SpriteFrames_ii8oe")
-animation = &"idle"
-
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
-position = Vector2(577.089, 222.47)
-scale = Vector2(-1.13454, 1.13454)
-sprite_frames = SubResource("SpriteFrames_ii8oe")
-animation = &"idle"
-
-[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
-position = Vector2(598.004, 78.2728)
-scale = Vector2(-0.865457, 0.865457)
-sprite_frames = SubResource("SpriteFrames_ii8oe")
-animation = &"idle"
-
-[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
-position = Vector2(817, 182)
-scale = Vector2(-1.77416, 1.77416)
-sprite_frames = SubResource("SpriteFrames_qy2hk")
-animation = &"idle"
-frame = 5
-frame_progress = 0.792784
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
