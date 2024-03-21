@@ -166,9 +166,11 @@ script = ExtResource("1_qya84")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.54902)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(0.299999, 0.299999)
 sprite_frames = SubResource("SpriteFrames_7pdel")
-animation = &"appear"
+animation = &"rupture"
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(10.36, 10.36)

@@ -45,6 +45,7 @@ signal G_Skill5_Change_Target
 
 func _ready():
 	connect("EnemyDie",Callable(self,"G_Skill4_Count"))
+	print_debug("B_Skill3_Active_Lv1 : ",B_Skill3_Active_Lv1, "B_Skill3_Active_Lv2 : ",B_Skill3_Active_Lv2,"B_Skill3_Active_Lv3 : ",B_Skill3_Active_Lv3,"B_Skill3_Active_Lv4 : ",B_Skill3_Active_Lv4)
 
 func G_Skill4_Acive():
 	if G_Skill4_Active_Lv1 == true:

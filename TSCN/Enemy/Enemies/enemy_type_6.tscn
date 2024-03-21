@@ -222,6 +222,7 @@ Enemy_type = 5
 direct_attacker = true
 direct_attack_damage = 10
 exp_Amout = 4
+Enemy_index = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 6)

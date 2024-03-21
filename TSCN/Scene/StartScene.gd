@@ -22,3 +22,8 @@ func _HidePlayer():
 	Character.visible = false
 	Character._hide_UI()
 	
+
+
+func _on_button_4_pressed():
+	get_tree().quit()
+	pass # Replace with function body.

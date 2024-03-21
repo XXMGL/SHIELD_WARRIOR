@@ -49,7 +49,7 @@ var Poison_Trigger_Duration = 2
 var Poison_Trigger_Duration_Default = 2
 var pre_Health
 
-
+@export var Enemy_index = 101
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	HPBar.visible = false

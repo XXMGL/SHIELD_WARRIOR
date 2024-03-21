@@ -257,13 +257,14 @@ Enemy_type = 6
 direct_attacker = true
 direct_attack_damage = 10
 exp_Amout = 8
+Enemy_index = 7
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 4)
 rotation = 3.14159
 scale = Vector2(1.4, -1.4)
 sprite_frames = SubResource("SpriteFrames_ks1w5")
-animation = &"Die"
+animation = &"Fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5.36, 3.72222)

@@ -5,9 +5,7 @@
 [node name="MonsterSpawner" type="CanvasLayer"]
 script = ExtResource("1_ho5ja")
 SpwanIndex = 13
-SpawnEnemy = 1
 SpawnInterval = 0.2
-SpawnAmout = 5
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

@@ -90,6 +90,7 @@ wander_direction = NodePath("Wander")
 group_name = "Route2"
 Enemy_type = 3
 exp_Amout = 4
+Enemy_index = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hrins")

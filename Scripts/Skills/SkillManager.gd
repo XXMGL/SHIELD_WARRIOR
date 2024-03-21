@@ -36,10 +36,12 @@ func _ready():
 	_Get_Skills("Legendary", skills_legendary)
 	_Get_Skills("Rare", skills_B)
 	_Get_Skills("Normal", skills_G)
-	# skills_Pool = skills_B
+	#skills_Pool = skills_B
 	# activate_skill(0)
 	# activate_skill(1)
-	# activate_skill(2)
+	#activate_skill(2)
+	#activate_skill(2)
+	#activate_skill(2)
 	# skills_Pool = skills_legendary
 	# activate_skill(0)
 	# activate_skill(1)

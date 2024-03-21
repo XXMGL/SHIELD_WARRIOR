@@ -322,6 +322,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("2_q3ixt")
 theme_override_font_sizes/font_size = 24
+disabled = true
 text = "Control"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
@@ -329,6 +330,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("2_q3ixt")
 theme_override_font_sizes/font_size = 24
+disabled = true
 text = "Credit"
 
 [node name="Button4" type="Button" parent="VBoxContainer"]
@@ -339,3 +341,4 @@ theme_override_font_sizes/font_size = 24
 text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_4_pressed"]

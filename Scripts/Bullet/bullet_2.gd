@@ -10,8 +10,8 @@ var y_velocity
 enum Types{Bullet1, Bullet2}
 @export var BulletType = Types.Bullet2
 
-@export var move_speed = 200  # 在x方向的移动速度
-var Default_move_speed = 200
+@export var move_speed = 300  # 在x方向的移动速度
+var Default_move_speed = 300
 enum Origin{From_Enemy, From_Player}
 @export var OriginFrom = Origin.From_Enemy
 @export var Damage = 10
@@ -35,7 +35,7 @@ var Bouncing_Times = 0
 var Bullet_exist_time = 6
 var Bullet_exist_timer = 0
 
-
+var Enemy_index = 0
 
 func _ready():
 	LevelManager.connect("Final_Enemy_Die",Callable(self,"_Self_Destroy"))
@@ -145,6 +145,8 @@ func _AC_Calculation():
 	if Character.G_Skill3_Active_Lv3 == true:
 		G_Skill3_Active_Lv3_Ac = 0.7
 	if OriginFrom == Origin.From_Player:
+		move_speed = 400
+		Default_move_speed = move_speed
 		move_speed *= G_Skill2_Active_Lv1_Ac * G_Skill3_Active_Lv3_Ac
 
 func _Slow_Down(delta):

@@ -266,6 +266,7 @@ ParryDuration = 0.2
 parry_cooldown = 0.2
 stamina_Recover = 40
 distance = 50
+LevelNum = 10
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(6.18045, -0.953762)

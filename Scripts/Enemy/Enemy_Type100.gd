@@ -60,6 +60,8 @@ var Poison_Trigger_Duration = 2
 var Poison_Trigger_Duration_Default = 2
 var pre_Health
 
+@export var Enemy_index = 100
+
 func _ready():
 	pre_Health = Health
 	SC_SM1 = ShootChance_SM1

@@ -96,7 +96,8 @@ var G_Skill3_Active_Lv3:bool = false
 var G_Skill3_Active_Lv4:bool = false
 var G_Skill3_Active_Lv5:bool = false
 
-
+#伤害来源
+var Enemy_index = 0
 
 func _ready():
 	# 一些数据初始化
@@ -304,9 +305,11 @@ func _on_shield_body_entered(body):
 		elif Player_State == state.STATE_MOVE:
 			Player_State = state.STATE_HURT
 			Recieved_damge = body._GetDamage()
+			Enemy_index = body.Enemy_index
 			pass
 		if body.has_method("_isDirectAttacker") and body.suicide_attacker:
-			body.queue_free()
+			body.queue_free()	
+		#print_debug(Enemy_index)
 		
 
 

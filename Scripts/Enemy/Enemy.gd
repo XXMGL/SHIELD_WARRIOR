@@ -56,6 +56,8 @@ var Poison_Trigger_Duration_Default = 2
 var Freeze = false
 var Freeze_Timer = 0
 
+@export var Enemy_index = 1
+
 signal Get_Hit
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -262,6 +264,7 @@ func _ShootBullet(bullet_Prefab):
 	var bullet = bullet_Prefab.instantiate()
 	get_parent().add_child(bullet)
 	bullet.position = $BulletSpawner.global_position
+	bullet.Enemy_index = Enemy_index
 	
 func _ShootBullet_Enemy4():
 	var bullet1 = bullet2_tscn.instantiate()
@@ -271,6 +274,7 @@ func _ShootBullet_Enemy4():
 	bullet1.rotation = atan2(bullet1Direction.x, bullet1Direction.y)
 	#print_debug("bullet1Direction: ", bullet1Direction)
 	bullet1.MoveDirection = bullet1Direction
+	bullet1.Enemy_index = Enemy_index
 	
 	var bullet2= bullet2_tscn.instantiate()
 	get_parent().add_child(bullet2)
@@ -278,6 +282,7 @@ func _ShootBullet_Enemy4():
 	bullet2.position = get_node("BulletSpawners/bullet_spawner_2").global_position
 	bullet2.rotation = atan2(bullet2Direction.x, bullet2Direction.y)
 	bullet2.MoveDirection = bullet2Direction
+	bullet2.Enemy_index = Enemy_index
 	
 func _ShootBullet_Enemy5():
 	var bullet1 = bullet2_tscn.instantiate()
@@ -303,6 +308,10 @@ func _ShootBullet_Enemy5():
 	bullet3.position = get_node("BulletSpawner3").global_position
 	bullet3.rotation = atan2(bullet3Direction.x,bullet3Direction.y)
 	bullet3.MoveDirection = bullet3Direction
+	
+	bullet1.Enemy_index = Enemy_index
+	bullet2.Enemy_index = Enemy_index
+	bullet3.Enemy_index = Enemy_index
 	
 	
 func _EnemyDetection():

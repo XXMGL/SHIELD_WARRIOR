@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var EnemyAnimation3 = $BG1/AnimatedSprite2D4
 @onready var EnemyAnimation4 = $BG1/AnimatedSprite2D5
 @onready var EnemyAnimation5 = $BG1/AnimatedSprite2D6
+@onready var Killer = $Killer2
+@onready var Killer_Text = $Killer
 var Skills_Icon = preload("res://TSCN/UI/End_Scene_Skill_Display.tscn")
 var Skills_Size = 0
 
@@ -25,6 +27,12 @@ func _ready():
 	EnemyAnimation3.play("idle")
 	EnemyAnimation4.play("idle")
 	EnemyAnimation5.play("idle")
+	if Character.isDead == true:
+		Killer_Text.text = "The killer is"
+		Killer.play(str(Character.Enemy_index))
+	elif Character.isDead == false:
+		Killer_Text.text = "congratulation!!"
+		Killer.play("0")
 	pass # Replace with function body.
 
 
