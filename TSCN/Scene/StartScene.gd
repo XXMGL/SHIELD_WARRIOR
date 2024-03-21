@@ -27,3 +27,11 @@ func _HidePlayer():
 func _on_button_4_pressed():
 	get_tree().quit()
 	pass # Replace with function body.
+
+
+func _on_button_2_pressed():
+	var ControlInterface = load("res://TSCN/UI/control.tscn")
+	var CI = ControlInterface.instantiate()
+	#print_debug(CI)
+	add_child(CI)
+	pass # Replace with function body.

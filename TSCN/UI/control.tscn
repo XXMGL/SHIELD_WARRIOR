@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dllw68ihy1mvo"]
+
+[ext_resource type="Script" path="res://Scripts/UI/control.gd" id="1_gm637"]
+[ext_resource type="Texture2D" uid="uid://cl08ft4qglhd" path="res://ART Assets/300ppi/004.png" id="1_hbrxp"]
+[ext_resource type="Texture2D" uid="uid://cuwyul3towcv4" path="res://ART Assets/Tutorials/Cross_Button.png" id="2_2dmdo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fawau"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtye0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptuxh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_gm637")
+
+[node name="TutorialImage" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(593, 336)
+scale = Vector2(3.24, 1.68)
+texture = ExtResource("1_hbrxp")
+
+[node name="Close button" type="Button" parent="TutorialImage"]
+offset_left = 108.025
+offset_top = -144.048
+offset_right = 1116.02
+offset_bottom = 1260.95
+scale = Vector2(0.0126543, 0.025)
+theme_override_styles/normal = SubResource("StyleBoxFlat_fawau")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dtye0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ptuxh")
+icon = ExtResource("2_2dmdo")
+
+[node name="Label" type="Label" parent="TutorialImage"]
+offset_left = -100.617
+offset_top = -109.524
+offset_right = 4049.38
+offset_bottom = 340.476
+scale = Vector2(0.176, 0.488)
+theme_override_font_sizes/font_size = 22
+text = "Move: Use W, A, S, D keys to control player movement.
+
+Parry Bullets: Hold the spacebar to deflect bullets.
+
+Perfect Parry: Briefly touch a bullet at the moment
+of pressing and releasing the spacebar to trigger a 
+perfect parry, deflecting faster and more threatening 
+bullets.
+
+Aim: Move the mouse to reflect bullets towards the 
+aiming direction indicated by a green dot cursor."
+
+[connection signal="pressed" from="TutorialImage/Close button" to="." method="_on_close_button_pressed"]

@@ -423,4 +423,4 @@ func _Rebirth():
 	LevelNum = CharacterData.LevelNum
 	Exp = CharacterData.Exp
 	Exp_to_NextLevel = CharacterData.Exp_to_NextLevel
-	#Level_Num_InCanvas = str(LevelNum)
+	Level_Num_InCanvas.text = str(LevelNum)
