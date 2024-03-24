@@ -127,10 +127,10 @@ func _WaveCheck():
 	for spawner in SpawnersForThisWave:
 		if spawner.fullActivated == true:
 			spawner_HasEnemies -= 1
-	if spawner_HasEnemies == 0 and EnemiesInGround.size() == 1 and WaveEnd == false: # powerup释放点
+	if spawner_HasEnemies == 0 and EnemiesInGround.size() <= 3 and WaveEnd == false: # powerup释放点  #杜亦然修改，更改了Powerup释放的时机，现在在场上还留有两个或两个以下敌人后就会进入下一波敌人。     
 		var Powerup = powerup.instantiate()
 		get_parent().add_child(Powerup)
-		progress += WaveTimer -3
+		progress += WaveTimer - 3
 		WaveTimer = 3
 		WaveEnd = true
 		

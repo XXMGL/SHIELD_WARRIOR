@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var ShuffleChance = 20
+@export var ShuffleChance = 1
 var Buttons = []
 @onready var Button1 = $HBoxContainer/Skill1
 @onready var Button2 = $HBoxContainer/Skill2
