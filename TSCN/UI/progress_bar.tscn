@@ -78,6 +78,7 @@ wait_time = 0.4
 one_shot = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 custom_minimum_size = Vector2(300, 20)
 layout_mode = 1
 offset_top = -21.5802

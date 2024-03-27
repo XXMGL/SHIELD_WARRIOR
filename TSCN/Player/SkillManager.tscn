@@ -24,7 +24,7 @@ script = ExtResource("1_nq2dk")
 [node name="Wing_Man" type="Node" parent="." groups=["Legendary", "SkillManager_skills"]]
 script = ExtResource("5_pupns")
 
-[node name="Resilient_Heart" type="Node" parent="." groups=["Legendary", "SkillManager_skills"]]
+[node name="Resilient_Heart" type="Node" parent="." groups=["SkillManager_skills"]]
 script = ExtResource("5_73aly")
 
 [node name="Guardian_Shield" type="Node" parent="." groups=["Rare", "SkillManager_skills"]]

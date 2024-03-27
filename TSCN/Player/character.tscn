@@ -268,6 +268,22 @@ stamina_Recover = 40
 distance = 50
 LevelNum = 10
 
+[node name="HealthBar2" parent="." instance=ExtResource("5_ux7kb")]
+offset_left = -11.5
+offset_top = 5.56915
+offset_right = 288.5
+offset_bottom = 35.5692
+rotation = -1.5708
+scale = Vector2(0.0768972, 0.107598)
+
+[node name="StaminaBar2" parent="." instance=ExtResource("4_o3c40")]
+offset_left = -6.0
+offset_top = 5.56915
+offset_right = 294.0
+offset_bottom = 35.5692
+rotation = -1.5708
+scale = Vector2(0.0489621, 0.088625)
+
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(6.18045, -0.953762)
 shape = SubResource("CapsuleShape2D_d6aij")
@@ -336,10 +352,10 @@ scale = Vector2(0.234125, 0.327597)
 
 [node name="LEVEL" type="TextEdit" parent="CanvasLayer/Sprite2D"]
 custom_minimum_size = Vector2(100, 50)
-offset_left = 18.0219
-offset_top = -24.842
-offset_right = 118.022
-offset_bottom = 25.158
+offset_left = 200.256
+offset_top = 237.005
+offset_right = 300.256
+offset_bottom = 287.005
 scale = Vector2(0.393794, 0.393794)
 theme_override_styles/normal = SubResource("StyleBoxFlat_63iax")
 text = "LV:"
@@ -365,6 +381,15 @@ offset_bottom = 24.3664
 scale = Vector2(0.141641, 0.141641)
 theme_override_font_sizes/font_size = 27
 text = "Health"
+
+[node name="RichTextLabel" type="Label" parent="CanvasLayer/Sprite2D"]
+custom_minimum_size = Vector2(300, 20)
+offset_left = 18.0219
+offset_top = 5.46836
+offset_right = 318.022
+offset_bottom = 45.4684
+scale = Vector2(0.191725, 0.191725)
+text = "STAMINA"
 
 [node name="EXP" type="Area2D" parent="CanvasLayer" groups=["ExpBar"]]
 position = Vector2(576, 608)

@@ -91,7 +91,6 @@ offset_right = -35.2697
 offset_bottom = 106.809
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Content Content Content"
 
 [node name="Skill2" type="Button" parent="HBoxContainer" groups=["Skills_Button"]]
 custom_minimum_size = Vector2(294.55, 400)
@@ -144,7 +143,6 @@ offset_right = -35.2697
 offset_bottom = 106.809
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Content Content Content"
 
 [node name="Skill3" type="Button" parent="HBoxContainer" groups=["Skills_Button"]]
 custom_minimum_size = Vector2(294.55, 400)
@@ -197,7 +195,6 @@ offset_right = -35.2697
 offset_bottom = 106.809
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Content Content Content"
 
 [node name="Shuffle" type="Button" parent="."]
 custom_minimum_size = Vector2(200, 50)

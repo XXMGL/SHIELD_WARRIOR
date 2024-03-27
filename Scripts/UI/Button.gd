@@ -37,11 +37,14 @@ func _update_Skill_info():
 	var Next_Lv = "LV"+str(SkillManager.skills_Pool[Skillindex].levelNum+2)
 	var SkillContent_CurrentLv = skill_pool[skillName][Lv].values()[Branch_index - 1]
 	var SkillContent_NextLv = "Lv Max"
-	if SkillManager.skills_Pool[Skillindex].levelNum+6 <= SkillManager.skills_Pool[Skillindex].MaxLevel:	
+	if SkillManager.skills_Pool[Skillindex].levelNum+2 <= SkillManager.skills_Pool[Skillindex].MaxLevel:	
 		SkillContent_NextLv = skill_pool[skillName][Next_Lv].values()[Branch_index - 1]
 	#print_debug("Skill Name: ",skillName, "Skill Lv: ", Lv)
 	SkillName.text = skillName +" "+ skill_pool[skillName][Lv].keys()[Branch_index - 1]
-	SkillContent.text = str(SkillContent_CurrentLv)+"\n\n"+"Next Level: "+"\n"+ str(SkillContent_NextLv)
+	
+	SkillContent.text = str(SkillContent_CurrentLv)+"\n\n"+"Next Level:"+"\n"+ str(SkillContent_NextLv)
+	#SkillContent.append_text(str(SkillContent_CurrentLv)+"\n\n"+"[color=gray][b][i]Next Level:[/i][/b][/color]"+"\n"+ "[color=gray]%s[/color]"%str(SkillContent_NextLv))
+	#SkillContent.text = "11"
 	Layout.texture = load("res://ART Assets/SkillCardBG/"+Rarity+".png")
 	Icon.texture = load("res://ART Assets/Skills Icons/"+skillName+".png")
 	#print_debug(Skillindex)

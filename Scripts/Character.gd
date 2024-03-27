@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var StaminaBar = $CanvasLayer/Sprite2D/StaminaBar
 @onready var HealthBar = $CanvasLayer/Sprite2D/HealthBar
+@onready var HealthBar2 = $HealthBar2
+@onready var StaminaBar2 = $StaminaBar2
 @onready var ShieldSprite = $SHIELD/Sprite2D
 @onready var ShieldShadow = $SHIELD/Shadow
 @onready var CharacterAnimation = $Sprite2D
@@ -112,7 +114,9 @@ func _ready():
 	canPary = true
 	isParring = false
 	StaminaBar.init_value(stamina)
+	StaminaBar2.init_value(stamina)
 	HealthBar.init_value(health)
+	HealthBar2.init_value(health)
 	Indicator = $Indicator
 	bullet_prefab = bullet_1_tscn
 	#health -= 50
@@ -135,7 +139,9 @@ func _process(delta):
 	#设置UI
 	Exp_Bar.value = Exp
 	StaminaBar.value_1 = stamina
+	StaminaBar2.value_1 = stamina
 	HealthBar.value_1 = health
+	HealthBar2.value_1 = health
 	#玩家移动
 	_MOVE(MOVE_SPEED / SlowDown) # 减速移动
 	#玩家升级
