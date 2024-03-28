@@ -64,14 +64,16 @@ func _Set_Skills_Icons():
 func _on_replay_pressed():
 	LevelManager.emit_signal("Start_Game")
 	SkillManager.emit_signal("DeactiveAllSkills")
-	get_tree().change_scene_to_file("res://TSCN/Scene/default_scene.tscn")
+	#get_tree().change_scene_to_file("res://TSCN/Scene/default_scene.tscn")
+	get_tree().change_scene_to_packed(load("res://TSCN/Scene/default_scene.tscn"))
 	Character._Rebirth()
 
 
 
 func _on_main_menu_pressed():
 	SkillManager.emit_signal("DeactiveAllSkills")
-	get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
+	#get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
+	get_tree().change_scene_to_packed(load("res://TSCN/Scene/StartScene.tscn"))
 	Character._Rebirth()
 
 	

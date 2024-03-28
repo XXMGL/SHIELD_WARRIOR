@@ -84,7 +84,7 @@ func _Set_Skill(Button,i):
 			var index = [Skills[j].Rarity_index,Skills[j].Skillindex,Skills[j].Branch_index]
 			Skills_index.append(index)
 		while Button_index in Skills_index or SkillManager.skills_Pool[skill_index].isFullLv == true:
-			print_debug("Skills_index : ", Skills_index, " Button_index : ", Button_index, " State: Refresh")
+			#print_debug("Skills_index : ", Skills_index, " Button_index : ", Button_index, " State: Refresh")
 			_GetRandomSkill(Button)
 			Button_index = [Button.Rarity_index,Button.Skillindex,Button.Branch_index]
 			#print_debug("Skills_index : ", Skills_index, " Button_index : ", Button_index, " State: Refresh")

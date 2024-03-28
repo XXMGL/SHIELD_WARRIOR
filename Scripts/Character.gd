@@ -372,7 +372,8 @@ func _Show_UI():
 	UI.visible = true
 	
 func _Die():
-	get_tree().change_scene_to_file("res://TSCN/Scene/end_scene.tscn")
+	#get_tree().change_scene_to_file("res://TSCN/Scene/end_scene.tscn")
+	get_tree().change_scene_to_packed(load("res://TSCN/Scene/end_scene.tscn"))
 	pass
 
 func _Character_Animation_Play(Animation_Name):

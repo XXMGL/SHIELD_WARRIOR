@@ -164,11 +164,12 @@ func Activate_Character():
 	Character._Show_UI()
 	
 func Level_Acomplish():
+	print_debug("Reward_is_Shown_Before : ", Reward_is_Shown)
 	if Reward_is_Shown == false:
 		LevelManager.Level_up_Interface(10,1,1)	
 		Character.Allow_To_Control = false
 		Reward_is_Shown = true
-		print_debug("rewards")
+		print_debug("Reward_is_Shown_After : ", Reward_is_Shown)
 	
 func _on_jump_to_next_level_body_entered(body):
 	if body.has_method("_CharacterDetection"):
