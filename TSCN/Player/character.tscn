@@ -269,14 +269,14 @@ distance = 50
 LevelNum = 10
 
 [node name="HealthBar2" parent="." instance=ExtResource("5_ux7kb")]
-offset_left = -11.5
-offset_top = 5.56915
-offset_right = 288.5
-offset_bottom = 35.5692
-rotation = -1.5708
+offset_left = -4.5
+offset_top = -19.0
+offset_right = 295.5
+offset_bottom = 11.0
 scale = Vector2(0.0768972, 0.107598)
 
 [node name="StaminaBar2" parent="." instance=ExtResource("4_o3c40")]
+visible = false
 offset_left = -6.0
 offset_top = 5.56915
 offset_right = 294.0

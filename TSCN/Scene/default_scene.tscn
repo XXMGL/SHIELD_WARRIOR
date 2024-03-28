@@ -582,7 +582,7 @@ collision_layer = 18
 collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="T_Wall"]
-position = Vector2(586, 151)
+position = Vector2(584, 132)
 rotation = -3.14159
 scale = Vector2(58.2, 3.88486)
 shape = SubResource("RectangleShape2D_vhxka")

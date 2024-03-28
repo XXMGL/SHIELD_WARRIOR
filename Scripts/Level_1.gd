@@ -38,7 +38,6 @@ var skills_G_weight = 5
 
 func _ready():
 	Tutorial.emit_signal("enter_Level1")
-	
 	Character.Allow_To_Control = true
 	Activate_Character()
 	PL_bw = Character.LevelNum
@@ -49,6 +48,7 @@ func _ready():
 	_GetLevelLength()
 	_GetWaveLength()
 	_ActivateSpawners()
+	_Power_Up_Reset()
 	LevelProgressBar.connect("value_changed",Callable(self,"_on_progress_value_changed"))
 	
 	Character.health = 100
@@ -56,6 +56,7 @@ func _ready():
 	# Character._Rebirth()
 	Character.process_mode = Node.PROCESS_MODE_INHERIT
 	
+	Reward_is_Shown = false
 	LevelManager.connect("Final_Enemy_Die",Callable(self,"Level_Acomplish"))
 	LevelManager.LevelNum = Level_index
 
@@ -153,6 +154,7 @@ func Level_Up_WaveCheck():
 		Tutorial.emit_signal("leving_up_interface")
 		PL_bw += 1
 		LevelManager.Level_up_Interface(skills_L_weight,skills_B_weight,skills_G_weight)
+		#print_debug("PL_bw : ", PL_bw , " PL_aw : ", PL_aw," Lv_up")
 	pass
 	
 func Activate_Character():
@@ -163,9 +165,10 @@ func Activate_Character():
 	
 func Level_Acomplish():
 	if Reward_is_Shown == false:
-		LevelManager.Level_up_Interface(10,1,0)	
+		LevelManager.Level_up_Interface(10,1,1)	
 		Character.Allow_To_Control = false
 		Reward_is_Shown = true
+		print_debug("rewards")
 	
 func _on_jump_to_next_level_body_entered(body):
 	if body.has_method("_CharacterDetection"):
@@ -181,3 +184,6 @@ func _Reposition_Character(Char):
 	Char.global_position = Default_Position.global_position
 	pass
 
+func _Power_Up_Reset():
+	Character.MOVE_SPEED = CharacterData.Basic_movespeed
+	Character.Max_stamina = CharacterData.Max_stamina

@@ -108,6 +108,8 @@ func _ready():
 	Max_stamina = Basic_stamina
 	Exp_Bar.max_value = Exp_to_NextLevel
 	Level_Num_InCanvas.text = str(LevelNum)
+	CharacterData.Basic_movespeed = Basic_movespeed
+	CharacterData.Max_stamina = Max_stamina
 	
 	stamina = Max_stamina
 	health = Max_health
@@ -429,4 +431,5 @@ func _Rebirth():
 	LevelNum = CharacterData.LevelNum
 	Exp = CharacterData.Exp
 	Exp_to_NextLevel = CharacterData.Exp_to_NextLevel
+	Exp_Bar.max_value = Exp_to_NextLevel
 	Level_Num_InCanvas.text = str(LevelNum)

@@ -38,10 +38,10 @@ scale = Vector2(3.24, 1.68)
 texture = ExtResource("2_sqnju")
 
 [node name="Close button" type="Button" parent="Panel/TutorialImage"]
-offset_left = 108.025
-offset_top = -144.048
-offset_right = 1116.02
-offset_bottom = 1260.95
+offset_left = 111.728
+offset_top = -147.024
+offset_right = 1119.72
+offset_bottom = 1257.97
 scale = Vector2(0.0126543, 0.025)
 theme_override_styles/normal = SubResource("StyleBoxFlat_fawau")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dtye0")
@@ -73,24 +73,24 @@ text = "Jianzhou Yu"
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="Panel/TutorialImage"]
-offset_left = -86.7284
-offset_top = -37.5
-offset_right = 93.2716
-offset_bottom = -1.49999
+offset_left = -85.8025
+offset_top = -39.2857
+offset_right = 118.198
+offset_bottom = -3.2857
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 18
-text = "Position"
+text = "Programmer / Designer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="Panel/TutorialImage"]
-offset_left = -87.037
-offset_top = 19.0476
-offset_right = 92.963
-offset_bottom = 55.0476
+offset_left = -84.8765
+offset_top = 16.0714
+offset_right = 213.123
+offset_bottom = 52.0714
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 18
-text = "Position"
+text = "Level Designer / Monster Designer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -144,10 +144,10 @@ scale = Vector2(3.24, 1.68)
 texture = ExtResource("2_sqnju")
 
 [node name="Close button" type="Button" parent="Panel/TutorialImage2"]
-offset_left = 108.025
-offset_top = -144.048
-offset_right = 1116.02
-offset_bottom = 1260.95
+offset_left = 112.346
+offset_top = -147.024
+offset_right = 1120.34
+offset_bottom = 1257.97
 scale = Vector2(0.0126543, 0.025)
 theme_override_styles/normal = SubResource("StyleBoxFlat_k12yb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pe04y")

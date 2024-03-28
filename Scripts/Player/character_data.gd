@@ -5,6 +5,8 @@ extends Node2D
 @export var Basic_stamina = 100
 @export var stamina_Cousume = 20
 @export var stamina_Recover = 10
+var Basic_movespeed = 200
+var Max_stamina
 
 var Bullet_Bounce_Times = 0
 var Bullet_Exist_Time = 5
@@ -45,7 +47,7 @@ signal G_Skill5_Change_Target
 
 func _ready():
 	connect("EnemyDie",Callable(self,"G_Skill4_Count"))
-	print_debug("B_Skill3_Active_Lv1 : ",B_Skill3_Active_Lv1, "B_Skill3_Active_Lv2 : ",B_Skill3_Active_Lv2,"B_Skill3_Active_Lv3 : ",B_Skill3_Active_Lv3,"B_Skill3_Active_Lv4 : ",B_Skill3_Active_Lv4)
+	#print_debug("B_Skill3_Active_Lv1 : ",B_Skill3_Active_Lv1, "B_Skill3_Active_Lv2 : ",B_Skill3_Active_Lv2,"B_Skill3_Active_Lv3 : ",B_Skill3_Active_Lv3,"B_Skill3_Active_Lv4 : ",B_Skill3_Active_Lv4)
 
 func G_Skill4_Acive():
 	if G_Skill4_Active_Lv1 == true:
@@ -60,7 +62,7 @@ func G_Skill4_Acive():
 	if G_Skill4_Active_Lv3 == true:
 		if G_Skill4_Kill_Amount_Lv3 >= 60 and G_Skill4_Branch == 1:
 			G_Skill4_Branch = 2
-			LevelManager.Level_up_Interface(10,1,0)	
+			LevelManager.Level_up_Interface(10,1,1)	
 			Character.stamina_Cousume = stamina_Cousume
 		pass
 	if G_Skill4_Active_Lv4 == true and G_Skill4_Branch == 2:
