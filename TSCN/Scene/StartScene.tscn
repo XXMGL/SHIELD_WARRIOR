@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ctpqhidtjvoye"]
+[gd_scene load_steps=43 format=3 uid="uid://ctpqhidtjvoye"]
 
 [ext_resource type="Script" path="res://StartGameButton.gd" id="1_6bigr"]
 [ext_resource type="Script" path="res://TSCN/Scene/StartScene.gd" id="1_gcfm8"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://donikdwhja847" path="res://ART Assets/BG/MBG1 layer6.png" id="8_qijvj"]
 [ext_resource type="Texture2D" uid="uid://bg7arnchdahij" path="res://ART Assets/monster_16.png" id="9_e3lwn"]
 [ext_resource type="Texture2D" uid="uid://c72ak4nir7bhx" path="res://ART Assets/04/monster_20.png" id="10_vimg5"]
+[ext_resource type="FontFile" uid="uid://cj4resrntv6lo" path="res://Font/PressStart2P.ttf" id="13_8k4dl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwrin"]
 atlas = ExtResource("10_vimg5")
@@ -279,7 +280,7 @@ scale = Vector2(1.85495, 1.47295)
 texture = ExtResource("2_nlred")
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(0.784314, 1, 1, 0.568627)
+modulate = Color(0.784314, 1, 1, 0.313726)
 custom_minimum_size = Vector2(1152, 648)
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -296,6 +297,7 @@ offset_right = -139.0
 offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_8k4dl")
 theme_override_font_sizes/font_size = 28
 text = "Shield Warrior"
 horizontal_alignment = 1
@@ -329,7 +331,6 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("2_q3ixt")
 theme_override_font_sizes/font_size = 24
-disabled = true
 text = "Credit"
 
 [node name="Button4" type="Button" parent="VBoxContainer"]
@@ -341,4 +342,5 @@ text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_4_pressed"]

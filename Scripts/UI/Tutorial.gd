@@ -40,6 +40,6 @@ func _add_on_power_up_showing_up_Num():
 	power_up_showing_up_Num+=1
 	if power_up_showing_up_Num == 1:
 		var T_I = tutorial_interface.instantiate()
-		T_I._Load_Totorial_img("Tutorial3")
+		T_I._Load_Totorial_img("Tutorial15")
 		get_parent().add_child(T_I)
 		get_tree().paused = true

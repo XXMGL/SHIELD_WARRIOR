@@ -39,7 +39,7 @@ folder_colors={
 
 [gui]
 
-theme/custom_font="res://Font/PressStart2P.ttf"
+theme/custom_font="res://Font/DePixelHalbfett.ttf"
 
 [input]
 

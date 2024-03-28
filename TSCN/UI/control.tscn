@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dllw68ihy1mvo"]
+[gd_scene load_steps=12 format=3 uid="uid://dllw68ihy1mvo"]
 
 [ext_resource type="Script" path="res://Scripts/UI/control.gd" id="1_gm637"]
 [ext_resource type="Texture2D" uid="uid://cl08ft4qglhd" path="res://ART Assets/300ppi/004.png" id="1_hbrxp"]
 [ext_resource type="Texture2D" uid="uid://cuwyul3towcv4" path="res://ART Assets/Tutorials/Cross_Button.png" id="2_2dmdo"]
+[ext_resource type="Texture2D" uid="uid://d0k3qrcnsd3m5" path="res://ART Assets/Control/1.png" id="4_fighm"]
+[ext_resource type="Texture2D" uid="uid://bjxh8t58pkji2" path="res://ART Assets/Arrow.png" id="5_ahnki"]
+[ext_resource type="Texture2D" uid="uid://b5q5o7ufqqkok" path="res://ART Assets/Control/2.png" id="6_jdcpk"]
+[ext_resource type="Texture2D" uid="uid://0vbwedo0od3c" path="res://ART Assets/Control/3.png" id="7_fga8j"]
+[ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="8_mvo27"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fawau"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -17,13 +22,17 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 layer = 5
 script = ExtResource("1_gm637")
 
-[node name="TutorialImage" type="Sprite2D" parent="."]
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1153.0
+offset_bottom = 651.0
+
+[node name="TutorialImage" type="Sprite2D" parent="Panel"]
 z_index = 10
 position = Vector2(593, 336)
 scale = Vector2(3.24, 1.68)
 texture = ExtResource("1_hbrxp")
 
-[node name="Close button" type="Button" parent="TutorialImage"]
+[node name="Close button" type="Button" parent="Panel/TutorialImage"]
 offset_left = 108.025
 offset_top = -144.048
 offset_right = 1116.02
@@ -34,23 +43,165 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dtye0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ptuxh")
 icon = ExtResource("2_2dmdo")
 
-[node name="Label" type="Label" parent="TutorialImage"]
-offset_left = -100.617
-offset_top = -109.524
-offset_right = 4049.38
-offset_bottom = 340.476
+[node name="Label" type="Label" parent="Panel/TutorialImage"]
+offset_left = -96.9136
+offset_top = 69.0476
+offset_right = 1415.09
+offset_bottom = 177.048
 scale = Vector2(0.176, 0.488)
-theme_override_font_sizes/font_size = 22
-text = "Move: Use W, A, S, D keys to control player movement.
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Perfect Parry: Briefly touch a bullet at the moment of pressing and releasing the 
+spacebar to trigger a perfect parry, deflecting faster and more threatening bullets."
 
-Parry Bullets: Hold the spacebar to deflect bullets.
+[node name="Label2" type="Label" parent="Panel/TutorialImage"]
+offset_left = -76.5432
+offset_top = -1.19048
+offset_right = 72.4568
+offset_bottom = 34.8095
+scale = Vector2(0.176, 0.488)
+theme_override_font_sizes/font_size = 36
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-Perfect Parry: Briefly touch a bullet at the moment
-of pressing and releasing the spacebar to trigger a 
-perfect parry, deflecting faster and more threatening 
-bullets.
+[node name="Controls" type="Label" parent="Panel/TutorialImage"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -24.6914
+offset_top = -104.167
+offset_right = 47.3087
+offset_bottom = -58.1667
+grow_horizontal = 2
+scale = Vector2(0.176, 0.488)
+theme_override_font_sizes/font_size = 46
+text = "CONTROL"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-Aim: Move the mouse to reflect bullets towards the 
-aiming direction indicated by a green dot cursor."
+[node name="Label4" type="Label" parent="Panel/TutorialImage"]
+offset_left = -79.321
+offset_top = 23.2143
+offset_right = 100.679
+offset_bottom = 59.2143
+scale = Vector2(0.176, 0.488)
+theme_override_font_sizes/font_size = 18
+text = "W, A, S, D"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="TutorialImage/Close button" to="." method="_on_close_button_pressed"]
+[node name="Label5" type="Label" parent="Panel/TutorialImage"]
+offset_left = -12.963
+offset_top = 23.2143
+offset_right = 167.037
+offset_bottom = 59.2143
+scale = Vector2(0.176, 0.488)
+theme_override_font_sizes/font_size = 18
+text = "Hold SPACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Panel/TutorialImage"]
+offset_left = 60.4938
+offset_top = 23.2143
+offset_right = 240.494
+offset_bottom = 59.2143
+scale = Vector2(0.176, 0.488)
+theme_override_font_sizes/font_size = 18
+text = "Move MOUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Panel/TutorialImage"]
+offset_left = -12.037
+offset_top = -1.19048
+offset_right = 167.963
+offset_bottom = 34.8095
+scale = Vector2(0.176, 0.488)
+theme_override_font_sizes/font_size = 36
+text = "PARRY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Panel/TutorialImage"]
+offset_left = 58.9506
+offset_top = -1.19048
+offset_right = 238.951
+offset_bottom = 34.8095
+scale = Vector2(0.176, 0.488)
+theme_override_font_sizes/font_size = 36
+text = "AIM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TutorialImage"]
+position = Vector2(-63.6069, -47.3586)
+scale = Vector2(0.008, 0.015)
+texture = ExtResource("4_fighm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TutorialImage/Sprite2D"]
+position = Vector2(-2181.07, 513.136)
+scale = Vector2(5.735, 5.735)
+texture = ExtResource("5_ahnki")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Panel/TutorialImage/Sprite2D"]
+position = Vector2(0, -1436.78)
+rotation = 1.5708
+scale = Vector2(5.735, 5.735)
+texture = ExtResource("5_ahnki")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Panel/TutorialImage/Sprite2D"]
+position = Vector2(0, 1436.78)
+rotation = -1.5708
+scale = Vector2(5.735, 5.735)
+texture = ExtResource("5_ahnki")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Panel/TutorialImage/Sprite2D"]
+position = Vector2(2119.34, 513.136)
+rotation = -3.14159
+scale = Vector2(5.735, 5.735)
+texture = ExtResource("5_ahnki")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Panel/TutorialImage"]
+position = Vector2(3.67705, -36.0491)
+scale = Vector2(0.012, 0.016)
+texture = ExtResource("6_jdcpk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Panel/TutorialImage"]
+position = Vector2(80.5556, -44.0476)
+scale = Vector2(0.03, 0.057)
+texture = ExtResource("7_fga8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TutorialImage/Sprite2D3"]
+position = Vector2(-8, 440)
+rotation = -1.5708
+scale = Vector2(1.94, 1.94)
+texture = ExtResource("5_ahnki")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Panel/TutorialImage/Sprite2D3"]
+position = Vector2(-8, -432)
+rotation = 1.5708
+scale = Vector2(1.94, 1.94)
+texture = ExtResource("5_ahnki")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Panel/TutorialImage/Sprite2D3"]
+position = Vector2(-576, 192)
+rotation = -1.5708
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_ahnki")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Panel/TutorialImage/Sprite2D3"]
+position = Vector2(-576, -176)
+rotation = 1.5708
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_ahnki")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Panel/TutorialImage/Sprite2D3"]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(-576, 0)
+scale = Vector2(14.955, 14.955)
+texture = ExtResource("8_mvo27")
+region_enabled = true
+region_rect = Rect2(122, 124, 11, 11)
+
+[connection signal="pressed" from="Panel/TutorialImage/Close button" to="." method="_on_close_button_pressed"]

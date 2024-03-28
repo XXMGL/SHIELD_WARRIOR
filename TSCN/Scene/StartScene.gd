@@ -35,3 +35,10 @@ func _on_button_2_pressed():
 	#print_debug(CI)
 	add_child(CI)
 	pass # Replace with function body.
+
+
+func _on_button_3_pressed():
+	var CreditInterface = load("res://TSCN/UI/Credit.tscn")
+	var CI = CreditInterface.instantiate()
+	add_child(CI)
+	pass # Replace with function body.

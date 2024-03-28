@@ -25,23 +25,23 @@ offset_bottom = 648.59
 
 [node name="TutorialImage" type="Sprite2D" parent="."]
 position = Vector2(593, 336)
-scale = Vector2(3.24, 1.68)
+scale = Vector2(3.4, 1.68)
 texture = ExtResource("1_xergj")
 
-[node name="Close button" type="Button" parent="TutorialImage"]
-offset_left = 99.6914
-offset_top = -143.452
-offset_right = 1107.69
-offset_bottom = 1261.55
-scale = Vector2(0.025, 0.025)
+[node name="img" type="Sprite2D" parent="TutorialImage"]
+position = Vector2(0.588226, 1.78572)
+scale = Vector2(0.0266824, 0.051)
+texture = ExtResource("3_1ougv")
+
+[node name="Close button" type="Button" parent="."]
+offset_left = 946.0
+offset_top = 95.0
+offset_right = 1954.0
+offset_bottom = 1500.0
+scale = Vector2(0.0649714, 0.0602026)
 theme_override_styles/normal = SubResource("StyleBoxFlat_aks4a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a4g26")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dklrt")
 icon = ExtResource("3_4fasc")
 
-[node name="img" type="Sprite2D" parent="TutorialImage"]
-position = Vector2(1.85185, 1.78571)
-scale = Vector2(0.138649, 0.256067)
-texture = ExtResource("3_1ougv")
-
-[connection signal="button_down" from="TutorialImage/Close button" to="." method="_on_close_button_button_down"]
+[connection signal="button_down" from="Close button" to="." method="_on_close_button_button_down"]
