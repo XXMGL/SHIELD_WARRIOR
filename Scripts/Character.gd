@@ -34,6 +34,8 @@ var isParring = false
 var isDead = false
 var isShoot = false #用于控制玩家是否已经进行过射击
 
+var HasRewards = false
+
 #玩家生命值与体力条
 @export var Basic_health = 200
 @export var Basic_stamina = 100

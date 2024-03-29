@@ -39,6 +39,7 @@ var skills_G_weight = 5
 func _ready():
 	Tutorial.emit_signal("enter_Level1")
 	Character.Allow_To_Control = true
+	Character.HasRewards = false
 	Activate_Character()
 	PL_bw = Character.LevelNum
 	PL_aw = Character.LevelNum
@@ -90,10 +91,12 @@ func _on_timer_timeout():
 		_Last_Wave_Check()
 
 func _Last_Wave_Check():
+	print_debug("_Last_Wave_Check_Start")
 	var EnemiesInGround = get_tree().get_nodes_in_group("Enemies")
 	if EnemiesInGround.size() > 1 and lastWaveStarted == false:
 		lastWaveStarted = true
 	if EnemiesInGround.size() <= 1 and lastWaveStarted == true:
+		print_debug("_Last_Wave_Check_End")
 		LevelManager.emit_signal("Final_Enemy_Die")
 	pass
 
@@ -165,10 +168,12 @@ func Activate_Character():
 	
 func Level_Acomplish():
 	print_debug("Reward_is_Shown_Before : ", Reward_is_Shown)
-	if Reward_is_Shown == false:
+	#if Reward_is_Shown == false:
+	if Character.HasRewards == false:
 		LevelManager.Level_up_Interface(10,1,1)	
 		Character.Allow_To_Control = false
-		Reward_is_Shown = true
+		#Reward_is_Shown = true
+		Character.HasRewards = true
 		print_debug("Reward_is_Shown_After : ", Reward_is_Shown)
 	
 func _on_jump_to_next_level_body_entered(body):
