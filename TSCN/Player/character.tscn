@@ -342,7 +342,6 @@ offset_top = 7.99855
 offset_right = 317.858
 offset_bottom = 37.9986
 scale = Vector2(0.216704, 0.248625)
-show_percentage = true
 
 [node name="HealthBar" parent="CanvasLayer/Sprite2D" instance=ExtResource("5_ux7kb")]
 offset_left = 17.8582
