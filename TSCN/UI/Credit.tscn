@@ -101,7 +101,7 @@ offset_right = 311.765
 offset_bottom = 1.47618
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 18
-text = "Technical artist"
+text = "Technical artist / Designer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -124,7 +124,6 @@ offset_bottom = -22.3333
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 36
 text = "Yuchen Sun"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Panel/TutorialImage"]
