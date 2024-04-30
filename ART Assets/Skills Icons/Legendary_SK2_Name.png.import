@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bat0maodwnyt"
-path="res://.godot/imported/Green Soup.png-c991d8f4b94a0590abccf14467f2a58a.ctex"
+uid="uid://d2ehwcn1ftpyg"
+path="res://.godot/imported/Legendary_SK2_Name.png-a9a95984630b3aa68471d79ec2b323a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Green Soup.png"
-dest_files=["res://.godot/imported/Green Soup.png-c991d8f4b94a0590abccf14467f2a58a.ctex"]
+source_file="res://ART Assets/Skills Icons/Legendary_SK2_Name.png"
+dest_files=["res://.godot/imported/Legendary_SK2_Name.png-a9a95984630b3aa68471d79ec2b323a8.ctex"]
 
 [params]
 

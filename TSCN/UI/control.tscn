@@ -44,38 +44,39 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ptuxh")
 icon = ExtResource("2_2dmdo")
 
 [node name="Label" type="Label" parent="Panel/TutorialImage"]
-offset_left = -96.9136
-offset_top = 69.0476
-offset_right = 1415.09
-offset_bottom = 177.048
+offset_left = -100.617
+offset_top = 67.2619
+offset_right = 1058.38
+offset_bottom = 175.262
 scale = Vector2(0.176, 0.488)
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_font_sizes/font_size = 18
-text = "Perfect Parry: Briefly touch a bullet at the moment of pressing and releasing the 
-spacebar to trigger a perfect parry, deflecting faster and more threatening bullets."
+text = "CONTROL_CONTENT"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="Panel/TutorialImage"]
-offset_left = -76.5432
+offset_left = -86.4197
 offset_top = -1.19048
-offset_right = 72.4568
-offset_bottom = 34.8095
+offset_right = 185.58
+offset_bottom = 44.8095
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 36
-text = "MOVE"
+text = "MOVE_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="Label" parent="Panel/TutorialImage"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -24.6914
-offset_top = -104.167
-offset_right = 47.3087
-offset_bottom = -58.1667
+offset_left = -38.5802
+offset_top = -107.738
+offset_right = 145.42
+offset_bottom = -48.7381
 grow_horizontal = 2
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 46
-text = "CONTROL"
+text = "CONTROL_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -97,7 +98,7 @@ offset_right = 167.037
 offset_bottom = 59.2143
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 18
-text = "Hold SPACE"
+text = "PARRY_CONTENT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -108,29 +109,29 @@ offset_right = 240.494
 offset_bottom = 59.2143
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 18
-text = "Move MOUSE"
+text = "AIM_CONTENT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="Panel/TutorialImage"]
-offset_left = -12.037
-offset_top = -1.19048
-offset_right = 167.963
-offset_bottom = 34.8095
+offset_left = -22.2222
+offset_top = -1.78572
+offset_right = 270.778
+offset_bottom = 44.2143
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 36
-text = "PARRY"
+text = "PARRY_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label6" type="Label" parent="Panel/TutorialImage"]
-offset_left = 58.9506
-offset_top = -1.19048
-offset_right = 238.951
-offset_bottom = 34.8095
+offset_left = 55.5556
+offset_top = -0.595242
+offset_right = 290.556
+offset_bottom = 45.4048
 scale = Vector2(0.176, 0.488)
 theme_override_font_sizes/font_size = 36
-text = "AIM"
+text = "AIM_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 

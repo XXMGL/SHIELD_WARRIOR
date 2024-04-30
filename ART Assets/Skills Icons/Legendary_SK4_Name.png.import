@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://disl1y5kw0dxf"
-path="res://.godot/imported/Wingman.png-89d59da38bb236635b4d4105590dcdc6.ctex"
+uid="uid://dsjg13tiuxx1l"
+path="res://.godot/imported/Legendary_SK4_Name.png-61210148056f08cd43bb85b1c18a4e67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Wingman.png"
-dest_files=["res://.godot/imported/Wingman.png-89d59da38bb236635b4d4105590dcdc6.ctex"]
+source_file="res://ART Assets/Skills Icons/Legendary_SK4_Name.png"
+dest_files=["res://.godot/imported/Legendary_SK4_Name.png-61210148056f08cd43bb85b1c18a4e67.ctex"]
 
 [params]
 

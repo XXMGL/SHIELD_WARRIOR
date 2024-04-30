@@ -316,7 +316,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("2_q3ixt")
 theme_override_font_sizes/font_size = 24
-text = "Start"
+text = "Start_Button"
 script = ExtResource("1_6bigr")
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
@@ -324,23 +324,30 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("2_q3ixt")
 theme_override_font_sizes/font_size = 24
-text = "Control"
+text = "Control_Button"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("2_q3ixt")
 theme_override_font_sizes/font_size = 24
-text = "Credit"
+text = "Credit_Button"
 
 [node name="Button4" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("2_q3ixt")
 theme_override_font_sizes/font_size = 24
-text = "Exit"
+text = "Exit_Button"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+offset_left = 971.0
+offset_top = 19.0
+offset_right = 1016.0
+offset_bottom = 39.0
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

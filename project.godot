@@ -24,6 +24,7 @@ SkillManager="*res://TSCN/Player/SkillManager.tscn"
 Tutorial="*res://TSCN/UI/tutorial.tscn"
 Skills_info="*res://Scripts/Skills/Skills_info.gd"
 EnemyInfor="*res://Scripts/Enemy/EnemyInfor.gd"
+Localization="*res://TSCN/localization.tscn"
 
 [display]
 
@@ -73,6 +74,10 @@ Pause={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Localiztion.en.translation", "res://Localiztion.zh.translation")
 
 [layer_names]
 

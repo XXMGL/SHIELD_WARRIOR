@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsjg13tiuxx1l"
-path="res://.godot/imported/Resilient Heart.png-156a5e5016111b736da68db3166522aa.ctex"
+uid="uid://u4ir555in7b4"
+path="res://.godot/imported/Rare_SK2_Name.png-bc4c32200d5325fad73779ca1c9f6131.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Resilient Heart.png"
-dest_files=["res://.godot/imported/Resilient Heart.png-156a5e5016111b736da68db3166522aa.ctex"]
+source_file="res://ART Assets/Skills Icons/Rare_SK2_Name.png"
+dest_files=["res://.godot/imported/Rare_SK2_Name.png-bc4c32200d5325fad73779ca1c9f6131.ctex"]
 
 [params]
 

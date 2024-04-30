@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwtepk61lpmrr"
-path="res://.godot/imported/Papper Airplane.png-cf207bb85cf007a61b3202cb83f1630c.ctex"
+uid="uid://b0srbqr5ox8gn"
+path="res://.godot/imported/Rare_SK1_Name.png-d0f52137be309cb1338896b525dbb7af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Papper Airplane.png"
-dest_files=["res://.godot/imported/Papper Airplane.png-cf207bb85cf007a61b3202cb83f1630c.ctex"]
+source_file="res://ART Assets/Skills Icons/Rare_SK1_Name.png"
+dest_files=["res://.godot/imported/Rare_SK1_Name.png-d0f52137be309cb1338896b525dbb7af.ctex"]
 
 [params]
 

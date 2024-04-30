@@ -1,0 +1,94 @@
+﻿id,en,zh
+CONTROL_CONTENT,"Perfect Parry: Briefly touch a bullet at the moment of pressing and releasing the spacebar to trigger a perfect parry, deflecting faster and more threatening bullets.",完美反弹：在按下并释放空格键的瞬间轻触子弹，触发完美反弹，能够反弹更快速、更具威胁的子弹。
+CONTROL_TEXT,CONTROL,玩家控制
+MOVE_TEXT,MOVE,移动
+PARRY_TEXT,PARRY,反弹
+AIM_TEXT,AIM,瞄准
+PARRY_CONTENT,Hold SPACE,按住SPACE
+AIM_CONTENT,MOVE MOUSE,移动鼠标
+Normal_SK1_Name,Healbird,疗翎
+Normal_SK2_Name,Bouncing Ball,皮球
+Normal_SK3_Name,Papper Airplane,纸飞机
+Normal_SK4_Name,Sapling,小树苗
+Normal_SK5_Name,Green Soup,碧绿魔汤
+Rare_SK1_Name,Guardian Shield,守护者
+Rare_SK2_Name,Mystic Familiar,秘术同伴
+Rare_SK3_Name,Bubble Gun,气泡枪
+Legendary_SK1_Name,Shards Shoot,碎片射击
+Legendary_SK2_Name,Reposition,重新定向
+Legendary_SK3_Name,Wingman,小帮手
+Legendary_SK4_Name,Resilient Heart,坚定之心
+Normal_SK1_Content_LV1,"Feather: Gain a Healing Bird that follows the player after respawning, providing continuous health regeneration.",获得一只疗翎相伴随行，持续提供生命恢复。
+Normal_SK1_Content_LV2,Growth: The Healing Bird will provide increased healing.,成长：疗翎将提供增强的治疗效果。
+Normal_SK1_Content_LV3,Praise: The Healing Bird now enhances the player's stamina regeneration rate.,赞誉：疗翎现在能增强玩家的耐力回复速度
+Normal_SK1_Content_LV4,Support: The Healing Bird provides additional stamina regeneration.,相濡以沫：疗翎提供额外的耐力恢复
+Normal_SK1_Content_LV5,"Care: During a Perfect Parry, the Healing Bird provides extra health and stamina regeneration.","关怀：	在完美格挡时，治愈之鸟将提供额外的生命与耐力恢复"
+Normal_SK2_Content_LV1,Gift: Bullet flight speed increased by 25%.,初遇赠予：子弹飞行速度提高25%。
+Normal_SK2_Content_LV2,Roll and Roll: Bullets deal increased damage as their flight speed increases.,滚滚炸弹！：随着子弹飞行速度的增加，其造成的伤害也随之提高
+Normal_SK2_Content_LV3,"Rebound: Bullets gain an additional bounce chance. When hitting a wall, they bounce instead of disappearing.",反弹：子弹获得额外的弹跳机会。当击中墙壁时，它们会弹跳而不是消失
+Normal_SK2_Content_LV4,"Bounce and Bounce: Bullets gain three additional bounce chances. When hitting a wall, they bounce instead of disappearing.",弹弹炸弹！：子弹获得额外的弹跳机会。当击中墙壁时，它们会弹跳而不是消失
+Normal_SK2_Content_LV5,Magical Rebound Magic: Each bounce increases bullet damage by 20%.,超级反弹！：每次弹跳使子弹伤害增加20%
+Normal_SK3_Content_LV1,Simple Construction: Bullets' duration doubled.,化繁为简：子弹持续时间加倍
+Normal_SK3_Content_LV2,Aerodynamics: Longer bullet duration increases damage multiplier.,空气动力学：延长子弹持续时间会增加伤害倍增器。
+Normal_SK3_Content_LV3,Resistance: Bullets' base flight speed reduced by 30%.,空气阻力：子弹的基础飞行速度减少30%。
+Normal_SK3_Content_LV4,Creativity: Bullets no longer vanish automatically.,创造力：子弹不再自动消失
+Normal_SK3_Content_LV5,Stuck: Bullets' speed gradually decreases to 0 after firing.,黏滞：子弹射出后速度逐渐降至零
+Normal_SK4_Content_LV1,Rooted: Initial movement speed of incoming enemies reduced by 10%.,生根：来袭的敌人初始移动速度减少10%
+Normal_SK4_Content_LV2,"Seedling: Every 10 enemies killed by the player, a healing orb is spawned at a specific location on the battlefield, restoring the player's health.",发芽：每当玩家杀死10个敌人时，在战场的特定位置生成一个治疗宝珠，恢复玩家的生命值
+Normal_SK4_Content_LV3,"Rain: When the player kills 100 enemies (60 in the testing version), the Sapling transforms into a Wardenwood, granting the player a legendary skill selection opportunity.",滋养：当玩家杀死100个敌人，树苗将转变为守护林，为玩家提供传奇技能选择机会。
+Normal_SK4_Content_LV4,"Thorns: Sapling: Player's stamina consumption increased by 30%, immediately providing the Sapling with 20 additional enemy kill counts. Wardenwood: Deals 0.2 damage per second to all enemies on the battlefield.",繁盛：树苗状态下，玩家的耐力消耗增加30%，立即为树苗增加20个额外的敌人击杀计数。守护林状态下，对战场上所有敌人每秒造成0.2点伤害
+Normal_SK4_Content_LV5,"Wild Growth: Sapling: Player's stamina increased by 30%, immediately providing the Sapling with 40 additional enemy kill counts. Wardenwood: Any damage dealt by the player applies a 30% slow effect to enemies and grants a slow debuff marker.",野蛮生长：树苗状态下，玩家的耐力增加30%，立即为树苗增加40个额外的敌人击杀计数。守护林状态下，玩家造成的任何伤害都会对敌人施加30%的减速效果，并授予减速debuff标记。
+Normal_SK5_Content_LV1,"Witch's Exclusive Recipe: One chapter from the witch's five magic potion recipes, detailing the ingredients and steps to make the Green Soup. Perhaps collecting all the magic potion recipes will yield different results.",女巫专属食谱：从女巫的五种魔法药水配方中选取一章，详细介绍了制作碧绿魔汤的配料和步骤。也许收集所有的魔法药水配方会产生不同的结果
+Normal_SK5_Content_LV2,Red Mushroom and Green Soup: Enemies receive a stack of Poison debuff upon taking any form of damage (Poison: Enemies lose one health point per second per stack of poison; boss maximum stack limit is 50 layers).,绯红蘑菇和碧绿魔汤：敌人在受到任何形式的伤害后会获得一层中毒debuff（中毒：敌人每秒失去一个生命点，每层中毒的最大堆叠限制为50层）
+Normal_SK5_Content_LV3,Foul Odor: Player gains a Poisonous Aura; enemies within the aura suffer 0.5 damage per second. Enemies within the aura suffer Poison debuff triggering 30% faster.,女巫之息：玩家获得剧毒光环；光环内的敌人每秒受到0.5点伤害。光环内的敌人中毒debuff触发速度提高30%
+Normal_SK5_Content_LV4,Extra Ingredients!: Increased Poisonous Aura activation frequency by 5% when picking up items (maximum increase is 50%).,超级加倍：每捡起一个物品增加5%的剧毒光环激活频率（最大增幅为50%）
+Normal_SK5_Content_LV5,Keep Your Distance from That Pot: Poisonous Aura now moves to the player's cursor position instead of staying on the player.,还是离它远点吧：剧毒光环现在会跟随玩家鼠标位置移动，而不是停留在玩家身上。
+Rare_SK1_Content_LV1,Vigilant Shield: Gain a blue shield token slot that can block one attack. Gain one shield token upon precise parry.,警戒之盾：获得一个蓝色的盾牌令牌槽，可抵挡一次攻击。精确招架时获得一个盾牌令牌
+Rare_SK1_Content_LV2,Sanctuary Shield: All blue shield tokens turn yellow. Health regeneration speed increases when holding a shield token.,庇护之盾：所有蓝色盾牌令牌变为黄色。持有盾牌令牌时，生命恢复速度增加
+Rare_SK1_Content_LV3,Guardian Aegis: All yellow shield tokens turn red. Automatically triggers a perfect parry upon taking damage while holding a shield token.,守护者神盾：所有黄色盾牌令牌变为红色。持有盾牌令牌时受到攻击自动触发完美招架
+Rare_SK2_Content_LV1,Arcane Familiar: Gain a familiar that orbits the player and periodically fires regular bullets.,奥术使魔：获得一个环绕玩家的使魔，周期性地发射普通子弹。
+Rare_SK2_Content_LV2,Enchanted Companion: Reduce the familiar's attack interval.,"魔法进阶：减少使魔的攻击间隔	"
+Rare_SK2_Content_LV3,Sorcerous Ally: Increase the familiar's bullet damage.,巫术进阶：提高使魔子弹的伤害
+Rare_SK2_Content_LV4A,"Warded Guardian: The familiar generates a shield periodically, which destroys bullets upon contact.",守护结界：使魔周期性地生成一个护盾，接触到子弹时可以免疫子弹的伤害。
+Rare_SK2_Content_LV4B,Runebound Familiar: Familiar's bullets are aimed at the player's mouse direction.,精准使魔：使魔周期性地生成一个护盾，接触到子弹时可以免疫子弹的伤害。
+Rare_SK2_Content_LV5A,"Warding Sentinel: If the player does not have a shield token slot, the drone provides one. Gain a shield indicator token when the drone generates a shield.",守护哨兵：如果玩家没有盾牌令牌槽，无人机将提供一个。当无人机生成护盾时，获得一个盾牌指示令牌。
+Rare_SK2_Content_LV5B,Glyphic Familiar: The drone inherits the player's bullet effects.,符文使魔：无人机继承玩家的子弹效果
+Rare_SK3_Content_LV1,Fondness: Generates a magic bubble at the mouse position when the player deflects bullets.,爱不释手：当玩家偏转子弹时，在鼠标位置生成一个魔法泡泡对敌人造成伤害
+Rare_SK3_Content_LV2,Really Good At It: Bubbles from perfect parries are larger and deal more damage.,精通其中：来自完美招架的泡泡更大，造成的伤害也更高
+Rare_SK3_Content_LV3A,Breeze: Generated bubbles automatically track nearby enemies.,和煦微风：生成的泡泡会自动追踪附近的敌人
+Rare_SK3_Content_LV3B,"Resilient Bubbles: Bubbles burst upon contact with bullets, destroying the bullets.",坚韧泡泡：泡泡在接触子弹时爆炸，摧毁子弹
+Rare_SK3_Content_LV4A,Sticky Bubble Solution: Enemies hit by bubbles are slowed to 0 speed for 3 seconds.,粘稠泡泡溶液：被泡泡击中的敌人速度减慢至0，持续3秒钟
+Rare_SK3_Content_LV4B,Bubble Burst Magic: Bubbles explode into a barrage of regular bullets when they burst.,泡泡爆炸魔法：泡泡爆炸时会爆发出一阵普通子弹
+Legendary_SK1_Content_LV1,"Shard Burst: Bullets now split into 3 fragments, dealing 30% of the original damage.",碎片爆破：子弹现在分裂为3个碎片，每个碎片造成原始伤害的30%。
+Legendary_SK1_Content_LV2,Increased Shards: Bullets now split into 5 fragments.,增强碎片：子弹现在分裂为5个碎片
+Legendary_SK1_Content_LV3,Massive Shards: Bullets now split into 9 fragments.,碎片雨：子弹现在分裂为9个碎片
+Legendary_SK2_Content_LV1,Repositioning: Bullets will fly towards the nearest enemy unit after traveling for a while.,重定位：子弹在飞行一段时间后会朝最近的敌人单位飞去
+Legendary_SK2_Content_LV2,Accelerated Repositioning: Bullets' flight speed increases by 50% after repositioning.,加速：子弹在重新定位后的飞行速度提高50%
+Legendary_SK2_Content_LV3,High-speed Repositioning: Bullets' flight speed increases by 200% after repositioning.,飞驰子弹：子弹在重新定位后的飞行速度提高200%
+Legendary_SK3_Content_LV1,Protection!: Your wing man now blocks bullets for you and sends them back.,防御立场：获得一个小帮手，可以为你挡住子弹，并将它们反弹回去。
+Legendary_SK3_Content_LV2,Assistant!: Your wing man now fires bullets alongside the player.,好兄弟：小帮手现在会与玩家一同射击子弹
+Legendary_SK3_Content_LV3,Synchronization!: Your wing man now inherits the player's bullet type.,心有灵犀：小帮手现在继承了玩家的子弹类型
+Legendary_SK4_Content_LV1,"Steadfast Grace: Players will lose their health bar and instead gain three red hearts. When damaged, the player loses one heart, and gains one heart upon perfect parry.",玻璃心：玩家将失去他们的生命条，改为获得三颗红心。当受到伤害时，玩家会失去一颗心，而在完美招架时会获得一颗心。
+Legendary_SK4_Content_LV2,Conservative Strategy: Players gain a fourth red heart.,保守策略：玩家获得第四颗红心
+Legendary_SK4_Content_LV3,Easygoing: Players regain all hearts upon a perfect parry.,小菜一碟：玩家在完成一次完美招架后恢复所有心
+Tutorial_1,,
+Tutorial_2,,
+Tutorial_3,,
+Tutorial_4,,
+Tutorial_5,,
+Tutorial_6,,
+Tutorial_7,,
+Tutorial_8,,
+Tutorial_9,,
+Tutorial_10,,
+Tutorial_11,,
+Tutorial_12,,
+Start_Button,Start,开始游戏
+Control_Button,Control,控制
+Credit_Button,Credit,制作人员
+Replay_Button,REPLAY,重新开始
+MainMenu_Button,MAIN MENU,主菜单
+Exit_Button,Exit,退出游戏
+Next_LV:,Next Level:,下一级：
+Killer,The Killer is,死亡原因：
+congratulation!!,congratulation!!,通关成功！！

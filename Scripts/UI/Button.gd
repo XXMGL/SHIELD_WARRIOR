@@ -1,9 +1,11 @@
 extends Button
 
 @onready var SkillName = $Layout/Skill/SkillName
+@onready var Lv_Num = $Layout/Skill/Lv_Num
 @onready var SkillContent = $Layout/Skill/SkillContent
 @onready var Layout = $Layout
 @onready var Icon = $Layout/icon
+@onready var SkillContent2 = $Layout/Skill/SkillContent2
 
 
 enum SK{skill1,skill2,skill3,skill4,B_skill1,B_skill2}
@@ -40,9 +42,10 @@ func _update_Skill_info():
 	if SkillManager.skills_Pool[Skillindex].levelNum+2 <= SkillManager.skills_Pool[Skillindex].MaxLevel:	
 		SkillContent_NextLv = skill_pool[skillName][Next_Lv].values()[Branch_index - 1]
 	#print_debug("Skill Name: ",skillName, "Skill Lv: ", Lv)
-	SkillName.text = skillName +" "+ skill_pool[skillName][Lv].keys()[Branch_index - 1]
-	
-	SkillContent.text = str(SkillContent_CurrentLv)+"\n\n"+"Next Level:"+"\n"+ str(SkillContent_NextLv)
+	SkillName.text = skillName
+	Lv_Num.text = skill_pool[skillName][Lv].keys()[Branch_index - 1]
+	SkillContent.text = str(SkillContent_CurrentLv)#+"\n\n"+"Next Level:"+"\n"+ str(SkillContent_NextLv)
+	SkillContent2.text = str(SkillContent_NextLv)
 	#SkillContent.append_text(str(SkillContent_CurrentLv)+"\n\n"+"[color=gray][b][i]Next Level:[/i][/b][/color]"+"\n"+ "[color=gray]%s[/color]"%str(SkillContent_NextLv))
 	#SkillContent.text = "11"
 	Layout.texture = load("res://ART Assets/SkillCardBG/"+Rarity+".png")

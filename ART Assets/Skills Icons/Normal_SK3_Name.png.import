@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://25cyim87w6i1"
-path="res://.godot/imported/Healbird.png-2a1d5a29abc991e56452dfea94a0faf4.ctex"
+uid="uid://dwtepk61lpmrr"
+path="res://.godot/imported/Normal_SK3_Name.png-8652446195c484f0fb2792d1bb1a87e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Healbird.png"
-dest_files=["res://.godot/imported/Healbird.png-2a1d5a29abc991e56452dfea94a0faf4.ctex"]
+source_file="res://ART Assets/Skills Icons/Normal_SK3_Name.png"
+dest_files=["res://.godot/imported/Normal_SK3_Name.png-8652446195c484f0fb2792d1bb1a87e4.ctex"]
 
 [params]
 

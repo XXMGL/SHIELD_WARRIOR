@@ -1,7 +1,9 @@
 extends CanvasLayer
 
 
-
+func _ready():
+	#TranslationServer.set_locale("zh")
+	pass
 
 func _on_close_button_pressed():
 	queue_free()

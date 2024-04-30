@@ -81,14 +81,62 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Lv_Num" type="Label" parent="HBoxContainer/Skill1/Layout/Skill"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.324
+anchor_right = 0.512
+anchor_bottom = 0.324
+offset_left = -234.742
+offset_top = -181.386
+offset_right = -19.7416
+offset_bottom = -131.386
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
+text = "Lv.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Next_Level" type="Label" parent="HBoxContainer/Skill1/Layout/Skill"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.324
+anchor_right = 0.512
+anchor_bottom = 0.324
+offset_left = -234.742
+offset_top = -60.0381
+offset_right = -19.7416
+offset_bottom = -10.0381
+scale = Vector2(1, 0.955055)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
+text = "Next_LV:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="SkillContent" type="RichTextLabel" parent="HBoxContainer/Skill1/Layout/Skill"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -209.27
 offset_top = -47.191
-offset_right = -35.2697
-offset_bottom = 106.809
+offset_right = -35.27
+offset_bottom = 37.644
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 10
+
+[node name="SkillContent2" type="RichTextLabel" parent="HBoxContainer/Skill1/Layout/Skill"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.27
+offset_top = 58.427
+offset_right = -35.27
+offset_bottom = 122.107
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 10
 
@@ -122,7 +170,7 @@ anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -236.0
+offset_left = -235.0
 offset_top = -203.128
 offset_right = -20.0
 offset_bottom = -153.128
@@ -133,14 +181,62 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Lv_Num" type="Label" parent="HBoxContainer/Skill2/Layout/Skill"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.324
+anchor_right = 0.512
+anchor_bottom = 0.324
+offset_left = -234.742
+offset_top = -181.386
+offset_right = -19.7416
+offset_bottom = -131.386
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
+text = "Lv.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Next_Level" type="Label" parent="HBoxContainer/Skill2/Layout/Skill"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.324
+anchor_right = 0.512
+anchor_bottom = 0.324
+offset_left = -234.742
+offset_top = -60.0381
+offset_right = -19.7416
+offset_bottom = -10.0381
+scale = Vector2(1, 0.955055)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
+text = "Next_LV:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="SkillContent" type="RichTextLabel" parent="HBoxContainer/Skill2/Layout/Skill"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -209.27
 offset_top = -47.191
-offset_right = -35.2697
-offset_bottom = 106.809
+offset_right = -35.27
+offset_bottom = 37.644
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 10
+
+[node name="SkillContent2" type="RichTextLabel" parent="HBoxContainer/Skill2/Layout/Skill"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.27
+offset_top = 58.427
+offset_right = -35.27
+offset_bottom = 122.107
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 10
 
@@ -174,13 +270,50 @@ anchor_left = 0.512
 anchor_top = 0.324
 anchor_right = 0.512
 anchor_bottom = 0.324
-offset_left = -236.0
+offset_left = -235.0
 offset_top = -203.128
-offset_right = -19.0
+offset_right = -20.0
 offset_bottom = -153.128
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
 text = "Guardian Shield"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Lv_Num" type="Label" parent="HBoxContainer/Skill3/Layout/Skill"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.324
+anchor_right = 0.512
+anchor_bottom = 0.324
+offset_left = -234.742
+offset_top = -181.386
+offset_right = -19.7416
+offset_bottom = -131.386
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
+text = "Lv.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Next_Level" type="Label" parent="HBoxContainer/Skill3/Layout/Skill"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.324
+anchor_right = 0.512
+anchor_bottom = 0.324
+offset_left = -234.742
+offset_top = -60.0381
+offset_right = -19.7416
+offset_bottom = -10.0381
+scale = Vector2(1, 0.955055)
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_gbjp0")
+text = "Next_LV:"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -191,8 +324,19 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -209.27
 offset_top = -47.191
-offset_right = -35.2697
-offset_bottom = 106.809
+offset_right = -35.27
+offset_bottom = 37.644
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 10
+
+[node name="SkillContent2" type="RichTextLabel" parent="HBoxContainer/Skill3/Layout/Skill"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -209.27
+offset_top = 58.427
+offset_right = -35.27
+offset_bottom = 122.107
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 10
 

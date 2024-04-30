@@ -28,7 +28,7 @@ func _ready():
 	EnemyAnimation4.play("idle")
 	EnemyAnimation5.play("idle")
 	if Character.isDead == true:
-		Killer_Text.text = "The killer is"
+		Killer_Text.text = "Killer"
 		Killer.play(str(Character.Enemy_index))
 	elif Character.isDead == false:
 		Killer_Text.text = "congratulation!!"

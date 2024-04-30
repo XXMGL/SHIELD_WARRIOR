@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtqtmpme0e45b"]
+
+[ext_resource type="Script" path="res://Scripts/localization.gd" id="1_24ir8"]
+
+[node name="Localization" type="Node"]
+script = ExtResource("1_24ir8")

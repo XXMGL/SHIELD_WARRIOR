@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var EnemyAnimation3 = $BG1/AnimatedSprite2D4
 @onready var EnemyAnimation4 = $BG1/AnimatedSprite2D5
 @onready var EnemyAnimation5 = $BG1/AnimatedSprite2D6
+@onready var Localize = $OptionButton
 
 func _ready():
 	SkillManager.emit_signal("DeactiveAllSkills")
@@ -14,6 +15,7 @@ func _ready():
 	EnemyAnimation3.play("idle")
 	EnemyAnimation4.play("idle")
 	EnemyAnimation5.play("idle")
+	_add_Localize()
 	pass
 
 
@@ -41,4 +43,18 @@ func _on_button_3_pressed():
 	var CreditInterface = load("res://TSCN/UI/Credit.tscn")
 	var CI = CreditInterface.instantiate()
 	add_child(CI)
+	pass # Replace with function body.
+	
+func _add_Localize():
+	Localize.add_item("简体中文")
+	Localize.add_item("English")
+
+
+
+func _on_option_button_item_selected(index):
+	var selected_index = index
+	if selected_index == 0:
+		TranslationServer.set_locale("zh")
+	elif selected_index == 1:
+		TranslationServer.set_locale("en")
 	pass # Replace with function body.

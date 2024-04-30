@@ -812,7 +812,7 @@ offset_right = 790.2
 offset_bottom = 614.0
 theme = ExtResource("1_i5wna")
 theme_override_font_sizes/font_size = 24
-text = "REPLAY"
+text = "Replay_Button"
 
 [node name="Main Menu" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 60)
@@ -820,9 +820,10 @@ offset_left = 824.0
 offset_top = 554.0
 offset_right = 1085.2
 offset_bottom = 614.0
+scale = Vector2(1, 1.00262)
 theme = ExtResource("1_i5wna")
 theme_override_font_sizes/font_size = 24
-text = "MAIN MENU"
+text = "MainMenu_Button"
 
 [node name="Level" type="Label" parent="."]
 offset_left = 555.0
@@ -861,6 +862,7 @@ offset_left = 50.0
 offset_top = 29.0
 offset_right = 550.0
 offset_bottom = 329.0
+scale = Vector2(1, 1.03659)
 theme_override_constants/h_separation = 15
 theme_override_constants/v_separation = 30
 columns = 6
@@ -879,6 +881,7 @@ offset_right = 377.0
 offset_bottom = 258.0
 theme_override_font_sizes/font_size = 24
 text = "The killer is"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Replay" to="." method="_on_replay_pressed"]
 [connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]

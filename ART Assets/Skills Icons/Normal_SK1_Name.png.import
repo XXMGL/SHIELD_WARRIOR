@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhe7mgnu30qjs"
-path="res://.godot/imported/Sapling.png-b558646851b5d821b2edc01733696d2f.ctex"
+uid="uid://25cyim87w6i1"
+path="res://.godot/imported/Normal_SK1_Name.png-1d72816102ba029b0e46656f76a17da4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Sapling.png"
-dest_files=["res://.godot/imported/Sapling.png-b558646851b5d821b2edc01733696d2f.ctex"]
+source_file="res://ART Assets/Skills Icons/Normal_SK1_Name.png"
+dest_files=["res://.godot/imported/Normal_SK1_Name.png-1d72816102ba029b0e46656f76a17da4.ctex"]
 
 [params]
 

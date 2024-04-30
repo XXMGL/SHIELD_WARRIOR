@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0srbqr5ox8gn"
-path="res://.godot/imported/Guardian Shield.png-1d59429dc3ec217c8a513fb0381d9332.ctex"
+uid="uid://bat0maodwnyt"
+path="res://.godot/imported/Normal_SK5_Name.png-d9255c27e9cc994e7f80834c3dca4061.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Guardian Shield.png"
-dest_files=["res://.godot/imported/Guardian Shield.png-1d59429dc3ec217c8a513fb0381d9332.ctex"]
+source_file="res://ART Assets/Skills Icons/Normal_SK5_Name.png"
+dest_files=["res://.godot/imported/Normal_SK5_Name.png-d9255c27e9cc994e7f80834c3dca4061.ctex"]
 
 [params]
 

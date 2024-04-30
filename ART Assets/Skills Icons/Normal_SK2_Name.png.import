@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4l12j8ggeglh"
-path="res://.godot/imported/Bubble Gun.png-47cd3fff54c683b2e31d20d03c57b28e.ctex"
+uid="uid://e1qpboqnhcls"
+path="res://.godot/imported/Normal_SK2_Name.png-d670192fce70a13735eb2bc6eb7d6ba3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Bubble Gun.png"
-dest_files=["res://.godot/imported/Bubble Gun.png-47cd3fff54c683b2e31d20d03c57b28e.ctex"]
+source_file="res://ART Assets/Skills Icons/Normal_SK2_Name.png"
+dest_files=["res://.godot/imported/Normal_SK2_Name.png-d670192fce70a13735eb2bc6eb7d6ba3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e1qpboqnhcls"
-path="res://.godot/imported/Bouncing Ball.png-b4656a49f3f7291714afc8a5057fb23c.ctex"
+uid="uid://bhe7mgnu30qjs"
+path="res://.godot/imported/Normal_SK4_Name.png-39af63a5a231f2a97f24b0d5879d9b80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Bouncing Ball.png"
-dest_files=["res://.godot/imported/Bouncing Ball.png-b4656a49f3f7291714afc8a5057fb23c.ctex"]
+source_file="res://ART Assets/Skills Icons/Normal_SK4_Name.png"
+dest_files=["res://.godot/imported/Normal_SK4_Name.png-39af63a5a231f2a97f24b0d5879d9b80.ctex"]
 
 [params]
 

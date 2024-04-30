@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u4ir555in7b4"
-path="res://.godot/imported/Mystic Familiar.png-570985500a39ae89d33e90c1175c837f.ctex"
+uid="uid://0bkhfk1l6187"
+path="res://.godot/imported/Legendary_SK1_Name.png-a4572f8e5e8366317ed931e8d254982a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART Assets/Skills Icons/Mystic Familiar.png"
-dest_files=["res://.godot/imported/Mystic Familiar.png-570985500a39ae89d33e90c1175c837f.ctex"]
+source_file="res://ART Assets/Skills Icons/Legendary_SK1_Name.png"
+dest_files=["res://.godot/imported/Legendary_SK1_Name.png-a4572f8e5e8366317ed931e8d254982a.ctex"]
 
 [params]
 
