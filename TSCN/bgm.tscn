@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdwib02nmk43e"]
+
+[ext_resource type="Script" path="res://TSCN/bgm.gd" id="1_4sgkh"]
+
+[node name="BGM" type="Node"]
+process_mode = 3
+script = ExtResource("1_4sgkh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0

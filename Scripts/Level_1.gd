@@ -37,6 +37,7 @@ var skills_G_weight = 5
 
 
 func _ready():
+	Bgm.emit_signal("InLevel")
 	Tutorial.emit_signal("enter_Level1")
 	Character.Allow_To_Control = true
 	Character.HasRewards = false

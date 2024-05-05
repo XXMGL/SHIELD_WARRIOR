@@ -25,6 +25,7 @@ Tutorial="*res://TSCN/UI/tutorial.tscn"
 Skills_info="*res://Scripts/Skills/Skills_info.gd"
 EnemyInfor="*res://Scripts/Enemy/EnemyInfor.gd"
 Localization="*res://TSCN/localization.tscn"
+Bgm="*res://TSCN/bgm.tscn"
 
 [display]
 

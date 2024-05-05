@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cxfpogiei1dqb"
+path="res://.godot/imported/button_cool.ogg-fcf06375c10ad7322b7f4d0004b74adc.oggvorbisstr"
+
+[deps]
+
+source_file="res://ART Assets/BGM/button_cool.ogg"
+dest_files=["res://.godot/imported/button_cool.ogg-fcf06375c10ad7322b7f4d0004b74adc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

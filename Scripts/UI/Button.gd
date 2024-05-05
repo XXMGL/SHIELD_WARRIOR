@@ -55,6 +55,7 @@ func _update_Skill_info():
 
 
 func _on_pressed():
+	Bgm.emit_signal("ButtonClick")
 	SkillManager._Set_Skill_Pool(Rarity_index)
 	SkillManager._Set_branch_index(SkillManager.skills_Pool[Skillindex],Branch_index)
 	SkillManager.activate_skill(Skillindex)

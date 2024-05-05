@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bt4nusxv8ry8l"
+path="res://.godot/imported/BGM.wav-d970c48f33bb76009f031e05f4e347c9.sample"
+
+[deps]
+
+source_file="res://ART Assets/BGM/BGM.wav"
+dest_files=["res://.godot/imported/BGM.wav-d970c48f33bb76009f031e05f4e347c9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -62,6 +62,7 @@ func _Set_Skills_Icons():
 
 
 func _on_replay_pressed():
+	Bgm.emit_signal("ButtonClick")
 	LevelManager.emit_signal("Start_Game")
 	SkillManager.emit_signal("DeactiveAllSkills")
 	#get_tree().change_scene_to_file("res://TSCN/Scene/default_scene.tscn")
@@ -71,6 +72,7 @@ func _on_replay_pressed():
 
 
 func _on_main_menu_pressed():
+	Bgm.emit_signal("ButtonClick")
 	SkillManager.emit_signal("DeactiveAllSkills")
 	#get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
 	get_tree().change_scene_to_packed(load("res://TSCN/Scene/StartScene.tscn"))

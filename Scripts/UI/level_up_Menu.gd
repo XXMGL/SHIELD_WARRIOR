@@ -92,6 +92,7 @@ func _Set_Skill(Button,i):
 
 
 func _on_shuffle_pressed():
+	Bgm.emit_signal("ButtonClick")
 	_Shuffle()
 	ShuffleChance -= 1
 	ShuffleChance_Text.text = str(ShuffleChance)

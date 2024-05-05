@@ -62,15 +62,16 @@ toggle_mode = true
 text = "MAIN MENU"
 icon_alignment = 1
 
-[node name="NEXT LEVEL" type="Button" parent="Panel2/VBoxContainer"]
+[node name="Exit" type="Button" parent="Panel2/VBoxContainer"]
 custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
 theme = ExtResource("3_1pi5l")
 theme_override_font_sizes/font_size = 12
 toggle_mode = true
-text = "NEXT LEVEL"
+text = "EXIT"
 icon_alignment = 1
 
 [connection signal="pressed" from="Panel2/VBoxContainer/RESUME" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel2/VBoxContainer/RESUME" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Panel2/VBoxContainer/NEXT LEVEL" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Panel2/VBoxContainer/MAIN MENU" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Panel2/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

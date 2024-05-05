@@ -16,6 +16,7 @@ func _ready():
 
 func _on_resume_pressed():
 	# 恢复游戏中的各种活动
+	Bgm.emit_signal("ButtonClick")
 	var UI = get_tree().get_first_node_in_group("UI")
 	UI.resume_game()
 	#get_tree().paused = false
@@ -23,6 +24,7 @@ func _on_resume_pressed():
 
 
 func _on_next_level_pressed():
+	Bgm.emit_signal("ButtonClick")
 	var UI = get_tree().get_first_node_in_group("UI")
 	UI.resume_game()
 	var Level = get_tree().get_first_node_in_group("Level")
@@ -33,3 +35,19 @@ func _on_next_level_pressed():
 func load_next_level():
 	
 	get_tree().change_scene_to_file(NextScene)
+
+
+func _on_main_menu_pressed():
+	Bgm.emit_signal("ButtonClick")
+	get_tree().paused = false
+	SkillManager.emit_signal("DeactiveAllSkills")
+	get_tree().change_scene_to_file("res://TSCN/Scene/StartScene.tscn")
+	#get_tree().change_scene_to_packed(load("res://TSCN/Scene/StartScene.tscn"))
+	Character._Rebirth()
+	pass # Replace with function body.
+
+
+func _on_exit_pressed():
+	Bgm.emit_signal("ButtonClick")
+	get_tree().quit()
+	pass # Replace with function body.

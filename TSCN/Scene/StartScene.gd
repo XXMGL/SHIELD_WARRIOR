@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var Localize = $OptionButton
 
 func _ready():
+	Bgm.emit_signal("ManiMenu")
 	SkillManager.emit_signal("DeactiveAllSkills")
 	_HidePlayer()
 	EnemyAnimation.play("idle")
@@ -27,11 +28,13 @@ func _HidePlayer():
 
 
 func _on_button_4_pressed():
+	Bgm.emit_signal("ButtonClick")
 	get_tree().quit()
 	pass # Replace with function body.
 
 
 func _on_button_2_pressed():
+	Bgm.emit_signal("ButtonClick")
 	var ControlInterface = load("res://TSCN/UI/control.tscn")
 	var CI = ControlInterface.instantiate()
 	#print_debug(CI)
@@ -40,6 +43,7 @@ func _on_button_2_pressed():
 
 
 func _on_button_3_pressed():
+	Bgm.emit_signal("ButtonClick")
 	var CreditInterface = load("res://TSCN/UI/Credit.tscn")
 	var CI = CreditInterface.instantiate()
 	add_child(CI)
