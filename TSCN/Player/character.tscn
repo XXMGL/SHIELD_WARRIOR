@@ -1,40 +1,31 @@
-[gd_scene load_steps=52 format=3 uid="uid://d2x6f6qphmp8o"]
+[gd_scene load_steps=43 format=3 uid="uid://d2x6f6qphmp8o"]
 
 [ext_resource type="Script" path="res://Scripts/Character.gd" id="1_xj0ro"]
-[ext_resource type="Texture2D" uid="uid://ex1yede4oqr3" path="res://ART Assets/sprites/shield_3.png" id="2_3iyvm"]
-[ext_resource type="Texture2D" uid="uid://cqv15mg4h7e38" path="res://ART Assets/sprites/dead_1.png" id="2_11tcf"]
 [ext_resource type="Texture2D" uid="uid://dona67h6fl3gk" path="res://ART Assets/shape.png" id="2_k6up6"]
 [ext_resource type="Texture2D" uid="uid://b4x2j0ngnbyun" path="res://ART Assets/sprites/idle_1.png" id="2_la00f"]
-[ext_resource type="Texture2D" uid="uid://c4v5yxc7cr7yh" path="res://ART Assets/hit/hit1.png" id="3_6a3bn"]
-[ext_resource type="Texture2D" uid="uid://b4anqpxrky1jj" path="res://ART Assets/sprites/shield_4.png" id="3_go87i"]
-[ext_resource type="Texture2D" uid="uid://28l57ahr080g" path="res://ART Assets/sprites/dead_2.png" id="3_vautv"]
-[ext_resource type="Texture2D" uid="uid://c15ff0q4avwcx" path="res://ART Assets/sprites/shield_5.png" id="4_gdi7q"]
 [ext_resource type="PackedScene" uid="uid://bwctiepk50p6s" path="res://TSCN/UI/progress_bar.tscn" id="4_o3c40"]
-[ext_resource type="Texture2D" uid="uid://dt6ukwd55gc0w" path="res://ART Assets/sprites/dead_3.png" id="4_wirew"]
-[ext_resource type="Texture2D" uid="uid://bvv2p13k21hbw" path="res://ART Assets/sprites/shield_2.png" id="5_54c16"]
-[ext_resource type="Texture2D" uid="uid://biqlge3e3js4k" path="res://ART Assets/sprites/dead_4.png" id="5_s0kyb"]
+[ext_resource type="Texture2D" uid="uid://xpboaaybwn2d" path="res://ART Assets/idle&die/die/剑客/版本3.png" id="5_hst25"]
 [ext_resource type="PackedScene" uid="uid://4p5bpot3wv21" path="res://TSCN/UI/health_bar.tscn" id="5_ux7kb"]
-[ext_resource type="Texture2D" uid="uid://mmwja7cy3o5x" path="res://ART Assets/sprites/shield_1.png" id="6_ki5ed"]
-[ext_resource type="Texture2D" uid="uid://b428rol75yhdq" path="res://ART Assets/sprites/idle_2.png" id="7_qg6n2"]
-[ext_resource type="Texture2D" uid="uid://dufh71moff1b3" path="res://ART Assets/shiny/shiny1.png" id="8_c1ebf"]
-[ext_resource type="Texture2D" uid="uid://co5y0gq6fkgjg" path="res://ART Assets/sprites/idle_3.png" id="8_hxfy4"]
-[ext_resource type="Texture2D" uid="uid://8e4q2jlj4h6s" path="res://ART Assets/sprites/run_1.png" id="9_a7756"]
-[ext_resource type="Texture2D" uid="uid://d2bgbuphookgx" path="res://ART Assets/shiny/shiny2.png" id="9_amjf2"]
-[ext_resource type="Texture2D" uid="uid://jsrnp5ej5jql" path="res://ART Assets/sprites/run_2.png" id="10_jccdn"]
-[ext_resource type="Texture2D" uid="uid://b14tkjxcd3x0w" path="res://ART Assets/shiny/shiny3.png" id="10_u80mt"]
-[ext_resource type="Texture2D" uid="uid://ynxkegjpy8l0" path="res://ART Assets/shiny/shiny4.png" id="11_kalpq"]
-[ext_resource type="Texture2D" uid="uid://btif6jd3u2yjk" path="res://ART Assets/sprites/run_3.png" id="11_mld1d"]
-[ext_resource type="Texture2D" uid="uid://bth80rtj7vapx" path="res://ART Assets/sprites/run_4.png" id="12_8bfn0"]
-[ext_resource type="Texture2D" uid="uid://bb1pd27onhqmf" path="res://ART Assets/shiny/shiny5.png" id="12_gdgtl"]
-[ext_resource type="Texture2D" uid="uid://ddmstp5ceaooo" path="res://ART Assets/sprites/run_5.png" id="13_b34lq"]
-[ext_resource type="Texture2D" uid="uid://cii6dwvhi726k" path="res://ART Assets/shiny/shiny6.png" id="13_so4ab"]
-[ext_resource type="Texture2D" uid="uid://g1ohb14gtiac" path="res://ART Assets/shiny/shiny7.png" id="14_pyvlw"]
-[ext_resource type="Texture2D" uid="uid://b3erfi2bi5pm3" path="res://ART Assets/shiny/shiny8.png" id="15_w5lhg"]
-[ext_resource type="Texture2D" uid="uid://b88xnvt62wwf4" path="res://ART Assets/shiny/shiny9.png" id="16_6lima"]
-[ext_resource type="Texture2D" uid="uid://t2fdh1qv54hj" path="res://ART Assets/shiny/shiny10.png" id="17_30u5v"]
+[ext_resource type="Texture2D" uid="uid://8ov4bn876xvp" path="res://ART Assets/idle&die/die/剑客/版本2.png" id="6_oty47"]
+[ext_resource type="Texture2D" uid="uid://c0ueknr2ir3xa" path="res://ART Assets/idle&die/die/剑客/版本1.png" id="7_wtqp8"]
+[ext_resource type="Texture2D" uid="uid://4nri88ejp3ti" path="res://ART Assets/idle&die/die/0.png" id="21_582f7"]
+[ext_resource type="Texture2D" uid="uid://mf4n2e2kv6pm" path="res://ART Assets/idle&die/die/1.png" id="22_4h5o4"]
 [ext_resource type="Script" path="res://Scripts/exp/EXP_BAR.gd" id="22_e3qov"]
+[ext_resource type="Texture2D" uid="uid://kwpukx4p35tm" path="res://ART Assets/idle&die/die/2.png" id="23_sjhnq"]
+[ext_resource type="Texture2D" uid="uid://b5x5g5pxfsq8c" path="res://ART Assets/idle&die/die/3.png" id="24_qvo18"]
+[ext_resource type="Texture2D" uid="uid://cquodqovg8muu" path="res://ART Assets/idle&die/die/4.png" id="25_p4b3v"]
+[ext_resource type="Texture2D" uid="uid://je3mruw1tyuc" path="res://ART Assets/idle&die/die/5.png" id="26_6ylvf"]
+[ext_resource type="Texture2D" uid="uid://rltygm5uqe30" path="res://ART Assets/idle&die/idel/1.png" id="27_6t74g"]
+[ext_resource type="Texture2D" uid="uid://cx83dtct0dspq" path="res://ART Assets/idle&die/idel/2.png" id="28_xmn2q"]
+[ext_resource type="Texture2D" uid="uid://dbgv87wyt670j" path="res://ART Assets/idle&die/idel/3.png" id="29_0ynyt"]
+[ext_resource type="Texture2D" uid="uid://bxjcitovpy2cv" path="res://ART Assets/idle&die/idel/4.png" id="30_8mmqi"]
+[ext_resource type="Texture2D" uid="uid://dtuyskuti3irx" path="res://ART Assets/idle&die/q版主角奔跑-3/1.png" id="31_2obgg"]
 [ext_resource type="Texture2D" uid="uid://kiqxhfd67ljb" path="res://ART Assets/MysticFamiliar/VFX_60x60.png" id="31_kctps"]
+[ext_resource type="Texture2D" uid="uid://cs4vbqtxsph76" path="res://ART Assets/idle&die/q版主角奔跑-3/2.png" id="32_avo1q"]
+[ext_resource type="Texture2D" uid="uid://bm7nutd6uuvys" path="res://ART Assets/idle&die/q版主角奔跑-3/3.png" id="33_etxcl"]
+[ext_resource type="Texture2D" uid="uid://csx7l116gwa3o" path="res://ART Assets/idle&die/q版主角奔跑-3/4.png" id="34_2gx4d"]
 [ext_resource type="Texture2D" uid="uid://b5444k1nk7c06" path="res://ART Assets/Bullet.png" id="34_fwr80"]
+[ext_resource type="Texture2D" uid="uid://dr4g4gnxtrrm7" path="res://ART Assets/idle&die/q版主角奔跑-3/5.png" id="35_blreo"]
 [ext_resource type="PackedScene" uid="uid://icvgqnmohgmj" path="res://TSCN/Player/mouse_pos.tscn" id="36_ldal5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6aij"]
@@ -47,26 +38,20 @@ height = 36.7574
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b7dcl"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_6a3bn")
-}],
+"frames": [],
 "loop": true,
 "name": &"Hit",
 "speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_go87i")
+"texture": ExtResource("5_hst25")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3iyvm")
+"texture": ExtResource("6_oty47")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_54c16")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ki5ed")
+"texture": ExtResource("7_wtqp8")
 }],
 "loop": false,
 "name": &"ParryEnd",
@@ -74,46 +59,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_ki5ed")
+"texture": ExtResource("7_wtqp8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_54c16")
+"texture": ExtResource("6_oty47")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3iyvm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_go87i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_c1ebf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_amjf2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_u80mt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_kalpq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_gdgtl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_so4ab")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_pyvlw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_w5lhg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_6lima")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_30u5v")
+"texture": ExtResource("5_hst25")
 }],
 "loop": false,
 "name": &"ParryStart",
@@ -121,7 +73,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_gdi7q")
+"texture": ExtResource("5_hst25")
 }],
 "loop": true,
 "name": &"Parrying",
@@ -132,30 +84,39 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_11tcf")
+"texture": ExtResource("21_582f7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_vautv")
+"texture": ExtResource("22_4h5o4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_wirew")
+"texture": ExtResource("23_sjhnq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_s0kyb")
+"texture": ExtResource("24_qvo18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_p4b3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6ylvf")
 }],
 "loop": false,
 "name": &"dead",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_la00f")
+"texture": ExtResource("27_6t74g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_qg6n2")
+"texture": ExtResource("28_xmn2q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_hxfy4")
+"texture": ExtResource("29_0ynyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8mmqi")
 }],
 "loop": true,
 "name": &"idle",
@@ -163,19 +124,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_a7756")
+"texture": ExtResource("31_2obgg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_jccdn")
+"texture": ExtResource("32_avo1q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_mld1d")
+"texture": ExtResource("33_etxcl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_8bfn0")
+"texture": ExtResource("34_2gx4d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_b34lq")
+"texture": ExtResource("35_blreo")
 }],
 "loop": true,
 "name": &"running",
@@ -311,16 +272,18 @@ scale = Vector2(0.7, 0.5)
 texture = ExtResource("2_k6up6")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="SHIELD"]
-position = Vector2(-13.4553, 0)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-18.501, -5)
+scale = Vector2(0.06, 0.037)
 sprite_frames = SubResource("SpriteFrames_b7dcl")
-animation = &"ParryStart"
+animation = &"ParryEnd"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5.99999, -3.00001)
-scale = Vector2(0.7, 0.7)
+position = Vector2(11.5, -2.99999)
+scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_mve0x")
-animation = &"running"
+animation = &"dead"
+frame = 5
+frame_progress = 1.0
 
 [node name="SkillShield" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.392157, 1, 1, 1)

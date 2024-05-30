@@ -1,133 +1,43 @@
-[gd_scene load_steps=23 format=3 uid="uid://dgfrbi5gvr7or"]
+[gd_scene load_steps=11 format=3 uid="uid://dgfrbi5gvr7or"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_ak5uo"]
-[ext_resource type="Texture2D" uid="uid://55kxngjwbs3k" path="res://ART Assets/05/dead/m2_Dead.png" id="2_d1lwl"]
+[ext_resource type="Texture2D" uid="uid://c4eidntjjn5pp" path="res://ART Assets/怪/暴力怪/死亡/死亡第一帧-第二版.png" id="2_ebeg3"]
+[ext_resource type="Texture2D" uid="uid://iayvcmy2s0bn" path="res://ART Assets/怪/暴力怪/移动/第一帧.png" id="3_7jx7x"]
 [ext_resource type="PackedScene" uid="uid://2ta75336t660" path="res://TSCN/Player/wander.tscn" id="3_dmncn"]
-[ext_resource type="Texture2D" uid="uid://c2qbrwpb17ihj" path="res://ART Assets/05/fly/m2_Fly.png" id="3_jke4t"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0n5j1"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a50tr"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l03cj"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o783c"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4w0fo"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(400, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tds5e"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(500, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5c1lb"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(600, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c67u2"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(700, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vy45e"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(800, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cux8u"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(900, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mb1ll"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(1000, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2rhnr"]
-atlas = ExtResource("2_d1lwl")
-region = Rect2(1100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shy7j"]
-atlas = ExtResource("3_jke4t")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0k6d2"]
-atlas = ExtResource("3_jke4t")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m8cis"]
-atlas = ExtResource("3_jke4t")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_skye7"]
-atlas = ExtResource("3_jke4t")
-region = Rect2(300, 0, 100, 100)
+[ext_resource type="Texture2D" uid="uid://bv00augcl2f6q" path="res://ART Assets/怪/暴力怪/死亡/死亡第二帧.png" id="3_yxvlv"]
+[ext_resource type="Texture2D" uid="uid://ch6tfmnqn1wjc" path="res://ART Assets/怪/暴力怪/移动/第二帧.png" id="4_nigij"]
+[ext_resource type="Texture2D" uid="uid://5vg5rtfradu7" path="res://ART Assets/怪/暴力怪/移动/第三帧.png" id="5_4ha2v"]
+[ext_resource type="Texture2D" uid="uid://cjjp3dcii88tg" path="res://ART Assets/怪/暴力怪/移动/第四帧.png" id="6_fqxbb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ks1w5"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0n5j1")
+"duration": 2.0,
+"texture": ExtResource("2_ebeg3")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a50tr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l03cj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o783c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4w0fo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tds5e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5c1lb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c67u2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vy45e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cux8u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mb1ll")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2rhnr")
+"duration": 2.0,
+"texture": ExtResource("3_yxvlv")
 }],
 "loop": false,
 "name": &"Die",
-"speed": 12.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_shy7j")
+"texture": ExtResource("3_7jx7x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0k6d2")
+"texture": ExtResource("4_nigij")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m8cis")
+"texture": ExtResource("5_4ha2v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_skye7")
+"texture": ExtResource("6_fqxbb")
 }],
 "loop": true,
 "name": &"Fly",
-"speed": 8.0
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8pncm"]
@@ -149,9 +59,11 @@ Enemy_index = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 4)
-scale = Vector2(1.4, 1.4)
+scale = Vector2(0.035, 0.035)
 sprite_frames = SubResource("SpriteFrames_ks1w5")
 animation = &"Die"
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5.36, 3.72222)
